@@ -1,5 +1,3 @@
-
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -24,84 +22,15 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
-# Alias definitions.
+# Custom prompt
 if [ -f ~/.bash_prompt ]; then
     source ~/.bash_prompt
 fi
 
-# Proxy
-# export http_proxy=http://localhost:3128
-# export https_proxy=http://localhost:3128
-# export http_proxy=http://magnum.grob.local:3128
-# export https_proxy=http://magnum.grob.local:3128
-# export no_proxy="localhost, 127.0.0.1, gmvm003lx, 172.28.0.66"
-
-
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
+# Bash completions
+if [ -f ~/.bash_completions ]; then
+    source ~/.bash_completions
 fi
-###-end-npm-completion-###
-
-# bash completions
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
-fi
-
-# Homebrew Token
-export HOMEBREW_GITHUB_API_TOKEN="ca83efa6b884bf27fc79b517a14b1a3f486f10e4"
 
 # Setup android
 export ANDROID_HOME=${HOME}/Library/Android/sdk
@@ -115,4 +44,19 @@ export PATH="${PATH}:${HOME}/.local/bin"
 # Use gnu implementations instead of bsd
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
+
+export PATH="/usr/local/sbin:$PATH"
+
+# WORK ################################################################
+
+# Proxy
+# export http_proxy=http://localhost:3128
+# export https_proxy=http://localhost:3128
+# export http_proxy=http://magnum.grob.local:3128
+# export https_proxy=http://magnum.grob.local:3128
+# export no_proxy="localhost, 127.0.0.1, gmvm003lx, 172.28.0.66"
+
+# begin gnux completion
+# source /Users/topuzoglu/.gnux/completion.sh
+# end gnux completion
 

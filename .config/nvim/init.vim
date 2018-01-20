@@ -18,13 +18,13 @@ set expandtab
 
 colorscheme bluloco-dark
 
-" set number relativenumber
-" 
-" augroup numbertoggle
-"   autocmd!
-"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" augroup END
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
