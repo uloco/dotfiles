@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/topuzoglu/Source/uloco/theme-bluloco-dark/themes'
+let g:netrw_dirhist_2='/Users/topuzoglu/Source/uloco/ubuntu-post-install'
+let g:netrw_dirhist_3='/Users/topuzoglu/Source/uloco/ubuntu-post-install/data'
+let g:netrw_dirhist_4='/Users/topuzoglu/Source/uloco/ubuntu-post-install/data/terminal'
+let g:netrw_dirhist_5='/Users/topuzoglu/Source/uloco/ubuntu-post-install'
+let g:netrw_dirhist_6='/Users/topuzoglu/Source/uloco/ubuntu-post-install/functions'
+let g:netrw_dirhist_7='/Users/topuzoglu/Source/g-net-ui-services'
+let g:netrw_dirhist_8='/Users/topuzoglu/.config/nvim'
+let g:netrw_dirhist_9='/Users/topuzoglu/GN4I/OpenVPN/certs'

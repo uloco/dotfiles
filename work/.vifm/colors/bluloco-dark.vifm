@@ -1,0 +1,48 @@
+" VIFM COLORS
+" bluloco dark
+" based on: https://github.com/uloco/theme-bluloco-dark
+
+" Default = -1 = None, can be used for transparency or default color
+" Black = 0
+" Red = 1
+" Green = 2
+" Yellow = 3
+" Blue = 4
+" Magenta = 5
+" Cyan = 6
+" White = 7
+
+" LightBlack = 8
+" LightRed = 9
+" LightGreen = 10
+" LightYellow = 11
+" LightBlue = 12
+" LightMagenta = 13
+" LightCyan = 14
+" LightWhite = 15
+
+
+highlight clear
+
+highlight Win             cterm=none ctermfg=default    ctermbg=none
+
+highlight TopLine         cterm=none ctermfg=3    ctermbg=none
+highlight TopLineSel      cterm=none ctermfg=3    ctermbg=none
+highlight StatusLine      cterm=none ctermfg=3    ctermbg=none
+highlight Border          cterm=none ctermfg=3    ctermbg=none
+
+highlight Selected        cterm=bold ctermfg=default    ctermbg=8
+highlight CurrLine        cterm=bold ctermfg=default    ctermbg=8
+
+highlight WildMenu        cterm=underline,reverse ctermfg=white ctermbg=black
+highlight CmdLine         cterm=none ctermfg=white ctermbg=black
+highlight ErrorMsg        cterm=none ctermfg=red ctermbg=black
+
+highlight Directory       cterm=none ctermfg=12 ctermbg=default
+highlight Link            cterm=none ctermfg=14 ctermbg=default
+highlight BrokenLink      cterm=none ctermfg=1 ctermbg=default
+highlight Socket          cterm=none ctermfg=13 ctermbg=default
+highlight Device          cterm=none ctermfg=11 ctermbg=default
+highlight Fifo            cterm=none ctermfg=3 ctermbg=default
+highlight Executable      cterm=none ctermfg=10 ctermbg=default
+

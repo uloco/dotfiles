@@ -1,0 +1,21 @@
+:colorscheme bluloco-dark
+:set relativenumber
+:only
+
+:filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" yank current directory path into the clipboard
+nnoremap yd :!echo -n %d | pbcopy %i<cr>
+ 
+" yank current file path into the clipboard
+nnoremap yf :!echo -n %c:p | pbcopy %i<cr>
+ 
+" yank current filename without path into the clipboard
+nnoremap yn :!echo -n %c | pbcopy %i<cr>
+ 
+" yank root of current file's name into the clipboard
+nnoremap yr :!echo -n %c:r | pbcopy %i<cr>noremap yn :!echo -n %c 
+
+" enable view mode with w key
+nnoremap w :view<cr>
+
