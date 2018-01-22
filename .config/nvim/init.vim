@@ -2,6 +2,8 @@ syntax on
 set nu
 set backspace=indent,eol,start
 set hlsearch
+set ignorecase
+set smartcase
 hi Search ctermbg=8
 
 " Press Space to turn off highlighting and clear any message already displayed.
