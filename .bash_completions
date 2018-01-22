@@ -3,6 +3,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
+# begin gnux completion
+source /Users/topuzoglu/.gnux/completion.sh
+# end gnux completion
+
 ###-begin-npm-completion-###
 #
 # npm command completion script

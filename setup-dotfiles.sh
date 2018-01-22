@@ -15,6 +15,6 @@ linkFiles ".config/nvim/colors/bluloco-dark.vim"
 linkFiles ".vifm/vifmrc"
 linkFiles ".vifm/colors/bluloco-dark.vifm"
 
-cp -a .bashrc .vimrc ${HOME}
+cp -a .bashrc .vimrc .bash_env ${HOME}
 cp --parents .vim/colors/bluloco-dark.vim ${HOME}
 

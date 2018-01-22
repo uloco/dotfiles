@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Setup android
+# export ANDROID_HOME=${HOME}/Library/Android/sdk
+# export PATH=${PATH}:${ANDROID_HOME}
+# export PATH=${PATH}:${ANDROID_HOME}/bin
+# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# Add local binaries to path
+# export PATH="${PATH}:${HOME}/.local/bin"
+
+# Use gnu implementations instead of bsd
+# export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
+
+# export PATH="/usr/local/sbin:$PATH"
+
+# Proxy
+# export http_proxy=http://localhost:3128
+# export https_proxy=http://localhost:3128
+# export http_proxy=http://magnum.grob.local:3128
+# export https_proxy=http://magnum.grob.local:3128
+# export no_proxy="localhost, 127.0.0.1, gmvm003lx, 172.28.0.66"
+

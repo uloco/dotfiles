@@ -17,46 +17,16 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+
 # Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # Custom prompt
-if [ -f ~/.bash_prompt ]; then
-    source ~/.bash_prompt
-fi
+[ -f ~/.bash_prompt ] && source ~/.bash_prompt
 
 # Bash completions
-if [ -f ~/.bash_completions ]; then
-    source ~/.bash_completions
-fi
+[ -f ~/.bash_completions ] && source ~/.bash_completions
 
-# Setup android
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}
-export PATH=${PATH}:${ANDROID_HOME}/bin
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-# Add local binaries to path
-export PATH="${PATH}:${HOME}/.local/bin"
-
-# Use gnu implementations instead of bsd
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
-
-export PATH="/usr/local/sbin:$PATH"
-
-# WORK ################################################################
-
-# Proxy
-# export http_proxy=http://localhost:3128
-# export https_proxy=http://localhost:3128
-# export http_proxy=http://magnum.grob.local:3128
-# export https_proxy=http://magnum.grob.local:3128
-# export no_proxy="localhost, 127.0.0.1, gmvm003lx, 172.28.0.66"
-
-# begin gnux completion
-# source /Users/topuzoglu/.gnux/completion.sh
-# end gnux completion
+# Bash environment
+[ -f ~/.bash_env ] && source ~/.bash_env
 
