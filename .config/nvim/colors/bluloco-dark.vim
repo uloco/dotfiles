@@ -11,38 +11,41 @@ hi Cursor                               guifg=#282c34  guibg=#ffcc00
 hi lCursor                              guifg=#282c34  guibg=#ffcc00
 
 " Note: we never set 'term' because the defaults for B&W terminals are OK
+" TODO diff colors
 hi DiffAdd    ctermbg=42        guibg=#25a45c
 hi DiffChange ctermbg=39        guibg=#3476ff
 hi DiffDelete ctermbg=197       guibg=#fc2f52
 hi DiffText   ctermbg=39	      guibg=#10b1fe
+
 hi Directory  ctermfg=39      	guifg=#10b1fe
 hi ErrorMsg   ctermfg=255	      ctermbg=197      guifg=White    guibg=#fc2f52
 hi FoldColumn ctermfg=27      	ctermbg=249      guifg=#3476ff  guibg=#b9c0cb
 hi Folded     ctermbg=27	      ctermfg=249      guifg=#3476ff  guibg=#b9c0cb
 hi IncSearch  cterm=reverse	    gui=reverse
 hi LineNr     ctermfg=242       guifg=#747d8d
+hi CursorLineNr  ctermfg=Yellow       guifg=#ffcc00
+hi MatchParen ctermfg=249  ctermbg=105   guibg=#7a82da guifg=#b9c0cb
 hi ModeMsg    cterm=bold	      gui=bold
-hi MoreMsg    ctermfg=DarkGreen    gui=bold guifg=SeaGreen
-hi NonText    ctermfg=Blue	   gui=bold guifg=gray guibg=white
-hi Pmenu      guibg=LightBlue
-hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
-hi Question   ctermfg=DarkGreen    gui=bold guifg=SeaGreen
-if &background == "light"
-    hi Search     ctermfg=NONE	   ctermbg=Yellow guibg=Yellow guifg=NONE
-else
-    hi Search     ctermfg=Black	   ctermbg=Yellow guibg=Yellow guifg=Black
-endif
-hi SpecialKey ctermfg=DarkBlue	   guifg=Blue
-
-hi StatusLine cterm=bold	   ctermbg=blue ctermfg=yellow guibg=gold guifg=blue
+hi MoreMsg    ctermfg=42        gui=bold guifg=#25a45c
+hi NonText    ctermfg=138	      gui=bold guifg=#747d8d guibg=#b9c0cb
+hi Pmenu      ctermbg=105       guibg=#7a82da
+hi PmenuSel   ctermfg=249	 ctermbg=242  guifg=#b9c0cb  guibg=#747d8d
+hi Question   ctermfg=42    gui=bold guifg=#25a45c
+hi Search     ctermfg=White	   ctermbg=245 guibg=#7a82da guifg=White
+hi SpecialKey ctermfg=209	   guifg=#ce9887
+hi StatusLine cterm=bold  ctermbg=249  ctermfg=27 gui=bold guifg=#b9c0cb guibg=#3476ff
 hi StatusLineNC	cterm=bold	   ctermbg=blue ctermfg=black  guibg=gold guifg=blue
-hi Title      ctermfg=DarkMagenta  gui=bold guifg=Magenta
+hi Title      ctermfg=204  gui=bold guifg=#ff6480
 hi VertSplit  cterm=reverse	   gui=reverse
 hi Visual     ctermbg=NONE	   cterm=reverse gui=reverse guifg=Grey guibg=fg
 hi VisualNOS  cterm=underline,bold gui=underline,bold
+"
+" TODO add all :hi output to file
+" =>
 hi WarningMsg ctermfg=DarkRed	   guifg=Red
 hi WildMenu   ctermfg=Black	   ctermbg=Yellow    guibg=Yellow guifg=Black
-
+" <=
+"
 hi Comment    cterm=NONE ctermfg=242  gui=NONE  guifg=#747d8d
 hi Constant   cterm=NONE ctermfg=206  gui=NONE  guifg=#ff78f8
 hi Number     cterm=NONE ctermfg=206  gui=NONE  guifg=#ff78f8
