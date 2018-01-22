@@ -30,7 +30,7 @@ if !has('win')
     set slowfs=curlftpfs
 endif
 
-set statusline="%-t %-[ => %-T %] %=  %[%A  %u%] %d "
+set statusline="%-t %-[ -> %-T %] %=  %[%A  %u%] %d "
 
 " ------------------------------------------------------------------------------
 " :mark mark /full/directory/path [filename]
