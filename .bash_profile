@@ -17,7 +17,6 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-
 include () {
   [[ -f "$1" ]] && source $1
 }
@@ -31,6 +30,6 @@ include "${HOME}/.bash_prompt"
 # Bash completions
 include "${HOME}/.bash_completions"
 
-# Bash environment
-include "${HOME}/.bash_env"
+# Bash custom stuff
+include "${HOME}/.bash_custom"
 
