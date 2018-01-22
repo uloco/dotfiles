@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+
 CWD="${0%/*}"
 
 linkFiles () {
@@ -15,6 +16,8 @@ linkFiles ".config/nvim/colors/bluloco-dark.vim"
 linkFiles ".vifm/vifmrc"
 linkFiles ".vifm/colors/bluloco-dark.vifm"
 
-cp -a .bashrc .vimrc .bash_env ${HOME}
-cp --parents .vim/colors/bluloco-dark.vim ${HOME}
+cp -fa .bashrc .vimrc ${HOME}
+rm "${HOME}/.bash_env" && cp .bash_env ${HOME}
+
+ditto .vim/colors/bluloco-dark.vim ${HOME}
 

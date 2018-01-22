@@ -18,15 +18,19 @@ case "$TERM" in
 esac
 
 
+include () {
+  [[ -f "$1" ]] && source $1
+}
+
 # Alias definitions.
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+include "${HOME}/.bash_aliases"
 
 # Custom prompt
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
+include "${HOME}/.bash_prompt"
 
 # Bash completions
-[ -f ~/.bash_completions ] && source ~/.bash_completions
+include "${HOME}/.bash_completions"
 
 # Bash environment
-[ -f ~/.bash_env ] && source ~/.bash_env
+include "${HOME}/.bash_env"
 
