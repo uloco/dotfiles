@@ -42,3 +42,16 @@ include "${HOME}/.bash_completions"
 # Bash custom stuff
 include "${HOME}/.bash_custom"
 
+# Set language
+export LANG="en_US.UTF-8"
+export LANGUAGE="en"
+export LC_NUMERIC="de_DE.UTF-8"
+export LC_TIME="de_DE.UTF-8"
+export LC_MONETARY="de_DE.UTF-8"
+export LC_PAPER="de_DE.UTF-8"
+export LC_IDENTIFICATION="de_DE.UTF-8"
+export LC_NAME="de_DE.UTF-8"
+export LC_ADDRESS="de_DE.UTF-8"
+export LC_TELEPHONE="de_DE.UTF-8"
+export LC_MEASUREMENT="de_DE.UTF-8"
+
