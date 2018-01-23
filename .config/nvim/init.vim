@@ -50,3 +50,6 @@ set termguicolors
 " Search after visual selected text with //
 vnoremap // y/<C-R>"<CR>
 
+" Plugins
+execute pathogen#infect()
+" ------------------------------------------------------------

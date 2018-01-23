@@ -13,7 +13,7 @@ set sortnumbers
 set undolevels=100
 set vimhelp
 set norunexec
-set timefmt=%y-%m-%d|%H:%M
+set timefmt="%y-%m-%d %H:%M"
 set wildmenu
 set wildstyle=popup
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
