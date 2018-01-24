@@ -11,11 +11,10 @@ hi Cursor                               guifg=#282c34  guibg=#ffcc00
 hi lCursor                              guifg=#282c34  guibg=#ffcc00
 
 " Note: we never set 'term' because the defaults for B&W terminals are OK
-" TODO diff colors
-hi DiffAdd    ctermbg=42        guibg=#25a45c
-hi DiffChange ctermbg=39        guibg=#3476ff
-hi DiffDelete ctermbg=197       guibg=#fc2f52
-hi DiffText   ctermbg=39	      guibg=#10b1fe
+hi DiffAdd    ctermbg=42        guibg=#2b663f
+hi DiffChange ctermbg=39        guibg=#015f88
+hi DiffDelete ctermbg=197       guibg=#803434
+hi DiffText   ctermbg=39	      guibg=#177da9
 
 hi Directory  ctermfg=39      	guifg=#10b1fe
 hi ErrorMsg   ctermfg=255	      ctermbg=197      guifg=White    guibg=#fc2f52
