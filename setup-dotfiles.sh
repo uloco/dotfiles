@@ -33,7 +33,7 @@ ln -sf "${NVIM_DIR}/bundle" "${HOME}/.vim/bundle"
 # Install vim plugins
 CWD=$PWD
 cd "${NVIM_DIR}/bundle/"
-git clone https://github.com/tpope/vim-surround.git
-git clone https://github.com/airblade/vim-gitgutter.git
+! test -d vim-surround && git clone https://github.com/tpope/vim-surround.git
+! test -d vim-gitgutter && git clone https://github.com/airblade/vim-gitgutter.git
 cd "$CWD"
 
