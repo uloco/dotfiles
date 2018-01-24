@@ -9,18 +9,31 @@ linkFiles () {
 }
 
 FILES="
-  .bash_aliases
-  .bash_completions
-  .bash_profile
-  .bash_prompt
-  .config/nvim/init.vim
-  .config/nvim/colors/bluloco-dark.vim
-  .vifm/vifmrc
-  .vifm/colors/bluloco-dark.vifm
+.bash_aliases
+.bash_completions
+.bash_profile
+.bash_prompt
+.config/nvim/init.vim
+.config/nvim/colors/bluloco-dark.vim
+.vifm/vifmrc
+.vifm/colors/bluloco-dark.vifm
 "
 
 linkFiles "${FILES}"
 cp -fa .bashrc .vimrc ${HOME}
 ! test -f "${HOME}/.bash_custom" && cp ".bash_custom" "${HOME}/.bash_custom"
 ditto .vim/colors/bluloco-dark.vim ${HOME}
+
+# Install vim plugins
+NVIM_DIR="${HOME}/.config/nvim"
+mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" && \
+  curl -LSso "${NVIM_DIR}/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
+ln -sf "${NVIM_DIR}/bundle" "${HOME}/.vim/bundle"
+
+# Install vim plugins
+CWD=$PWD
+cd "${NVIM_DIR}/bundle/"
+git clone https://github.com/tpope/vim-surround.git
+git clone https://github.com/airblade/vim-gitgutter.git
+cd "$CWD"
 

@@ -1,9 +1,18 @@
+#!/usr/bin/env bash
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -32,4 +41,17 @@ include "${HOME}/.bash_completions"
 
 # Bash custom stuff
 include "${HOME}/.bash_custom"
+
+# Set language
+export LANG="en_US.UTF-8"
+export LANGUAGE="en"
+export LC_NUMERIC="de_DE.UTF-8"
+export LC_TIME="de_DE.UTF-8"
+export LC_MONETARY="de_DE.UTF-8"
+export LC_PAPER="de_DE.UTF-8"
+export LC_IDENTIFICATION="de_DE.UTF-8"
+export LC_NAME="de_DE.UTF-8"
+export LC_ADDRESS="de_DE.UTF-8"
+export LC_TELEPHONE="de_DE.UTF-8"
+export LC_MEASUREMENT="de_DE.UTF-8"
 
