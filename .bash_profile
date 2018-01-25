@@ -55,3 +55,14 @@ export LC_ADDRESS="de_DE.UTF-8"
 export LC_TELEPHONE="de_DE.UTF-8"
 export LC_MEASUREMENT="de_DE.UTF-8"
 
+# Use fm instead of vifm to quit in cwd
+fm()
+{
+  local dst="$(command vifm --choose-dir -)"
+  if [ -z "$dst" ]; then
+    echo 'Directory picking cancelled/failed'
+    return 1
+  fi
+  cd "$dst"
+}
+
