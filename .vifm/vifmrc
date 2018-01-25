@@ -1,7 +1,7 @@
-" vim: filetype=vifm :
+" vim: filetype=vim :
 
 colorscheme bluloco-dark
-vsplit
+only
 
 set relativenumber
 set vicmd=vim
@@ -144,7 +144,7 @@ fileviewer *.7z 7z l %c
 " Like in previous versions of vifm
 " set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
 " Like in vi
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+set vifminfo=dhistory,chistory,state,tui,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
