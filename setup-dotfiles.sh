@@ -28,6 +28,7 @@ ditto .vim/colors/bluloco-dark.vim ${HOME}
 NVIM_DIR="${HOME}/.config/nvim"
 mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" && \
   curl -LSso "${NVIM_DIR}/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
+ln -sf "${NVIM_DIR}/autoload" "${HOME}/.vim/autoload"
 ln -sf "${NVIM_DIR}/bundle" "${HOME}/.vim/bundle"
 
 # Install vim plugins
