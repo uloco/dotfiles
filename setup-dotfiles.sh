@@ -22,9 +22,9 @@ FILES="
 linkFiles "${FILES}"
 cp -fa .bashrc .vimrc ${HOME}
 ! test -f "${HOME}/.bash_custom" && cp ".bash_custom" "${HOME}/.bash_custom"
-ditto .vim/colors/bluloco-dark.vim ${HOME}
+cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 
-# Install vim plugins
+# Setup vim plugin manager (pathogen)
 NVIM_DIR="${HOME}/.config/nvim"
 mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" && \
   curl -LSso "${NVIM_DIR}/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
