@@ -29,40 +29,36 @@ hi MoreMsg    cterm=bold	ctermfg=Yellow      gui=bold guifg=#ffcc00
 hi Question   ctermfg=42    gui=bold guifg=#25a45c
 hi Search     ctermfg=White	   ctermbg=245  guifg=White guibg=#7a82da
 hi SpecialKey ctermfg=209	   guifg=#ce9887
-hi StatusLine cterm=bold  ctermfg=249  ctermbg=242 gui=bold guifg=#b9c0cb guibg=#747d8d
+hi StatusLine cterm=bold  ctermfg=252  ctermbg=242 gui=bold guifg=#d0d8e5 guibg=#747d8d
 hi Title      ctermfg=204  gui=bold guifg=#ff6480
 hi VertSplit  cterm=reverse	   gui=reverse
 hi Visual     ctermbg=239  guibg=#4b505b guifg=NONE
 hi VisualNOS  cterm=underline,bold gui=underline,bold
 hi WarningMsg ctermfg=197	   guifg=#fc2f52
-hi WildMenu   cterm=bold ctermfg=249 ctermbg=27 gui=bold guifg=#b9c0cb guibg=#3476ff
+hi WildMenu   cterm=bold ctermfg=254 ctermbg=27 gui=bold guifg=#e7f0ff guibg=#3476ff
 
 hi TermCursor     cterm=reverse gui=reverse
 hi NonText        ctermfg=242 ctermbg=235 gui=bold guifg=#747d8d guibg=#22252a
 hi VertSplit      cterm=reverse gui=reverse
 hi SignColumn     ctermbg=NONE guibg=NONE
 hi Conceal        ctermfg=249 ctermbg=242 guifg=#b9c0cb guibg=#747d8d
-" hi SpellBad       ctermbg=197 gui=undercurl guisp=Blue
-" hi SpellCap       ctermbg=81 gui=undercurl guisp=Blue
-" hi SpellRare      ctermbg=225 gui=undercurl guisp=Magenta
-" hi SpellLocal     ctermbg=14 gui=undercurl guisp=DarkCyan
-
-" TODO continue from here =>27
-" TODO adjust cterm
-hi Pmenu          ctermbg=27  ctermfg=239  guibg=#22252a guifg=#b9c0cb
-hi PmenuSel       ctermfg=yellow  ctermbg=249  guifg=#b9c0cb guibg=#3476ff
-hi PmenuSbar      ctermbg=239 guibg=#22252a
-hi PmenuThumb     ctermbg=yellow guibg=#747d8d
-
-hi TabLine        cterm=underline ctermfg=0 ctermbg=7 gui=underline guibg=LightGrey
-hi TabLineSel     cterm=NONE gui=bold
-hi TabLineFill    cterm=reverse gui=reverse
-hi CursorColumn   ctermbg=7 guibg=Grey90
-hi CursorLine     cterm=underline guibg=Grey90
-hi ColorColumn    ctermbg=224 guibg=LightRed
-hi Ignore         ctermfg=15 guifg=bg
-hi Error          ctermfg=15 ctermbg=9 guifg=White guibg=Red
-" hi Todo 
+hi SpellBad       ctermbg=197 gui=undercurl guisp=Red
+hi SpellCap       ctermbg=81 gui=undercurl guisp=Blue
+hi SpellRare      ctermbg=225 gui=undercurl guisp=Magenta
+hi SpellLocal     ctermbg=14 gui=undercurl guisp=DarkCyan
+hi Pmenu          ctermbg=235  ctermfg=249  guibg=#22252a guifg=#b9c0cb
+hi PmenuSel       ctermfg=white  ctermbg=27  guifg=white guibg=#3476ff
+hi PmenuSbar      ctermbg=235 guibg=#22252a
+hi PmenuThumb     ctermbg=242 guibg=#747d8d
+hi TabLine        ctermfg=242 ctermbg=235 guifg=#747d8d guibg=#25272d
+hi TabLineSel     ctermbg=236 cterm=bold gui=bold guibg=#282c34
+hi TabLineFill    ctermfg=235 guifg=#22252a
+hi Ignore         ctermfg=242 guifg=#747d8d
+hi Error          ctermbg=196 guibg=#fc2f52
+hi Todo           ctermfg=112 ctermbg=NONE guifg=#87d700 guibg=NONE
+hi CursorColumn   cterm=NONE ctermbg=237  guibg=#2d333d
+hi CursorLine     cterm=NONE ctermbg=237  guibg=#2d333d
+hi ColorColumn    ctermbg=242  guibg=#747d8d
 
 hi Comment    cterm=NONE ctermfg=242  gui=NONE  guifg=#747d8d
 hi Constant   cterm=NONE ctermfg=206  gui=NONE  guifg=#ff78f8
@@ -92,24 +88,4 @@ hi link jsonKeyword Field
 hi link jsonKeywordMatch Operator
 hi link jsonNoise Operator
 
-" syntax highlighting with terminal own colors
-" hi Comment    ctermfg=8     guifg=red2
-" hi Constant   ctermfg=13    guifg=green3
-" hi Number     ctermfg=13    guifg=green3
-" hi Identifier ctermfg=12    guifg=cyan4
-" hi PreProc    ctermfg=14    guifg=magenta3
-" hi Special    ctermfg=3     guifg=deeppink
-" hi Statement  ctermfg=12	  guifg=blue
-" hi Type	      ctermfg=9	  guifg=blue
-" hi String     ctermfg=11    guifg=yellow
-" hi Operator   ctermfg=5     guifg=yellow
-" hi Field      ctermfg=138
-
-" ====================================================================================================
-
-
-
-
-
-" ====================================================================================================
 " vim: sw=2
