@@ -25,16 +25,14 @@ hi LineNr     ctermfg=242       guifg=#747d8d
 hi CursorLineNr  ctermfg=Yellow       guifg=#ffcc00
 hi MatchParen ctermfg=249  ctermbg=105   guibg=#7a82da guifg=#b9c0cb
 hi ModeMsg    cterm=bold	ctermfg=Yellow      gui=bold guifg=#ffcc00
-hi MoreMsg    ctermfg=42        gui=bold guifg=#25a45c
-hi Pmenu      ctermbg=105       guibg=#7a82da
-hi PmenuSel   ctermfg=249	 ctermbg=242  guifg=#b9c0cb  guibg=#747d8d
+hi MoreMsg    cterm=bold	ctermfg=Yellow      gui=bold guifg=#ffcc00
 hi Question   ctermfg=42    gui=bold guifg=#25a45c
-hi Search     ctermfg=White	   ctermbg=245 guibg=#7a82da guifg=White
+hi Search     ctermfg=White	   ctermbg=245  guifg=White guibg=#7a82da
 hi SpecialKey ctermfg=209	   guifg=#ce9887
 hi StatusLine cterm=bold  ctermfg=27  ctermbg=249 gui=bold guifg=#b9c0cb guibg=#3476ff
 hi Title      ctermfg=204  gui=bold guifg=#ff6480
 hi VertSplit  cterm=reverse	   gui=reverse
-hi Visual     ctermbg=NONE	   cterm=reverse  guifg=#3e4452 
+hi Visual     ctermbg=239  guibg=#4b505b
 hi VisualNOS  cterm=underline,bold gui=underline,bold
 hi WarningMsg ctermfg=197	   guifg=#fc2f52
 hi WildMenu   cterm=bold ctermfg=27  ctermbg=yellow gui=bold guibg=#ffcc00 guifg=#3476ff
@@ -42,16 +40,20 @@ hi WildMenu   cterm=bold ctermfg=27  ctermbg=yellow gui=bold guibg=#ffcc00 guifg
 hi TermCursor     cterm=reverse gui=reverse
 hi NonText        ctermfg=242 ctermbg=235 gui=bold guifg=#747d8d guibg=#22252a
 hi VertSplit      cterm=reverse gui=reverse
-hi SignColumn     ctermfg=4 ctermbg=248 guifg=DarkBlue guibg=Grey
-hi Conceal        ctermfg=7 ctermbg=242 guifg=LightGrey guibg=DarkGrey
-hi SpellBad       ctermbg=224 gui=undercurl guisp=Red
-hi SpellCap       ctermbg=81 gui=undercurl guisp=Blue
-hi SpellRare      ctermbg=225 gui=undercurl guisp=Magenta
-hi SpellLocal     ctermbg=14 gui=undercurl guisp=DarkCyan
+hi SignColumn     ctermbg=NONE guibg=NONE
+hi Conceal        ctermfg=249 ctermbg=242 guifg=#b9c0cb guibg=#747d8d
+" hi SpellBad       ctermbg=197 gui=undercurl guisp=Blue
+" hi SpellCap       ctermbg=81 gui=undercurl guisp=Blue
+" hi SpellRare      ctermbg=225 gui=undercurl guisp=Magenta
+" hi SpellLocal     ctermbg=14 gui=undercurl guisp=DarkCyan
+
+" TODO continue from here =>
+hi Pmenu          ctermbg=105       guibg=#282c34
+hi PmenuSel       ctermfg=249	 ctermbg=242  guifg=#b9c0cb  guibg=#747d8d
 hi PmenuSbar      ctermbg=248 guibg=Grey
 hi PmenuThumb     ctermbg=0 guibg=Black
 hi TabLine        cterm=underline ctermfg=0 ctermbg=7 gui=underline guibg=LightGrey
-hi TabLineSel     cterm=bold gui=bold
+hi TabLineSel     cterm=NONE gui=bold
 hi TabLineFill    cterm=reverse gui=reverse
 hi CursorColumn   ctermbg=7 guibg=Grey90
 hi CursorLine     cterm=underline guibg=Grey90
