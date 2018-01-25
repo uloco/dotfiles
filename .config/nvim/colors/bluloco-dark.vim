@@ -29,13 +29,13 @@ hi MoreMsg    cterm=bold	ctermfg=Yellow      gui=bold guifg=#ffcc00
 hi Question   ctermfg=42    gui=bold guifg=#25a45c
 hi Search     ctermfg=White	   ctermbg=245  guifg=White guibg=#7a82da
 hi SpecialKey ctermfg=209	   guifg=#ce9887
-hi StatusLine cterm=bold  ctermfg=27  ctermbg=249 gui=bold guifg=#b9c0cb guibg=#3476ff
+hi StatusLine cterm=bold  ctermfg=249  ctermbg=242 gui=bold guifg=#b9c0cb guibg=#747d8d
 hi Title      ctermfg=204  gui=bold guifg=#ff6480
 hi VertSplit  cterm=reverse	   gui=reverse
-hi Visual     ctermbg=239  guibg=#4b505b
+hi Visual     ctermbg=239  guibg=#4b505b guifg=NONE
 hi VisualNOS  cterm=underline,bold gui=underline,bold
 hi WarningMsg ctermfg=197	   guifg=#fc2f52
-hi WildMenu   cterm=bold ctermfg=27  ctermbg=yellow gui=bold guibg=#ffcc00 guifg=#3476ff
+hi WildMenu   cterm=bold ctermfg=249 ctermbg=27 gui=bold guifg=#b9c0cb guibg=#3476ff
 
 hi TermCursor     cterm=reverse gui=reverse
 hi NonText        ctermfg=242 ctermbg=235 gui=bold guifg=#747d8d guibg=#22252a
@@ -47,11 +47,13 @@ hi Conceal        ctermfg=249 ctermbg=242 guifg=#b9c0cb guibg=#747d8d
 " hi SpellRare      ctermbg=225 gui=undercurl guisp=Magenta
 " hi SpellLocal     ctermbg=14 gui=undercurl guisp=DarkCyan
 
-" TODO continue from here =>
-hi Pmenu          ctermbg=105       guibg=#282c34
-hi PmenuSel       ctermfg=249	 ctermbg=242  guifg=#b9c0cb  guibg=#747d8d
-hi PmenuSbar      ctermbg=248 guibg=Grey
-hi PmenuThumb     ctermbg=0 guibg=Black
+" TODO continue from here =>27
+" TODO adjust cterm
+hi Pmenu          ctermbg=27  ctermfg=239  guibg=#22252a guifg=#b9c0cb
+hi PmenuSel       ctermfg=yellow  ctermbg=249  guifg=#b9c0cb guibg=#3476ff
+hi PmenuSbar      ctermbg=239 guibg=#22252a
+hi PmenuThumb     ctermbg=yellow guibg=#747d8d
+
 hi TabLine        cterm=underline ctermfg=0 ctermbg=7 gui=underline guibg=LightGrey
 hi TabLineSel     cterm=NONE gui=bold
 hi TabLineFill    cterm=reverse gui=reverse
@@ -60,6 +62,7 @@ hi CursorLine     cterm=underline guibg=Grey90
 hi ColorColumn    ctermbg=224 guibg=LightRed
 hi Ignore         ctermfg=15 guifg=bg
 hi Error          ctermfg=15 ctermbg=9 guifg=White guibg=Red
+" hi Todo 
 
 hi Comment    cterm=NONE ctermfg=242  gui=NONE  guifg=#747d8d
 hi Constant   cterm=NONE ctermfg=206  gui=NONE  guifg=#ff78f8
