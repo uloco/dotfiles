@@ -5,6 +5,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias sobash="source ${HOME}/.bashrc"
+
 alias less='less -R'
 
 alias grep='grep --color=auto'
@@ -24,6 +26,8 @@ alias noproxy='unset http_proxy https_proxy ftp_proxy'
 alias addproxy='export http_proxy=http://magnum.grob.local:3128 && export https_proxy=$http_proxy'
 
 alias vim='nvim'
+
+alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
 
 # Git
 alias gs='git status'
@@ -56,3 +60,4 @@ alias gprune='git remote prune origin && gcleanup'
 alias git-default-branch="git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
 alias git-checkout-default='git checkout $(git-default-branch)'
 alias gcleanup="git-checkout-default &>/dev/null && git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
+

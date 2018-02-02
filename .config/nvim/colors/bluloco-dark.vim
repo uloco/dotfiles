@@ -81,6 +81,14 @@ hi link javaScriptIdentifier Statement
 hi link javaScriptFunction Statement
 hi link javaScriptBoolean Keyword
 
+" typescript
+hi link typescriptBraces Operator
+hi link typescriptParens Operator
+hi link typescriptNumber Number
+hi link typescriptIdentifier Statement
+hi link typescriptFunction Statement
+hi link typescriptBoolean Keyword
+
 " json
 hi link jsonBraces Operator
 hi link jsonQuote Operator
