@@ -60,4 +60,5 @@ alias gprune='git remote prune origin && gcleanup'
 alias git-default-branch="git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
 alias git-checkout-default='git checkout $(git-default-branch)'
 alias gcleanup="git-checkout-default &>/dev/null && git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
+alias gcp="git checkout -"
 
