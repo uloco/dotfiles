@@ -1,9 +1,21 @@
+
 syntax on
 set nu
 set backspace=indent,eol,start
 set hlsearch
 set ignorecase
 set smartcase
+set splitright
+set splitbelow
+
+" New Tab with ctrl-w + t
+:nnoremap <C-w>t :tabnew<CR>
+
+" Terminal Mode Mappings
+:tnoremap <Esc> <C-\><C-n>
+
+let g:netrw_bufsettings="rnu"
+
 hi Search ctermbg=8
 
 " Press Space to turn off highlighting and clear any message already displayed.
