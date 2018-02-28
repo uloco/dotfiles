@@ -29,6 +29,8 @@ alias vim='nvim'
 
 alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
 
+alias pip='pip2'
+
 # Git
 alias gs='git status'
 alias gss='git status -s'
