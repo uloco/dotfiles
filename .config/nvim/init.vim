@@ -8,6 +8,9 @@ set smartcase
 set splitright
 set splitbelow
 
+" Enable mouse
+set mouse=a
+
 " New Tab with ctrl-w + t
 :nnoremap <C-w>t :tabnew<CR>
 
@@ -57,6 +60,7 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" termguicolors breaks colors of nvim terminal
 set termguicolors
 
 " Search after visual selected text with //
