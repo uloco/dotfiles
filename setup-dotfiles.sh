@@ -2,7 +2,7 @@
 
 set -e
 
-linkFiles () {
+linkFiles() {
   for i in $1; do
     ln -sf "${PWD}/${i}" "${HOME}/${i}"
   done
@@ -17,6 +17,8 @@ FILES="
 .config/nvim/colors/bluloco-dark.vim
 .vifm/vifmrc
 .vifm/colors/bluloco-dark.vifm
+.powerline-shell.json
+powerline-bluloco-dark.py
 "
 
 linkFiles "${FILES}"
@@ -26,15 +28,14 @@ cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 
 # Setup vim plugin manager (pathogen)
 NVIM_DIR="${HOME}/.config/nvim"
-mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" && \
+mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" &&
   curl -LSso "${NVIM_DIR}/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
 ln -sf "${NVIM_DIR}/autoload" "${HOME}/.vim/autoload"
 ln -sf "${NVIM_DIR}/bundle" "${HOME}/.vim/bundle"
 
 # Install vim plugins
-CWD=$PWD
+CWD="${PWD}"
 cd "${NVIM_DIR}/bundle/"
 ! test -d vim-surround && git clone https://github.com/tpope/vim-surround.git
 ! test -d vim-gitgutter && git clone https://github.com/airblade/vim-gitgutter.git
-cd "$CWD"
-
+cd "${CWD}"

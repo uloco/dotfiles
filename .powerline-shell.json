@@ -1,0 +1,18 @@
+{
+  "segments": [
+    "set_term_title",
+    "username",
+    "read_only",
+    "ssh",
+    "cwd",
+    "git",
+    "svn",
+    "jobs",
+    "root",
+    "newline"
+  ],
+  "vcs": {
+    "show_symbol": true
+  },
+  "theme": "~/powerline-bluloco-dark.py"
+}
