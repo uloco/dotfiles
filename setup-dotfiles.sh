@@ -26,6 +26,7 @@ cp -fa .bashrc .vimrc ${HOME}
 ! test -f "${HOME}/.bash_custom" && cp ".bash_custom" "${HOME}/.bash_custom"
 cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 
+# TODO Install via plug, see dimi's init file
 # Setup vim plugin manager (pathogen)
 NVIM_DIR="${HOME}/.config/nvim"
 mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" &&
