@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/uloco/vim-bluloco-dark
+	branch = master
+	commit = a2f3e01e2a65504933e9e4b7e85abb818303e81b
+	parent = cdf415a97ae62bb6919dd571aea06df86bc31c0b
+	cmdver = 0.3.1
