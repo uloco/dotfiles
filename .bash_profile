@@ -67,5 +67,8 @@ fm()
   cd "$dst"
 }
 
-# Jump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# autojump
+include /usr/local/etc/profile.d/autojump.sh
+
+# git-subrepo
+include ${HOME}/Source/git-subrepo/.rc

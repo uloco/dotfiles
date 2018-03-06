@@ -26,17 +26,7 @@ cp -fa .bashrc .vimrc ${HOME}
 ! test -f "${HOME}/.bash_custom" && cp ".bash_custom" "${HOME}/.bash_custom"
 cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 
-# TODO Install via plug, see dimi's init file
-# Setup vim plugin manager (pathogen)
-NVIM_DIR="${HOME}/.config/nvim"
-mkdir -p "${NVIM_DIR}/autoload" "${NVIM_DIR}/bundle" &&
-  curl -LSso "${NVIM_DIR}/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
-ln -sf "${NVIM_DIR}/autoload" "${HOME}/.vim/autoload"
-ln -sf "${NVIM_DIR}/bundle" "${HOME}/.vim/bundle"
-
-# Install vim plugins
-CWD="${PWD}"
-cd "${NVIM_DIR}/bundle/"
-! test -d vim-surround && git clone https://github.com/tpope/vim-surround.git
-! test -d vim-gitgutter && git clone https://github.com/airblade/vim-gitgutter.git
-cd "${CWD}"
+# Install git-subrepo
+export SUBREPO_PATH="${HOME}/Source/git-subrepo" 
+! test -d "${SUBREPO_PATH}" &&
+  git clone https://github.com/ingydotnet/git-subrepo "${SUBREPO_PATH}"
