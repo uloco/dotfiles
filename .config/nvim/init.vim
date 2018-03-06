@@ -20,6 +20,11 @@ set wrap
 set cpo=n
 set foldmethod=syntax
 set foldlevelstart=99
+set hidden
+set undofile
+set undodir=$HOME/.config/nvim/.vimundo
+set colorcolumn=80
+set textwidth=80
 
 " External vimrc files
 set exrc
@@ -105,5 +110,24 @@ endif
 Plug 'scrooloose/nerdcommenter'
 Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
+
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '┆'
+
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
+Plug 'vim-airline/vim-airline' " status bar
+Plug 'vim-airline/vim-airline-themes'"
+let g:airline_theme='deus'
+let g:airline_powerline_fonts=1
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons' " icons for nerd-tree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'cloudhead/neovim-fuzzy' " requires fzy and rg or ag
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
