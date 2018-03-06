@@ -1,1 +1,1 @@
-/Users/uloco/Source/vim-bluloco-dark/bluloco-dark.vim
+../../../vim-bluloco-dark/bluloco-dark.vim
