@@ -8,6 +8,10 @@ linkFiles() {
   done
 }
 
+exists() {
+  command -v $1 >/dev/null 2>&1
+}
+
 FILES="
 .bash_aliases
 .bash_completions
@@ -30,3 +34,6 @@ cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 export SUBREPO_PATH="${HOME}/Source/git-subrepo" 
 ! test -d "${SUBREPO_PATH}" &&
   git clone https://github.com/ingydotnet/git-subrepo "${SUBREPO_PATH}"
+
+# Install the_silver_searcher
+! exists ag && brew install the_silver_searcher
