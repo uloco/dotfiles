@@ -80,7 +80,7 @@ endfunc
 vnoremap // y/<C-R>"<CR>
 
 " Plugins
-"---------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Install Vim Plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -113,6 +113,8 @@ Plug 'w0rp/ale'
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '┆'
+
+Plug 'pangloss/vim-javascript'
 
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
