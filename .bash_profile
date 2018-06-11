@@ -72,3 +72,6 @@ include /usr/local/etc/profile.d/autojump.sh
 
 # git-subrepo
 include ${HOME}/Source/git-subrepo/.rc
+
+# hub
+eval "$(hub alias -s)"
