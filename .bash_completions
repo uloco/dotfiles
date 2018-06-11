@@ -5,6 +5,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
+# Git completion for g alias
+__git_complete g __git_main
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
