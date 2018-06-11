@@ -6,6 +6,7 @@
     "ssh",
     "cwd",
     "git",
+    "git_stash",
     "svn",
     "jobs",
     "root",

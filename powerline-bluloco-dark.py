@@ -59,6 +59,8 @@ class DefaultColor(object):
     GIT_CONFLICTED_BG = 99
     GIT_CONFLICTED_FG = 254
 
+    GIT_STASH_BG = 222
+    GIT_STASH_FG = 236
 
 class Color(DefaultColor):
     """
