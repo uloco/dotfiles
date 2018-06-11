@@ -1,0 +1,47 @@
+[user]
+	email = uloco@schiefewelt.de
+	name = Umut Topuzoğlu
+[http]
+[https]
+[core]
+  excludesfile = ~/.gitignore
+#[diff "nodiff"]
+#	command = /usr/bin/true
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[alias]
+  b = branch
+  d = difftool
+  s = status
+  ss = status -s
+  a = add
+  aa = add .
+  ba = branch --all
+  co = checkout
+  cob = checkout -b
+  c = commit
+  cm = commit -m
+  cam = commit --amend -C HEAD
+  pu = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+  pt = push --follow-tags
+  r = reset
+  rl = reset @^
+  rls = reset @^ --soft
+  g = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
+  gs = g --stat
+  l = log
+  ll = l --graph --pretty=oneline --abbrev-commit
+  d = diff
+  dc = d --cached
+  pop = stash pop
+  delete = push --delete origin
+  cleanup = "! git remote prune origin && git cleanup-branches"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
