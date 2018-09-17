@@ -1,84 +1,3 @@
-"" General settings
-"------------------------------------------------------------------------------
-syntax on
-set nu
-set backspace=indent,eol,start
-set hlsearch
-set ignorecase
-set smartcase
-set splitright
-set splitbelow
-colorscheme bluloco-dark
-set number relativenumber
-let g:netrw_bufsettings="rnu"
-set termguicolors
-set textwidth=80
-set breakindent
-let showbreak='↪ '
-let mapleader="\<space>"
-set wrap
-set cpo=n
-set foldmethod=syntax
-set foldlevelstart=99
-set hidden
-set undofile
-set undodir=$HOME/.config/nvim/.vimundo
-set colorcolumn=80
-set textwidth=80
-
-" External vimrc files
-set exrc
-set secure
-
-" Indentation of 2 spaces
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Enable mouse
-set mouse=a
-
-" New Tab with ctrl-w + t
-:nnoremap <C-w>t :tabnew<CR>
-
-" Terminal Mode Mappings
-:tnoremap <Esc> <C-\><C-n>
-
-" Press Space to turn off highlighting and clear any message already displayed.
-" :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-" :nnoremap <silent> <leader>h :nohlsearch<Bar>:echo<CR>
-:nnoremap <silent> <leader>hi :nohlsearch<CR>
-
-" Format file
-map <leader>l mzgg=G`zzz
-
-" Normal line numbers when on insert mode or lost focus
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
-" Use macros on all visual lines
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-" Search after visual selected text with //
-vnoremap // y/<C-R>"<CR>
-
 " Plugins
 "------------------------------------------------------------------------------
 " Install Vim Plug if not installed
@@ -107,14 +26,12 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '┆'
-
-Plug 'pangloss/vim-javascript'
 
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
@@ -129,7 +46,110 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons' " icons for nerd-tree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'padde/jump.vim'
 Plug 'cloudhead/neovim-fuzzy' " requires fzy and rg or ag
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Languages
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+
 call plug#end()
+
+"" General settings
+"------------------------------------------------------------------------------
+syntax on
+set nu
+set backspace=indent,eol,start
+set hlsearch
+set ignorecase
+set smartcase
+set splitright
+set splitbelow
+" colorscheme bluloco-dark-new
+set number relativenumber
+let g:netrw_bufsettings="rnu"
+set termguicolors
+set textwidth=80
+set breakindent
+let showbreak='↪ '
+let mapleader="\<space>"
+set wrap
+set cpo=n
+set foldmethod=syntax
+set foldlevelstart=99
+set hidden
+set undofile
+set undodir=$HOME/.config/nvim/.vimundo
+set colorcolumn=80
+set textwidth=80
+set background=dark
+colorscheme bluloco-dark-new
+
+" External vimrc files
+set exrc
+set secure
+
+" Indentation of 2 spaces
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Enable mouse
+set mouse=a
+
+" New Tab with ctrl-w + t
+:nnoremap <C-w>t :tabnew<CR>
+
+" Terminal Mode Mappings
+:tnoremap <Esc> <C-\><C-n>
+
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <leader>hi :nohlsearch<CR>
+
+" Change current working directory to file location
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Reload .vimrc file
+nnoremap <leader>so :so ~/.vimrc<CR>
+
+" Often used shortcuts
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+
+" Split nav
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Format file
+map <leader>l mzgg=G`zzz
+
+" Normal line numbers when on insert mode or lost focus
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" Use macros on all visual lines
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+" Show syntax highlighting groups for word under cursor
+nmap <leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Search after visual selected text with //
+vnoremap // y/<C-R>"<CR>
+
