@@ -75,3 +75,7 @@ include ${HOME}/Source/git-subrepo/.rc
 
 # hub
 eval "$(hub alias -s)"
+
+# fuzzy finder fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
