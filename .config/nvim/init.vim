@@ -14,9 +14,11 @@ function! DoRemote(arg)
 endfunction
 
 Plug 'uloco/vim-bluloco-dark'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs' " auto adds closing brackets etc.
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_signs = 1
@@ -28,6 +30,7 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
@@ -54,7 +57,6 @@ Plug 'junegunn/fzf.vim'
 " Languages
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
@@ -132,6 +134,14 @@ nnoremap <A-j> <C-W><C-J>
 nnoremap <A-k> <C-W><C-K>
 nnoremap <A-l> <C-W><C-L>
 nnoremap <A-h> <C-W><C-H>
+inoremap <A-j> <Esc><C-W><C-J>
+inoremap <A-k> <Esc><C-W><C-K>
+inoremap <A-l> <Esc><C-W><C-L>
+inoremap <A-h> <Esc><C-W><C-H>
+tnoremap <A-j> <C-\><C-n><C-W><C-J>
+tnoremap <A-k> <C-\><C-n><C-W><C-K>
+tnoremap <A-l> <C-\><C-n><C-W><C-L>
+tnoremap <A-h> <C-\><C-n><C-W><C-H>
 
 " Tab nav
 nnoremap <C-j> gT
@@ -146,6 +156,9 @@ map <silent> <leader>pb :Buffers<CR>
 map <silent> <leader>pw :Windows<CR>
 map <silent> <leader>ps :Snippets<CR>
 map <silent> <leader>pc :Commits<CR>
+
+"NERDTree
+map <leader>b :NERDTreeToggle<CR>
 
 " Normal line numbers when on insert mode or lost focus
 augroup numbertoggle
@@ -172,4 +185,3 @@ endfunc
 
 " Search after visual selected text with //
 vnoremap // y/<C-R>"<CR>
-
