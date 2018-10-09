@@ -163,18 +163,18 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>a :wa<CR>
 
 " Split nav
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
-inoremap <C-j> <Esc><C-W><C-J>
-inoremap <C-k> <Esc><C-W><C-K>
-inoremap <C-l> <Esc><C-W><C-L>
-inoremap <C-h> <Esc><C-W><C-H>
-tnoremap <C-j> <C-\><C-n><C-W><C-J>
-tnoremap <C-k> <C-\><C-n><C-W><C-K>
-tnoremap <C-l> <C-\><C-n><C-W><C-L>
-tnoremap <C-h> <C-\><C-n><C-W><C-H>
+nnoremap <A-j> <C-W><C-J>
+nnoremap <A-k> <C-W><C-K>
+nnoremap <A-l> <C-W><C-L>
+nnoremap <A-h> <C-W><C-H>
+inoremap <A-j> <Esc><C-W><C-J>
+inoremap <A-k> <Esc><C-W><C-K>
+inoremap <A-l> <Esc><C-W><C-L>
+inoremap <A-h> <Esc><C-W><C-H>
+tnoremap <A-j> <C-\><C-n><C-W><C-J>
+tnoremap <A-k> <C-\><C-n><C-W><C-K>
+tnoremap <A-l> <C-\><C-n><C-W><C-L>
+tnoremap <A-h> <C-\><C-n><C-W><C-H>
 
 " Switch between different file extensions
 map <A-u> :e %:r.ts <CR>
