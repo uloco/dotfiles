@@ -55,7 +55,8 @@ if has_key(g:LanguageClient_serverCommands, &filetype)
 endif
 
 " Completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Interface
 Plug 'nathanaelkane/vim-indent-guides'
@@ -86,8 +87,8 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-Plug 'leafgarland/typescript-vim'
-" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'godlygeek/tabular'
@@ -124,6 +125,8 @@ set colorcolumn=80
 set textwidth=80
 set background=dark
 set conceallevel=0
+set wildmenu
+set wildmode=longest:full,full
 
 " External vimrc files
 set exrc
@@ -137,7 +140,10 @@ set expandtab
 
 " Completion
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " Enable mouse
 set mouse=a
@@ -183,8 +189,8 @@ map <A-o> :e %:r.html <CR>
 map <A-d> :e %:r.spec.ts <CR>
 
 " Tab nav
-" nnoremap <C-j> gT
-" nnoremap <C-k> gt
+nnoremap <C-j> gT
+nnoremap <C-k> gt
 
 " Format file
 map <leader>l mzgg=G`zzz
