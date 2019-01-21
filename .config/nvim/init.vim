@@ -182,6 +182,12 @@ tnoremap <A-k> <C-\><C-n><C-W><C-K>
 tnoremap <A-l> <C-\><C-n><C-W><C-L>
 tnoremap <A-h> <C-\><C-n><C-W><C-H>
 
+" Split resizing
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
 " Switch between different file extensions
 map <A-u> :e %:r.ts <CR>
 map <A-i> :e %:r.scss <CR>
