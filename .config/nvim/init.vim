@@ -99,7 +99,7 @@ Plug 'curist/vim-angular-template'
 
 call plug#end()
 
-"" General settings
+" General settings
 "------------------------------------------------------------------------------
 syntax on
 set nu
