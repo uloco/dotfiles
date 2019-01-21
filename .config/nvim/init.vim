@@ -154,6 +154,9 @@ nnoremap <A-t> :tabnew<CR>
 " Terminal Mode Mappings
 tnoremap <Esc> <C-\><C-n>
 
+" Enter insert mode when entering terminal
+autocmd BufWinEnter,WinEnter term://* startinsert
+
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <leader>hi :nohlsearch<CR>
 
