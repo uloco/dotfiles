@@ -55,8 +55,8 @@ if has_key(g:LanguageClient_serverCommands, &filetype)
 endif
 
 " Completion
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Interface
 Plug 'nathanaelkane/vim-indent-guides'
