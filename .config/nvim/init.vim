@@ -142,8 +142,6 @@ set expandtab
 filetype plugin on
 " set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 
 " Enable mouse
 set mouse=a
