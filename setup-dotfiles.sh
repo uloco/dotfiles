@@ -18,7 +18,6 @@ FILES="
 .bash_profile
 .bash_prompt
 .config/nvim/init.vim
-.config/nvim/colors/bluloco-dark.vim
 .vifm/vifmrc
 .vifm/colors/bluloco-dark.vifm
 .powerline-shell.json
@@ -28,12 +27,9 @@ powerline-bluloco-dark.py
 linkFiles "${FILES}"
 cp -fa .bashrc .vimrc ${HOME}
 ! test -f "${HOME}/.bash_custom" && cp ".bash_custom" "${HOME}/.bash_custom"
-cp -fa --parents .vim/colors/bluloco-dark.vim ${HOME}
 
-# Install git-subrepo
-export SUBREPO_PATH="${HOME}/Source/git-subrepo" 
-! test -d "${SUBREPO_PATH}" &&
-  git clone https://github.com/ingydotnet/git-subrepo "${SUBREPO_PATH}"
+# Install vim plugins
+vim +PlugInstall +qall
 
 # Install the_silver_searcher
 ! exists ag && brew install the_silver_searcher
