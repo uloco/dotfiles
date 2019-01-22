@@ -58,7 +58,7 @@ endif
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+let g:deoplete#enable_at_startup = 1
 
 " Interface
 Plug 'nathanaelkane/vim-indent-guides'
@@ -155,13 +155,21 @@ nnoremap <A-t> :tabnew<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Enter insert mode when entering terminal
-autocmd BufWinEnter,WinEnter term://* startinsert
+" autocmd BufWinEnter,WinEnter term://* startinsert
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <leader>hi :nohlsearch<CR>
 
 " Change current working directory to file location
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <leader>tcd :call <SID>ChangeTabDir()<CR>
+function! <SID>ChangeTabDir()
+  let s:cwd = getcwd()
+  execute "tcd" . s:cwd
+  execute "pwd"
+endfunc
+
 
 " Reload .vimrc file
 nnoremap <leader>so :so ~/.vimrc<CR>
