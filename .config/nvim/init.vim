@@ -58,7 +58,7 @@ endif
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 
 " Interface
 Plug 'nathanaelkane/vim-indent-guides'
