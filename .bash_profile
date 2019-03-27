@@ -79,3 +79,8 @@ eval "$(hub alias -s)"
 # fuzzy finder fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# Switch color profiles
+theme() {
+  echo -e "\033]50;SetProfile=bluloco-$1\a" 
+}

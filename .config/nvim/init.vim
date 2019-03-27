@@ -29,6 +29,8 @@ if exists('&signcolumn')  " Vim 7.4.2201
 else
   let g:gitgutter_sign_column_always = 1
 endif
+set updatetime=100
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
@@ -56,6 +58,7 @@ endif
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 0
 
 " Interface
 Plug 'nathanaelkane/vim-indent-guides'
@@ -86,8 +89,8 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-Plug 'leafgarland/typescript-vim'
-" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'godlygeek/tabular'
@@ -96,7 +99,7 @@ Plug 'curist/vim-angular-template'
 
 call plug#end()
 
-"" General settings
+" General settings
 "------------------------------------------------------------------------------
 syntax on
 set nu
@@ -124,6 +127,8 @@ set colorcolumn=80
 set textwidth=80
 set background=dark
 set conceallevel=0
+set wildmenu
+set wildmode=longest:full,full
 
 " External vimrc files
 set exrc
@@ -137,7 +142,8 @@ set expandtab
 
 " Completion
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 " Enable mouse
 set mouse=a
@@ -148,11 +154,22 @@ nnoremap <A-t> :tabnew<CR>
 " Terminal Mode Mappings
 tnoremap <Esc> <C-\><C-n>
 
+" Enter insert mode when entering terminal
+" autocmd BufWinEnter,WinEnter term://* startinsert
+
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <leader>hi :nohlsearch<CR>
 
 " Change current working directory to file location
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <leader>tcd :call <SID>ChangeTabDir()<CR>
+function! <SID>ChangeTabDir()
+  let s:cwd = getcwd()
+  execute "tcd" . s:cwd
+  execute "pwd"
+endfunc
+
 
 " Reload .vimrc file
 nnoremap <leader>so :so ~/.vimrc<CR>
@@ -163,18 +180,24 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>a :wa<CR>
 
 " Split nav
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
-inoremap <C-j> <Esc><C-W><C-J>
-inoremap <C-k> <Esc><C-W><C-K>
-inoremap <C-l> <Esc><C-W><C-L>
-inoremap <C-h> <Esc><C-W><C-H>
-tnoremap <C-j> <C-\><C-n><C-W><C-J>
-tnoremap <C-k> <C-\><C-n><C-W><C-K>
-tnoremap <C-l> <C-\><C-n><C-W><C-L>
-tnoremap <C-h> <C-\><C-n><C-W><C-H>
+nnoremap <A-j> <C-W><C-J>
+nnoremap <A-k> <C-W><C-K>
+nnoremap <A-l> <C-W><C-L>
+nnoremap <A-h> <C-W><C-H>
+inoremap <A-j> <Esc><C-W><C-J>
+inoremap <A-k> <Esc><C-W><C-K>
+inoremap <A-l> <Esc><C-W><C-L>
+inoremap <A-h> <Esc><C-W><C-H>
+tnoremap <A-j> <C-\><C-n><C-W><C-J>
+tnoremap <A-k> <C-\><C-n><C-W><C-K>
+tnoremap <A-l> <C-\><C-n><C-W><C-L>
+tnoremap <A-h> <C-\><C-n><C-W><C-H>
+
+" Split resizing
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " Switch between different file extensions
 map <A-u> :e %:r.ts <CR>
@@ -183,8 +206,8 @@ map <A-o> :e %:r.html <CR>
 map <A-d> :e %:r.spec.ts <CR>
 
 " Tab nav
-" nnoremap <C-j> gT
-" nnoremap <C-k> gt
+nnoremap <C-j> gT
+nnoremap <C-k> gt
 
 " Format file
 map <leader>l mzgg=G`zzz
