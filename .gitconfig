@@ -37,9 +37,16 @@
   ll = l --graph --pretty=oneline --abbrev-commit
   d = diff
   dc = d --cached
-  pop = stash pop
+  st = stash -u
+  stlist = stash list
+  stpop = stash pop
+  stdrop = stash drop
+  stshow = stash show
   delete = push --delete origin
   cleanup = "! git remote prune origin && git cleanup-branches"
+  sh = show
+  t = tag
+  pr = pull-request
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

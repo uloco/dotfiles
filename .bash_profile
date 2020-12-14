@@ -90,3 +90,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Switch color profiles
+theme() {
+  echo -e "\033]50;SetProfile=bluloco-$1\a" 
+}
