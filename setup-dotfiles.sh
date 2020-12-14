@@ -17,6 +17,7 @@ FILES="
 .bash_completions
 .bash_profile
 .bash_prompt
+.zshrc
 .config/nvim/init.vim
 .config/nvim/colors/bluloco-dark.vim
 .vifm/vifmrc

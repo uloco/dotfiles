@@ -1,3 +1,5 @@
+syntax enable
+
 " Plugins
 "------------------------------------------------------------------------------
 " Install Vim Plug if not installed
@@ -21,38 +23,41 @@ Plug 'dracula/vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+" Fix git gutter grey
+autocmd ColorScheme * highlight! link SignColumn LineNr
 let g:gitgutter_signs = 1
 let g:gitgutter_grep = 'ag'
 " Always show signcolumn
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
 else
-  let g:gitgutter_sign_column_always = 1
+  " let g:gitgutter_sign_column_always = 1
 endif
+set updatetime=100
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Linting
 Plug 'w0rp/ale'
-" let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 
-" LSP
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+" " LSP
+" Plug 'autozimu/LanguageClient-neovim', {
+"       \ 'branch': 'next',
+"       \ 'do': 'bash install.sh',
+"       \ }
 
-let g:LanguageClient_serverCommands = {
-      \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ }
+" let g:LanguageClient_serverCommands = {
+"       \ 'typescript': ['typescript-language-server', '--stdio'],
+"       \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
-if has_key(g:LanguageClient_serverCommands, &filetype)
-  nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-endif
+" if has_key(g:LanguageClient_serverCommands, &filetype)
+"   nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+"   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"   nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" endif
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -86,8 +91,8 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-Plug 'leafgarland/typescript-vim'
-" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'godlygeek/tabular'
@@ -98,7 +103,6 @@ call plug#end()
 
 "" General settings
 "------------------------------------------------------------------------------
-syntax on
 set nu
 set backspace=indent,eol,start
 set hlsearch
@@ -113,7 +117,7 @@ set textwidth=80
 set breakindent
 let showbreak='↪ '
 let mapleader="\<space>"
-set wrap
+" set wrap
 set cpo=n
 set foldmethod=syntax
 set foldlevelstart=99
@@ -121,7 +125,8 @@ set hidden
 set undofile
 set undodir=$HOME/.config/nvim/.vimundo
 set colorcolumn=80
-set textwidth=80
+set textwidth=0
+set wrapmargin=0
 set background=dark
 set conceallevel=0
 

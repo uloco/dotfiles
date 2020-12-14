@@ -4,7 +4,7 @@ colorscheme bluloco-dark
 only
 
 set relativenumber
-set vicmd=vim
+set vicmd=nvim
 set trash
 set history=100
 set nofollowlinks
