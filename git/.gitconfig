@@ -1,0 +1,87 @@
+# This is Git's per-user configuration file.
+[user]
+name = Umut Topuzoğlu
+email = uloco@schiefewelt.de
+[push]
+default = simple
+[credential]
+helper = osxkeychain
+[svn]
+rmdir = true
+[core]
+editor = nvim
+pager = less -X -F
+[github]
+user = uloco
+[ghi]
+token = !security find-internet-password -a uloco -s github.com -l 'ghi token' -w
+[diff]
+tool = vimdiff
+[merge]
+tool = vimdiff
+[difftool]
+prompt = false
+[alias]
+f = fetch
+b = branch
+d = difftool
+s = status
+ss = status -s
+a = add
+aa = add .
+ba = branch --all
+co = checkout
+cob = checkout -b
+c = commit
+cm = commit -m
+cam = commit --amend -C HEAD
+cma = commit -am
+pu = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+put = pu --follow-tags
+puf = pu --force-with-lease
+r = reset
+rl = reset @^
+rls = reset @^ --soft
+g = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
+gs = g --stat
+l = log
+ll = l --graph --pretty=oneline --abbrev-commit
+d = diff
+dc = d --cached
+pop = stash pop
+drop = stash drop
+delete = push --delete origin
+cleanup = "! git remote prune origin && git cleanup-branches"
+feature = "! git fetch && git checkout $(pbpaste)"
+reb = rebase
+rebs = rebase --skip
+rebc = rebase --continue
+rebd = "! git checkout develop && git pull && git checkout - && git rebase develop"
+cp = cherry-pick
+hash = "!git show --oneline | head -1 | awk '{ print $1 }' | pbcopy"
+t = tag
+find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
+show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
+st = "stack"
+stp = "stack --pull"
+stpu = "stack --push"
+
+[pager]
+branch = false
+[pull]
+rebase = false
+[filter "lfs"]
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+[rerere]
+enabled = 1
+autoupdate = true
+[merge "npm-merge-driver"]
+name = automatically merge npm lockfiles
+driver = npx npm-merge-driver merge %A %O %B %P
+[init]
+defaultBranch = main
+[color]
+ui = auto
