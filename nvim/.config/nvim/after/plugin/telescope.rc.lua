@@ -28,6 +28,8 @@ telescope.setup {
       -- disables netrw add use telescope-file-broser in its place
       hijack_netrw = true,
       initial_mode = "normal",
+      hidden = "true",
+      grouped = "true",
       mappings = {
         -- your custom insert mode mappings
         ['i'] = {
@@ -64,5 +66,5 @@ vim.keymap.set('n', '<Leader>pr', '<cmd>lua require("telescope.builtin").resume(
 vim.keymap.set('n', '<Leader>pe', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
 vim.keymap.set('n', 'sf',
   -- '<cmd>lua require("telescope").extensions.file_browser.file_browser({path = "%:p:h", cwd = telescope_buffer_dir(), respect_gitignore = false, hidden = true, grouped = true, previewer = false, initial_mode = "normal", layout_config = {height = 80} })<cr>'
-  '<cmd>lua require("telescope").extensions.file_browser.file_browser({path = "%:p:h", cwd = telescope_buffer_dir(), respect_gitignore = false, hidden = true, grouped = true,  })<cr>'
+  '<cmd>lua require("telescope").extensions.file_browser.file_browser({path = "%:p:h", cwd = telescope_buffer_dir(), respect_gitignore = false, })<cr>'
   , opts)
