@@ -50,7 +50,7 @@ vim.opt.formatoptions:remove { 'c', 'r', 'o' }
 
 -- @uloco
 vim.g.mapleader = " "
-vim.opt.timeout = false -- don't timeout keys
+-- vim.opt.timeout = false -- don't timeout keys TODO only leader
 
 -- autocmd
 vim.opt.smartcase = true -- Case insensitive searching UNLESS /C or capital in search
