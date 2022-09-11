@@ -15,8 +15,8 @@ vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
+-- vim.opt.scrolloff = 10
+-- vim.opt.sidescrolloff = 10
 vim.opt.shell = 'zsh'
 vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
 vim.opt.inccommand = 'split'
@@ -45,56 +45,31 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste"
 })
 
--- Add asterisks in block comments
-vim.opt.formatoptions:append { 'r' }
+-- Disable auto comments on next line
+vim.opt.formatoptions:remove { 'c', 'r', 'o' }
 
 -- @uloco
 vim.g.mapleader = " "
+vim.opt.timeout = false -- don't timeout keys
 
+-- autocmd
 vim.opt.smartcase = true -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.relativenumber = true
 vim.opt.undofile = true
--- vim.bo.undofile = true
 vim.opt.undodir = vim.fn.expand('$HOME/.config/nvim/.vimundo')
--- vim.wo.colorcolumn = '80'
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
 
 --[[
 " General settings
 "------------------------------------------------------------------------------
-let g:netrw_bufsettings="rnu"
-set textwidth=80
-set breakindent
-let showbreak='↪ '
-" set wrap
-set cpo=n
 set foldmethod=syntax
 set foldlevelstart=99
-set hidden
 set colorcolumn=80
 set textwidth=0
 set conceallevel=0
 set wildmenu
 set wildmode=longest:full,full
-
-" External vimrc files
-set exrc
-set secure
-
-" Indentation of 2 spaces
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Completion
-filetype plugin on
-" set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
-
-" Enable mouse
-set mouse=a
 ]]

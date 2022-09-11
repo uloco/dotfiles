@@ -15,9 +15,6 @@ keymap.set('n', '<M-a>', 'gg<S-v>G')
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
--- New tab
-keymap.set('n', 'te', ':tabedit<CR>', { silent = true })
-
 -- Split window
 keymap.set('n', 'ss', ':split<CR>', { silent = true })
 keymap.set('n', 'sv', ':vsplit<CR>', { silent = true })
@@ -52,10 +49,25 @@ keymap.set('n', '<Leader>hi', ':nohl<CR>')
 
 -- yank and paste from clipboard
 keymap.set({ 'n', 'v' }, '<Leader>y', '"*y')
--- keymap.set({ 'n', 'v' }, '<Leader>p', '"*p')
+
+-- paste without
+keymap.set({ 'x' }, '<Leader>p', '"_dP')
 
 -- Terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+-- Center on half page up down
+keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
+keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
+
+-- Make * not jump after select word under cursor
+keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>')
+
+-- Duplicate and comment TODO
+keymap.set({ 'v' }, '<Leader>gc', 'gc')
+
+-- "after": ["m", "~", "Y", "g", "c", "c", "p", "`", "~", "j"]
+
 
 --[[
 " New Tab with ctrl-w + t

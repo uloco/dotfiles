@@ -47,17 +47,21 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
 
   -- scroll bar
-  use "petertriho/nvim-scrollbar"
+  use 'petertriho/nvim-scrollbar'
 
+  -- todo comments
+  -- Lua
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
 
   -- completion
   use 'neovim/nvim-lspconfig' -- LSP
   use 'onsails/lspkind-nvim' -- pictograms in completion
 
-  use { -- refactoring + peek windows
-    'glepnir/lspsaga.nvim',
-    branch = 'version_2.2'
-  }
+  use 'glepnir/lspsaga.nvim'
+
   use 'hrsh7th/nvim-cmp' -- Completion
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-comp source for neovim's built-in LSP

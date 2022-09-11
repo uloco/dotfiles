@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-scrollbar"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
+    url = "https://github.com/petertriho/nvim-scrollbar"
+  },
   ["nvim-surround"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-surround",
