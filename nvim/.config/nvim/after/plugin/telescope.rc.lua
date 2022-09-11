@@ -22,6 +22,17 @@ telescope.setup {
         ["<C-u>"] = false,
         ['<C-d>'] = actions.delete_buffer
       }
+    },
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--follow", -- follow symlinks
+      "--hidden" -- also search .hidden files
     }
   },
   extensions = {
@@ -62,7 +73,7 @@ vim.keymap.set('n', '<Leader>pp',
   '<cmd>lua require("telescope.builtin").find_files({no_ignore = false, hidden = true, follow = true})<cr>',
   opts)
 vim.keymap.set('n', '<Leader>pf',
-  '<cmd>lua require("telescope.builtin").live_grep({no_ignore = false, hidden = true, follow = true})<cr>',
+  '<cmd>lua require("telescope.builtin").live_grep()<cr>',
   opts)
 vim.keymap.set('n', '<Leader>pb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 vim.keymap.set('n', '<Leader>ph', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
