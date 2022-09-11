@@ -61,7 +61,9 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<Leader>pp',
   '<cmd>lua require("telescope.builtin").find_files({no_ignore = false, hidden = true, follow = true})<cr>',
   opts)
-vim.keymap.set('n', '<Leader>pf', '<cmd>lua require("telescope.builtin").live_grep({follow = true})<cr>', opts)
+vim.keymap.set('n', '<Leader>pf',
+  '<cmd>lua require("telescope.builtin").live_grep({no_ignore = false, hidden = true, follow = true})<cr>',
+  opts)
 vim.keymap.set('n', '<Leader>pb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 vim.keymap.set('n', '<Leader>ph', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
 vim.keymap.set('n', '<Leader>pr', '<cmd>lua require("telescope.builtin").resume()<cr>', opts)
