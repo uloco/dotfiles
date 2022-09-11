@@ -25,7 +25,12 @@ vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.wrap = false -- No Wrap lines
+
+vim.opt.wrap = true
+vim.opt.breakindent = true
+vim.opt.showbreak = '↪ '
+-- vim.opt.wrapmargin = 0
+
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -69,13 +74,8 @@ set cpo=n
 set foldmethod=syntax
 set foldlevelstart=99
 set hidden
-set undofile
-" set undodir=$HOME/.config/nvim/.vimundo
-set undodir=$HOME/.config/nvim/undo-new
 set colorcolumn=80
 set textwidth=0
-set wrapmargin=0
-set background=dark
 set conceallevel=0
 set wildmenu
 set wildmode=longest:full,full

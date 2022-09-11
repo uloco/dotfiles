@@ -41,7 +41,7 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 -- keymap.set('n', '<leader>so',  ':so '..vim.fn.expand('$HOME/.config/nvim/init.lua')..'<CR>')
 keymap.set('n', '<Leader>so', ':luafile %<CR>')
 keymap.set('n', '<Leader>w', ':w<CR>')
-keymap.set('n', '<Leader>q', ':q<CR>')
+-- keymap.set('n', '<Leader>q', ':q<CR>')
 keymap.set('n', '<Leader>hi', ':nohl<CR>')
 
 -- Split nav (trying takuyas approach for now)
@@ -51,7 +51,7 @@ keymap.set('n', '<Leader>hi', ':nohl<CR>')
 -- keymap.set('n',  '<A-h>', '<C-W><C-H>')
 
 -- yank and paste from clipboard
--- keymap.set({ 'n', 'v' }, '<Leader>y', '"*y')
+keymap.set({ 'n', 'v' }, '<Leader>y', '"*y')
 -- keymap.set({ 'n', 'v' }, '<Leader>p', '"*p')
 
 -- Terminal
