@@ -46,7 +46,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 -- Disable auto comments on next line
-vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+local augroup_format_options = vim.api.nvim_create_augroup("Format-Options", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = augroup_format_options,
+  callback = function() vim.opt.formatoptions:remove { 'c', 'r', 'o' } end
+})
 
 -- @uloco
 vim.g.mapleader = " "
