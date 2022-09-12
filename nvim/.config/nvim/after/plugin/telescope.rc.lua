@@ -27,7 +27,8 @@ telescope.setup {
       ".git/",
       "node_modules/",
       "Pods/",
-      ".DS_Store"
+      ".DS_Store",
+      ".vimundo",
     },
     vimgrep_arguments = {
       "rg",

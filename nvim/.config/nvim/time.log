@@ -1,0 +1,106 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.006  000.006: --- NVIM STARTING ---
+000.637  000.631: locale set
+000.993  000.357: inits 1
+001.009  000.016: window checked
+001.011  000.002: parsing arguments
+003.319  002.307: init lua interpreter
+003.826  000.507: expanding arguments
+003.901  000.076: inits 2
+004.446  000.544: init highlight
+004.448  000.002: waiting for UI
+007.389  002.941: done waiting for UI
+007.412  000.022: init screen for UI
+007.436  000.024: init default mappings
+007.473  000.037: init default autocommands
+009.634  000.077  000.077: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+010.174  000.090  000.090: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+028.413  006.621  006.621: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.lua
+028.446  017.923  011.302: sourcing /Users/uloco/.config/nvim/init.lua
+028.454  002.890: sourcing vimrc file(s)
+028.747  000.041  000.041: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+034.379  000.036  000.036: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+034.775  005.988  005.952: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+035.120  000.050  000.050: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+035.171  000.322  000.272: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+037.667  000.361  000.361: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+037.841  000.029  000.029: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+038.066  000.128  000.128: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+039.203  000.338  000.338: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+039.529  001.343  001.005: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+039.870  000.236  000.236: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+040.458  000.493  000.493: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+041.144  000.012  000.012: sourcing /Users/uloco/.local/share/nvim/rplugin.vim
+041.152  000.573  000.560: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+041.260  000.061  000.061: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+041.318  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+041.431  000.078  000.078: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+042.350  000.798  000.798: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+042.408  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+042.570  000.128  000.128: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+056.573  013.414  013.414: sourcing /Users/uloco/.config/nvim/plugin/lspconfig.rc.lua
+058.433  001.772  001.772: sourcing /Users/uloco/.config/nvim/plugin/lspsaga.rc.lua
+058.831  000.347  000.347: sourcing /Users/uloco/.config/nvim/plugin/packer_compiled.lua
+059.241  004.641: loading rtp plugins
+059.714  000.027  000.027: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/auto-dark-mode.nvim/plugin/auto-dark-mode.vim
+060.794  000.665  000.665: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+061.840  000.829  000.829: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+062.751  000.712  000.712: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/kommentary/plugin/kommentary.vim
+063.293  000.232  000.232: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/lspsaga.nvim/plugin/lspsaga.lua
+069.859  006.338  006.338: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+070.444  000.385  000.385: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/neogit/plugin/neogit.vim
+070.783  000.014  000.014: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-bufdel/plugin/bufdel.vim
+072.107  001.101  001.101: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+072.259  000.019  000.019: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua/plugin/colorizer.vim
+072.597  000.102  000.102: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.lua
+074.157  001.445  001.445: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-nonicons/plugin/nvim-nonicons.vim
+076.997  002.443  002.443: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+077.677  000.546  000.546: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+077.935  000.026  000.026: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+078.189  000.026  000.026: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+078.431  000.028  000.028: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/prettier.nvim/plugin/prettier.vim
+078.894  000.189  000.189: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+079.027  000.017  000.017: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/todo-comments.nvim/plugin/todo.vim
+079.305  000.043  000.043: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+079.466  005.037: loading packages
+085.081  004.544  004.544: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+085.394  000.192  000.192: sourcing /Users/uloco/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+090.336  004.052  004.052: sourcing /Users/uloco/.config/nvim/after/plugin/auto-dark-mode.rc.lua
+091.542  001.149  001.149: sourcing /Users/uloco/.config/nvim/after/plugin/autopairs.rc.lua
+091.963  000.385  000.385: sourcing /Users/uloco/.config/nvim/after/plugin/ayu.rc.lua
+092.169  000.173  000.173: sourcing /Users/uloco/.config/nvim/after/plugin/bufdel.rc.lua
+094.563  002.364  002.364: sourcing /Users/uloco/.config/nvim/after/plugin/bufferline.rc.lua
+095.477  000.861  000.861: sourcing /Users/uloco/.config/nvim/after/plugin/cmp.rc.lua
+096.889  001.369  001.369: sourcing /Users/uloco/.config/nvim/after/plugin/colorizer.rc.lua
+101.922  004.997  004.997: sourcing /Users/uloco/.config/nvim/after/plugin/gitsigns.rc.lua
+102.076  000.101  000.101: sourcing /Users/uloco/.config/nvim/after/plugin/indent-blankline.rc.lua
+102.133  000.021  000.021: sourcing /Users/uloco/.config/nvim/after/plugin/kommentary.rc.lua
+102.302  000.138  000.138: sourcing /Users/uloco/.config/nvim/after/plugin/lspkind.rc.lua
+105.516  003.183  003.183: sourcing /Users/uloco/.config/nvim/after/plugin/lualine.rc.lua
+108.829  003.280  003.280: sourcing /Users/uloco/.config/nvim/after/plugin/null-ls.rc.lua
+109.648  000.739  000.739: sourcing /Users/uloco/.config/nvim/after/plugin/prettier.rc.lua
+110.388  000.710  000.710: sourcing /Users/uloco/.config/nvim/after/plugin/scrollbar.rc.lua
+111.555  001.134  001.134: sourcing /Users/uloco/.config/nvim/after/plugin/surround.rc.lua
+123.801  012.212  012.212: sourcing /Users/uloco/.config/nvim/after/plugin/telescope.rc.lua
+124.584  000.743  000.743: sourcing /Users/uloco/.config/nvim/after/plugin/todo-comments.rc.lua
+124.651  000.034  000.034: sourcing /Users/uloco/.config/nvim/after/plugin/tokyonight.rc.lua
+126.374  001.692  001.692: sourcing /Users/uloco/.config/nvim/after/plugin/treesitter.rc.lua
+126.856  000.450  000.450: sourcing /Users/uloco/.config/nvim/after/plugin/trouble.rc.lua
+126.923  000.037  000.037: sourcing /Users/uloco/.config/nvim/after/plugin/ts-autotag.rc.lua
+128.177  001.226  001.226: sourcing /Users/uloco/.config/nvim/after/plugin/web-devicons.rc.lua
+128.180  002.930: loading after plugins
+128.187  000.007: inits 3
+130.542  002.355: reading ShaDa
+132.512  001.970: opening buffers
+136.679  004.168: BufEnter autocommands
+136.681  000.002: editing files in windows
+137.175  000.494: VimEnter autocommands
+137.176  000.001: UIEnter autocommands
+137.177  000.001: before starting main loop
+138.872  001.695: first screen update
+138.873  000.001: --- NVIM STARTED ---
