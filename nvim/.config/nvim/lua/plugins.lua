@@ -56,6 +56,13 @@ packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   }
 
+  -- error and todo panel
+  -- Lua
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+
   -- completion
   use 'neovim/nvim-lspconfig' -- LSP
   use 'onsails/lspkind-nvim' -- pictograms in completion

@@ -17,7 +17,7 @@ telescope.setup {
         ['<C-d>'] = actions.delete_buffer
       },
       i = {
-        -- close in insert mode directly [todo] (find a way to override this for file_browser)
+        -- close in insert mode directly TODO: (find a way to override this for file_browser)
         -- ['<esc>'] = actions.close,
         ["<C-u>"] = false,
         ['<C-d>'] = actions.delete_buffer

@@ -63,8 +63,8 @@ keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
 -- Make * not jump after select word under cursor
 keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>')
 
--- Duplicate and comment TODO
-keymap.set({ 'v' }, '<Leader>gc', 'gc')
+-- Duplicate and comment TODO: not working
+-- keymap.set({ 'v' }, '<Lerader>gc', 'gc')
 
 -- "after": ["m", "~", "Y", "g", "c", "c", "p", "`", "~", "j"]
 
@@ -126,10 +126,6 @@ map <A-u> :e %:r.ts <CR>
 map <A-i> :e %:r.scss <CR>
 map <A-o> :e %:r.html <CR>
 map <A-d> :e %:r.spec.ts <CR>
-
-" Tab nav
-nnoremap <C-j> gT
-nnoremap <C-k> gt
 
 " Format file
 map <leader>l mzgg=G`zzz
