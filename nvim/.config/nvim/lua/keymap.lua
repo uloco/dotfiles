@@ -52,6 +52,7 @@ keymap.set({ 'n', 'v' }, '<Leader>y', '"*y')
 
 -- paste without
 keymap.set({ 'x' }, '<Leader>p', '"_dP')
+-- { "before": ["p"], "after": ["p", "g", "v", "y"] }
 
 -- Terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
@@ -59,14 +60,16 @@ keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- Center on half page up down
 keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
 keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
+-- Center on half page up down
+keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
+keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
 
 -- Make * not jump after select word under cursor
 keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>')
 
--- Duplicate and comment TODO: not working
--- keymap.set({ 'v' }, '<Lerader>gc', 'gc')
-
--- "after": ["m", "~", "Y", "g", "c", "c", "p", "`", "~", "j"]
+-- Duplicate and comment
+keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj')
+keymap.set({ 'v' }, '<leader>gc', 'Ygv<Plug>kommentary_visual_default<cr>o<esc>p')
 
 
 --[[
