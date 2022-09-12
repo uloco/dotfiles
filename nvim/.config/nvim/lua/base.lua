@@ -66,6 +66,10 @@ vim.opt.undodir = vim.fn.expand('$HOME/.config/nvim/.vimundo')
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
 
+-- highlight yank
+vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
+
+
 --[[
 " General settings
 "------------------------------------------------------------------------------
