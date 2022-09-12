@@ -20,7 +20,9 @@ telescope.setup {
         -- close in insert mode directly TODO: (find a way to override this for file_browser)
         -- ['<esc>'] = actions.close,
         ["<C-u>"] = false,
-        ['<C-d>'] = actions.delete_buffer
+        ['<C-d>'] = actions.delete_buffer,
+        ['A-u'] = actions.preview_scrolling_up,
+        ['A-d'] = actions.preview_scrolling_down,
       }
     },
     file_ignore_patterns = {
