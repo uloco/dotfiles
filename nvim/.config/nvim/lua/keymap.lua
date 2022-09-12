@@ -10,7 +10,7 @@ keymap.set('n', '-', '<C-x>')
 -- keymap.set('n', 'dw', 'vb"_d')
 
 -- Select all
-keymap.set('n', '<M-a>', 'gg<S-v>G')
+keymap.set('n', '<C-a>', 'ggVG')
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -19,13 +19,6 @@ keymap.set('n', '<M-a>', 'gg<S-v>G')
 keymap.set('n', 'ss', ':split<CR>', { silent = true })
 keymap.set('n', 'sv', ':vsplit<CR>', { silent = true })
 
--- Move window
--- keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', 'sh', '<C-w>h')
-keymap.set('', 'sk', '<C-w>k')
-keymap.set('', 'sj', '<C-w>j')
-keymap.set('', 'sl', '<C-w>l')
-
 -- Resize window
 keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
@@ -33,33 +26,38 @@ keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
 
--- @uloco
-
--- keymap.set('n', '<leader>so',  ':so '..vim.fn.expand('$HOME/.config/nvim/init.lua')..'<CR>')
+-- reload lua file
 keymap.set('n', '<Leader>so', ':luafile %<CR>')
+
+-- save
 keymap.set('n', '<Leader>w', ':w<CR>')
--- keymap.set('n', '<Leader>q', ':q<CR>')
+
+-- disable search highlighting
 keymap.set('n', '<Leader>hi', ':nohl<CR>')
 
 -- Split nav (trying takuyas approach for now)
--- keymap.set('n',  '<A-j>', '<C-W><C-J>')
--- keymap.set('n',  '<A-k>', '<C-W><C-K>')
--- keymap.set('n',  '<A-l>', '<C-W><C-L>')
--- keymap.set('n',  '<A-h>', '<C-W><C-H>')
+keymap.set('n', '<A-j>', '<C-W><C-J>')
+keymap.set('n', '<A-k>', '<C-W><C-K>')
+keymap.set('n', '<A-l>', '<C-W><C-L>')
+keymap.set('n', '<A-h>', '<C-W><C-H>')
+keymap.set('i', '<A-j>', '<Esc><C-W><C-J>')
+keymap.set('i', '<A-k>', '<Esc><C-W><C-K>')
+keymap.set('i', '<A-l>', '<Esc><C-W><C-L>')
+keymap.set('i', '<A-h>', '<Esc><C-W><C-H>')
+keymap.set('t', '<A-j>', '<C-\\><C-n><C-W><C-J>')
+keymap.set('t', '<A-k>', '<C-\\><C-n><C-W><C-K>')
+keymap.set('t', '<A-l>', '<C-\\><C-n><C-W><C-L>')
+keymap.set('t', '<A-h>', '<C-\\><C-n><C-W><C-H>')
 
 -- yank and paste from clipboard
 keymap.set({ 'n', 'v' }, '<Leader>y', '"*y')
 
--- paste without
-keymap.set({ 'x' }, '<Leader>p', '"_dP')
--- { "before": ["p"], "after": ["p", "g", "v", "y"] }
+-- paste in visual and keep in yank
+keymap.set({ 'x' }, 'p', 'pgvy')
 
 -- Terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
--- Center on half page up down
-keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
-keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
 -- Center on half page up down
 keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz')
 keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz')
@@ -69,7 +67,10 @@ keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>')
 
 -- Duplicate and comment
 keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj')
-keymap.set({ 'v' }, '<leader>gc', 'Ygv<Plug>kommentary_visual_default<cr>o<esc>p')
+keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>')
+
+--format document
+keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.formatting_seq_sync() end)
 
 
 --[[
@@ -103,20 +104,6 @@ nnoremap <leader>so :so ~/.vimrc<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>a :wa<CR>
-
-" Split nav
-nnoremap <A-j> <C-W><C-J>
-nnoremap <A-k> <C-W><C-K>
-nnoremap <A-l> <C-W><C-L>
-nnoremap <A-h> <C-W><C-H>
-inoremap <A-j> <Esc><C-W><C-J>
-inoremap <A-k> <Esc><C-W><C-K>
-inoremap <A-l> <Esc><C-W><C-L>
-inoremap <A-h> <Esc><C-W><C-H>
-tnoremap <A-j> <C-\><C-n><C-W><C-J>
-tnoremap <A-k> <C-\><C-n><C-W><C-K>
-tnoremap <A-l> <C-\><C-n><C-W><C-L>
-tnoremap <A-h> <C-\><C-n><C-W><C-H>
 
 " Split resizing
 nnoremap <Up>    :resize +2<CR>
