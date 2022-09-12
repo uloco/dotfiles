@@ -23,6 +23,12 @@ telescope.setup {
         ['<C-d>'] = actions.delete_buffer
       }
     },
+    file_ignore_patterns = {
+      ".git/",
+      "node_modules/",
+      "Pods/",
+      ".DS_Store"
+    },
     vimgrep_arguments = {
       "rg",
       "--color=never",
