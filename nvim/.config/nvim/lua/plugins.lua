@@ -94,4 +94,9 @@ packer.startup(function(use)
   -- indent lines
   use "lukas-reineke/indent-blankline.nvim"
 
+  -- show what keys do
+  use {
+    'folke/which-key.nvim',
+    disabled = true
+  }
 end)
