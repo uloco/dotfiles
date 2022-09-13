@@ -77,6 +77,7 @@ telescope.setup {
 }
 
 telescope.load_extension('file_browser')
+telescope.load_extension('fzf') -- load telescope-fzf-native
 
 local opts = { noremap = true, silent = true }
 
@@ -117,4 +118,4 @@ vim.keymap.set('n', 'sf',
   end,
   opts)
 
-vim.keymap.set('n', '<leader>pg', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
+vim.keymap.set('n', '<leader>pg', function() builtin.git_status() end, opts)
