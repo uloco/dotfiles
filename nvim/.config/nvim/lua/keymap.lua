@@ -74,6 +74,8 @@ keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<e
 --format document
 keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.formatting_seq_sync() end)
 
+-- open links / files
+vim.api.nvim_set_keymap("n", "gl", [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
 
 --[[
 " New Tab with ctrl-w + t
