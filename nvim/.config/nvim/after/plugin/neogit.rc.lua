@@ -8,6 +8,10 @@ neogit.setup {
   popup = {
     kind = "floating",
   },
+  integrations = {
+    diffview = true
+  },
+  disable_commit_confirmation = true
 }
 
 vim.keymap.set('n', '<Leader>gc', function()
@@ -17,5 +21,10 @@ end
 
 vim.keymap.set('n', '<Leader>gp', function()
   neogit.open({ "push" })
+end
+)
+
+vim.keymap.set('n', '<Leader>gg', function()
+  neogit.open()
 end
 )
