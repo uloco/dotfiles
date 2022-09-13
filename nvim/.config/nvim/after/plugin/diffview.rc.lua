@@ -93,7 +93,7 @@ function DiffviewHistoryToggle()
     vim.cmd(":DiffviewClose")
   else
     -- No open Diffview exists: open a new one
-    vim.cmd(":DiffviewFileHistory")
+    vim.cmd(":DiffviewFileHistory %")
   end
 end
 
