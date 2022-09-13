@@ -29,6 +29,7 @@ packer.startup(function(use)
   -- quick find
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
