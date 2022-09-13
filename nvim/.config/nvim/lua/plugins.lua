@@ -103,4 +103,12 @@ packer.startup(function(use)
     'folke/which-key.nvim',
     disabled = true
   }
+
+  -- tree view explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+  }
 end)
