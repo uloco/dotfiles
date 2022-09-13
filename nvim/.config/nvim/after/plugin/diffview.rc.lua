@@ -5,6 +5,18 @@ require("diffview").setup({
   file_panel = {
     listing_style = "list", -- One of 'list' or 'tree'
   },
+  view = {
+    merge_tool = {
+      -- "diff1_plain"
+      --     | "diff2_horizontal"
+      --     | "diff2_vertical"
+      --     | "diff3_horizontal"
+      --     | "diff3_vertical"
+      --     | "diff3_mixed"
+      --     | "diff4_mixed"
+      layout = "diff3_mixed"
+    },
+  },
   keymaps = {
     disable_defaults = false, -- Disable the default keymaps
     view = {
