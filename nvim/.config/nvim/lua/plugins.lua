@@ -71,6 +71,8 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-comp source for neovim's built-in LSP
   use 'L3MON4D3/LuaSnip' -- Snippets
+  use 'williamboman/mason.nvim' -- easier lsp language install
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- prettier
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
@@ -90,6 +92,7 @@ packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use 'dinhhuy258/git.nvim'
 
   -- indent lines
   use "lukas-reineke/indent-blankline.nvim"
