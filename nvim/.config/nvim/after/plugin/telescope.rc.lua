@@ -5,6 +5,7 @@ function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
+local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 local action_layout = require 'telescope.actions.layout'
@@ -78,19 +79,42 @@ telescope.setup {
 telescope.load_extension('file_browser')
 
 local opts = { noremap = true, silent = true }
+
+-- search files
 vim.keymap.set('n', '<leader>pp',
-  '<cmd>lua require("telescope.builtin").find_files({no_ignore = false, hidden = true, follow = true})<cr>',
+  function()
+    builtin.find_files({
+      no_ignore = false,
+      hidden = true,
+      follow = true
+    })
+  end,
   opts)
-vim.keymap.set('n', '<leader>pf',
-  '<cmd>lua require("telescope.builtin").live_grep()<cr>',
-  opts)
-vim.keymap.set('n', '<leader>pb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
-vim.keymap.set('n', '<leader>ph', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
-vim.keymap.set('n', '<leader>pr', '<cmd>lua require("telescope.builtin").resume()<cr>', opts)
-vim.keymap.set('n', '<leader>pe', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
+
+-- search text
+vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end, opts)
+
+-- search open buffers
+vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end, opts)
+
+-- search help pages
+vim.keymap.set('n', '<leader>ph', function() builtin.help_tags() end, opts)
+
+-- resume last search
+vim.keymap.set('n', '<leader>pr', function() builtin.resume() end, opts)
+
+-- search errors / warnings / info
+vim.keymap.set('n', '<leader>pe', function() builtin.diagnostics() end, opts)
+
+-- open file explorer
 vim.keymap.set('n', 'sf',
-  -- '<cmd>lua require("telescope").extensions.file_browser.file_browser({path = "%:p:h", cwd = telescope_buffer_dir(), respect_gitignore = false, hidden = true, grouped = true, previewer = false, initial_mode = "normal", layout_config = {height = 80} })<cr>'
-  '<cmd>lua require("telescope").extensions.file_browser.file_browser({path = "%:p:h", cwd = telescope_buffer_dir(), respect_gitignore = false, })<cr>'
-  , opts)
+  function()
+    telescope.extensions.file_browser.file_browser({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
+      respect_gitignore = false,
+    })
+  end,
+  opts)
 
 vim.keymap.set('n', '<leader>pg', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
