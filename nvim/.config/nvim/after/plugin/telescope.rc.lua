@@ -43,7 +43,8 @@ telescope.setup {
       "--smart-case",
       "--follow", -- follow symlinks
       "--hidden" -- also search .hidden files
-    }
+    },
+    winblend = 15
   },
   extensions = {
     file_browser = {
