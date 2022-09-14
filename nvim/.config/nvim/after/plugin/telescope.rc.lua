@@ -82,15 +82,18 @@ telescope.load_extension('fzf') -- load telescope-fzf-native
 local opts = { noremap = true, silent = true }
 
 -- search files
-vim.keymap.set('n', '<leader>pp',
-  function()
-    builtin.find_files({
-      no_ignore = false,
-      hidden = true,
-      follow = true
-    })
-  end,
-  opts)
+vim.keymap.set('n', '<leader>pp', function()
+  builtin.find_files({
+    no_ignore = false,
+    hidden = true,
+    follow = true
+  })
+end, opts)
+
+-- search text
+vim.keymap.set('n', '<leader>po', function()
+  builtin.oldfiles({ only_cwd = true })
+end, opts)
 
 -- search text
 vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end, opts)
