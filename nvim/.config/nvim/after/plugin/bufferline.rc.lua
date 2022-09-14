@@ -3,6 +3,9 @@ if (not status) then return end
 
 bufferline.setup {
   options = {
+    indicator = {
+      style = 'underline',
+    },
     mode = 'buffers',
     always_show_bufferline = true,
     show_buffer_close_icons = false,
