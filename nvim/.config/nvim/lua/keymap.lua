@@ -51,6 +51,9 @@ keymap.set('t', '<A-k>', '<C-\\><C-n><C-W><C-K>', opts)
 keymap.set('t', '<A-l>', '<C-\\><C-n><C-W><C-L>', opts)
 keymap.set('t', '<A-h>', '<C-\\><C-n><C-W><C-H>', opts)
 
+-- organize splits
+keymap.set('n', '<A-=>', '<C-W><C-=>', opts)
+
 -- yank and paste from clipboard
 keymap.set({ 'n', 'v' }, '<Leader>y', '"*y', opts)
 
