@@ -75,9 +75,5 @@ vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 "------------------------------------------------------------------------------
 set foldmethod=syntax
 set foldlevelstart=99
-set colorcolumn=80
-set textwidth=0
 set conceallevel=0
-set wildmenu
-set wildmode=longest:full,full
 ]]
