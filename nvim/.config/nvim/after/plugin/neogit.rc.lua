@@ -14,7 +14,7 @@ neogit.setup {
   disable_commit_confirmation = true
 }
 
-vim.keymap.set('n', '<Leader>gc', function()
+vim.keymap.set('n', '<Leader>gC', function()
   neogit.open({ "commit" })
 end
 )
