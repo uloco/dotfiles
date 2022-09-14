@@ -3,6 +3,7 @@ if (not status) then return end
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
+---@diagnostic disable-next-line: redundant-parameter
 null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.eslint_d.with({
