@@ -8,6 +8,7 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end
   },
+
   mapping = cmp.mapping.preset.insert({
     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -23,11 +24,29 @@ cmp.setup({
 
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'buffer' }
+    { name = 'buffer' },
   }),
   formatting = {
     format = lspkind.cmp_format({ wirth_text = false, maxwidth = 50 })
   }
+})
+
+-- Use buffer source for `/`
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':'
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
 
 vim.cmd [[

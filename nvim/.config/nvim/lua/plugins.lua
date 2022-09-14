@@ -64,14 +64,20 @@ packer.startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   }
 
-  -- completion
-  use 'neovim/nvim-lspconfig' -- LSP
+  --lsp
+  use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim' -- pictograms in completion
   use 'glepnir/lspsaga.nvim' -- vscode like peeks, refactorings
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+
+  -- completion
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-comp source for neovim's built-in LSP
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp' -- Completion
   use 'L3MON4D3/LuaSnip' -- Snippets
+  use 'saadparwaiz1/cmp_luasnip'
+  -- package manager
   use 'williamboman/mason.nvim' -- easier lsp language install
   use 'williamboman/mason-lspconfig.nvim'
 
