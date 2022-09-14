@@ -54,7 +54,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- @uloco
 vim.g.mapleader = " "
--- vim.opt.timeout = false -- don't timeout keys  TODO: only leader
 
 -- autocmd
 vim.opt.smartcase = true -- Case insensitive searching UNLESS /C or capital in search
