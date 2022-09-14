@@ -108,7 +108,7 @@ vim.keymap.set('n', '<leader>pr', function() builtin.resume() end, opts)
 vim.keymap.set('n', '<leader>pe', function() builtin.diagnostics() end, opts)
 
 -- open file explorer
-vim.keymap.set('n', 'sf',
+vim.keymap.set('n', '<leader>fb',
   function()
     telescope.extensions.file_browser.file_browser({
       path = "%:p:h",
