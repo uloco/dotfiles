@@ -104,4 +104,6 @@ packer.startup(function(use)
     disabled = true
   }
 
+  -- better terminals
+  use { "akinsho/toggleterm.nvim", tag = '*' }
 end)
