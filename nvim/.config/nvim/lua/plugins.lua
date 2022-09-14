@@ -77,6 +77,8 @@ packer.startup(function(use)
   use 'hrsh7th/nvim-cmp' -- Completion
   use 'L3MON4D3/LuaSnip' -- Snippets
   use 'saadparwaiz1/cmp_luasnip'
+  use 'David-Kunz/cmp-npm'
+
   -- package manager
   use 'williamboman/mason.nvim' -- easier lsp language install
   use 'williamboman/mason-lspconfig.nvim'

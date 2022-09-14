@@ -2,6 +2,12 @@ local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local lspkind = require 'lspkind'
 
+-- npm sources
+require('cmp-npm').setup({
+  only_semantic_versions = true
+})
+
+-- general cmp setup
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -23,6 +29,7 @@ cmp.setup({
   }),
 
   sources = cmp.config.sources({
+    { name = 'npm', keyword_length = 4 },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
   }),
