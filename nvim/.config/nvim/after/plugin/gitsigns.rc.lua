@@ -13,8 +13,8 @@ gitsigns.setup {
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<Leader>gb', ':Gitsigns toggle_current_line_blame<CR>', opts)
-vim.keymap.set('n', '<Leader>kh', ':Gitsigns prev_hunk<CR>', opts)
-vim.keymap.set('n', '<Leader>jh', ':Gitsigns next_hunk<CR>', opts)
+vim.keymap.set('n', '<Leader>kh', ':Gitsigns prev_hunk<CR>zz', opts)
+vim.keymap.set('n', '<Leader>jh', ':Gitsigns next_hunk<CR>zz', opts)
 vim.keymap.set({ 'n', 'v' }, '<leader>ha', ':Gitsigns stage_hunk<cr>', opts)
 vim.keymap.set('n', '<Leader>hu', ':Gitsigns undo_stage_hunk<CR>', opts)
 vim.keymap.set({ 'n', 'v' }, '<Leader>hr', ':Gitsigns reset_hunk<CR>', opts)
