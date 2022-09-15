@@ -89,7 +89,7 @@ vim.keymap.set('n', '<leader>pp', function()
     hidden = true,
     follow = true
   })
-end, opts)
+end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search text
 vim.keymap.set('n', '<leader>po', function()
@@ -97,7 +97,26 @@ vim.keymap.set('n', '<leader>po', function()
 end, opts)
 
 -- search text
-vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end, opts)
+vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end,
+  { noremap = true, silent = true, desc = "Search in files" })
+
+-- search ALL text (including ignored files)
+vim.keymap.set('n', '<leader>pF',
+  function()
+    builtin.live_grep { vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--follow", -- follow symlinks
+      "--hidden", -- also search .hidden files
+      "-u"
+    } }
+  end,
+  { noremap = true, silent = true, desc = "Search in files" })
 
 -- search open buffers
 vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end, opts)
