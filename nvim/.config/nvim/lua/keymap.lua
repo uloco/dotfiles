@@ -18,8 +18,8 @@ keymap.set('n', '<C-a>', 'ggVG', opts)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- Split window
-keymap.set('n', 'ss', ':split<CR>', { silent = true })
-keymap.set('n', 'sv', ':vsplit<CR>', { silent = true })
+keymap.set('n', 'sS', ':split<CR>', { silent = true })
+keymap.set('n', 'ss', ':vsplit<CR>', { silent = true })
 
 -- Resize window
 keymap.set('n', '<C-w><left>', '<C-w><', opts)
