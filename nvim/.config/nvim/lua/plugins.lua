@@ -118,4 +118,11 @@ packer.startup(function(use)
 
   -- better terminals
   use { "akinsho/toggleterm.nvim", tag = '*' }
+
+  -- greeter
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
 end)
