@@ -20,7 +20,7 @@ telescope.setup {
       i = {
         -- close in insert mode directly TODO: (find a way to override this for file_browser)
         -- ['<esc>'] = actions.close,
-        ['<C-q>'] = actions.delete_buffer,
+        ['<A-q>'] = actions.delete_buffer,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
       }
@@ -49,6 +49,9 @@ telescope.setup {
     file_browser = {
       theme = 'dropdown',
       -- disables netrw add use telescope-file-broser in its place
+      layout_config = {
+        height = 30
+      },
       hijack_netrw = true,
       initial_mode = "normal",
       hidden = "true",
