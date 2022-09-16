@@ -7,9 +7,9 @@ bufdel.setup {
 }
 
 local opt = { noremap = true, silent = true }
-vim.keymap.set('n', '<A-q>', ':BufDel<CR>:BufferLineCyclePrev<CR>', opt)
-vim.keymap.set('n', '<Leader>q', ':BufDel<CR>:BufferLineCyclePrev<CR>', opt)
-vim.keymap.set('n', '<Leader><Leader>q', ':BufDel!<CR>:BufferLineCyclePrev<CR>', opt)
+vim.keymap.set('n', '<A-q>', ':BufDel<CR>', opt)
+vim.keymap.set('n', '<Leader>q', ':BufDel<CR>', opt)
+vim.keymap.set('n', '<Leader><Leader>q', ':BufDel!<CR>', opt)
 
 -- close all buffers
 local function close_all()
