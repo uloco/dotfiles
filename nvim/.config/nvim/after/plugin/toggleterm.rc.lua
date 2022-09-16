@@ -3,7 +3,7 @@ if (not status) then return end
 
 toggleterm.setup({
   hide_numbers = false,
-  open_mapping = '<F60>',
+  open_mapping = '<A-ß>',
   insert_mappings = true,
   terminal_mappings = true,
   direction = 'float',
