@@ -96,3 +96,15 @@
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false
+    syntax-theme = Coldark-Dark
+    ; syntax-theme = base16
+    plus-style = "#009FAD" "#223C4F"
+    plus-emph-style = "#009FAD" "#205368"
+    minus-style = "#9C4753" "#422C3E"
+    minus-emph-style = "#9C4753" "#553347"
+    hunk-header-decoration-style = blue box
+    file-style = omit
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
