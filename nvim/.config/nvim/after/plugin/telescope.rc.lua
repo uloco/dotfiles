@@ -127,7 +127,7 @@ vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end, opts)
 vim.keymap.set('n', '<leader>ph', function() builtin.help_tags() end, opts)
 
 -- resume last search
-vim.keymap.set('n', '<leader>pr', function() builtin.resume() end, opts)
+vim.keymap.set('n', '<leader>pR', function() builtin.resume() end, opts)
 
 -- search errors / warnings / info
 vim.keymap.set('n', '<leader>pe', function() builtin.diagnostics() end, opts)
@@ -144,3 +144,10 @@ vim.keymap.set('n', '<leader>fb',
   opts)
 
 vim.keymap.set('n', '<leader>pg', function() builtin.git_status() end, opts)
+
+vim.keymap.set('n', '<leader>pd', function() builtin.lsp_definitions() end, opts)
+vim.keymap.set('n', '<leader>pt', function() builtin.lsp_type_definitions() end, opts)
+vim.keymap.set('n', '<leader>pr', function() builtin.lsp_references() end, opts)
+vim.keymap.set('n', '<leader>pi', function() builtin.lsp_implementations() end, opts)
+vim.keymap.set('n', '<leader>po', function() builtin.lsp_document_symbols() end, opts)
+vim.keymap.set('n', '<leader>pO', function() builtin.lsp_dynamic_workspace_symbols() end, opts)
