@@ -101,15 +101,15 @@
     syntax-theme = base16
     plus-style = "#009FAD" "#223C4F"
     plus-emph-style = "#009FAD" "#205368"
-    minus-style = "#B65361" "#422C3E"
-    minus-emph-style = "#B65361" "#613A4C"
+    minus-style = "#C05967" "#422C3E"
+    minus-emph-style = "#C05967" "#573346"
     hunk-header-decoration-style = blue box
     file-style = omit
     map-styles = \
       bold purple => "#009FAD" "#223C4F", \
-      bold cyan => "#B65361" "#422C3E", \
+      bold cyan => "#C05967" "#422C3E", \
       bold blue => "#009FAD" "#223C4F", \
-      bold yellow => "#B65361" "#422C3E",
+      bold yellow => "#C05967" "#422C3E",
 
 ; tokyonight day
 [delta "light-mode"]
