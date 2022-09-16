@@ -10,8 +10,8 @@
     rmdir = true
 [core]
     editor = nvim
-  ; pager = less -X -F
-    pager = delta
+    ; pager = less -X -F
+    pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
 [github]
     user = uloco
 [ghi]
@@ -20,7 +20,7 @@
     tool = vimdiff
     colorMoved = default
 [merge]
-      tool = vimdiff
+    tool = vimdiff
     conflictstyle = diff3
 [difftool]
     prompt = false
@@ -93,17 +93,40 @@
     diffFilter = delta --color-only
 [add.interactive]
     useBuiltin = false # required for git 2.37.0
-[delta]
+
+[delta "dark-mode"]
     navigate = true    # use n and N to move between diff sections
-    light = false
-    syntax-theme = Coldark-Dark
-    ; syntax-theme = base16
+    dark = true
+    syntax-theme = base16
     plus-style = "#009FAD" "#223C4F"
     plus-emph-style = "#009FAD" "#205368"
     minus-style = "#9C4753" "#422C3E"
     minus-emph-style = "#9C4753" "#553347"
     hunk-header-decoration-style = blue box
     file-style = omit
+    zero-style = normal "#2F3550"
+    map-styles = \
+      bold purple => "#009FAD" "#223C4F", \
+      bold cyan => "#9C4753" "#422C3E", \
+      bold blue => "#009FAD" "#223C4F", \
+      bold yellow => "#9C4753" "#422C3E",
+
+[delta "light-mode"]
+    navigate = true    # use n and N to move between diff sections
+    light = true
+    syntax-theme = base16
+    plus-style = "#0099A6" "#B4D4E9"
+    plus-emph-style = "#0099A6" "#94C7E9"
+    minus-style = "#D07480" "#E3CBD4"
+    minus-emph-style = "#D07480" "#E3ADC3"
+    hunk-header-decoration-style = blue box
+    file-style = omit
+    zero-style = normal "#C2C6DA"
+    map-styles = \
+       bold purple => "#0099A6" "#B4D4E9", \
+       bold cyan => "#D07480" "#E3CBD4",  \
+       bold blue => "#0099A6" "#B4D4E9", \
+       bold yellow => "#D07480" "#E3CBD4", 
 
 [delta "interactive"]
     keep-plus-minus-markers = false
