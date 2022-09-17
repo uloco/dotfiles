@@ -2,3 +2,17 @@ git:
   paging:
     colorArg: always
     pager: delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+gui:
+  showIcons: true
+  branchColors:
+    'main': 'blue'
+    'master': 'blue'
+    'dev': 'green'
+    'develop': 'green'
+    'release': 'yellow'
+    'hotfix': 'red'
+  authorColors:
+    'Umut Topuzoğlu': 'magenta'
