@@ -26,9 +26,7 @@ telescope.setup {
       }
     },
     file_ignore_patterns = {
-      ".git/",
-      "node_modules/",
-      "Pods/",
+      "^.git/",
       ".DS_Store",
       ".vimundo",
     },
@@ -138,6 +136,7 @@ vim.keymap.set('n', '<leader>fb',
     telescope.extensions.file_browser.file_browser({
       path = "%:p:h",
       cwd = telescope_buffer_dir(),
+      file_ignore_patterns = {},
       respect_gitignore = false,
     })
   end,
