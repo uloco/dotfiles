@@ -249,3 +249,18 @@ alias rosetta="arch -x86_64"
 # Bun
 export BUN_INSTALL="/Users/uloco/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Lazygi-modet
+export CONFIG_DIR=${HOME}/.config/lazygit
+
+function get_macos_theme () {
+  defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light
+}
+
+function lgit () {
+  THEME=${get_macos_theme}
+  CONFIG_BASE=${CONFIG_DIR}/config.yml
+  CONFIG_THEME=${CONFIG_DIR}/config-${THEME}.yml
+
+  lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME}
+}
