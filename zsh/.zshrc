@@ -257,10 +257,10 @@ function get_macos_theme () {
   defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light
 }
 
-function lgit () {
-  THEME=${get_macos_theme}
+function lazygit () {
+  THEME=$(get_macos_theme)
   CONFIG_BASE=${CONFIG_DIR}/config.yml
   CONFIG_THEME=${CONFIG_DIR}/config-${THEME}.yml
 
-  lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME}
+  command lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME}
 }
