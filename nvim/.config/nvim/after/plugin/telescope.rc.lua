@@ -92,7 +92,7 @@ vim.keymap.set('n', '<leader>pp', function()
 end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search text
-vim.keymap.set('n', '<leader>po', function()
+vim.keymap.set('n', '<leader><leader>p', function()
   builtin.oldfiles({ only_cwd = true })
 end, opts)
 
