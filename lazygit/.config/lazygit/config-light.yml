@@ -1,3 +1,7 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --features light-mode --paging=never
 gui:
   theme:
     lightTheme: true
