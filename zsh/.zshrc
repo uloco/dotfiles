@@ -241,7 +241,7 @@ alias npm-clean-install="rm -rf package-lock.json node_modules ios/Pods ios/Podf
 eval "$(op completion zsh)"; compdef _op op
 
 alias rosetta="arch -x86_64"
-
+alias cat="bat"
 
 # bun completions
 [ -s "/Users/uloco/.bun/_bun" ] && source "/Users/uloco/.bun/_bun"
@@ -262,5 +262,6 @@ function lazygit () {
   CONFIG_BASE=${CONFIG_DIR}/config.yml
   CONFIG_THEME=${CONFIG_DIR}/config-${THEME}.yml
 
-  command lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME}
+  command lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME} $@
+}
 }
