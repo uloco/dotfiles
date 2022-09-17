@@ -241,7 +241,6 @@ alias npm-clean-install="rm -rf package-lock.json node_modules ios/Pods ios/Podf
 eval "$(op completion zsh)"; compdef _op op
 
 alias rosetta="arch -x86_64"
-alias cat="bat"
 
 # bun completions
 [ -s "/Users/uloco/.bun/_bun" ] && source "/Users/uloco/.bun/_bun"
@@ -264,4 +263,17 @@ function lazygit () {
 
   command lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME} $@
 }
+
+function bat() {
+  THEME=$(get_macos_theme)
+
+  if [[ ${THEME} = "dark" ]]; then
+    export BAT_CONFIG_PATH="${HOME}/.config/bat/config-dark.conf"
+  else
+    export BAT_CONFIG_PATH="${HOME}/.config/bat/config-light.conf"
+  fi
+
+  command bat $@
 }
+
+alias cat="bat"
