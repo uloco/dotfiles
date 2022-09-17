@@ -1,0 +1,16 @@
+gui:
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - default
+    selectedLineBgColor:
+      - reverse 
+    selectedRangeBgColor:
+      - reverse
+    cherryPickedCommitBgColor:
+      - blue
+    cherryPickedCommitFgColor:
+      - yellow
