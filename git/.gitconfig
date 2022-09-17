@@ -98,35 +98,35 @@
 [delta "dark-mode"]
     navigate = true    # use n and N to move between diff sections
     dark = true
-    syntax-theme = base16
-    plus-style = "#009FAD" "#223C4F"
-    plus-emph-style = "#009FAD" "#205368"
-    minus-style = "#C05967" "#422C3E"
-    minus-emph-style = "#C05967" "#573346"
+    syntax-theme = bluloco-dark
+    plus-style = syntax "#2B5A3F"
+    plus-emph-style = syntax "#2D6363"
+    minus-style = syntax "#4D3034"
+    minus-emph-style = syntax "#6A3234"
     hunk-header-decoration-style = blue box
     file-style = omit
     map-styles = \
-      bold purple => "#009FAD" "#223C4F", \
-      bold cyan => "#C05967" "#422C3E", \
-      bold blue => "#009FAD" "#223C4F", \
-      bold yellow => "#C05967" "#422C3E",
+      bold purple => syntax "#2B5A3F", \
+      bold cyan => syntax "#4D3034", \
+      bold blue => syntax "#2B5A3F", \
+      bold yellow => syntax "#4D3034",
 
 ; tokyonight day
 [delta "light-mode"]
     navigate = true    # use n and N to move between diff sections
     light = true
-    syntax-theme = GitHub
-    plus-style = "#008894" "#B4D4E9"
-    plus-emph-style = "#008894" "#94C7E9"
-    minus-style = "#CE6775" "#E3CBD4"
-    minus-emph-style = "#CE6775" "#E3ADC3"
+    syntax-theme = bluloco-light
+    plus-style = syntax "#B5F6C6"
+    plus-emph-style = syntax "#A8F0C8"
+    minus-style = syntax "#F8DDE0"
+    minus-emph-style = syntax "#F7BEC5"
     hunk-header-decoration-style = blue box
     file-style = omit
     map-styles = \
-       bold purple => "#008894" "#B4D4E9", \
-       bold cyan => "#CE6775" "#E3CBD4",  \
-       bold blue => "#008894" "#B4D4E9", \
-       bold yellow => "#CE6775" "#E3CBD4", 
+       bold purple => syntax "#B5F6C6", \
+       bold cyan => syntax "#F8DDE0",  \
+       bold blue => syntax "#B5F6C6", \
+       bold yellow => syntax "#F8DDE0", 
 
 [delta "interactive"]
     keep-plus-minus-markers = false
