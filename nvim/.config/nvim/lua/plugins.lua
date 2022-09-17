@@ -90,10 +90,7 @@ packer.startup(function(use)
   -- utils
   use 'f-person/auto-dark-mode.nvim'
   use 'b3nj5m1n/kommentary'
-  use({
-    'kylechui/nvim-surround',
-    tag = '*', -- Use for stability; omit to use `main` branch for the latest features
-  })
+  use 'kylechui/nvim-surround'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
