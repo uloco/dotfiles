@@ -125,4 +125,7 @@ packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
+  -- session management
+  use 'rmagatti/auto-session'
+
 end)
