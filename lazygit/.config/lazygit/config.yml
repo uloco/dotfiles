@@ -1,6 +1,5 @@
 os:
-  editCommand: 'nvim'
-  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+  editCommand: "nvr -cc 'LazygitClose'" 
 gui:
   showIcons: true
   branchColors:
@@ -12,3 +11,4 @@ gui:
     'hotfix': 'red'
   authorColors:
     'Umut Topuzoğlu': 'magenta'
+promptToReturnFromSubprocess: false
