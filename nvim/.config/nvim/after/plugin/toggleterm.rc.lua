@@ -9,7 +9,7 @@ toggleterm.setup({
   direction = 'float',
   float_opts = {
     border = 'curved',
-    winblend = 10,
+    winblend = 0,
   },
   persist_size = false,
   winbar = {
