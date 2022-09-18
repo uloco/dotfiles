@@ -37,7 +37,7 @@ keymap.set('n', '<Leader>w', ':w<CR>', opts)
 -- disable search highlighting
 keymap.set('n', '<Leader>hi', ':nohl<CR>', opts)
 
--- Split nav (trying takuyas approach for now)
+-- Split nav 
 keymap.set('n', '<A-j>', '<C-W><C-J>', opts)
 keymap.set('n', '<A-k>', '<C-W><C-K>', opts)
 keymap.set('n', '<A-l>', '<C-W><C-L>', opts)
@@ -90,14 +90,8 @@ vim.api.nvim_set_keymap("n", "gl", [[:silent execute '!open ' . shellescape(expa
 " New Tab with ctrl-w + t
 nnoremap <A-t> :tabnew<CR>
 
-" Terminal Mode Mappings
-tnoremap <Esc> <C-\><C-n>
-
 " Enter insert mode when entering terminal
 " autocmd BufWinEnter,WinEnter term://* startinsert
-
-" Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <leader>hi :nohlsearch<CR>
 
 " Change current working directory to file location
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -110,39 +104,10 @@ function! <SID>ChangeTabDir()
 endfunc
 
 
-" Reload .vimrc file
-nnoremap <leader>so :so ~/.vimrc<CR>
-
-" Often used shortcuts
-nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>a :wa<CR>
-
-" Split resizing
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-
 " Switch between different file extensions
 map <A-u> :e %:r.ts <CR>
 map <A-i> :e %:r.scss <CR>
 map <A-o> :e %:r.html <CR>
 map <A-d> :e %:r.spec.ts <CR>
-
-" Format file
-map <leader>l mzgg=G`zzz
-
-" fzf Fuzzy search mappings
-map <silent> <C-P> :Files<CR>
-map <silent> <leader>pf :Ag<CR>
-map <silent> <leader>pg :GFiles?<CR>
-map <silent> <leader>pb :Buffers<CR>
-map <silent> <leader>pw :Windows<CR>
-map <silent> <leader>ps :Snippets<CR>
-map <silent> <leader>pc :Commits<CR>
-
-" NERDTree
-map <leader>b :NERDTreeToggle<CR>
 
 ]]
