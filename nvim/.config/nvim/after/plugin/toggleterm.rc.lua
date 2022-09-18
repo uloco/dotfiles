@@ -18,11 +18,8 @@ toggleterm.setup({
 })
 
 local Terminal = require('toggleterm.terminal').Terminal
-local lazygit  = Terminal:new({ cmd = "source ~/.zshrc; lazygit",  hidden = true })
+local lazygit  = Terminal:new({ cmd = "source ~/.zshrc; lazygit", hidden = true })
+local htop     = Terminal:new({ cmd = "htop", hidden = true })
 
-function lazygit_toggle()
-  lazygit:toggle()
-  print('yea')
-end
-
-vim.keymap.set({"n", "t"}, "©", function () lazygit_toggle() end, { noremap = true, silent = true })
+vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle() end, { noremap = true, silent = true })
+vim.keymap.set({ "n", "t" }, "ª", function() htop:toggle() end, { noremap = true, silent = true })
