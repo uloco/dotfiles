@@ -7,18 +7,36 @@ bufdel.setup {
 }
 
 local opt = { noremap = true, silent = true }
-vim.keymap.set('n', '<A-q>', ':BufDel<CR>', opt)
-vim.keymap.set('n', '<Leader>q', ':BufDel<CR>', opt)
-vim.keymap.set('n', '<Leader><Leader>q', ':BufDel!<CR>', opt)
+
+local function close()
+  local buffers = require("bufferline.utils").get_valid_buffers()
+  local buf_count = require("bufferline.utils").get_buf_count()
+  local buf_current = vim.fn.bufnr('#')
+
+  local buf_last = buffers[buf_count - 1]
+
+  -- fix last buffer close goes to first
+  if (buf_current == buf_last) then
+    bufdel.delete_buffer()
+    vim.cmd('bprevious')
+  else
+    bufdel.delete_buffer()
+  end
+end
+
+vim.keymap.set('n', '<A-q>', function() close() end, opt)
+vim.keymap.set('n', '<leader>q', function() close() end, opt)
+
 
 -- close all buffers
 local function close_all()
   local buffers = require("bufferline.utils").get_valid_buffers()
-  for _, bufnr in pairs(buffers) do
-      pcall(vim.cmd, string.format("BufDel %d", bufnr))
+  for a, bufnr in pairs(buffers) do
+    pcall(vim.cmd, string.format("BufDel %d", bufnr))
   end
 end
-vim.keymap.set('n', '<A-S-q>',function () close_all() end, opt)
+
+vim.keymap.set('n', '<A-S-q>', function() close_all() end, opt)
 
 -- close all but current
 local function close_all_but_current()
@@ -30,5 +48,5 @@ local function close_all_but_current()
     end
   end
 end
-vim.keymap.set('n', '<A-S-t>', function() close_all_but_current() end, opt)
 
+vim.keymap.set('n', '<A-S-t>', function() close_all_but_current() end, opt)
