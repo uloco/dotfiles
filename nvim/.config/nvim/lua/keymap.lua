@@ -1,3 +1,4 @@
+
 local keymap = vim.keymap
 
 local opts = { noremap = true, silent = true }
@@ -69,7 +70,7 @@ keymap.set({ 'n', 'v' }, '<Leader>y', '"*y', opts)
 keymap.set({ 'x' }, 'p', 'pgvy', opts)
 
 -- Terminal
-keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
+keymap.set('t', '<A-e>', '<C-\\><C-n>', opts)
 
 -- Center on half page up down
 keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', opts)

@@ -24,8 +24,8 @@ local function close()
   end
 end
 
-vim.keymap.set('n', '<A-q>', function() close() end, opt)
-vim.keymap.set('n', '<leader>q', function() close() end, opt)
+vim.keymap.set({'n', 'i', 'v', 't'}, '<A-q>', function() close() end, opt)
+vim.keymap.set({'n', 'v'}, '<leader>q', function() close() end, opt)
 
 
 -- close all buffers
@@ -36,7 +36,7 @@ local function close_all()
   end
 end
 
-vim.keymap.set('n', '<A-S-q>', function() close_all() end, opt)
+vim.keymap.set({'n', 'i', 'v', 't'}, '<A-S-q>', function() close_all() end, opt)
 
 -- close all but current
 local function close_all_but_current()
@@ -49,4 +49,5 @@ local function close_all_but_current()
   end
 end
 
-vim.keymap.set('n', '<A-S-t>', function() close_all_but_current() end, opt)
+vim.keymap.set({'n', 'i', 'v', 't'}, '<A-S-t>', function() close_all_but_current() end, opt)
+
