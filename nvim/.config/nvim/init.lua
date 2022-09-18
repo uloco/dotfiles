@@ -5,7 +5,6 @@ require('plugins')
 require('filetypes')
 
 -- vim.cmd('colorscheme ayu')
-vim.cmd('colorscheme tokyonight')
 
 --   require('macos')
 

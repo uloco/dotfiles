@@ -3,7 +3,7 @@ require("tokyonight").setup({
   -- or leave it empty to use the default settings
   style = "storm", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
   transparent = true, -- Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value `:help attr-list`
@@ -30,8 +30,9 @@ require("tokyonight").setup({
   --- fucntion will be called with a Highlights and ColorScheme table
   ---@param highlights Highlights
   ---@param colors ColorScheme
-  on_highlights = function(highlights, colors)
-    highlights.MsgArea = { bg = colors.none }
-  end,
+  on_highlights = function(highlights, colors) end,
 
 })
+
+-- important, set after setup
+vim.cmd('colorscheme tokyonight')
