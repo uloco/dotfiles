@@ -97,8 +97,11 @@ packer.startup(function(use)
   -- git
   use 'lewis6991/gitsigns.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use 'dinhhuy258/git.nvim'
+  use {
+    'TimUntersberger/neogit',
+    disabled = true,
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- indent lines
   use "lukas-reineke/indent-blankline.nvim"
