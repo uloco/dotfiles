@@ -33,6 +33,8 @@ keymap.set('n', '<Leader>so', ':luafile %<CR>', opts)
 
 -- save
 keymap.set('n', '<Leader>w', ':w<CR>', opts)
+-- save all and exit
+keymap.set('n', '<Leader><leader>q', ':wqa<CR>', opts)
 
 -- disable search highlighting
 keymap.set('n', '<Leader>hi', ':nohl<CR>', opts)
