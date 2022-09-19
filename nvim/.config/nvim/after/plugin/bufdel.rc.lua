@@ -2,30 +2,14 @@ local status, bufdel = pcall(require, 'bufdel')
 if (not status) then return end
 
 bufdel.setup {
-  next = 'cycle', -- or 'alternate'
+  next = 'tabs', 
   quit = false,
 }
 
 local opt = { noremap = true, silent = true }
 
-local function close()
-  local buffers = require("bufferline.utils").get_valid_buffers()
-  local buf_count = require("bufferline.utils").get_buf_count()
-  local buf_current = vim.fn.bufnr('#')
-
-  local buf_last = buffers[buf_count - 1]
-
-  -- fix last buffer close goes to first
-  if (buf_current == buf_last) then
-    bufdel.delete_buffer()
-    vim.cmd('bprevious')
-  else
-    bufdel.delete_buffer()
-  end
-end
-
-vim.keymap.set({'n', 'i', 'v', 't'}, '<A-q>', function() close() end, opt)
-vim.keymap.set({'n', 'v'}, '<leader>q', function() close() end, opt)
+vim.keymap.set({'n', 'i', 'v', 't'}, '<A-q>', bufdel.delete_buffer, opt)
+vim.keymap.set({'n', 'v'}, '<leader>q', bufdel.delete_buffer, opt)
 
 
 -- close all buffers
