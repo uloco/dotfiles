@@ -76,6 +76,7 @@ keymap.set('t', '<A-e>', '<C-\\><C-n>', opts)
 keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', opts)
 keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', opts)
 
+-- TODO: remove this after adding vim-asterisk
 -- Make * not jump after select word under cursor
 keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>', opts)
 
