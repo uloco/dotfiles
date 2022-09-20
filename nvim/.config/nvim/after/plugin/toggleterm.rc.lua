@@ -6,7 +6,8 @@ toggleterm.setup({
   open_mapping = '†', -- Alt-Gr + t
   insert_mappings = true,
   terminal_mappings = true,
-  direction = 'float',
+  direction = 'vertical',
+  size = 100,
   float_opts = {
     border = 'curved',
     winblend = 0,
@@ -17,9 +18,11 @@ toggleterm.setup({
   }
 })
 
+vim.keymap.set({ "n", "t" }, "˝", "<cmd>ToggleTermToggleAll<cr>", { noremap = true, silent = true }) -- Alt-Gr + shift + t
+
 local Terminal = require('toggleterm.terminal').Terminal
-local lazygit  = Terminal:new({ cmd = "source ~/.zshrc; lazygit", hidden = true })
-local htop     = Terminal:new({ cmd = "htop", hidden = true })
+local lazygit  = Terminal:new({ cmd = "source ~/.zshrc; lazygit", hidden = true, direction = 'float' })
+local htop     = Terminal:new({ cmd = "htop", hidden = true, direction = 'float' })
 
 
 vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle() end, { noremap = true, silent = true }) -- Alt-Gr + g
