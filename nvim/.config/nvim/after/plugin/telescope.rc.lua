@@ -93,7 +93,7 @@ end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search text
 vim.keymap.set('n', '<leader><leader>p', function()
-  builtin.oldfiles({ only_cwd = true })
+  builtin.oldfiles({ no_ignore = true, only_cwd = true })
 end, opts)
 
 -- search text
