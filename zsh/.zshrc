@@ -279,3 +279,5 @@ function bat() {
 }
 
 alias cat="bat"
+
+export REACT_EDITOR="nvr"
