@@ -129,4 +129,6 @@ packer.startup(function(use)
   -- session management
   use 'rmagatti/auto-session'
 
+  -- highltight word under cursor
+  use 'RRethy/vim-illuminate'
 end)
