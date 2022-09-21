@@ -13,7 +13,7 @@ function organize_imports()
 end
 
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
   commands = {
@@ -25,7 +25,7 @@ nvim_lsp.tsserver.setup {
 }
 
 nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {

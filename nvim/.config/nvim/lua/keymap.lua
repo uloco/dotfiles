@@ -1,4 +1,3 @@
-
 local keymap = vim.keymap
 
 local opts = { noremap = true, silent = true }
@@ -40,7 +39,7 @@ keymap.set('n', '<Leader><leader>q', ':wqa<CR>', opts)
 -- disable search highlighting
 keymap.set('n', '<Leader>hi', ':nohl<CR>', opts)
 
--- Split nav 
+-- Split nav
 keymap.set('n', '<A-j>', '<C-W><C-J>', opts)
 keymap.set('n', '<A-k>', '<C-W><C-K>', opts)
 keymap.set('n', '<A-l>', '<C-W><C-L>', opts)
