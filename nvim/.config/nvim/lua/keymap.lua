@@ -89,6 +89,16 @@ keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.formatting_seq_sync() en
 -- open links / files
 vim.api.nvim_set_keymap("n", "gl", [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
 
+-- Run @ macro on visual range selected lines
+vim.cmd([[
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+    function! ExecuteMacroOverVisualRange()
+      echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
+    endfunction
+]])
+
+
 --[[
 " New Tab with ctrl-w + t
 nnoremap <A-t> :tabnew<CR>
