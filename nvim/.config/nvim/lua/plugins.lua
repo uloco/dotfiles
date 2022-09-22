@@ -108,7 +108,6 @@ packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
 
   -- column line
-  -- init.lua
   use "lukas-reineke/virt-column.nvim"
 
   -- show what keys do
