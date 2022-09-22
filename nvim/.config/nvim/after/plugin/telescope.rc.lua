@@ -15,12 +15,12 @@ telescope.setup {
     mappings = {
       n = {
         ['q'] = actions.close,
-        ['<C-d>'] = actions.delete_buffer
+        ['<A-d>'] = actions.delete_buffer
       },
       i = {
         -- close in insert mode directly TODO: (find a way to override this for file_browser)
         -- ['<esc>'] = actions.close,
-        ['<A-q>'] = actions.delete_buffer,
+        ['<A-d>'] = actions.delete_buffer,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
       }
