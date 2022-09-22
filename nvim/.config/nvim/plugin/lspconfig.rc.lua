@@ -40,3 +40,13 @@ nvim_lsp.sumneko_lua.setup {
     }
   }
 }
+
+nvim_lsp.graphql.setup {
+  filetypes = {
+    "graphql",
+    "typescriptreact",
+    "typescript",
+    "javascript",
+    "javascriptreact"
+  },
+}
