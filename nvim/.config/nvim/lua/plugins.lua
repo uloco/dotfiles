@@ -117,7 +117,8 @@ packer.startup(function(use)
   }
 
   -- better terminals
-  use { "akinsho/toggleterm.nvim", tag = '*' }
+  -- use { "akinsho/toggleterm.nvim", tag = '*' }
+  use  "akinsho/toggleterm.nvim"
 
   -- greeter
   use {
