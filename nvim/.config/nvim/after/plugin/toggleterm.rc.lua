@@ -25,7 +25,7 @@ local lazygit  = Terminal:new({ cmd = "source ~/.zshrc; lazygit", hidden = true,
 local htop     = Terminal:new({ cmd = "htop", hidden = true, direction = 'float' })
 
 
-vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle() end, { noremap = true, silent = true }) -- Alt-Gr + g
+vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle()  vim.cmd('checktime') end, { noremap = true, silent = true }) -- Alt-Gr + g
 vim.keymap.set({ "n", "t" }, "ª", function() htop:toggle() end, { noremap = true, silent = true }) -- Alt-Gr + h
 
 local cmd = vim.api.nvim_create_user_command
