@@ -11,7 +11,7 @@ packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' -- common utilities
 
   -- theme
-  use 'folke/tokyonight.nvim'
+  use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f'}
   use 'Shatur/neovim-ayu'
 
   -- statusbar bottom
