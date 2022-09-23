@@ -10,12 +10,15 @@ local actions = require("telescope.actions")
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 local action_layout = require 'telescope.actions.layout'
 
+local trouble = require("trouble.providers.telescope")
+
 telescope.setup {
   defaults = {
     mappings = {
       n = {
         ['q'] = actions.close,
-        ['<A-d>'] = actions.delete_buffer
+        ['<A-d>'] = actions.delete_buffer,
+        ["<C-t>"] = trouble.open_with_trouble,
       },
       i = {
         -- close in insert mode directly TODO: (find a way to override this for file_browser)
@@ -23,6 +26,7 @@ telescope.setup {
         ['<A-d>'] = actions.delete_buffer,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
+        ["<C-t>"] = trouble.open_with_trouble,
       }
     },
     file_ignore_patterns = {
@@ -43,6 +47,14 @@ telescope.setup {
     },
     winblend = 15
   },
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = { ["<c-f>"] = actions.to_fuzzy_refine },
+      },
+    },
+  },
+
   extensions = {
     file_browser = {
       theme = 'dropdown',
@@ -99,6 +111,14 @@ end, opts)
 -- search text
 vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end,
   { noremap = true, silent = true, desc = "Search in files" })
+
+
+vim.keymap.set('n', '<leader>ps', function()
+  builtin.grep_string({
+    shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
+  })
+end)
+
 
 -- search ALL text (including ignored files)
 vim.keymap.set('n', '<leader>pF',
