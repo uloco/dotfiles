@@ -12,6 +12,16 @@ function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
+nvim_lsp.graphql.setup {
+  filetypes = {
+    "graphql",
+    "typescriptreact",
+    "typescript",
+    "javascript",
+    "javascriptreact"
+  },
+}
+
 nvim_lsp.tsserver.setup {
   -- on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -39,14 +49,4 @@ nvim_lsp.sumneko_lua.setup {
       }
     }
   }
-}
-
-nvim_lsp.graphql.setup {
-  filetypes = {
-    "graphql",
-    "typescriptreact",
-    "typescript",
-    "javascript",
-    "javascriptreact"
-  },
 }
