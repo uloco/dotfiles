@@ -148,6 +148,8 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Add local binaries to path
 export PATH="${PATH}:${HOME}/.local/bin"
+# Add mason neovim binaries to path
+export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
 
 # Use gnu implementations instead of bsd
 # export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
