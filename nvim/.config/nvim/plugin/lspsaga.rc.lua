@@ -25,7 +25,7 @@ saga.init_lsp_saga {
     exec = "<CR>",
   },
   definition_action_keys = {
-    edit = '<CRY',
+    edit = '<CR>',
     vsplit = '<C-c>v',
     split = '<C-c>i',
     tabe = '<C-c>t',

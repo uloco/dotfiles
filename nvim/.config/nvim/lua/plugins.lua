@@ -12,7 +12,6 @@ packer.startup(function(use)
 
   -- theme
   use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f'}
-  use 'Shatur/neovim-ayu'
 
   -- statusbar bottom
   use {
@@ -98,11 +97,6 @@ packer.startup(function(use)
   -- git
   use 'lewis6991/gitsigns.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use {
-    'TimUntersberger/neogit',
-    disabled = true,
-    requires = 'nvim-lua/plenary.nvim'
-  }
 
   -- indent lines
   use "lukas-reineke/indent-blankline.nvim"
