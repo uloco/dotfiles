@@ -14,6 +14,11 @@ local trouble = require("trouble.providers.telescope")
 
 telescope.setup {
   defaults = {
+    path_display = function(opts, path)
+      local name = require("telescope.utils").path_tail(path)
+      local location = string.sub(path, 0, -string.len(name) - 1)
+      return string.format("%s          (%s)", name, path)
+    end,
     mappings = {
       n = {
         ['q'] = actions.close,
@@ -45,7 +50,7 @@ telescope.setup {
       "--follow", -- follow symlinks
       "--hidden" -- also search .hidden files
     },
-    winblend = 15
+    winblend = 15,
   },
   pickers = {
     live_grep = {
