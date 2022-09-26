@@ -11,7 +11,7 @@ packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' -- common utilities
 
   -- theme
-  use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f'}
+  use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f' }
 
   -- statusbar bottom
   use {
@@ -111,8 +111,7 @@ packer.startup(function(use)
   }
 
   -- better terminals
-  -- use { "akinsho/toggleterm.nvim", tag = '*' }
-  use  "akinsho/toggleterm.nvim"
+  use "akinsho/toggleterm.nvim"
 
   -- greeter
   use {

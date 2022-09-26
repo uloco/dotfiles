@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: redundant-parameter
 require('lspkind').init({
   -- DEPRECATED (use mode instead): enables text annotations
   --
