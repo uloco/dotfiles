@@ -1,6 +1,7 @@
 os:
   editCommand: "nvr -cc 'LazygitClose'" 
 gui:
+  showFileTree: false
   scrollHeight: 20
   showIcons: true
   branchColors:
