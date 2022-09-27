@@ -36,6 +36,7 @@ saga.init_lsp_saga {
     scroll_up = '<C-u>',
   },
   rename_action_quit = "<esc>",
+  rename_in_select = false,
 
   server_filetype_map = {},
 }
