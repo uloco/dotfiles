@@ -14,11 +14,12 @@ local trouble = require("trouble.providers.telescope")
 
 telescope.setup {
   defaults = {
-    path_display = function(opts, path)
-      local name = require("telescope.utils").path_tail(path)
-      local location = string.sub(path, 0, -string.len(name) - 1)
-      return string.format("%s          (%s)", name, path)
-    end,
+    -- TODO: path like is kind of nice but broken in file_browser
+    -- path_display = function(opts, path)
+    --   local name = require("telescope.utils").path_tail(path)
+    --   local location = string.sub(path, 0, -string.len(name) - 1)
+    --   return string.format("%s          (%s)", name, path)
+    -- end,
     mappings = {
       n = {
         ['q'] = actions.close,
