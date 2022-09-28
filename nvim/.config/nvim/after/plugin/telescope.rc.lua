@@ -51,7 +51,7 @@ telescope.setup {
       "--follow", -- follow symlinks
       "--hidden" -- also search .hidden files
     },
-    winblend = 15,
+    winblend = 5,
   },
   pickers = {
     live_grep = {
