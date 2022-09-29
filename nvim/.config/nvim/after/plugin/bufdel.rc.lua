@@ -2,7 +2,7 @@ local status, bufdel = pcall(require, 'bufdel')
 if (not status) then return end
 
 bufdel.setup {
-  next = 'tabs', 
+  next = 'tabs',
   quit = false,
 }
 
@@ -15,7 +15,7 @@ vim.keymap.set({'n', 'v'}, '<leader>q', bufdel.delete_buffer, opt)
 -- close all buffers
 local function close_all()
   local buffers = require("bufferline.utils").get_valid_buffers()
-  for a, bufnr in pairs(buffers) do
+  for _, bufnr in pairs(buffers) do
     pcall(vim.cmd, string.format("BufDel %d", bufnr))
   end
 end
