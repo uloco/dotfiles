@@ -128,4 +128,6 @@ packer.startup(function(use)
   -- better folding
   use  'anuvyklack/pretty-fold.nvim'
 
+  -- comments in mixed languages like tsx
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 end)
