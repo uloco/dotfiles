@@ -124,4 +124,8 @@ packer.startup(function(use)
 
   -- highltight word under cursor
   use 'RRethy/vim-illuminate'
+
+  -- better folding
+  use  'anuvyklack/pretty-fold.nvim'
+
 end)

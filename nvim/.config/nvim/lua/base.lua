@@ -68,11 +68,7 @@ vim.opt.termguicolors = true
 -- highlight yank
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 
-
---[[
-" General settings
-"------------------------------------------------------------------------------
-set foldmethod=syntax
-set foldlevelstart=99
-set conceallevel=0
-]]
+-- folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr='nvim_treesitter#foldexpr()'
+vim.opt.foldlevelstart = 99
