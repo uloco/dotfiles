@@ -129,4 +129,23 @@ packer.startup(function(use)
 
   -- comments in mixed languages like tsx
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  -- new stuff for flight, probably not configured or tested yet
+  use 'rktjmp/lush.nvim'
+  use 'tjdevries/colorbuddy.nvim'
+  use 'nvim-treesitter/playground'
+  use {
+  "nvim-telescope/telescope-frecency.nvim",
+  config = function()
+    require"telescope".load_extension("frecency")
+  end,
+  requires = {"kkharji/sqlite.lua"}
+}
+  use 'windwp/nvim-spectre'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use({
+    'mvllow/modes.nvim',
+    tag = 'v0.2.0',
+  })
+
 end)
