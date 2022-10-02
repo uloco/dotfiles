@@ -17,9 +17,10 @@ bufferline.setup {
 
 local opt = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<A-i>', ':BufferLineCycleNext<CR>', opt)
-vim.keymap.set('n', '<A-u>', ':BufferLineCyclePrev<CR>', opt)
-vim.keymap.set('n', '<A-S-i>', ':BufferLineMoveNext<CR>', opt)
-vim.keymap.set('n', '<A-S-u>', ':BufferLineMovePrev<CR>', opt)
+-- normal mode
+vim.keymap.set('n', '<A-i>', '<cmd>BufferLineCycleNext<cr>', opt)
+vim.keymap.set('n', '<A-u>', '<cmd>BufferLineCyclePrev<cr>', opt)
+vim.keymap.set('n', '<A-S-i>', '<cmd>BufferLineMoveNext<cr>', opt)
+vim.keymap.set('n', '<A-S-u>', '<cmd>BufferLineMovePrev<cr>', opt)
 
-vim.keymap.set('n', '<Leader>gt', ':BufferLinePick<CR>', opt)
+vim.keymap.set('n', '<Leader>gt', ':BufferLinePick<cr>', opt)
