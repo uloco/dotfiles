@@ -51,7 +51,6 @@ packer.startup(function(use)
   use 'petertriho/nvim-scrollbar'
 
   -- todo comments
-  -- Lua
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -126,7 +125,7 @@ packer.startup(function(use)
   use 'RRethy/vim-illuminate'
 
   -- better folding
-  use  'anuvyklack/pretty-fold.nvim'
+  use 'anuvyklack/pretty-fold.nvim'
 
   -- comments in mixed languages like tsx
   use 'JoosepAlviste/nvim-ts-context-commentstring'
