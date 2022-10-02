@@ -57,10 +57,14 @@ keymap.set('t', '<A-k>', '<C-\\><C-n><C-W><C-K>', opts)
 keymap.set('t', '<A-l>', '<C-\\><C-n><C-W><C-L>', opts)
 keymap.set('t', '<A-h>', '<C-\\><C-n><C-W><C-H>', opts)
 
+-- new Tab
+keymap.set('n', '<A-t>', '<cmd>tabnew<cr>', opts)
+
 -- organize splits
 keymap.set('n', '<A-=>', '<C-W><C-=>', opts)
 -- goto previous split
 keymap.set('n', '<A-p>', '<C-W><C-p>', opts)
+keymap.set('t', '<A-p>', '<C-\\><C-n><C-W><C-p>', opts)
 
 -- yank and paste from clipboard
 keymap.set({ 'n', 'v' }, '<Leader>y', '"*y', opts)
@@ -87,7 +91,7 @@ keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<e
 keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.formatting_seq_sync() end)
 
 -- open links / files
-vim.api.nvim_set_keymap("n", "gl", [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
+keymap.set('n', 'gl', [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
 
 -- Run @ macro on visual range selected lines
 vim.cmd([[
@@ -100,9 +104,6 @@ vim.cmd([[
 
 
 --[[
-" New Tab with ctrl-w + t
-nnoremap <A-t> :tabnew<CR>
-
 " Enter insert mode when entering terminal
 " autocmd BufWinEnter,WinEnter term://* startinsert
 
