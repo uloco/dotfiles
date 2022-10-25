@@ -30,7 +30,7 @@ null_ls.setup {
         buffer = 0,
         callback = function()
           -- organize_imports()
-          vim.lsp.buf.formatting_seq_sync()
+          vim.lsp.buf.format()
         end
       })
     end

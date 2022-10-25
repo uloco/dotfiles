@@ -88,7 +88,7 @@ keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', o
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
 
 --format document
-keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.formatting_seq_sync() end)
+keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.format() end)
 
 -- open links / files
 keymap.set('n', 'gl', [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
