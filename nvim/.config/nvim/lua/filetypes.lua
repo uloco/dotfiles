@@ -4,6 +4,7 @@ vim.cmd [[
 
 vim.filetype.add({
   filename = {
-    ["Fastfile"] = "ruby"
+    ["Fastfile"] = "ruby",
+    ["Podfile"] = "ruby"
   }
 })
