@@ -110,6 +110,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter", "TermOpen",
   command = 'startinsert'
 })
 
+-- See highlight group
+vim.keymap.set('n', '<C-S-P>', '<cmd>TSHighlightCapturesUnderCursor<cr>')
+
 --[[
 " Enter insert mode when entering terminal
 " autocmd BufWinEnter,WinEnter term://* startinsert
