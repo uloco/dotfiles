@@ -27,9 +27,9 @@ telescope.setup {
         ["<C-t>"] = trouble.open_with_trouble,
       },
       i = {
-        -- close in insert mode directly TODO: (find a way to override this for file_browser)
-        -- ['<esc>'] = actions.close,
+        ['<esc>'] = actions.close,
         ['<A-d>'] = actions.delete_buffer,
+        ['<A-e>'] = function() vim.cmd('stopinsert') end,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
         ["<C-t>"] = trouble.open_with_trouble,
@@ -77,7 +77,7 @@ telescope.setup {
         ['i'] = {
           ['C-w'] = function() vim.cmd('normal vbd') end,
           ['<M-p>'] = action_layout.toggle_preview,
-          -- ['<esc>'] = '<C-\\><C-n>'
+          ['<esc>'] = function () return vim.cmd('stopinsert') end
         },
         ['n'] = {
           ['N'] = fb_actions.create,
