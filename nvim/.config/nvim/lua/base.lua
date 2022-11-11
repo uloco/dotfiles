@@ -71,5 +71,9 @@ vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 -- folding
 -- vim.wo.foldmethod = 'expr'
 vim.wo.foldmethod = 'manual' -- let's try, feels kinda better
-vim.wo.foldexpr='nvim_treesitter#foldexpr()'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevelstart = 99
+
+-- show whitespace characters
+vim.opt.list = true
+vim.opt.listchars = { tab = '——→', multispace = '·', trail = '·', nbsp = '␣' }
