@@ -15,7 +15,8 @@ toggleterm.setup({
   persist_size = false,
   winbar = {
     enable = true
-  }
+  },
+  auto_scroll = false
 })
 
 local opts = { noremap = true, silent = true }
