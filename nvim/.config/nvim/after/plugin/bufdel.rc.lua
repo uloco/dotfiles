@@ -9,8 +9,6 @@ bufdel.setup {
 local opt = { noremap = true, silent = true }
 
 vim.keymap.set({'n', 'i', 'v', 't'}, '<A-q>', bufdel.delete_buffer, opt)
-vim.keymap.set({'n', 'v'}, '<leader>q', bufdel.delete_buffer, opt)
-
 
 -- close all buffers
 local function close_all()

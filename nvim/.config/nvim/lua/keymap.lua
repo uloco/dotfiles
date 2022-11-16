@@ -29,15 +29,17 @@ keymap.set('n', '<C-w><down>', '<C-w>-', opts)
 
 
 -- reload lua file
-keymap.set('n', '<Leader>so', ':luafile %<CR>', opts)
+keymap.set('n', '<leader>so', ':luafile %<CR>', opts)
 
 -- save
-keymap.set('n', '<Leader>w', ':w<CR>', opts)
+keymap.set('n', '<leader>w', ':w<CR>', opts)
+keymap.set('n', '<leader><leader>w', ':wa<CR>', opts)
+keymap.set('n', '<leader>q', ':q<CR>', opt)
 -- save all and exit
-keymap.set('n', '<Leader><leader>q', ':wqa<CR>', opts)
+keymap.set('n', '<leader><leader>q', '<cmd>wa<cr><cmd>qa<cr>', opts)
 
 -- disable search highlighting
-keymap.set('n', '<Leader>hi', ':nohl<CR>', opts)
+keymap.set('n', '<leader>hi', ':nohl<CR>', opts)
 
 -- Split nav
 keymap.set('n', '<A-j>', '<C-W><C-J>', opts)
