@@ -9,6 +9,7 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim' -- common utilities
+  use '~/Source/neovim/bluloco.nvim'
 
   -- theme
   use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f' }
@@ -135,12 +136,12 @@ packer.startup(function(use)
   use 'tjdevries/colorbuddy.nvim'
   use 'nvim-treesitter/playground'
   use {
-  "nvim-telescope/telescope-frecency.nvim",
-  config = function()
-    require"telescope".load_extension("frecency")
-  end,
-  requires = {"kkharji/sqlite.lua"}
-}
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require "telescope".load_extension("frecency")
+    end,
+    requires = { "kkharji/sqlite.lua" }
+  }
   use 'windwp/nvim-spectre'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use({
