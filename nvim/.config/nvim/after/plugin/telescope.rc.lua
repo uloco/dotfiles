@@ -149,6 +149,7 @@ vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end, opts)
 
 -- search help pages
 vim.keymap.set('n', '<leader>ph', function() builtin.help_tags() end, opts)
+vim.keymap.set('n', '<leader>pH', function() builtin.highlights() end, opts)
 
 -- resume last search
 vim.keymap.set('n', '<leader>pR', function() builtin.resume() end, opts)
