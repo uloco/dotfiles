@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
   },
+  ["bluloco.nvim"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/bluloco.nvim",
+    url = "/Users/uloco/Source/neovim/bluloco.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/bufferline.nvim",

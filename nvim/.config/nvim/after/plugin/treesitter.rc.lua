@@ -36,6 +36,7 @@ ts.setup {
     'yaml',
     'vim',
     'swift',
+    'svelte',
   },
   autotag = {
     enable = true
