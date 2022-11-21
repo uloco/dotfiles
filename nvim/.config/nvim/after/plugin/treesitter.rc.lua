@@ -40,6 +40,15 @@ ts.setup {
     'swift',
     'svelte',
     'rust',
+    'r',
+    'go',
+    'cpp',
+    'sql',
+    'kotlin',
+    'dart',
+    'scala',
+    'haskell',
+    'erlang',
   },
   autotag = {
     enable = true
