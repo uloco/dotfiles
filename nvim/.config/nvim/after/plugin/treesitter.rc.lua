@@ -15,6 +15,8 @@ ts.setup {
     'typescript',
     'tsx',
     'javascript',
+    'java',
+    'elixir',
     'json',
     'css',
     'markdown',
@@ -37,6 +39,7 @@ ts.setup {
     'vim',
     'swift',
     'svelte',
+    'rust',
   },
   autotag = {
     enable = true
