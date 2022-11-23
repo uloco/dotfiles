@@ -22,8 +22,8 @@ require("diffview").setup({
     view = {
       ["gf"]         = actions.goto_file, -- Open the file in a new split in the previous tabpage
       ["<leader>e"]  = actions.focus_files, -- Bring focus to the file panel
-      ["<leader>b"]  = actions.toggle_files, -- Toggle the file panel.
-      -- ["<leader>l"]  = actions.cycle_layout, -- Cycle through available layouts.
+      ["<leader>db"]  = actions.toggle_files, -- Toggle the file panel.
+      ["<leader>dl"]  = actions.cycle_layout, -- Cycle through available layouts.
       ["<leader>kc"] = actions.prev_conflict, -- In the merge_tool: jump to the previous conflict
       ["<leader>jc"] = actions.next_conflict, -- In the merge_tool: jump to the next conflict
       ["<leader>co"] = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
