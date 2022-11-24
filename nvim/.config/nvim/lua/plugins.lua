@@ -161,5 +161,7 @@ packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  -- notifications pop up messages
+  use 'rcarriga/nvim-notify'
 
 end)
