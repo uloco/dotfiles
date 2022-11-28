@@ -164,4 +164,10 @@ packer.startup(function(use)
   -- notifications pop up messages
   use 'rcarriga/nvim-notify'
 
+  -- semantic paramenter highlighting
+  use {
+    'm-demare/hlargs.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' }
+  }
+
 end)
