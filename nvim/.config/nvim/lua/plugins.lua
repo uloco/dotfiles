@@ -135,7 +135,6 @@ packer.startup(function(use)
 
   -- new stuff for flight, probably not configured or tested yet
   use 'rktjmp/lush.nvim'
-  use 'tjdevries/colorbuddy.nvim'
   use 'nvim-treesitter/playground'
   use {
     "nvim-telescope/telescope-frecency.nvim",
@@ -146,11 +145,6 @@ packer.startup(function(use)
   }
   use 'windwp/nvim-spectre'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use({
-    'mvllow/modes.nvim',
-    tag = 'v0.2.0',
-  })
-
 
   -- tree explorer
   use {
@@ -169,5 +163,6 @@ packer.startup(function(use)
     'm-demare/hlargs.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' }
   }
+
 
 end)

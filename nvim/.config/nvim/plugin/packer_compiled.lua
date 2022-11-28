@@ -134,11 +134,6 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorbuddy.nvim"] = {
-    loaded = true,
-    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
-    url = "https://github.com/tjdevries/colorbuddy.nvim"
-  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -153,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["hlargs.nvim"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/hlargs.nvim",
+    url = "https://github.com/m-demare/hlargs.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -193,11 +193,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["modes.nvim"] = {
-    loaded = true,
-    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/modes.nvim",
-    url = "https://github.com/mvllow/modes.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
