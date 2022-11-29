@@ -16,8 +16,8 @@ saga.init_lsp_saga {
   },
   finder_action_keys = {
     open = "<CR>",
-    vsplit = "v",
-    split = "s",
+    vsplit = "<C-v>",
+    split = "<C-s>",
     quit = "<esc>",
   },
   code_action_keys = {
