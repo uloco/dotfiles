@@ -164,5 +164,19 @@ packer.startup(function(use)
     requires = { 'nvim-treesitter/nvim-treesitter' }
   }
 
+  use {
+    "smjonas/live-command.nvim",
+    -- tag = "1.*",
+    sha = "5d1b0c0e8278542d65cd992775b4f3bd8a287fb6",
+    config = function()
+      require("live-command").setup {
+        commands = {
+          Norm = { cmd = "norm" },
+          Glob = { cmd = "g" },
+        }
+      }
+    end,
+  }
+
 
 end)
