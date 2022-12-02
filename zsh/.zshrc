@@ -26,6 +26,10 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+
+# k9s completion
+source <(kubectl completion zsh)
+
 ZSH_DISABLE_COMPFIX=true
 
 
