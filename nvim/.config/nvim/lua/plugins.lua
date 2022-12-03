@@ -25,7 +25,9 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use 'nvim-treesitter/nvim-treesitter-context'
+  use 'nvim-treesitter/nvim-treesitter-context' -- see current block head
+  use 'nvim-treesitter/playground' -- debug treesitter
+  use 'nvim-treesitter/nvim-treesitter-textobjects' -- custom textobjects
 
   -- quick find
   use 'nvim-telescope/telescope.nvim'
@@ -133,9 +135,10 @@ packer.startup(function(use)
   -- comments in mixed languages like tsx
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  -- new stuff for flight, probably not configured or tested yet
+  -- theem generation
   use 'rktjmp/lush.nvim'
-  use 'nvim-treesitter/playground'
+
+
   use {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
@@ -144,7 +147,6 @@ packer.startup(function(use)
     requires = { "kkharji/sqlite.lua" }
   }
   use 'windwp/nvim-spectre'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- tree explorer
   use {
