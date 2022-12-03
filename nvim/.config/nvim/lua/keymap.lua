@@ -88,6 +88,11 @@ keymap.set({ 'n', 'v' }, 'N', 'Nzz', opts)
 -- Make * not jump after select word under cursor
 keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>', opts)
 
+-- multi cursor alternative
+vim.cmd [[nnoremap <leader>cw <cmd>let @/='\<'.expand('<cword>').'\>'<cr>"_ciw]]
+vim.cmd [[xnoremap <leader>cw y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<cr>"_cgn]]
+
+
 -- Duplicate and comment
 keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', opts)
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
