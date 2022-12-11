@@ -49,6 +49,7 @@ ts.setup {
     'scala',
     'haskell',
     'erlang',
+    'help',
   },
   autotag = {
     enable = true
