@@ -23,11 +23,10 @@ keymap.set('n', 'sS', ':split<CR>', { silent = true })
 keymap.set('n', 'ss', ':vsplit<CR>', { silent = true })
 
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><', opts)
-keymap.set('n', '<C-w><right>', '<C-w>>', opts)
-keymap.set('n', '<C-w><up>', '<C-w>+', opts)
-keymap.set('n', '<C-w><down>', '<C-w>-', opts)
-
+keymap.set('n', '<A-S-Left>', '10<C-w><', opts)
+keymap.set('n', '<A-S-Right>', '10<C-w>>', opts)
+keymap.set('n', '<A-S-Up>', '10<C-w>+', opts)
+keymap.set('n', '<A-S-Down>', '20<C-w>-', opts)
 
 -- reload lua file
 keymap.set('n', '<leader>so', ':luafile %<CR>', opts)
