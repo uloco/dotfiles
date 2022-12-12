@@ -28,7 +28,6 @@ vim.opt.tabstop = 2
 vim.opt.showmode = false
 
 vim.opt.wrap = true
-vim.opt.breakindent = true
 vim.opt.showbreak = '↪ '
 -- vim.opt.wrapmargin = 0
 
