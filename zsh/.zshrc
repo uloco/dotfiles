@@ -232,10 +232,6 @@ alias nvm="fnm"
 # brew intel
 alias brew-intel="/usr/local/bin/brew"
 
-***REMOVED***
-***REMOVED***
-
-
 # GIF
 alias whoah="gif-for-cli \"mindblown\""
 
