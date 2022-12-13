@@ -13,6 +13,9 @@ function organize_imports()
 end
 
 nvim_lsp.graphql.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.workspaceSymbolProvider = false
+  end,
   filetypes = {
     "graphql",
     "typescriptreact",
