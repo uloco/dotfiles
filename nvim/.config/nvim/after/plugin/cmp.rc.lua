@@ -25,8 +25,8 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<A-Esc>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
     }),
   }),
 
