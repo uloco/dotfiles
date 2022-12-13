@@ -34,6 +34,7 @@ cmp.setup({
     { name = 'npm', keyword_length = 4 },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
   }),
   formatting = {
     format = lspkind.cmp_format({ wirth_text = false, maxwidth = 50 })

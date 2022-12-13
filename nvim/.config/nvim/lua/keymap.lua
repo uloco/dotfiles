@@ -99,6 +99,9 @@ keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<e
 --format document
 keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.format() end)
 
+-- show signature
+keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
+
 -- open links / files
 keymap.set('n', 'gl', [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
 
@@ -151,4 +154,3 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-

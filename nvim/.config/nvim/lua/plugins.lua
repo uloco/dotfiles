@@ -80,6 +80,7 @@ packer.startup(function(use)
   use 'L3MON4D3/LuaSnip' -- Snippets
   use 'saadparwaiz1/cmp_luasnip'
   use 'David-Kunz/cmp-npm'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- function signature help
 
   -- package manager
   use 'williamboman/mason.nvim' -- easier lsp language install
