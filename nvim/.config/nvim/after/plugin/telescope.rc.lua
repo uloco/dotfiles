@@ -77,7 +77,7 @@ telescope.setup {
         ['i'] = {
           ['C-w'] = function() vim.cmd('normal vbd') end,
           ['<M-p>'] = action_layout.toggle_preview,
-          ['<esc>'] = function () return vim.cmd('stopinsert') end
+          ['<esc>'] = function() return vim.cmd('stopinsert') end
         },
         ['n'] = {
           ['N'] = fb_actions.create,
@@ -101,7 +101,7 @@ telescope.load_extension('fzf') -- load telescope-fzf-native
 local opts = { noremap = true, silent = true }
 
 -- search files
-vim.keymap.set('n', '<leader>pp', function()
+vim.keymap.set('n', '<leader>ll', function()
   builtin.find_files({
     no_ignore = false,
     hidden = true,
@@ -110,16 +110,16 @@ vim.keymap.set('n', '<leader>pp', function()
 end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search text
-vim.keymap.set('n', '<leader><leader>p', function()
+vim.keymap.set('n', '<leader><leader>l', function()
   builtin.oldfiles({ no_ignore = true, only_cwd = true })
 end, opts)
 
 -- search text
-vim.keymap.set('n', '<leader>pf', function() builtin.live_grep() end,
+vim.keymap.set('n', '<leader>lf', function() builtin.live_grep() end,
   { noremap = true, silent = true, desc = "Search in files" })
 
 
-vim.keymap.set('n', '<leader>ps', function()
+vim.keymap.set('n', '<leader>ls', function()
   builtin.grep_string({
     shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
   })
@@ -127,7 +127,7 @@ end)
 
 
 -- search ALL text (including ignored files)
-vim.keymap.set('n', '<leader>pF',
+vim.keymap.set('n', '<leader>lF',
   function()
     builtin.live_grep { vimgrep_arguments = {
       "rg",
@@ -145,17 +145,17 @@ vim.keymap.set('n', '<leader>pF',
   { noremap = true, silent = true, desc = "Search in files" })
 
 -- search open buffers
-vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end, opts)
+vim.keymap.set('n', '<leader>lb', function() builtin.buffers() end, opts)
 
 -- search help pages
-vim.keymap.set('n', '<leader>ph', function() builtin.help_tags() end, opts)
-vim.keymap.set('n', '<leader>pH', function() builtin.highlights() end, opts)
+vim.keymap.set('n', '<leader>lh', function() builtin.help_tags() end, opts)
+vim.keymap.set('n', '<leader>lH', function() builtin.highlights() end, opts)
 
 -- resume last search
-vim.keymap.set('n', '<leader>pR', function() builtin.resume() end, opts)
+vim.keymap.set('n', '<leader>lR', function() builtin.resume() end, opts)
 
 -- search errors / warnings / info
-vim.keymap.set('n', '<leader>pe', function() builtin.diagnostics() end, opts)
+vim.keymap.set('n', '<leader>le', function() builtin.diagnostics() end, opts)
 
 -- open file explorer
 vim.keymap.set('n', '<leader>fb',
@@ -169,11 +169,11 @@ vim.keymap.set('n', '<leader>fb',
   end,
   opts)
 
-vim.keymap.set('n', '<leader>pg', function() builtin.git_status() end, opts)
+vim.keymap.set('n', '<leader>lg', function() builtin.git_status() end, opts)
 
-vim.keymap.set('n', '<leader>pd', function() builtin.lsp_definitions() end, opts)
-vim.keymap.set('n', '<leader>pt', function() builtin.lsp_type_definitions() end, opts)
-vim.keymap.set('n', '<leader>pr', function() builtin.lsp_references() end, opts)
-vim.keymap.set('n', '<leader>pi', function() builtin.lsp_implementations() end, opts)
-vim.keymap.set('n', '<leader>po', function() builtin.lsp_document_symbols() end, opts)
-vim.keymap.set('n', '<leader>pO', function() builtin.lsp_dynamic_workspace_symbols() end, opts)
+vim.keymap.set('n', '<leader>ld', function() builtin.lsp_definitions() end, opts)
+vim.keymap.set('n', '<leader>lt', function() builtin.lsp_type_definitions() end, opts)
+vim.keymap.set('n', '<leader>lr', function() builtin.lsp_references() end, opts)
+vim.keymap.set('n', '<leader>li', function() builtin.lsp_implementations() end, opts)
+vim.keymap.set('n', '<leader>lo', function() builtin.lsp_document_symbols() end, opts)
+vim.keymap.set('n', '<leader>lO', function() builtin.lsp_dynamic_workspace_symbols() end, opts)
