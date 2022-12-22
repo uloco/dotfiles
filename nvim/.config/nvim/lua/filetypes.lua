@@ -6,5 +6,8 @@ vim.filetype.add({
   filename = {
     ["Fastfile"] = "ruby",
     ["Podfile"] = "ruby"
+  },
+  extension = {
+    xml = 'html'
   }
 })
