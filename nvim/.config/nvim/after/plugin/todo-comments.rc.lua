@@ -13,5 +13,5 @@ end, { desc = "Previous todo comment" })
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<leader>pT', '<cmd>TodoTelescope<cr>', opts)
+vim.keymap.set('n', '<leader>lT', '<cmd>TodoTelescope<cr>', opts)
 vim.keymap.set('n', '<leader>xT', '<cmd>TodoTrouble<cr>', opts)

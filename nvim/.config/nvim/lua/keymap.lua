@@ -97,7 +97,7 @@ keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', o
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
 
 --format document
-keymap.set({ 'n' }, '<leader>l', function() vim.lsp.buf.format() end)
+keymap.set({ 'n' }, '<leader>ö', function() vim.lsp.buf.format() end)
 
 -- show signature
 keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
