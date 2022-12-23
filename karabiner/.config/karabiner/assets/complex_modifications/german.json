@@ -423,6 +423,10 @@
           "type": "basic",
           "conditions": [
             {
+              "keyboard_types": ["ansi"],
+              "type": "keyboard_type_if"
+            },
+            {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com\\.microsoft\\.rdc$",
@@ -467,6 +471,10 @@
           ],
           "type": "basic",
           "conditions": [
+            {
+              "keyboard_types": ["ansi"],
+              "type": "keyboard_type_if"
+            },
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
@@ -517,6 +525,10 @@
           ],
           "type": "basic",
           "conditions": [
+            {
+              "keyboard_types": ["ansi"],
+              "type": "keyboard_type_if"
+            },
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
