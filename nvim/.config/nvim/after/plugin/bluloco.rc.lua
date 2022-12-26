@@ -5,7 +5,6 @@ bluloco.setup({
   style = "auto",
   transparent = false,
   italics = false,
-  terminal = true
 })
 
 vim.cmd('colorscheme bluloco')
