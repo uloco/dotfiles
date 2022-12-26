@@ -106,7 +106,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
-
+setopt hist_ignore_all_dups
 
 # FZF
 export FZF_DEFAULT_OPTS='
