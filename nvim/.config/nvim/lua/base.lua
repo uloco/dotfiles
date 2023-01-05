@@ -13,6 +13,7 @@ vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
+vim.opt.pumheight = 20
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 3
