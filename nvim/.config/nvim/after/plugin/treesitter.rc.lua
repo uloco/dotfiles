@@ -19,7 +19,6 @@ ts.setup {
     'elixir',
     'json',
     'css',
-    'markdown',
     'lua',
     'make',
     'dockerfile',
