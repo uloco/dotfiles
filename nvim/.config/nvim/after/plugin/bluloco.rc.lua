@@ -3,7 +3,7 @@ if (not status) then return end
 
 bluloco.setup({
   style = "auto",
-  transparent = false,
+  transparent = true,
   italics = false,
 })
 
