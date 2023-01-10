@@ -14,3 +14,11 @@ gui:
   authorColors:
     'Umut Topuzoğlu': 'magenta'
 promptToReturnFromSubprocess: false
+keybinding:
+  universal:
+    createRebaseOptionsMenu: 'M'
+  branches:
+    mergeIntoCurrentBranch: 'm'
+  files:
+    openMergeTool: 'T'
+
