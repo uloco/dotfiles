@@ -22,8 +22,8 @@ require("diffview").setup({
     view = {
       ["gf"]         = actions.goto_file, -- Open the file in a new split in the previous tabpage
       ["<leader>e"]  = actions.focus_files, -- Bring focus to the file panel
-      ["<leader>db"]  = actions.toggle_files, -- Toggle the file panel.
-      ["<leader>dl"]  = actions.cycle_layout, -- Cycle through available layouts.
+      ["<leader>db"] = actions.toggle_files, -- Toggle the file panel.
+      ["<leader>dl"] = actions.cycle_layout, -- Cycle through available layouts.
       ["<leader>kc"] = actions.prev_conflict, -- In the merge_tool: jump to the previous conflict
       ["<leader>jc"] = actions.next_conflict, -- In the merge_tool: jump to the next conflict
       ["<leader>co"] = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
@@ -97,18 +97,24 @@ function DiffviewToggle()
   end
 end
 
-function DiffviewHistoryToggle()
+function DiffviewHistoryToggle(file)
   local lib = require 'diffview.lib'
   local view = lib.get_current_view()
   if view then
     -- Current tabpage is a Diffview; close it
     vim.cmd(":DiffviewClose")
-  else
+  elseif file then
     -- No open Diffview exists: open a new one
     vim.cmd(":DiffviewFileHistory %")
+  else
+    vim.cmd(":DiffviewFileHistory")
   end
 end
 
 local opts = { noremap = true, silent = true }
+-- diff view
 vim.keymap.set('n', '<leader>df', function() DiffviewToggle() end, opts)
-vim.keymap.set('n', '<leader>dh', function() DiffviewHistoryToggle() end, opts)
+-- history of current file
+vim.keymap.set('n', '<leader>dh', function() DiffviewHistoryToggle(true) end, opts)
+-- history of all commits
+vim.keymap.set('n', '<leader>dH', function() DiffviewHistoryToggle(false) end, opts)
