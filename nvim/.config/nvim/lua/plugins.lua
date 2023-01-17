@@ -187,4 +187,6 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   }
 
+
+  use "TimUntersberger/neogit"
 end)
