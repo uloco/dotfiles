@@ -7,9 +7,9 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim' -- common utilities
-  use '~/Source/neovim/bluloco.nvim'
+  use { 'wbthomason/packer.nvim' }
+  use { 'nvim-lua/plenary.nvim' } -- common utilities
+  use { '~/Source/neovim/bluloco.nvim' }
 
   -- theme
   use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f' }
@@ -25,17 +25,17 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use 'nvim-treesitter/nvim-treesitter-context' -- see current block head
-  use 'nvim-treesitter/playground' -- debug treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects' -- custom textobjects
+  use { 'nvim-treesitter/nvim-treesitter-context' } -- see current block head
+  use { 'nvim-treesitter/playground' } -- debug treesitter
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' } -- custom textobjects
 
   -- quick find
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
+  use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- icons
-  use 'kyazdani42/nvim-web-devicons'
+  use { 'kyazdani42/nvim-web-devicons' }
 
   -- tabs
   use {
@@ -45,13 +45,13 @@ packer.startup(function(use)
   }
 
   -- close buffers like vscode tabs
-  use 'ojroques/nvim-bufdel'
+  use { 'ojroques/nvim-bufdel' }
 
   -- colorize hex values
-  use 'norcalli/nvim-colorizer.lua'
+  use { 'norcalli/nvim-colorizer.lua' }
 
   -- scroll bar
-  use 'petertriho/nvim-scrollbar'
+  use { 'petertriho/nvim-scrollbar' }
 
   -- todo comments
   use {
@@ -67,38 +67,38 @@ packer.startup(function(use)
   }
 
   --lsp
-  use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind-nvim' -- pictograms in completion
-  use 'glepnir/lspsaga.nvim' -- vscode like peeks, refactorings
+  use { 'neovim/nvim-lspconfig' }
+  use { 'onsails/lspkind-nvim' } -- pictograms in completion
+  use { 'glepnir/lspsaga.nvim', commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e", disable = true } -- vscode like peeks, refactorings
 
   -- completion
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-comp source for neovim's built-in LSP
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use 'L3MON4D3/LuaSnip' -- Snippets
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'David-Kunz/cmp-npm'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- function signature help
+  use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
+  use { 'hrsh7th/cmp-buffer' } -- nvim-cmp source for buffer words
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/nvim-cmp' } -- Completion
+  use { 'L3MON4D3/LuaSnip' } -- Snippets
+  use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'David-Kunz/cmp-npm' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help' } -- function signature help
 
   -- package manager
-  use 'williamboman/mason.nvim' -- easier lsp language install
-  use 'williamboman/mason-lspconfig.nvim'
+  use { 'williamboman/mason.nvim' } -- easier lsp language install
+  use { 'williamboman/mason-lspconfig.nvim' }
 
   -- prettier
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+  use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use { 'MunifTanjim/prettier.nvim' } -- Prettier plugin for Neovim's built-in LSP client
 
   -- utils
-  use 'f-person/auto-dark-mode.nvim'
-  use 'b3nj5m1n/kommentary'
-  use 'kylechui/nvim-surround'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
+  use { 'f-person/auto-dark-mode.nvim' }
+  use { 'b3nj5m1n/kommentary' }
+  use { 'kylechui/nvim-surround' }
+  use { 'windwp/nvim-autopairs' }
+  use { 'windwp/nvim-ts-autotag' }
 
   -- git
-  use 'lewis6991/gitsigns.nvim'
+  use { 'lewis6991/gitsigns.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use { 'akinsho/git-conflict.nvim', tag = "*", }
@@ -125,19 +125,19 @@ packer.startup(function(use)
   }
 
   -- session management
-  use 'rmagatti/auto-session'
+  use { 'rmagatti/auto-session' }
 
   -- highltight word under cursor
-  use 'RRethy/vim-illuminate'
+  use { 'RRethy/vim-illuminate' }
 
   -- better folding
-  use 'anuvyklack/pretty-fold.nvim'
+  use { 'anuvyklack/pretty-fold.nvim' }
 
   -- comments in mixed languages like tsx
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
   -- theem generation
-  use 'rktjmp/lush.nvim'
+  use { 'rktjmp/lush.nvim' }
 
 
   use {
@@ -147,7 +147,7 @@ packer.startup(function(use)
     end,
     requires = { "kkharji/sqlite.lua" }
   }
-  use 'windwp/nvim-spectre'
+  use { 'windwp/nvim-spectre' }
 
   -- tree explorer
   use {
@@ -159,7 +159,7 @@ packer.startup(function(use)
   }
 
   -- notifications pop up messages
-  use 'rcarriga/nvim-notify'
+  use { 'rcarriga/nvim-notify' }
 
   -- semantic paramenter highlighting
   use {
