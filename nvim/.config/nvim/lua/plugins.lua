@@ -69,7 +69,7 @@ packer.startup(function(use)
   --lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
-  use { 'glepnir/lspsaga.nvim', commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e", disable = true } -- vscode like peeks, refactorings
+  use { 'glepnir/lspsaga.nvim', commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e" } -- vscode like peeks, refactorings
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
@@ -110,10 +110,7 @@ packer.startup(function(use)
   use "lukas-reineke/virt-column.nvim"
 
   -- show what keys do
-  use {
-    'folke/which-key.nvim',
-    disabled = true
-  }
+  use { 'folke/which-key.nvim' }
 
   -- better terminals
   use "akinsho/toggleterm.nvim"
