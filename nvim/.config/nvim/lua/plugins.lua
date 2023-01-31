@@ -96,6 +96,7 @@ packer.startup(function(use)
   use { 'kylechui/nvim-surround' }
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
+  use { 'johmsalas/text-case.nvim' }
 
   -- git
   use { 'lewis6991/gitsigns.nvim' }
