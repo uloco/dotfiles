@@ -55,21 +55,21 @@ packer.startup(function(use)
 
   -- todo comments
   use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
   }
 
   -- error and todo panel
   -- Lua
   use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
   }
 
   --lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
-  use { 'glepnir/lspsaga.nvim', commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e" } -- vscode like peeks, refactorings
+  use { 'glepnir/lspsaga.nvim', commit = 'b7b4777369b441341b2dcd45c738ea4167c11c9e' } -- vscode like peeks, refactorings
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
@@ -101,19 +101,19 @@ packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  use { 'akinsho/git-conflict.nvim', tag = "*", }
+  use { 'akinsho/git-conflict.nvim', tag = '*', }
 
   -- indent lines
-  use "lukas-reineke/indent-blankline.nvim"
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- column line
-  use "lukas-reineke/virt-column.nvim"
+  use 'lukas-reineke/virt-column.nvim'
 
   -- show what keys do
   use { 'folke/which-key.nvim' }
 
   -- better terminals
-  use "akinsho/toggleterm.nvim"
+  use 'akinsho/toggleterm.nvim'
 
   -- greeter
   use {
@@ -138,11 +138,11 @@ packer.startup(function(use)
 
 
   use {
-    "nvim-telescope/telescope-frecency.nvim",
+    'nvim-telescope/telescope-frecency.nvim',
     config = function()
-      require "telescope".load_extension("frecency")
+      require 'telescope'.load_extension('frecency')
     end,
-    requires = { "kkharji/sqlite.lua" }
+    requires = { 'kkharji/sqlite.lua' }
   }
   use { 'windwp/nvim-spectre' }
 
@@ -165,14 +165,14 @@ packer.startup(function(use)
   }
 
   use {
-    "smjonas/live-command.nvim",
-    -- tag = "1.*",
-    sha = "5d1b0c0e8278542d65cd992775b4f3bd8a287fb6",
+    'smjonas/live-command.nvim',
+    -- tag = '1.*',
+    sha = '5d1b0c0e8278542d65cd992775b4f3bd8a287fb6',
     config = function()
-      require("live-command").setup {
+      require('live-command').setup {
         commands = {
-          Norm = { cmd = "norm" },
-          Glob = { cmd = "g" },
+          Norm = { cmd = 'norm' },
+          Glob = { cmd = 'g' },
         }
       }
     end,
@@ -180,10 +180,10 @@ packer.startup(function(use)
 
   -- markdown preview
   use {
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
   }
 
 
-  use "TimUntersberger/neogit"
+  use { 'TimUntersberger/neogit' }
 end)
