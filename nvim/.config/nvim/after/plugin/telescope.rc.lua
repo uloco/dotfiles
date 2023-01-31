@@ -23,12 +23,12 @@ telescope.setup {
     mappings = {
       n = {
         ['q'] = actions.close,
-        ['<A-d>'] = actions.delete_buffer,
+        ['<A-q>'] = actions.delete_buffer,
         ["<C-t>"] = trouble.open_with_trouble,
       },
       i = {
         ['<esc>'] = actions.close,
-        ['<A-d>'] = actions.delete_buffer,
+        ['<A-q>'] = actions.delete_buffer,
         ['<A-e>'] = function() vim.cmd('stopinsert') end,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
