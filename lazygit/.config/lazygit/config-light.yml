@@ -4,7 +4,8 @@ git:
     pager: delta --features light-mode --paging=never
 gui:
   theme:
-    lightTheme: true
+    defaultFgColor:
+      - black
     activeBorderColor:
       - magenta
       - bold
