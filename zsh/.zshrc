@@ -1,3 +1,8 @@
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 ## Fast Node Manager
 export RCFILE="$HOME/.zshrc"
 eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
@@ -166,15 +171,6 @@ export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
 
 export PATH="/usr/local/sbin:$PATH"
 
-## python2
-#export PATH="/usr/local/opt/python@2/libexec/bin:${PATH}"
-
-## python3
-export PATH="${HOME}/Library/Python/3.9/bin:${PATH}"
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:${PATH}"
-
-# alias python=/usr/local/bin/python3
-
 export EDITOR="nvim"
 
 # composer
@@ -202,9 +198,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias vim='nvim --listen /tmp/nvimsocket'
 
 alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
-
-#alias pip='pip2'
-#alias python='python2'
 
 # Git
 alias g='git'
