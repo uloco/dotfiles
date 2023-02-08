@@ -10,7 +10,8 @@ todo.setup({
       "--with-filename",
       "--line-number",
       "--column",
-      "--glob=!e2e"
+      "--glob=!e2e",
+      "--hidden"
     },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder
