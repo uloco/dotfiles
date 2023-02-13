@@ -109,7 +109,16 @@ vim.keymap.set('n', '<leader>ll', function()
   })
 end, { noremap = true, silent = true, desc = "Find Files" })
 
--- search text
+-- search ALL files (include ignored files)
+vim.keymap.set('n', '<leader>lL', function()
+  builtin.find_files({
+    no_ignore = true,
+    hidden = true,
+    follow = true
+  })
+end, { noremap = true, silent = true, desc = "Find Files" })
+
+-- search old files
 vim.keymap.set('n', '<leader><leader>l', function()
   builtin.oldfiles({ no_ignore = true, only_cwd = true })
 end, opts)
@@ -118,13 +127,12 @@ end, opts)
 vim.keymap.set('n', '<leader>lf', function() builtin.live_grep() end,
   { noremap = true, silent = true, desc = "Search in files" })
 
-
+-- search text fuzzy
 vim.keymap.set('n', '<leader>ls', function()
   builtin.grep_string({
     shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
   })
 end)
-
 
 -- search ALL text (including ignored files)
 vim.keymap.set('n', '<leader>lF',
@@ -149,6 +157,8 @@ vim.keymap.set('n', '<leader>lb', function() builtin.buffers() end, opts)
 
 -- search help pages
 vim.keymap.set('n', '<leader>lh', function() builtin.help_tags() end, opts)
+
+-- search highlight groups
 vim.keymap.set('n', '<leader>lH', function() builtin.highlights() end, opts)
 
 -- resume last search
