@@ -4,7 +4,7 @@ local lspkind = require 'lspkind'
 
 -- npm sources
 require('cmp-npm').setup({
-  only_semantic_versions = true
+  only_latest_version = true
 })
 
 -- general cmp setup
