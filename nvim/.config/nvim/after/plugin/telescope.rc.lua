@@ -11,6 +11,7 @@ local fb_actions = require 'telescope'.extensions.file_browser.actions
 local action_layout = require 'telescope.actions.layout'
 
 local trouble = require("trouble.providers.telescope")
+local path_actions = require('telescope_insert_path')
 
 telescope.setup {
   defaults = {
@@ -24,11 +25,25 @@ telescope.setup {
       n = {
         ['q'] = actions.close,
         ['<A-q>'] = actions.delete_buffer,
+        ['<C-a>'] = actions.select_all,
         ["<C-t>"] = trouble.open_with_trouble,
+        -- E.g. Type `[i`, `[I`, `[a`, `[A`, `[o`, `[O` to insert relative path and select the path in visual mode.
+        -- Other mappings work the same way with a different prefix.
+        ["["] = path_actions.insert_relpath_visual,
+        ["]"] = path_actions.insert_abspath_visual,
+        ["{"] = path_actions.insert_relpath_insert,
+        ["}"] = path_actions.insert_abspath_insert,
+        ["-"] = path_actions.insert_relpath_i_normal,
+        ["="] = path_actions.insert_abspath_i_normal,
+        -- If you want to get relative path that is relative to the cwd, use
+        -- `relpath` instead of `reltobufpath`
+        -- You can skip the location postfix if you specify that in the function name.
+        -- ["<C-o>"] = path_actions.insert_relpath_o_visual,
       },
       i = {
         ['<esc>'] = actions.close,
         ['<A-q>'] = actions.delete_buffer,
+        ['<C-a>'] = actions.select_all,
         ['<A-e>'] = function() vim.cmd('stopinsert') end,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,

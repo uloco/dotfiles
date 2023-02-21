@@ -33,6 +33,14 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require 'telescope'.load_extension('frecency')
+    end,
+    requires = { 'kkharji/sqlite.lua' }
+  }
+  use { 'kiyoon/telescope-insert-path.nvim' }
 
   -- icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -138,13 +146,6 @@ packer.startup(function(use)
   use { 'rktjmp/lush.nvim' }
 
 
-  use {
-    'nvim-telescope/telescope-frecency.nvim',
-    config = function()
-      require 'telescope'.load_extension('frecency')
-    end,
-    requires = { 'kkharji/sqlite.lua' }
-  }
   use { 'windwp/nvim-spectre' }
 
   -- tree explorer
