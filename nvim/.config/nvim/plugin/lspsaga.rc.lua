@@ -7,6 +7,10 @@ saga.setup({
     border = "rounded",
     code_action = "",
   },
+  beacon = {
+    enable = false,
+    frequency = 20,
+  },
   preview = {
     lines_above = 10,
     lines_below = 10,
