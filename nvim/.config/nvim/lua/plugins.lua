@@ -77,7 +77,7 @@ packer.startup(function(use)
   --lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
-  use { 'glepnir/lspsaga.nvim', commit = 'b7b4777369b441341b2dcd45c738ea4167c11c9e' } -- vscode like peeks, refactorings
+  use { 'glepnir/lspsaga.nvim' } -- vscode like peeks, refactorings
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
