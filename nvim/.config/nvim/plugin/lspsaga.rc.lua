@@ -28,8 +28,7 @@ saga.setup({
     vsplit = '<C-c>v',
     split = '<C-c>s',
     tabe = '<C-c>t',
-    quit = 'q',
-    close = '<esc>',
+    quit = '<esc>',
   },
   code_action = {
     num_shortcut = true,
