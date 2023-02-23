@@ -8,7 +8,7 @@ bufdel.setup {
 
 local opt = { noremap = true, silent = true }
 
-vim.keymap.set({'n', 'i', 'v', 't'}, '<A-q>', '<cmd>:BufDel<cr>', opt)
+vim.keymap.set({ 'n', 'i', 'v', 't' }, '<A-q>', '<cmd>:BufDel<cr>', opt)
 
 -- close all buffers
 local function close_all()
