@@ -4,6 +4,7 @@
     email = uloco@schiefewelt.de
 [push]
     default = simple
+	autoSetupRemote = true
 [credential]
     helper = osxkeychain
 [svn]
