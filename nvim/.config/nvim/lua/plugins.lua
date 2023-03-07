@@ -122,7 +122,7 @@ packer.startup(function(use)
   use { 'folke/which-key.nvim' }
 
   -- better terminals
-  use 'akinsho/toggleterm.nvim'
+  use { 'akinsho/toggleterm.nvim', tag = '*' }
 
   -- greeter
   use {
