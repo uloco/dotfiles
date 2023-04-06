@@ -91,6 +91,8 @@ packer.startup(function(use)
   use { 'hrsh7th/nvim-cmp' } -- Completion
   use { 'L3MON4D3/LuaSnip' } -- Snippets
   use { 'saadparwaiz1/cmp_luasnip' }
+  use { "rafamadriz/friendly-snippets" }
+
   use { 'David-Kunz/cmp-npm' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' } -- function signature help
 
