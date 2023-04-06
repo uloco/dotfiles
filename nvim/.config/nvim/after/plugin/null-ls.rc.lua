@@ -21,7 +21,11 @@ null_ls.setup {
         group = augroup_format,
         buffer = 0,
         callback = function()
-          vim.lsp.buf.format({ async = true })
+          vim.lsp.buf.format({
+            async = true,
+            -- Never request typescript-language-server for formatting
+            filter = function(c) return c.name ~= "tsserver" end
+          })
         end
       })
     end
