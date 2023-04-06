@@ -95,7 +95,7 @@ keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', o
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
 
 --format document
-keymap.set({ 'n' }, '<leader>ö', function() vim.lsp.buf.format() end)
+keymap.set({ 'n' }, '<leader>ö', function() vim.lsp.buf.format({ async = true }) end)
 
 -- show signature
 keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
@@ -145,8 +145,6 @@ map <A-o> :e %:r.html <CR>
 map <A-d> :e %:r.spec.ts <CR>
 
 ]]
-
-
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap

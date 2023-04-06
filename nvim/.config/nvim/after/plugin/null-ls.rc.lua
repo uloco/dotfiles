@@ -3,34 +3,25 @@ if (not status) then return end
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-    title = ""
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
 ---@diagnostic disable-next-line: redundant-parameter
 null_ls.setup {
   sources = {
+    require("typescript.extensions.null-ls.code-actions"),
     null_ls.builtins.diagnostics.eslint_d.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.code_actions.eslint_d
   },
-  on_attach = function(client, bufnr)
+  on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
-      -- auto format + organize imports
+      -- auto format
       vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup_format,
         buffer = 0,
         callback = function()
-          -- organize_imports()
-          vim.lsp.buf.format()
+          vim.lsp.buf.format({ async = true })
         end
       })
     end
