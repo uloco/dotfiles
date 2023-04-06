@@ -79,6 +79,10 @@ packer.startup(function(use)
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
   use { 'glepnir/lspsaga.nvim' } -- vscode like peeks, refactorings
 
+  -- language specific lsp
+  use { 'jose-elias-alvarez/typescript.nvim' }
+
+
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
   use { 'hrsh7th/cmp-buffer' } -- nvim-cmp source for buffer words
