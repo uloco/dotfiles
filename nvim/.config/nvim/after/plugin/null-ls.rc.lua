@@ -22,7 +22,7 @@ null_ls.setup {
         buffer = 0,
         callback = function()
           vim.lsp.buf.format({
-            async = true,
+            async = false,
             -- Never request typescript-language-server for formatting
             filter = function(c) return c.name ~= "tsserver" end
           })
