@@ -72,7 +72,7 @@
 [pager]
     branch = false
 [pull]
-	rebase = true
+	rebase = false
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
