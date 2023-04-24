@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["git-conflict.nvim"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
@@ -380,6 +385,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["typescript.nvim"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
   ["vim-illuminate"] = {
     loaded = true,
