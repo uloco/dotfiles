@@ -25,8 +25,8 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use { 'nvim-treesitter/nvim-treesitter-context' } -- see current block head
-  use { 'nvim-treesitter/playground' } -- debug treesitter
+  use { 'nvim-treesitter/nvim-treesitter-context' }     -- see current block head
+  use { 'nvim-treesitter/playground' }                  -- debug treesitter
   use { 'nvim-treesitter/nvim-treesitter-textobjects' } -- custom textobjects
 
   -- quick find
@@ -85,7 +85,7 @@ packer.startup(function(use)
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP
-  use { 'hrsh7th/cmp-buffer' } -- nvim-cmp source for buffer words
+  use { 'hrsh7th/cmp-buffer' }   -- nvim-cmp source for buffer words
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/cmp-cmdline' }
   use { 'hrsh7th/nvim-cmp' } -- Completion
@@ -102,7 +102,7 @@ packer.startup(function(use)
 
   -- prettier
   use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use { 'MunifTanjim/prettier.nvim' } -- Prettier plugin for Neovim's built-in LSP client
+  use { 'MunifTanjim/prettier.nvim' }       -- Prettier plugin for Neovim's built-in LSP client
 
   -- utils
   use { 'f-person/auto-dark-mode.nvim' }
@@ -160,7 +160,7 @@ packer.startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
 
   -- notifications pop up messages
