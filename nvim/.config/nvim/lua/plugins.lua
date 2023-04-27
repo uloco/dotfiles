@@ -151,8 +151,15 @@ packer.startup(function(use)
   -- theem generation
   use { 'rktjmp/lush.nvim' }
 
-
+  -- search and replace
   use { 'windwp/nvim-spectre' }
+  use({
+    "ray-x/sad.nvim",
+    requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+    config = function()
+      require("sad").setup {}
+    end,
+  })
 
   -- tree explorer
   use {
