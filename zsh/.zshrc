@@ -268,6 +268,11 @@ function lazygit () {
 }
 alias lg='lazygit'
 
+function sad() {
+  export GIT_PAGER="delta --features $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
+  command sad $@
+}
+
 function bat() {
   THEME=$(get_macos_theme)
 
