@@ -77,7 +77,7 @@ packer.startup(function(use)
   --lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
-  use { 'glepnir/lspsaga.nvim' } -- vscode like peeks, refactorings
+  use { 'nvimdev/lspsaga.nvim' } -- vscode like peeks, refactorings
 
   -- language specific lsp
   use { 'jose-elias-alvarez/typescript.nvim' }
