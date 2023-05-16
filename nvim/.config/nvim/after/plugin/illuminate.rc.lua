@@ -39,3 +39,5 @@ illuminate.configure({
 })
 
 
+vim.keymap.set('n', '<A-n>', illuminate.goto_next_reference)
+vim.keymap.set('n', '<A-S-n>', illuminate.goto_prev_reference)
