@@ -128,7 +128,8 @@ packer.startup(function(use)
   use { 'folke/which-key.nvim' }
 
   -- better terminals
-  use { 'akinsho/toggleterm.nvim', tag = '*' }
+  -- use { 'akinsho/toggleterm.nvim', tag = '*' }
+  use { '/Users/uloco/Source/forks/toggleterm.nvim' }
 
   -- greeter
   use {
@@ -172,12 +173,6 @@ packer.startup(function(use)
 
   -- notifications pop up messages
   use { 'rcarriga/nvim-notify' }
-
-  -- semantic paramenter highlighting
-  use {
-    'm-demare/hlargs.nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter' }
-  }
 
   use {
     'smjonas/live-command.nvim',
