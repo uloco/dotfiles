@@ -95,12 +95,7 @@ keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', o
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
 
 --format document
-keymap.set({ 'n' }, '<leader>ö', function()
-  vim.lsp.buf.format({
-    async = true,
-    filter = function(client) return client.name ~= "tsserver" end
-  })
-end)
+keymap.set({ 'n' }, '<leader>ö', vim.lsp.buf.format)
 
 -- show signature
 keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
