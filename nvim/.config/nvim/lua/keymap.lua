@@ -6,14 +6,14 @@ local opts = { noremap = true, silent = true }
 keymap.set('n', 'x', '"_x', opts)
 
 -- Increment/decrement
-keymap.set('n', '+', '<C-a>', opts)
-keymap.set('n', '-', '<C-x>', opts)
+keymap.set({'n', 'v'}, '+', '<C-a>', opts)
+keymap.set({'n', 'v'}, '-', '<C-x>', opts)
 
 -- Delete a word backwards
 -- keymap.set('n', 'dw', 'vb"_d', opts)
 
 -- Select all
-keymap.set('n', '<C-a>', 'ggVG', opts)
+keymap.set('n', '<A-a>', 'ggVG', opts)
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -80,6 +80,10 @@ keymap.set('t', '<A-e>', '<C-\\><C-n>', opts)
 -- Center on half page up down
 keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', opts)
 keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', opts)
+
+-- Center after next search
+keymap.set({ 'n', 'v' }, 'n', 'nzz', opts)
+keymap.set({ 'n', 'v' }, 'N', 'Nzz', opts)
 
 -- TODO: remove this after adding vim-asterisk
 -- Make * not jump after select word under cursor
