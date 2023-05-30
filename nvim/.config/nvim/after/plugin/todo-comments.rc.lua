@@ -11,6 +11,8 @@ todo.setup({
       "--line-number",
       "--column",
       "--glob=!e2e",
+      "--glob=!translations",
+      "--glob=!*.json",
       "--hidden"
     },
     -- regex that will be used to match keywords.
