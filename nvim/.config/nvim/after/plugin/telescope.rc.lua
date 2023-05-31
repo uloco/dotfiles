@@ -190,6 +190,7 @@ vim.keymap.set('n', '<leader>fb',
       cwd = telescope_buffer_dir(),
       file_ignore_patterns = {},
       respect_gitignore = false,
+      select_buffer = true
     })
   end,
   opts)
