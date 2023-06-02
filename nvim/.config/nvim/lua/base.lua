@@ -77,3 +77,6 @@ vim.opt.foldlevelstart = 99
 -- show whitespace characters
 vim.opt.list = true
 vim.opt.listchars = { tab = '——→', multispace = '·', trail = '·', nbsp = '␣' }
+
+-- disable swap files
+vim.opt.swapfile = false
