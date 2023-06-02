@@ -99,6 +99,7 @@ packer.startup(function(use)
   -- package manager
   use { 'williamboman/mason.nvim' } -- easier lsp language install
   use { 'williamboman/mason-lspconfig.nvim' }
+  use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
 
   -- prettier
   use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
