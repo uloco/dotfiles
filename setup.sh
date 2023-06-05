@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Stow configs
-stow --adopt $(\ls -d */)
-git restore .
 
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,6 +9,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install remaining software via brew bundle
 brew bundle
+
+# Stow configs
+stow --adopt $(\ls -d */)
+git restore .
 
 # Links
 cd ${HOME}
