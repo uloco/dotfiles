@@ -55,7 +55,11 @@
     pop = stash pop
     drop = stash drop
     delete = push --delete origin
-    cleanup = "! git remote prune origin && git cleanup-branches"
+    cleanup = "! git remote prune origin; \
+      git fetch --all &>/dev/null; \
+      git checkout \"$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')\" &>/dev/null; \
+      git remote prune origin; \
+      git branch -vv | grep \"origin/.*: gone]\" | awk \"{print \\$1}\" | xargs git branch -d; "
     feature = "! git fetch && git checkout $(pbpaste)"
     reb = rebase
     rebs = rebase --skip
