@@ -195,6 +195,9 @@ packer.startup(function(use)
     run = function() vim.fn['mkdp#util#install']() end,
   }
 
+  -- plist editing support
+  use { "darfink/vim-plist" }
+
 
   use { 'TimUntersberger/neogit' }
 end)
