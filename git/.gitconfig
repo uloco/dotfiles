@@ -2,6 +2,7 @@
 [user]
     name = Umut Topuzoğlu
     email = uloco@schiefewelt.de
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzLbzVQDmbU5jl8++iluR7EhqxYlzqenj2zmn3IQzIG
 [push]
     default = simple
 	autoSetupRemote = true
@@ -152,3 +153,9 @@
 [delta "interactive"]
     keep-plus-minus-markers = false
 
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
