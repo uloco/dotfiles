@@ -1,161 +1,161 @@
 # This is Git's per-user configuration file.
 [user]
-    name = Umut Topuzoğlu
-    email = uloco@schiefewelt.de
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzLbzVQDmbU5jl8++iluR7EhqxYlzqenj2zmn3IQzIG
+  name = Umut Topuzoğlu
+  email = uloco@schiefewelt.de
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzLbzVQDmbU5jl8++iluR7EhqxYlzqenj2zmn3IQzIG
 [push]
-    default = simple
-	autoSetupRemote = true
+  default = simple
+  autoSetupRemote = true
 [credential]
-    helper = osxkeychain
+  helper = osxkeychain
 [svn]
-    rmdir = true
+  rmdir = true
 [core]
-    editor = nvim
+  editor = nvim
     ; pager = less -X -F
-    pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
+  pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
 [github]
-    user = uloco
+  user = uloco
 [ghi]
-    token = !security find-internet-password -a uloco -s github.com -l 'ghi token' -w
+  token = !security find-internet-password -a uloco -s github.com -l 'ghi token' -w
 [diff]
-    tool = vimdiff
-    colorMoved = default
+  tool = vimdiff
+  colorMoved = default
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [difftool]
-    prompt = false
+  prompt = false
 [alias]
-    f = fetch
-    b = branch
-    d = difftool
-    s = status
-    ss = status -s
-    a = add
-    aa = add .
-    ba = branch --all
-    co = checkout
-    cob = checkout -b
-    c = commit
-    cm = commit -m
-    cam = commit --amend -C HEAD
-    cma = commit -am
-    pu = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
-    put = pu --follow-tags
-    puf = pu --force-with-lease
-    r = reset
-    rl = reset @^
-    rls = reset @^ --soft
-    g = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
-    gs = g --stat
-    l = log
-    ll = l --graph --pretty=oneline --abbrev-commit
-    d = diff
-    dc = d --cached
-    pop = stash pop
-    drop = stash drop
-    delete = push --delete origin
-    cleanup = "! git remote prune origin; \
-      git fetch --all &>/dev/null; \
-      git checkout \"$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')\" &>/dev/null; \
-      git remote prune origin; \
-      git branch -vv | grep \"origin/.*: gone]\" | awk \"{print \\$1}\" | xargs git branch -d; "
-    feature = "! git fetch && git checkout $(pbpaste)"
-    reb = rebase
-    rebs = rebase --skip
-    rebc = rebase --continue
-    rebd = "! git checkout develop && git pull && git checkout - && git rebase develop"
-    cp = cherry-pick
-    hash = "!git show --oneline | head -1 | awk '{ print $1 }' | pbcopy"
-    t = tag
-    find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
-    show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
-    st = "stack"
-    stp = "stack --pull"
-    stpu = "stack --push"
+  f = fetch
+  b = branch
+  d = difftool
+  s = status
+  ss = status -s
+  a = add
+  aa = add .
+  ba = branch --all
+  co = checkout
+  cob = checkout -b
+  c = commit
+  cm = commit -m
+  cam = commit --amend -C HEAD
+  cma = commit -am
+  pu = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+  put = pu --follow-tags
+  puf = pu --force-with-lease
+  r = reset
+  rl = reset @^
+  rls = reset @^ --soft
+  g = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
+  gs = g --stat
+  l = log
+  ll = l --graph --pretty=oneline --abbrev-commit
+  d = diff
+  dc = d --cached
+  pop = stash pop
+  drop = stash drop
+  delete = push --delete origin
+  cleanup = "! git remote prune origin; \
+    git fetch --all &>/dev/null; \
+    git checkout \"$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')\" &>/dev/null; \
+    git remote prune origin; \
+    git branch -vv | grep \"origin/.*: gone]\" | awk \"{print \\$1}\" | xargs git branch -d; "
+  feature = "! git fetch && git checkout $(pbpaste)"
+  reb = rebase
+  rebs = rebase --skip
+  rebc = rebase --continue
+  rebd = "! git checkout develop && git pull && git checkout - && git rebase develop"
+  cp = cherry-pick
+  hash = "!git show --oneline | head -1 | awk '{ print $1 }' | pbcopy"
+  t = tag
+  find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
+  show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
+  st = "stack"
+  stp = "stack --pull"
+  stpu = "stack --push"
 [pager]
-    branch = false
+  branch = false
 [pull]
-	rebase = false
+  rebase = false
 [filter "lfs"]
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [rerere]
-    enabled = 1
-    autoupdate = true
+  enabled = 1
+  autoupdate = true
 [merge "npm-merge-driver"]
-    name = automatically merge npm lockfiles
-    driver = npx npm-merge-driver merge %A %O %B %P
+  name = automatically merge npm lockfiles
+  driver = npx npm-merge-driver merge %A %O %B %P
 [init]
-    defaultBranch = main
+  defaultBranch = main
 [color]
-    ui = auto
+  ui = auto
 
 ; delta
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [add.interactive]
-    useBuiltin = false # required for git 2.37.0
+  useBuiltin = false # required for git 2.37.0
 
 ; tokyonight storm
 [delta "dark-mode"]
-    navigate = true    # use n and N to move between diff sections
-    dark = true
-    syntax-theme = bluloco-dark
-    plus-style = syntax "#2B5A3F"
-    plus-emph-style = syntax "#2D6363"
-    minus-style = syntax "#4D3034"
-    minus-emph-style = syntax "#6A3234"
-    hunk-header-style = omit
-    file-style =  normal 
+  navigate = true    # use n and N to move between diff sections
+  dark = true
+  syntax-theme = bluloco-dark
+  plus-style = syntax "#2B5A3F"
+  plus-emph-style = syntax "#2D6363"
+  minus-style = syntax "#4D3034"
+  minus-emph-style = syntax "#6A3234"
+  hunk-header-style = omit
+  file-style =  normal 
     ; file-transformation = s,(.*)/(.*\\..*),  $2         $1/,
-    file-decoration-style = blue ul ol
-    file-modified-label = [M]
-    file-added-label = [A]
-    file-removed-label = [D]
-    file-renamed-label = [R]
-    file-copied-label = [C]
-    inline-hint = yellow
-    map-styles = \
-      bold purple => syntax "#2B5A3F", \
-      bold cyan => syntax "#4D3034", \
-      bold blue => syntax "#2B5A3F", \
-      bold yellow => syntax "#4D3034",
+  file-decoration-style = blue ul ol
+  file-modified-label = [M]
+  file-added-label = [A]
+  file-removed-label = [D]
+  file-renamed-label = [R]
+  file-copied-label = [C]
+  inline-hint = yellow
+  map-styles = \
+    bold purple => syntax "#2B5A3F", \
+    bold cyan => syntax "#4D3034", \
+    bold blue => syntax "#2B5A3F", \
+    bold yellow => syntax "#4D3034",
 
 ; tokyonight day
 [delta "light-mode"]
-    navigate = true    # use n and N to move between diff sections
-    light = true
-    syntax-theme = bluloco-light
-    plus-style = syntax "#B5F6C6"
-    plus-emph-style = syntax "#A8F0C8"
-    minus-style = syntax "#F8DDE0"
-    minus-emph-style = syntax "#F7BEC5"
-    hunk-header-style = omit
-    file-style =  normal 
+  navigate = true    # use n and N to move between diff sections
+  light = true
+  syntax-theme = bluloco-light
+  plus-style = syntax "#B5F6C6"
+  plus-emph-style = syntax "#A8F0C8"
+  minus-style = syntax "#F8DDE0"
+  minus-emph-style = syntax "#F7BEC5"
+  hunk-header-style = omit
+  file-style =  normal 
     ; file-transformation = s,(.*)/(.*\\..*),  $2         $1/,
-    file-decoration-style = blue ul ol
-    file-modified-label = [M]
-    file-added-label = [A]
-    file-removed-label = [D]
-    file-renamed-label = [R]
-    file-copied-label = [C]
-    inline-hint = yellow
-    map-styles = \
-       bold purple => syntax "#B5F6C6", \
-       bold cyan => syntax "#F8DDE0",  \
-       bold blue => syntax "#B5F6C6", \
-       bold yellow => syntax "#F8DDE0", 
+  file-decoration-style = blue ul ol
+  file-modified-label = [M]
+  file-added-label = [A]
+  file-removed-label = [D]
+  file-renamed-label = [R]
+  file-copied-label = [C]
+  inline-hint = yellow
+  map-styles = \
+    bold purple => syntax "#B5F6C6", \
+    bold cyan => syntax "#F8DDE0",  \
+    bold blue => syntax "#B5F6C6", \
+    bold yellow => syntax "#F8DDE0", 
 
 [delta "interactive"]
-    keep-plus-minus-markers = false
+  keep-plus-minus-markers = false
 
 [gpg]
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
-	gpgsign = true
+  gpgsign = true
