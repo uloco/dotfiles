@@ -39,14 +39,17 @@ defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 10
 
 # Dock
-defaults write com.apple.dock tilesize -float 42
-defaults write com.apple.dock mineffect scale
-defaults write com.apple.dock magnification -bool false
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-time-modifier -float 0.12
-defaults write com.apple.Dock autohide-delay -float 0.05
+# defaults write com.apple.dock tilesize -float 42
+# defaults write com.apple.dock mineffect scale
+# defaults write com.apple.dock magnification -bool false
+# defaults write com.apple.dock autohide -bool true
+# defaults write com.apple.dock autohide-time-modifier -float 0.12
+# defaults write com.apple.Dock autohide-delay -float 0.05
 
-defaults write com.apple.dock mru-spaces -bool false
+# defaults write com.apple.dock mru-spaces -bool false
+defaults delete com.apple.dock
+defaults import com.apple.dock "$(pwd)"/com.apple.dock.plist
+
 killall Dock
 
 # Menubar
