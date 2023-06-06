@@ -26,6 +26,11 @@ brew bundle
 stow --adopt $(\ls -d */)
 git restore .
 
+# neovim
+# install packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Links
 cd ${HOME}
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
