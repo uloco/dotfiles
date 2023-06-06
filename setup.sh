@@ -28,7 +28,7 @@ git restore .
 
 # Links
 cd ${HOME}
-ln -s "/Users/uloco/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
+ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
 ln -s "iCloudDrive/etc/.zsh-history"
 ln -s "iCloudDrive/autojump/autojump.txt"
 cd -
