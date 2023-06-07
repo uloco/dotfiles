@@ -28,8 +28,8 @@ git restore .
 
 # neovim
 # install packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+
 # Install noor
 cd "${HOME}/Downloads"
 local noor_name="Noor-2.0.24-universal"
@@ -40,7 +40,7 @@ hdiutil unmount /Volumes/Noor
 cd -
 
 # Links
-cd ${HOME}
+cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
 ln -s "iCloudDrive/etc/.zsh-history"
 ln -s "iCloudDrive/autojump/autojump.txt"
@@ -74,7 +74,7 @@ defaults write -g InitialKeyRepeat -int 10
 
 # defaults write com.apple.dock mru-spaces -bool false
 defaults delete com.apple.dock
-defaults import com.apple.dock "$(pwd)"/com.apple.dock.plist
+defaults import com.apple.dock "$(pwd)/com.apple.dock.plist"
 
 killall Dock
 
@@ -89,8 +89,8 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 
 # Keyboard
 # german nodeadkeys
-cp ~/iCloudDrive/German_NoDeadKeys.bundle "~/Library/Keyboard Layouts/"
+cp "${HOME}/iCloudDrive/German_NoDeadKeys.bundle" "${HOME}/Library/Keyboard Layouts/"
 defaults delete com.apple.HIToolbox
-defaults import com.apple.HIToolbox "$(pwd)"/com.apple.HIToolbox.plist
+defaults import com.apple.HIToolbox "$(pwd)/com.apple.HIToolbox.plist"
 
 # Reboot
