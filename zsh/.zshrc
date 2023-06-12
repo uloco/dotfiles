@@ -294,3 +294,5 @@ export REACT_EDITOR="nvr"
 
 alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p"
 
+
+alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
