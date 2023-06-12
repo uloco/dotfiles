@@ -91,6 +91,7 @@ cask "alfred"
 cask "alt-tab"
 cask "android-file-transfer"
 cask "android-studio"
+cask "arc"
 cask "around"
 cask "balenaetcher"
 cask "discord"
@@ -108,6 +109,7 @@ cask "insomnia"
 cask "iterm2-beta"
 cask "karabiner-elements"
 cask "kitty"
+cask "krisp"
 cask "michaelvillar-timer"
 cask "multipass"
 cask "neovide"
@@ -143,9 +145,11 @@ mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Poolsuite FM", id: 1514817810
+mas "TestFlight", id: 899247664
 mas "Trello", id: 1278508951
 mas "Vectornator", id: 1219074514
 mas "Vimari", id: 1480933944
+mas "Xcode", id: 497799835
 vscode "ahmadawais.shades-of-purple"
 vscode "asvetliakov.vscode-neovim"
 vscode "bschulte.love"
