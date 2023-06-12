@@ -48,7 +48,7 @@ ts.setup {
     'scala',
     'haskell',
     'erlang',
-    'help',
+    -- 'help',
     'markdown',
     'markdown_inline'
   },
