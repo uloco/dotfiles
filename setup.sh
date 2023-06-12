@@ -91,7 +91,6 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 
 # Keyboard
 # german nodeadkeys
-cp "${HOME}/iCloudDrive/German_NoDeadKeys.bundle" "${HOME}/Library/Keyboard Layouts/"
 defaults delete com.apple.HIToolbox
 defaults import com.apple.HIToolbox "$(pwd)/com.apple.HIToolbox.plist"
 
