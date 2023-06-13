@@ -48,7 +48,6 @@ cd -
 cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
 ln -s "iCloudDrive/etc/.zsh-history"
-ln -s "iCloudDrive/autojump/autojump.txt"
 cd -
 
 # Defaults
