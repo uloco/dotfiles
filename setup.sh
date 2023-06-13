@@ -28,6 +28,9 @@ brew bundle
 stow --adopt $(\ls -d */)
 git restore .
 
+# bat theme
+bat cache --build
+
 # neovim
 # install packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
