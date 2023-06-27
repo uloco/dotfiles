@@ -27,7 +27,7 @@ ts.setup {
     'graphql',
     'html',
     'jsdoc',
-    'php',
+    -- 'php',
     'python',
     'ruby',
     'regex',
