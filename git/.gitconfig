@@ -24,6 +24,8 @@
 [merge]
   tool = vimdiff
   conflictstyle = diff3
+[rebase]
+  updateRefs = true
 [difftool]
   prompt = false
 [alias]
