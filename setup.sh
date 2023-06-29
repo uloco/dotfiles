@@ -44,12 +44,6 @@ cp "/Volumes/${noor_name}/Noor.app" "${HOME}/Applications"
 hdiutil unmount /Volumes/Noor
 cd -
 
-# Install rust + cargo
-curl https://sh.rustup.rs -sSf | sh
-# Install git-stack
-cargo install git-stack
-cargo install git-branch-stash-cli
-
 # Links
 cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
