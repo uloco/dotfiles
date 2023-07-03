@@ -116,21 +116,10 @@ vim.cmd([[
     endfunction
 ]])
 
--- Auto insert mode when entering terminal
-local augroup_term_insert = vim.api.nvim_create_augroup("Term-Insert", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter", "TermOpen", "TermEnter" }, {
-  group = augroup_term_insert,
-  pattern = 'term://*',
-  command = 'startinsert'
-})
-
 -- See highlight group
 vim.keymap.set('n', '<C-S-P>', '<cmd>TSHighlightCapturesUnderCursor<cr>')
 
 --[[
-" Enter insert mode when entering terminal
-" autocmd BufWinEnter,WinEnter term://* startinsert
-
 " Change current working directory to file location
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 

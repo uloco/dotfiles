@@ -45,3 +45,20 @@ local cmd = vim.api.nvim_create_user_command
 cmd("LazygitOpen", function() lazygit:open() end, {})
 cmd("LazygitToggle", function() lazygit:toggle() end, {})
 cmd("LazygitClose", function() lazygit:close() end, {})
+
+
+-- Auto insert mode when entering terminal
+local augroup_term_insert = vim.api.nvim_create_augroup("Term-Insert", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter", "TermOpen", "TermEnter" }, {
+  group = augroup_term_insert,
+  pattern = 'term://*',
+  command = 'startinsert'
+})
+
+-- Auto insert mode when entering terminal with mouse click
+local augroup_term_insert_mouse = vim.api.nvim_create_augroup("Term-Insert-Mouse", { clear = true })
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+  group = augroup_term_insert_mouse,
+  pattern = '*',
+  command = 'nnoremap <buffer><LeftRelease> <LeftRelease>i'
+})
