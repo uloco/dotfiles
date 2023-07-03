@@ -24,4 +24,5 @@ keybinding:
     mergeIntoCurrentBranch: 'm'
   files:
     openMergeTool: 'T'
-
+git:
+  overrideGpg: true
