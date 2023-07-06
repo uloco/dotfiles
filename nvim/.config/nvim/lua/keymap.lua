@@ -6,8 +6,8 @@ local opts = { noremap = true, silent = true }
 keymap.set('n', 'x', '"_x', opts)
 
 -- Increment/decrement
-keymap.set({'n', 'v'}, '+', '<C-a>', opts)
-keymap.set({'n', 'v'}, '-', '<C-x>', opts)
+keymap.set({ 'n', 'v' }, '+', '<C-a>', opts)
+keymap.set({ 'n', 'v' }, '-', '<C-x>', opts)
 
 -- Delete a word backwards
 -- keymap.set('n', 'dw', 'vb"_d', opts)
@@ -89,10 +89,9 @@ keymap.set({ 'n', 'v' }, 'N', 'Nzz', opts)
 -- Make * not jump after select word under cursor
 keymap.set({ 'n' }, '*', 'm`<cmd>keepjumps normal! *``<cr>', opts)
 
--- multi cursor alternative
+-- multi cursor alternative (visual highlight first, better than * cgn)
 vim.cmd [[nnoremap <leader>cw <cmd>let @/='\<'.expand('<cword>').'\>'<cr>"_ciw]]
 vim.cmd [[xnoremap <leader>cw y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<cr>"_cgn]]
-
 
 -- Duplicate and comment
 keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', opts)
@@ -119,25 +118,6 @@ vim.cmd([[
 -- See highlight group
 vim.keymap.set('n', '<C-S-P>', '<cmd>TSHighlightCapturesUnderCursor<cr>')
 
---[[
-" Change current working directory to file location
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-nnoremap <leader>tcd :call <SID>ChangeTabDir()<CR>
-function! <SID>ChangeTabDir()
-  let s:cwd = getcwd()
-  execute "tcd" . s:cwd
-  execute "pwd"
-endfunc
-
-
-" Switch between different file extensions
-map <A-u> :e %:r.ts <CR>
-map <A-i> :e %:r.scss <CR>
-map <A-o> :e %:r.html <CR>
-map <A-d> :e %:r.spec.ts <CR>
-
-]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
