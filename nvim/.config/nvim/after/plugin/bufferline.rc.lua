@@ -1,5 +1,5 @@
 local status, bufferline = pcall(require, 'bufferline')
-if (not status) then return end
+if (not status or vim.g.started_by_firenvim == true) then return end
 
 bufferline.setup {
   options = {

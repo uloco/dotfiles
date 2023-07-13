@@ -200,4 +200,10 @@ packer.startup(function(use)
 
 
   use { 'TimUntersberger/neogit' }
+
+  -- use neovim in browser texts
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
 end)
