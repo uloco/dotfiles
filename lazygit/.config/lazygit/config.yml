@@ -16,6 +16,7 @@ gui:
     'hotfix': 'red'
   authorColors:
     'Umut Topuzoğlu': 'magenta'
+  nerdFontsVersion: "3"
 promptToReturnFromSubprocess: false
 keybinding:
   universal:
