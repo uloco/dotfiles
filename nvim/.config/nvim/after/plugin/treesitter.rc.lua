@@ -25,6 +25,7 @@ ts.setup {
     'gitattributes',
     'gitignore',
     'graphql',
+    'groovy',
     'html',
     'jsdoc',
     -- 'php',
