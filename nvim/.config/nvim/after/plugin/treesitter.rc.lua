@@ -18,6 +18,7 @@ ts.setup {
     'java',
     'elixir',
     'json',
+    'jsonc',
     'css',
     'lua',
     'make',
