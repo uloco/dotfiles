@@ -232,6 +232,14 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 # fnm
 alias nvm="fnm"
 
+# Install global npm deps in new version
+# Usage: fnm use <current-version> && fnm_upgrade <old-version>
+fnm_upgrade() {
+  fnm exec --using=$1 npm ls --global --json \
+    | jq -r '.dependencies | to_entries[] | .key+"@"+.value.version' \
+    | xargs npm i -g
+}
+
 # brew intel
 alias brew-intel="/usr/local/bin/brew"
 
