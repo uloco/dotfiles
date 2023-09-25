@@ -5,7 +5,8 @@ vim.cmd [[
 vim.filetype.add({
   filename = {
     ["Fastfile"] = "ruby",
-    ["Podfile"] = "ruby"
+    ["Podfile"] = "ruby",
+    [".eslintrc.json"] = "jsonc",
   },
   extension = {
     xml = 'html'
