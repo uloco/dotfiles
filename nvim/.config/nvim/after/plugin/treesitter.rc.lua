@@ -52,7 +52,8 @@ ts.setup {
     'erlang',
     -- 'help',
     'markdown',
-    'markdown_inline'
+    'markdown_inline',
+    'objc'
   },
   autotag = {
     enable = true
