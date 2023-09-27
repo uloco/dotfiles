@@ -150,7 +150,7 @@ packer.startup(function(use)
   -- comments in mixed languages like tsx
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
-  -- theem generation
+  -- theme generation
   use { 'rktjmp/lush.nvim' }
 
   -- search and replace
@@ -197,9 +197,6 @@ packer.startup(function(use)
 
   -- plist editing support
   use { "darfink/vim-plist" }
-
-
-  use { 'TimUntersberger/neogit' }
 
   -- use neovim in browser texts
   use {
