@@ -48,7 +48,6 @@ packer.startup(function(use)
   -- tabs
   use {
     'akinsho/bufferline.nvim',
-    tag = 'v3.*',
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
