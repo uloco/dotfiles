@@ -98,7 +98,13 @@ keymap.set({ 'n' }, '<leader>gc', 'mCyy<Plug>kommentary_line_default<cr>P`Cj', o
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgv<Plug>kommentary_visual_default<cr>`C<esc>', opts)
 
 --format document
-keymap.set({ 'n' }, '<leader>ö', vim.lsp.buf.format)
+keymap.set({ 'n' }, '<leader>ö', function()
+  vim.lsp.buf.format({
+    async = false,
+    -- Never request typescript-language-server for formatting
+    filter = function(c) return c.name ~= "tsserver" end
+  })
+end)
 
 -- show signature
 keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
