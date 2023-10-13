@@ -53,7 +53,8 @@ ts.setup {
     -- 'help',
     'markdown',
     'markdown_inline',
-    'objc'
+    'objc',
+    'ini'
   },
   autotag = {
     enable = true,
