@@ -49,7 +49,9 @@ saga.setup({
     virtual_text = true,
   },
   rename = {
-    quit = '<esc>',
+    keys = {
+      quit = '<esc>',
+    }
   },
   symbol_in_winbar = {
     enable = true,
