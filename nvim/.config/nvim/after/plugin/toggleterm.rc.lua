@@ -25,6 +25,8 @@ vim.keymap.set({ "n", "t" }, "˝", "<cmd>ToggleTermToggleAll<cr>", opts) -- Alt-
 
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit  = Terminal:new({
+  -- hidden terms need high ids otherwise clash with count toggle
+  id = 100,
   cmd = [[
     THEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
     XDG_CONFIG_DIR=${HOME}/.config
@@ -36,7 +38,7 @@ local lazygit  = Terminal:new({
   direction = 'float',
 })
 
-local floating = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
+local floating = Terminal:new({id = 101, cmd = "zsh", hidden = true, direction = 'float' })
 
 vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle() vim.cmd('checktime') end, opts)
 vim.keymap.set({ "n", "t" }, "ª", function() floating:toggle() end, opts) -- Alt-Gr + h
