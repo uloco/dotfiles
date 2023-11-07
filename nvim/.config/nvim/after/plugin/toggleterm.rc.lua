@@ -11,6 +11,14 @@ toggleterm.setup({
   float_opts = {
     border = 'curved',
     winblend = 0,
+    width = function()
+      local columns = vim.opt.columns._value
+      if columns > 200 then
+        return columns - 100
+      else
+        return columns - 20
+      end
+    end,
   },
   persist_size = false,
   winbar = {
@@ -38,9 +46,17 @@ local lazygit  = Terminal:new({
   direction = 'float',
 })
 
-local floating = Terminal:new({id = 101, cmd = "zsh", hidden = true, direction = 'float' })
+local floating = Terminal:new({
+  id = 101,
+  cmd = "zsh",
+  hidden = true,
+  direction = 'float'
+})
 
-vim.keymap.set({ "n", "t" }, "©", function() lazygit:toggle() vim.cmd('checktime') end, opts)
+vim.keymap.set({ "n", "t" }, "©", function()
+  lazygit:toggle()
+  vim.cmd('checktime')
+end, opts)
 vim.keymap.set({ "n", "t" }, "ª", function() floating:toggle() end, opts) -- Alt-Gr + h
 
 local cmd = vim.api.nvim_create_user_command
