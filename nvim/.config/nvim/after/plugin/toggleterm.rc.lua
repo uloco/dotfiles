@@ -13,7 +13,9 @@ toggleterm.setup({
     winblend = 0,
     width = function()
       local columns = vim.opt.columns._value
-      if columns > 200 then
+      if columns > 400 then
+        return columns - 150
+      elseif columns > 200 then
         return columns - 100
       else
         return columns - 20
