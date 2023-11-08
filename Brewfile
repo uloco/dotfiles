@@ -15,6 +15,7 @@ tap "romkatv/powerlevel10k"
 tap "socsieng/tap"
 tap "wix/brew"
 brew "xz"
+brew "openssl@3"
 brew "readline"
 brew "sqlite"
 brew "aria2"
@@ -28,6 +29,7 @@ brew "cmake"
 brew "ruby"
 brew "cocoapods"
 brew "coreutils"
+brew "docker", link: false
 brew "docker-compose"
 brew "folly"
 brew "fd"
@@ -46,6 +48,7 @@ brew "graphviz"
 brew "gzip"
 brew "htop"
 brew "ipfs"
+brew "jq"
 brew "k9s"
 brew "lazygit"
 brew "lua-language-server"
@@ -57,9 +60,9 @@ brew "tree-sitter"
 brew "neovim"
 brew "neovim-remote"
 brew "node@14"
-brew "openssl@3"
 brew "openvpn"
 brew "php"
+brew "powerlevel10k"
 brew "pyenv"
 brew "rename"
 brew "ripgrep"
@@ -79,7 +82,6 @@ brew "mongodb/brew/mongodb-community"
 brew "ms-jpq/sad/sad"
 brew "oven-sh/bun/bun"
 brew "robotsandpencils/made/xcodes"
-brew "romkatv/powerlevel10k/powerlevel10k"
 brew "socsieng/tap/sendkeys"
 brew "wix/brew/applesimutils"
 cask "1password"
@@ -92,18 +94,16 @@ cask "alt-tab"
 cask "android-file-transfer"
 cask "android-studio"
 cask "arc"
-cask "around"
 cask "balenaetcher"
-cask "discord"
 cask "docker"
 cask "dropbox"
 cask "eqmac"
 cask "figma"
+cask "flipper"
 cask "font-iosevka"
 cask "font-iosevka-nerd-font"
 cask "font-iosevka-term-nerd-font"
 cask "google-chrome"
-cask "google-drive"
 cask "inkscape"
 cask "insomnia"
 cask "iterm2-beta"
@@ -111,12 +111,10 @@ cask "karabiner-elements"
 cask "kitty"
 cask "krisp"
 cask "michaelvillar-timer"
-cask "monitorcontrol"
+cask "mongodb-compass"
 cask "multipass"
 cask "neovide"
-cask "obs"
 cask "powershell"
-cask "react-native-debugger"
 cask "slack"
 cask "spline"
 cask "spotify"
@@ -126,16 +124,17 @@ cask "tunnelblick"
 cask "utm"
 cask "vimr"
 cask "visual-studio-code"
-cask "visual-studio-code-insiders"
 cask "vysor"
-cask "whatsapp"
 mas "1Password for Safari", id: 1569813296
 mas "Adblock Plus", id: 1432731683
 mas "Affinity Photo", id: 824183456
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
 mas "Brother iPrint&Scan", id: 1193539993
+mas "CapCut", id: 1500855883
+mas "Cleaner One", id: 1473079126
 mas "ColorSlurp", id: 1287239339
+mas "Curve", id: 1219074514
 mas "Dark Reader for Safari", id: 1438243180
 mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
@@ -148,7 +147,6 @@ mas "Pages", id: 409201541
 mas "Poolsuite FM", id: 1514817810
 mas "TestFlight", id: 899247664
 mas "Trello", id: 1278508951
-mas "Vectornator", id: 1219074514
 mas "Vimari", id: 1480933944
 mas "Xcode", id: 497799835
 vscode "ahmadawais.shades-of-purple"
