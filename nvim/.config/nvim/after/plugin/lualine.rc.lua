@@ -32,6 +32,7 @@ if (vim.g.started_by_firenvim == true) then
 else
   lualine.setup {
     options = {
+      globalstatus = true,
       icons_enabled = true,
       theme = 'auto',
       section_separators = { left = '', right = '' },
@@ -76,6 +77,22 @@ else
       lualine_z = {}
     },
     tabline = {},
+    -- winbar = {
+    --   lualine_a = {},
+    --   lualine_b = {},
+    --   lualine_c = { 'filename' },
+    --   lualine_x = {},
+    --   lualine_y = {},
+    --   lualine_z = {}
+    -- },
+    -- inactive_winbar = {
+    --   lualine_a = {},
+    --   lualine_b = {},
+    --   lualine_c = { 'filename' },
+    --   lualine_x = {},
+    --   lualine_y = {},
+    --   lualine_z = {}
+    -- },
     extensions = { 'fugitive' }
   }
 end
