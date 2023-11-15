@@ -202,4 +202,15 @@ packer.startup(function(use)
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end
   }
+
+  -- testing
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      -- jest
+      'haydenmeade/neotest-jest',
+    }
+  }
 end)
