@@ -15,7 +15,7 @@ toggleterm.setup({
       local columns = vim.opt.columns._value
       if columns > 400 then
         return columns - 150
-      elseif columns > 200 then
+      elseif columns >= 220 then
         return columns - 100
       else
         return columns - 20
