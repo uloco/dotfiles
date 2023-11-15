@@ -58,7 +58,7 @@ saga.setup({
     separator = ' ',
     hide_keyword = true,
     show_file = true,
-    folder_level = 1,
+    folder_level = 0,
     respect_root = false,
     color_mode = true,
   },
