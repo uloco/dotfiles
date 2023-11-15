@@ -182,7 +182,7 @@ packer.startup(function(use)
       require('live-command').setup {
         commands = {
           Norm = { cmd = 'norm' },
-          Glob = { cmd = 'g' },
+          Glob = { cmd = 'g', hl_range = { 1, -1, kind = "visible" } }
         }
       }
     end,
