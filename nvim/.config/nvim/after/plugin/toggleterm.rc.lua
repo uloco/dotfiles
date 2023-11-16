@@ -24,7 +24,7 @@ toggleterm.setup({
   },
   persist_size = false,
   winbar = {
-    enable = true
+    enabled = true
   },
   auto_scroll = false
 })

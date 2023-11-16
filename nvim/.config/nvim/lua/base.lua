@@ -28,6 +28,9 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.showmode = false
 
+-- winbar
+vim.opt.winbar='%t'
+
 vim.opt.wrap = true
 vim.opt.showbreak = '↪ '
 -- vim.opt.wrapmargin = 0
