@@ -27,3 +27,9 @@ keybinding:
     openMergeTool: 'T'
 git:
   overrideGpg: true
+customCommands:
+  - key: '<c-f>'
+    context: 'localBranches'
+    command: 'git fetch && git checkout "$(pbpaste)"'
+    description: 'Feature: Fetch branches and create new from clipboard'
+    loadingText: 'Creating branch'
