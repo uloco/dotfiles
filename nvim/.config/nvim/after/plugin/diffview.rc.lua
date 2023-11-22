@@ -118,3 +118,16 @@ vim.keymap.set('n', '<leader>df', function() DiffviewToggle() end, opts)
 vim.keymap.set('n', '<leader>dh', function() DiffviewHistoryToggle(true) end, opts)
 -- history of all commits
 vim.keymap.set('n', '<leader>dH', function() DiffviewHistoryToggle(false) end, opts)
+
+local function diff_saved()
+  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+  vim.cmd("tab split | diffthis")
+  vim.cmd("aboveleft vnew | r # | normal! 1Gdd")
+  vim.cmd("diffthis")
+  vim.cmd("setlocal bt=nofile bh=wipe nobl noswf ro ft=" .. filetype)
+  vim.cmd("wincmd l")
+end
+
+vim.api.nvim_create_user_command('DiffUnsavedChanges', diff_saved, {})
+
+
