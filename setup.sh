@@ -35,15 +35,6 @@ bat cache --build
 # install packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
-# Install noor
-cd "${HOME}/Downloads"
-local noor_name="Noor-2.0.24-universal"
-curl -O "https://usenoor.com/releases/${noor_name}.dmg"
-hdiutil attach Noor.dmg
-cp "/Volumes/${noor_name}/Noor.app" "${HOME}/Applications"
-hdiutil unmount /Volumes/Noor
-cd -
-
 # Links
 cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
