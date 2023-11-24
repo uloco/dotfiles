@@ -9,7 +9,7 @@
           "typescript",
           "typescriptreact"
         ],
-        "path": "./snippets/smokeless-snippets.json"
+        "path": "./snippets/custom-snippets.json"
       }
     ]
   }
