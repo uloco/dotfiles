@@ -38,7 +38,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim "${HOME}/.local/sh
 # Links
 cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
-ln -s "iCloudDrive/etc/.zsh-history"
+ln -s "iCloudDrive/.zsh-history"
 cd -
 
 # Defaults
