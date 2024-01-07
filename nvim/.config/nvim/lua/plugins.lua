@@ -154,13 +154,6 @@ packer.startup(function(use)
 
   -- search and replace
   use { 'windwp/nvim-spectre' }
-  use({
-    "ray-x/sad.nvim",
-    requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
-    config = function()
-      require("sad").setup {}
-    end,
-  })
 
   -- tree explorer
   use {
