@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew update
+
 # Configure homebrew permissions to allow multiple users on MAC OSX.
 # Any user from the admin group will be able to manage the homebrew and cask installation on the machine.
 sudo chgrp -R admin $(brew --prefix)/*
@@ -10,11 +15,6 @@ if [ -e /Library/Caches/Homebrew ]; then
   sudo chgrp -R admin /Library/Caches/Homebrew
   sudo chmod -R g+w /Library/Caches/Homebrew
 fi
-
-brew update
-
-# brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
