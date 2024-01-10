@@ -216,10 +216,9 @@ export GEM_HOME="${HOME}/.gem"
 export PATH=$GEM_HOME/bin:$PATH
 
 # homebrew ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
-
+export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/ruby/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/ruby/include"
 
 # eval "$(rbenv init -)"
 

@@ -25,7 +25,8 @@ require('mason-tool-installer').setup {
     "stylua",
     "svelte-language-server",
     "typescript-language-server",
-    "yaml-language-server"
+    "yaml-language-server",
+    "json-lsp"
   },
 
   -- if set to true this will check each tool for updates. If updates
