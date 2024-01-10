@@ -87,4 +87,8 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 defaults delete com.apple.HIToolbox
 defaults import com.apple.HIToolbox "$(pwd)/com.apple.HIToolbox.plist"
 
+# Preferences
+cp com.lwouis.alt-tab-macos.plist ~/Library/Preferences/
+cp com.crowdcafe.windowmagnet.plist ~/Library/Preferences/
+
 # Reboot
