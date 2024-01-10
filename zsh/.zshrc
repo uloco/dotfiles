@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$(brew --prefix)/bin:/usr/local/bin:$PATH
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -216,10 +216,9 @@ export GEM_HOME="${HOME}/.gem"
 export PATH=$GEM_HOME/bin:$PATH
 
 # homebrew ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
-
+export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/ruby/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/ruby/include"
 
 # eval "$(rbenv init -)"
 
