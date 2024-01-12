@@ -90,5 +90,6 @@ defaults import com.apple.HIToolbox "$(pwd)/com.apple.HIToolbox.plist"
 # Preferences
 cp com.lwouis.alt-tab-macos.plist ~/Library/Preferences/
 cp com.crowdcafe.windowmagnet.plist ~/Library/Preferences/
+cp me.guillaumeb.MonitorControl.plist ~/Library/Preferences/
 
 # Reboot
