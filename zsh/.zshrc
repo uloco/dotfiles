@@ -212,15 +212,14 @@ alias g='git'
 alias android-emulator-dns='~/Library/Android/sdk/emulator/emulator @Pixel_XL_API_29 -dns-server 192.168.8.1'
 
 # # Ruby
-export GEM_HOME="${HOME}/.gem"
-export PATH=$GEM_HOME/bin:$PATH
+# export GEM_HOME="${HOME}/.gem"
+# export PATH=$GEM_HOME/bin:$PATH
 
 # homebrew ruby
-export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
-export LDFLAGS="-L$(brew --prefix)/opt/ruby/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/ruby/include"
+# export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+# export LDFLAGS="-L$(brew --prefix)/opt/ruby/lib"
+# export CPPFLAGS="-I$(brew --prefix)/opt/ruby/include"
 
-# eval "$(rbenv init -)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -308,3 +307,18 @@ alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune
 autoload -Uz select-word-style
 select-word-style shell
 
+# export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# // rbenv
+export RBENV_ROOT=/opt/homebrew/opt/rbenv
+export PATH=$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init -)"
+
+# // openssl
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+export PATH=/Users/uloco/.meteor:$PATH
