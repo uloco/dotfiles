@@ -2,7 +2,7 @@
 [user]
   name = Umut Topuzoğlu
   email = uloco@schiefewelt.de
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzLbzVQDmbU5jl8++iluR7EhqxYlzqenj2zmn3IQzIG
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIInCaxxqinFbeLS0JpwgLV1A/G49YIFdNXq2Z1GPq/uI
 [push]
   default = simple
   autoSetupRemote = true
