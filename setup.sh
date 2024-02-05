@@ -52,6 +52,11 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 
+# disable .ds_store file creation
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+
 killall Finder
 
 # Keyrepeat
