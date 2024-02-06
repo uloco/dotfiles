@@ -29,7 +29,7 @@ vim.opt.tabstop = 2
 vim.opt.showmode = false
 
 -- winbar
-vim.opt.winbar='%t'
+vim.opt.winbar='%f'
 
 vim.opt.wrap = true
 vim.opt.showbreak = '↪ '
