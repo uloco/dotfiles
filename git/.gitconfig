@@ -25,7 +25,7 @@
   tool = vimdiff
   conflictstyle = diff3
 [rebase]
-  updateRefs = true
+  updateRefs = false
 [difftool]
   prompt = false
 [alias]
