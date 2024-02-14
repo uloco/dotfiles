@@ -91,4 +91,5 @@ nvim_lsp.jsonls.setup {
   }
 }
 
--- nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.tailwindcss.setup({})
