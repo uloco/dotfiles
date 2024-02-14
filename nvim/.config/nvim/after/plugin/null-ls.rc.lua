@@ -11,7 +11,10 @@ null_ls.setup {
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
     null_ls.builtins.diagnostics.fish,
-    null_ls.builtins.code_actions.eslint_d
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.formatting.beautysh.with({
+      extra_args = { '-i', '2' }
+    }),
   },
   on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
@@ -30,4 +33,5 @@ null_ls.setup {
       })
     end
   end,
+
 }

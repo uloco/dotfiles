@@ -9,7 +9,7 @@ brew update
 # Any user from the admin group will be able to manage the homebrew and cask installation on the machine.
 sudo chgrp -R admin $(brew --prefix)/*
 sudo chmod -R g+w $(brew --prefix)/*
-  
+
 # allow admins to homebrew's local cache of formulae and source files
 if [ -e /Library/Caches/Homebrew ]; then
   sudo chgrp -R admin /Library/Caches/Homebrew
@@ -44,7 +44,7 @@ cd -
 # Defaults
 
 # Finder
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true 
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
