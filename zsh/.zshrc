@@ -322,3 +322,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 export PATH=/Users/uloco/.meteor:$PATH
+
+# opam (ocaml)
+# [[ ! -r /Users/uloco/.opam/opam-init/init.zsh ]] || source /Users/uloco/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
