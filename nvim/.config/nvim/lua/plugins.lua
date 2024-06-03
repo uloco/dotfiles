@@ -34,6 +34,7 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
+    disable = true,
     'nvim-telescope/telescope-frecency.nvim',
     config = function()
       require 'telescope'.load_extension('frecency')
@@ -161,7 +162,6 @@ packer.startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
 
   -- notifications pop up messages
