@@ -131,7 +131,7 @@ zstyle ':fzf-tab:*' fzf-flags --color='fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-plugins=(fzf cp autojump colored-man-pages colorize github node npm docker pod fzf-tab)
+plugins=(fzf cp autojump colored-man-pages colorize github node npm yarn docker pod fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
