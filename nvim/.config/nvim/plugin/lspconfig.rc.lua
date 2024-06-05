@@ -18,6 +18,11 @@ nvim_lsp.lua_ls.setup {
   -- on_attach = on_attach,
   settings = {
     Lua = {
+      hint = {
+        enable = true,
+        arrayIndex = "Enable",
+        setType = true,
+      },
       diagnostics = {
         -- Get the language server to recognize the 'vim' global
         globals = { 'vim' }
