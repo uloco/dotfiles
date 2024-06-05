@@ -206,4 +206,17 @@ packer.startup(function(use)
       'haydenmeade/neotest-jest',
     }
   }
+
+  -- use {
+  --   "ggandor/leap.nvim",
+  --   config = function()
+  --     local leap = require('leap')
+  --     leap.create_default_mappings()
+  --     leap.opts.safe_labels = {}
+
+  --     vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
+  --     vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+  --     vim.keymap.set({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)')
+  --   end
+  -- }
 end)
