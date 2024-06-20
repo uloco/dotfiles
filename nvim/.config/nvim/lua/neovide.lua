@@ -1,8 +1,7 @@
 if vim.g.neovide then
-  -- Put anything you want to happen only in Neovide here
-  vim.g.neovide_input_macos_alt_is_meta = false
-
-  -- option merged but not released yet
-  -- vim.g.neovide_input_macos_alt_is_meta = 'only_left'
-
+  vim.o.guifont = "Iosevka"
+  vim.g.neovide_transparency = 0.97
+  vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_scroll_animation_length = 0
+  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
 end
