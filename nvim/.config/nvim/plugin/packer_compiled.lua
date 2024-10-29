@@ -179,14 +179,8 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/kommentary",
     url = "https://github.com/b3nj5m1n/kommentary"
   },
-  ["leap.nvim"] = {
-    config = { "\27LJ\2\n¥\2\0\0\6\0\16\0\0286\0\0\0'\2\1\0B\0\2\0029\1\2\0004\2\0\0=\2\3\0016\1\4\0009\1\5\0019\1\6\0015\3\a\0'\4\b\0'\5\t\0B\1\4\0016\1\4\0009\1\5\0019\1\6\0015\3\n\0'\4\v\0'\5\f\0B\1\4\0016\1\4\0009\1\5\0019\1\6\0015\3\r\0'\4\14\0'\5\15\0B\1\4\1K\0\1\0\29<Plug>(leap-from-window)\15<leader>gs\1\4\0\0\6n\6x\6o\26<Plug>(leap-backward)\14<leader>S\1\4\0\0\6n\6x\6o\25<Plug>(leap-forward)\14<leader>s\1\4\0\0\6n\6x\6o\bset\vkeymap\bvim\16safe_labels\topts\tleap\frequire\0" },
-    loaded = true,
-    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/leap.nvim",
-    url = "https://github.com/ggandor/leap.nvim"
-  },
   ["live-command.nvim"] = {
-    config = { "\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\rhl_range\0\bcmd\6g\tNorm\1\0\2\tGlob\0\tNorm\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0" },
+    config = { "\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0" },
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/live-command.nvim",
     url = "https://github.com/smjonas/live-command.nvim"
@@ -426,12 +420,8 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: live-command.nvim
 time([[Config for live-command.nvim]], true)
-try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\rhl_range\0\bcmd\6g\tNorm\1\0\2\tGlob\0\tNorm\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")
+try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")
 time([[Config for live-command.nvim]], false)
--- Config for: leap.nvim
-time([[Config for leap.nvim]], true)
-try_loadstring("\27LJ\2\n¥\2\0\0\6\0\16\0\0286\0\0\0'\2\1\0B\0\2\0029\1\2\0004\2\0\0=\2\3\0016\1\4\0009\1\5\0019\1\6\0015\3\a\0'\4\b\0'\5\t\0B\1\4\0016\1\4\0009\1\5\0019\1\6\0015\3\n\0'\4\v\0'\5\f\0B\1\4\0016\1\4\0009\1\5\0019\1\6\0015\3\r\0'\4\14\0'\5\15\0B\1\4\1K\0\1\0\29<Plug>(leap-from-window)\15<leader>gs\1\4\0\0\6n\6x\6o\26<Plug>(leap-backward)\14<leader>S\1\4\0\0\6n\6x\6o\25<Plug>(leap-forward)\14<leader>s\1\4\0\0\6n\6x\6o\bset\vkeymap\bvim\16safe_labels\topts\tleap\frequire\0", "config", "leap.nvim")
-time([[Config for leap.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
