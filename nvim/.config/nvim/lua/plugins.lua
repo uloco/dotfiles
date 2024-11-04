@@ -169,8 +169,8 @@ packer.startup(function(use)
 
   use {
     'smjonas/live-command.nvim',
-    -- tag = '1.*',
-    sha = '5d1b0c0e8278542d65cd992775b4f3bd8a287fb6',
+    tag = '*',
+    -- sha = '5d1b0c0e8278542d65cd992775b4f3bd8a287fb6',
     config = function()
       require('live-command').setup {
         commands = {
