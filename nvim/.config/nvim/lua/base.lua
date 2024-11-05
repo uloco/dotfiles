@@ -27,6 +27,7 @@ vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.showmode = false
+vim.opt.jumpoptions = 'view'
 
 -- winbar
 vim.opt.winbar='%f'
