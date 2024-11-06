@@ -15,6 +15,7 @@ null_ls.setup {
     null_ls.builtins.formatting.beautysh.with({
       extra_args = { '-i', '2' }
     }),
+    null_ls.builtins.formatting.prettierd
   },
   on_attach = function(client)
     if client.server_capabilities.documentFormattingProvider then
