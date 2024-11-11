@@ -34,7 +34,7 @@ keymap.set('n', '<leader>so', ':luafile %<CR>', opts)
 -- save
 keymap.set('n', '<leader>w', ':w<CR>', opts)
 keymap.set('n', '<leader><leader>w', ':wa<CR>', opts)
-keymap.set('n', '<leader>q', ':q<CR>', opt)
+keymap.set('n', '<leader>q', ':q<CR>', opts)
 -- save all and exit
 keymap.set('n', '<leader><leader>q', '<cmd>wa<cr><cmd>qa<cr>', opts)
 
@@ -63,7 +63,7 @@ keymap.set('t', '<A-h>', '<C-\\><C-n><C-W><C-H>', opts)
 keymap.set('n', '<A-t>', '<cmd>tabnew<cr>', opts)
 
 -- organize splits
-keymap.set('n', '<A-=>', '<C-W><C-=>', opts)
+keymap.set('n', '<A-S-0>', '<C-W><C-=>', opts)
 -- goto previous split
 keymap.set('n', '<A-p>', '<C-W><C-p>', opts)
 keymap.set('t', '<A-p>', '<C-\\><C-n><C-W><C-p>', opts)
