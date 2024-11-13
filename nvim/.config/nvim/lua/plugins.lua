@@ -128,7 +128,7 @@ packer.startup(function(use)
   use { 'folke/which-key.nvim' }
 
   -- better terminals
-  use { 'akinsho/toggleterm.nvim', tag = '*' }
+  use { 'akinsho/toggleterm.nvim', tag = 'v2.12.0' }
   -- use { '/Users/uloco/Source/forks/toggleterm.nvim' }
 
   -- greeter
