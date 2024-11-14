@@ -26,7 +26,8 @@ toggleterm.setup({
   winbar = {
     enabled = true
   },
-  auto_scroll = false
+  auto_scroll = false,
+  close_on_exit = true
 })
 
 local opts = { noremap = true, silent = true }
