@@ -80,8 +80,10 @@ packer.startup(function(use)
   use { 'nvimdev/lspsaga.nvim' } -- vscode like peeks, refactorings
 
   -- language specific lsp
-  use { 'jose-elias-alvarez/typescript.nvim' }
-
+  use {
+    "pmizio/typescript-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" }
+  }
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' } -- nvim-comp source for neovim's built-in LSP

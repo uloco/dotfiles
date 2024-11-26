@@ -6,7 +6,6 @@ local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 ---@diagnostic disable-next-line: redundant-parameter
 null_ls.setup {
   sources = {
-    require("typescript.extensions.null-ls.code-actions"),
     null_ls.builtins.diagnostics.eslint_d.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
