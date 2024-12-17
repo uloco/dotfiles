@@ -7,7 +7,7 @@ toggleterm.setup({
   insert_mappings = true,
   terminal_mappings = true,
   direction = 'vertical',
-  size = 100,
+  size = 80,
   float_opts = {
     border = 'curved',
     winblend = 0,
