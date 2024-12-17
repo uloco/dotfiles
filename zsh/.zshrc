@@ -242,8 +242,8 @@ alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSS
 alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
 # fix delete word arguments
-autoload -Uz select-word-style
-select-word-style shell
+# autoload -Uz select-word-style
+# select-word-style shell
 
 # export PATH=/opt/homebrew/bin:$PATH
 export PATH="/opt/homebrew/sbin:$PATH"
