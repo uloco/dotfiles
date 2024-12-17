@@ -220,4 +220,13 @@ packer.startup(function(use)
   --     vim.keymap.set({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)')
   --   end
   -- }
+
+  use { "ibhagwan/fzf-lua",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        fzf_colors = true
+      })
+    end
+  }
 end)
