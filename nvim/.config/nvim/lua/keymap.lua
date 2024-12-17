@@ -6,8 +6,12 @@ local opts = { noremap = true, silent = true }
 keymap.set('n', 'x', '"_x', opts)
 
 -- Increment/decrement
-keymap.set({ 'n', 'v' }, '+', '<C-a>', opts)
-keymap.set({ 'n', 'v' }, '-', '<C-x>', opts)
+keymap.set({ 'n' }, '+', '<C-a>', opts)
+keymap.set({ 'n' }, '-', '<C-x>', opts)
+keymap.set({ 'v' }, '+', '<C-a>gv', opts)
+keymap.set({ 'v' }, '-', '<C-x>gv', opts)
+keymap.set({ 'v' }, '<C-+>', 'g<C-a>', opts)
+keymap.set({ 'v' }, '<C-S-+>', 'g<C-x>', opts)
 
 -- Delete a word backwards
 -- keymap.set('n', 'dw', 'vb"_d', opts)
