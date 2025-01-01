@@ -33,7 +33,7 @@ keymap.set('n', '<A-S-ö>', '5<C-w>-', opts)
 keymap.set('n', '<A-ö>', '5<C-w>+', opts)
 
 -- reload lua file
-keymap.set('n', '<leader>so', ':luafile %<CR>', opts)
+keymap.set('n', '<leader>so', ':luafile $MYVIMRC<CR>', opts)
 
 -- save
 keymap.set('n', '<leader>w', ':w<CR>', opts)
