@@ -94,8 +94,9 @@ export LC_TELEPHONE="de_DE.UTF-8"
 export LC_MEASUREMENT="de_DE.UTF-8"
 
 # Java
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-22.jdk/Contents/Home/"
-export JAVA_HOME="${HOME}/Library/Java/JavaVirtualMachines/openjdk-22.0.1/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-23.jdk/Contents/Home/"
+# export JAVA_HOME="${HOME}/Library/Java/JavaVirtualMachines/openjdk-22.0.1/Contents/Home"
 
 # Android
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
