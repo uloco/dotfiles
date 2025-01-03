@@ -118,7 +118,7 @@ packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  use { 'akinsho/git-conflict.nvim' }
+  use { 'akinsho/git-conflict.nvim', tag = 'v2.1.0' }
 
   -- indent lines
   use 'lukas-reineke/indent-blankline.nvim'
