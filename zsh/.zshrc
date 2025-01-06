@@ -71,7 +71,9 @@ zstyle ':fzf-tab:*' fzf-flags --color='fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12'
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(fzf cp autojump colored-man-pages colorize github node npm yarn docker pod fzf-tab)
+plugins=(fzf cp zoxide colored-man-pages colorize github node npm yarn docker pod fzf-tab)
+
+ZOXIDE_CMD_OVERRIDE=j
 
 source $ZSH/oh-my-zsh.sh
 
