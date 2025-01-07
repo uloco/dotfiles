@@ -180,11 +180,6 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  kommentary = {
-    loaded = true,
-    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/kommentary",
-    url = "https://github.com/b3nj5m1n/kommentary"
-  },
   ["live-command.nvim"] = {
     config = { "\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\rhl_range\0\bcmd\6g\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0" },
     loaded = true,
@@ -316,11 +311,6 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
-  ["nvim-ts-context-commentstring"] = {
-    loaded = true,
-    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
-    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -391,6 +381,11 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["ts-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/ts-comments.nvim",
+    url = "https://github.com/folke/ts-comments.nvim"
+  },
   ["typescript-tools.nvim"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/typescript-tools.nvim",
@@ -415,10 +410,20 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["zoxide.vim"] = {
+    config = { "\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\6j\18zoxide_prefix\6g\bvim\0" },
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/zoxide.vim",
+    url = "https://github.com/nanotee/zoxide.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: zoxide.vim
+time([[Config for zoxide.vim]], true)
+try_loadstring("\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\6j\18zoxide_prefix\6g\bvim\0", "config", "zoxide.vim")
+time([[Config for zoxide.vim]], false)
 -- Config for: live-command.nvim
 time([[Config for live-command.nvim]], true)
 try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\rhl_range\0\bcmd\6g\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")

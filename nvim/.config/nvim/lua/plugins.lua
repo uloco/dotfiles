@@ -108,7 +108,6 @@ packer.startup(function(use)
 
   -- utils
   use { 'f-person/auto-dark-mode.nvim' }
-  use { 'b3nj5m1n/kommentary' }
   use { 'kylechui/nvim-surround' }
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
@@ -149,7 +148,7 @@ packer.startup(function(use)
   use { 'anuvyklack/pretty-fold.nvim' }
 
   -- comments in mixed languages like tsx
-  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  use { 'folke/ts-comments.nvim' }
 
   -- theme generation
   use { 'rktjmp/lush.nvim' }
