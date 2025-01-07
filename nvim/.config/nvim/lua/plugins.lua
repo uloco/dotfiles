@@ -233,7 +233,6 @@ packer.startup(function(use)
   use {
     'nanotee/zoxide.vim',
     config = function()
-      -- does not work now, use :Z
       vim.g.zoxide_prefix = 'j'
     end
   }

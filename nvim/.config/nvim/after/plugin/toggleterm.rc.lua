@@ -8,6 +8,7 @@ toggleterm.setup({
   terminal_mappings = true,
   direction = 'vertical',
   size = 80,
+  autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
   float_opts = {
     border = 'curved',
     winblend = 0,
@@ -58,11 +59,14 @@ local floating = Terminal:new({
   direction = 'float'
 })
 
+-- right option + g
 vim.keymap.set({ "n", "t" }, "©", function()
   lazygit:toggle()
   vim.cmd('checktime')
 end, opts)
-vim.keymap.set({ "n", "t" }, "ª", function() floating:toggle() end, opts) -- Alt-Gr + h
+
+-- right option + h
+vim.keymap.set({ "n", "t" }, "ª", function() floating:toggle() end, opts)
 
 local cmd = vim.api.nvim_create_user_command
 cmd("LazygitOpen", function() lazygit:open() end, {})
