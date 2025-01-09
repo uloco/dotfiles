@@ -9,10 +9,9 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use { 'wbthomason/packer.nvim' }
   use { 'nvim-lua/plenary.nvim' } -- common utilities
-  use { '~/Source/neovim/bluloco.nvim' }
 
   -- theme
-  use { 'folke/tokyonight.nvim', commit = '1d1d1722e035389dc3bfc2489133fa58533c310f' }
+  use { '~/Source/neovim/bluloco.nvim' }
 
   -- statusbar bottom
   use {
