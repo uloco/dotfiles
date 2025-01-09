@@ -30,12 +30,9 @@ telescope.setup {
         ["<C-t>"] = trouble.open,
         -- E.g. Type `[i`, `[I`, `[a`, `[A`, `[o`, `[O` to insert relative path and select the path in visual mode.
         -- Other mappings work the same way with a different prefix.
-        ["["] = path_actions.insert_relpath_visual,
-        ["]"] = path_actions.insert_abspath_visual,
-        ["{"] = path_actions.insert_relpath_insert,
-        ["}"] = path_actions.insert_abspath_insert,
-        ["-"] = path_actions.insert_relpath_i_normal,
-        ["="] = path_actions.insert_abspath_i_normal,
+        ["<A-i>"] = path_actions.insert_relpath_i_normal,
+        ["<A-l>"] = path_actions.insert_reltobufpath_i_normal,
+        ["<A-S-i>"] = path_actions.insert_abspath_i_normal,
         -- If you want to get relative path that is relative to the cwd, use
         -- `relpath` instead of `reltobufpath`
         -- You can skip the location postfix if you specify that in the function name.
@@ -49,7 +46,11 @@ telescope.setup {
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
         ["<C-t>"] = trouble.open,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<A-i>"] = path_actions.insert_relpath_i_normal,
+        ["<A-l>"] = path_actions.insert_reltobufpath_i_normal,
+        ["<A-S-i>"] = path_actions.insert_abspath_i_normal,
+        
       }
     },
     file_ignore_patterns = {
