@@ -9,19 +9,13 @@ local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 local action_layout = require 'telescope.actions.layout'
-local pickers = require('telescopePickers')
 
 local trouble = require("trouble.sources.telescope")
 local path_actions = require('telescope_insert_path')
 
 telescope.setup {
   defaults = {
-    -- TODO: path like is kind of nice but broken in file_browser
-    -- path_display = function(opts, path)
-    --   local name = require("telescope.utils").path_tail(path)
-    --   local location = string.sub(path, 0, -string.len(name) - 1)
-    --   return string.format("%s          (%s)", name, path)
-    -- end,
+    path_display = { "filename_first" },
     mappings = {
       n = {
         ['q'] = actions.close,
@@ -50,7 +44,7 @@ telescope.setup {
         ["<A-i>"] = path_actions.insert_relpath_i_normal,
         ["<A-l>"] = path_actions.insert_reltobufpath_i_normal,
         ["<A-S-i>"] = path_actions.insert_abspath_i_normal,
-        
+
       }
     },
     file_ignore_patterns = {
@@ -120,20 +114,11 @@ local opts = { noremap = true, silent = true }
 
 -- search files
 vim.keymap.set('n', '<leader>ll', function()
-  pickers.prettyFilesPicker({
-    picker = 'find_files',
-    options = {
-      no_ignore = false,
-      hidden = true,
-      follow = true
-
-    }
+  builtin.find_files({
+    no_ignore = false,
+    hidden = true,
+    follow = true
   })
-  -- builtin.find_files({
-  --   no_ignore = false,
-  --   hidden = true,
-  --   follow = true
-  -- })
 end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search ALL files (include ignored files)
@@ -147,75 +132,43 @@ end, { noremap = true, silent = true, desc = "Find Files" })
 
 -- search old files
 vim.keymap.set('n', '<leader><leader>l', function()
-  pickers.prettyFilesPicker({
-    picker = 'oldfiles',
-    options = {
-      no_ignore = true, only_cwd = true
-    }
-  })
-  -- builtin.oldfiles({ no_ignore = true, only_cwd = true })
+  builtin.oldfiles({ no_ignore = true, only_cwd = true })
 end, opts)
 
 -- search text
 vim.keymap.set('n', '<leader>lf', function()
-    pickers.prettyGrepPicker({ picker = 'live_grep' })
-    -- builtin.live_grep()
+    builtin.live_grep()
   end,
   { noremap = true, silent = true, desc = "Search in files" })
 
 -- search text fuzzy
 vim.keymap.set('n', '<leader>ls', function()
-  pickers.prettyGrepPicker({
-    picker = 'grep_string',
-    options = {
-      shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
-    }
+  builtin.grep_string({
+    shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
   })
-  -- builtin.grep_string({
-  --   shorten_path = true, word_match = "-w", only_sort_text = true, search = '',
-  -- })
 end)
 
 -- search ALL text (including ignored files)
 vim.keymap.set('n', '<leader>lF',
   function()
-    pickers.prettyGrepPicker({
-      picker = 'live_grep',
-      options = {
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--follow", -- follow symlinks
-          "--hidden", -- also search .hidden files
-          "-u"
-        }
-
-      }
-    })
-    -- builtin.live_grep { vimgrep_arguments = {
-    --   "rg",
-    --   "--color=never",
-    --   "--no-heading",
-    --   "--with-filename",
-    --   "--line-number",
-    --   "--column",
-    --   "--smart-case",
-    --   "--follow", -- follow symlinks
-    --   "--hidden", -- also search .hidden files
-    --   "-u"
-    -- } }
+    builtin.live_grep { vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--follow", -- follow symlinks
+      "--hidden", -- also search .hidden files
+      "-u"
+    } }
   end,
   { noremap = true, silent = true, desc = "Search in files" })
 
 -- search open buffers
 vim.keymap.set('n', '<leader>lb', function()
-  pickers.prettyBuffersPicker()
-  -- builtin.buffers()
+  builtin.buffers()
 end, opts)
 
 -- search help pages
