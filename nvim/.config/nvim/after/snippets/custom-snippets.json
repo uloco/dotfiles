@@ -39,7 +39,6 @@
   "React Native Functional Component (TS)": {
     "prefix": "rn-component",
     "body": [
-      "import React from \"react\";",
       "import { StyleSheet, View, Text, ViewStyle } from \"react-native\";",
       "",
       "type Props = {",
@@ -54,11 +53,7 @@
       "  );",
       "};",
       "",
-      "type Styles = {",
-      "  container: ViewStyle;",
-      "};",
-      "",
-      "const styles = StyleSheet.create<Styles>({",
+      "const styles = StyleSheet.create({",
       "  container: {}",
       "});",
       ""
