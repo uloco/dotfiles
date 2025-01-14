@@ -222,4 +222,18 @@ packer.startup(function(use)
       vim.g.zoxide_prefix = 'j'
     end
   }
+
+  -- ai coding like cursor
+  use({
+    "olimorris/codecompanion.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    disable = true,
+  })
+
+  use({
+    "zbirenbaum/copilot.lua"
+  })
 end)
