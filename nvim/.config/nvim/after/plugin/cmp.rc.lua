@@ -62,7 +62,7 @@ cmp.setup({
     ['<A-Esc>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      select = false,
     }),
   }),
   sources = cmp.config.sources({
