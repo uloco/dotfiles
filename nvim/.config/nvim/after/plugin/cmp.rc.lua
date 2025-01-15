@@ -57,7 +57,7 @@ cmp.setup({
         sources = cmp.config.sources({ { name = 'luasnip' } })
       }
     }),
-    ['<A-Esc>'] = cmp.mapping.close(),
+    ['<A-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -68,7 +68,7 @@ cmp.setup({
       name = 'npm',
       keyword_length = 4
     },
-    { name = "copilot" },
+    -- { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'nvim_lsp_signature_help' },
