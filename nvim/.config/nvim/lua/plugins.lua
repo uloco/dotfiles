@@ -236,4 +236,9 @@ packer.startup(function(use)
   use({
     "zbirenbaum/copilot.lua"
   })
+
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+  }
 end)

@@ -18,11 +18,11 @@ copilot.setup({
     },
   },
   suggestion = {
-    enabled = true,
+    enabled = false,
     auto_trigger = true,
     hide_during_completion = true,
     debounce = 75,
-    keymap = {-- keymap to accept or dismiss suggestions
+    keymap = {
       accept = "<C-i>",
       accept_word = false,
       accept_line = false,
@@ -46,3 +46,4 @@ copilot.setup({
   server_opts_overrides = {},
 })
 
+require("copilot_cmp").setup()

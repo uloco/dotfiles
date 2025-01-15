@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot-cmp"] = {
+    loaded = true,
+    path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/copilot-cmp",
+    url = "https://github.com/zbirenbaum/copilot-cmp"
+  },
   ["copilot.lua"] = {
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/copilot.lua",
@@ -420,10 +425,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: fzf-lua
-time([[Config for fzf-lua]], true)
-try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\15fzf_colors\2\nsetup\ffzf-lua\frequire\0", "config", "fzf-lua")
-time([[Config for fzf-lua]], false)
 -- Config for: live-command.nvim
 time([[Config for live-command.nvim]], true)
 try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\rhl_range\0\bcmd\6g\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")
@@ -432,6 +433,10 @@ time([[Config for live-command.nvim]], false)
 time([[Config for zoxide.vim]], true)
 try_loadstring("\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\6j\18zoxide_prefix\6g\bvim\0", "config", "zoxide.vim")
 time([[Config for zoxide.vim]], false)
+-- Config for: fzf-lua
+time([[Config for fzf-lua]], true)
+try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\15fzf_colors\2\nsetup\ffzf-lua\frequire\0", "config", "fzf-lua")
+time([[Config for fzf-lua]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
