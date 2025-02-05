@@ -267,3 +267,7 @@ export PATH=/Users/uloco/.meteor:$PATH
 
 # opam (ocaml)
 # [[ ! -r /Users/uloco/.opam/opam-init/init.zsh ]] || source /Users/uloco/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# neovide
+export NEOVIDE_FRAME="transparent"
+export NEOVIDE_FORK=1
