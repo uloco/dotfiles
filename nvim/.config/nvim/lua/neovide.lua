@@ -7,6 +7,7 @@ if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_window_blurred = true
+  vim.g.neovide_hide_mouse_when_typing = true
 
   -- enable clipboard support
   vim.keymap.set(
