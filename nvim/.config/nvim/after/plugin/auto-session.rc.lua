@@ -26,3 +26,5 @@ auto_session.setup {
   auto_session_suppress_dirs = { "~/", "~/Source", "~/Downloads", "/" },
   pre_save_cmds = { _G.close_all_floating_wins },
 }
+
+vim.keymap.set({ "n" }, "<leader>lp", "<cmd>SessionSearch<cr>")
