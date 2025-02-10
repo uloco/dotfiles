@@ -144,7 +144,8 @@ packer.startup(function(use)
   use { 'RRethy/vim-illuminate' }
 
   -- better folding
-  use { 'anuvyklack/pretty-fold.nvim' }
+  -- use { 'anuvyklack/pretty-fold.nvim' } -- broken, using fork below
+  use { 'bbjornstad/pretty-fold.nvim' }
 
   -- comments in mixed languages like tsx
   use { 'folke/ts-comments.nvim' }
