@@ -118,7 +118,9 @@ export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
 
 export PATH="/usr/local/sbin:$PATH"
 
-export EDITOR="nvim"
+export EDITOR="nvr"
+# export REACT_EDITOR="nvr"
+# export EXPO_EDITOR="nvr"
 
 # composer
 export PATH="${HOME}/.composer/vendor/bin:$PATH"
@@ -238,7 +240,6 @@ function bat() {
 
 alias cat="bat"
 
-export REACT_EDITOR="nvr"
 
 alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p"
 
@@ -271,3 +272,4 @@ export PATH=/Users/uloco/.meteor:$PATH
 # neovide
 export NEOVIDE_FRAME="transparent"
 export NEOVIDE_FORK=1
+alias nv='neovide -- --listen /tmp/nvimsocket'
