@@ -241,4 +241,7 @@ packer.startup(function(use)
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
   }
+
+  -- open file at linenumber
+  use { "lewis6991/fileline.nvim" }
 end)
