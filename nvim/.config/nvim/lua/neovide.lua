@@ -10,7 +10,13 @@ if vim.g.neovide then
 
   -- enable clipboard support
   vim.keymap.set(
-    { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
+    { 'n' },
+    '<D-c>',
+    '"+Y',
+    { noremap = true, silent = true })
+
+  vim.keymap.set(
+    { 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
     '<D-c>',
     '"+y',
     { noremap = true, silent = true })
