@@ -146,6 +146,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias vim='nvim --listen /tmp/nvimsocket'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
+alias vimn='NVIM_APPNAME=nvim-new nvim'
 
 alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
 
