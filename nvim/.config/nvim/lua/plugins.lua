@@ -129,7 +129,6 @@ packer.startup(function(use)
 
   -- better terminals
   use { 'akinsho/toggleterm.nvim', tag = 'v2.12.0' }
-  -- use { '/Users/uloco/Source/forks/toggleterm.nvim' }
 
   -- greeter
   use {
@@ -224,24 +223,9 @@ packer.startup(function(use)
     end
   }
 
-  -- ai coding like cursor
-  use({
-    "olimorris/codecompanion.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    disable = true,
-  })
-
   use({
     "zbirenbaum/copilot.lua"
   })
-
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-  }
 
   -- open file at linenumber
   use { "lewis6991/fileline.nvim" }
