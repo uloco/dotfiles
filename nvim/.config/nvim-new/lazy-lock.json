@@ -1,0 +1,5 @@
+{
+  "bluloco.nvim": { "branch": "main", "commit": "6b014b473aac4bf9470f926a3f5568ebc2ce5f08" },
+  "lazy.nvim": { "branch": "main", "commit": "f15a93907ddad3d9139aea465ae18336d87f5ce6" },
+  "lush.nvim": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" }
+}

@@ -40,24 +40,6 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 
--- Undercurl
--- vim.cmd([[let &t_Cs = "\e[4:3m"]])
--- vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
--- Turn off paste mode when leaving insert
--- vim.api.nvim_create_autocmd("InsertLeave", {
---   pattern = '*',
---   command = "set nopaste"
--- })
-
--- Disable auto comments on next line
-local augroup_format_options = vim.api.nvim_create_augroup("Format-Options", { clear = true })
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = augroup_format_options,
-  callback = function() vim.opt.formatoptions:remove { 'c', 'r', 'o' } end
-})
-
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -69,9 +51,6 @@ vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand('$HOME/.config/nvim/.vimundo')
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
-
--- highlight yank
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 
 -- folding
 vim.wo.foldmethod = 'expr'
