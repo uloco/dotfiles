@@ -39,10 +39,10 @@
   "React Native Functional Component (TS)": {
     "prefix": "rn-component",
     "body": [
-      "import { StyleSheet, View, Text, ViewStyle } from \"react-native\";",
+      "import { StyleProp, StyleSheet, View, Text, ViewStyle } from \"react-native\";",
       "",
       "type Props = {",
-      "  style?: ViewStyle;",
+      "  style?: StyleProp<ViewStyle>;",
       "};",
       "",
       "export const ${TM_FILENAME_BASE} = (props: Props) => {",
