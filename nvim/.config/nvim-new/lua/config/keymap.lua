@@ -113,9 +113,6 @@ end)
 -- show signature
 keymap.set({ 'n' }, 'gH', vim.lsp.buf.signature_help)
 
--- open links / files
-keymap.set('n', 'gl', function() require('notify')('Use gx instead!', 'warn') end, opts)
-
 -- Run @ macro on visual range selected lines
 vim.cmd([[
     xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
