@@ -26,24 +26,10 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-# homebrew auto completion
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-
-# k9s completion
-source <(kubectl completion zsh)
-
 ZSH_DISABLE_COMPFIX=true
-
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
-
 
 # Keep history
 HISTFILE=~/.zsh_history
@@ -76,9 +62,6 @@ plugins=(fzf cp zoxide colored-man-pages colorize github node npm yarn docker po
 ZOXIDE_CMD_OVERRIDE=j
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
 
 ##### CUSTOM #####
 
@@ -142,7 +125,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias tree='find . -print | sed -e '\''s;[^/]*/;|____;g;s;____|; |;g'\'''
 alias npm-globals='npm ls -g'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias vim='nvim --listen /tmp/nvimsocket'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
@@ -185,9 +167,6 @@ fnm_upgrade() {
 
 # brew intel
 alias brew-intel="/usr/local/bin/brew"
-
-# GIF
-alias whoah="gif-for-cli \"mindblown\""
 
 # Android Studio
 alias android-studio="open -a /Applications/Android\ Studio.app"
