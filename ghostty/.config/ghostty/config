@@ -1,0 +1,12 @@
+font-family = IosevkaTerm Nerd Font Mono
+font-size = 16
+theme = light:BlulocoLight,dark:BlulocoDark
+bold-is-bright = true
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+confirm-close-surface = false
+macos-option-as-alt = left
+background-opacity = 0.9
+background-blur = 30
+macos-titlebar-style = tabs
