@@ -19,6 +19,7 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
+      lua = { "stylua", lsp_format = "prefer" },
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
       typescript = { "prettierd" },

@@ -17,6 +17,7 @@ return {
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
+        {'<C-S-P>', desc =  function() '<cmd>TSHighlightCapturesUnderCursor<cr>' end, mode = "n")},
     { "<c-space>", desc = "Increment Selection" },
     { "<bs>",      desc = "Decrement Selection", mode = "x" },
   },
