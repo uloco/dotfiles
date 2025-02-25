@@ -101,13 +101,15 @@ vim.cmd [[xnoremap <leader>cw y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\
 keymap.set({ 'n' }, '<leader>gc', 'mCyygccP`Ck', { remap = true, silent = true })
 keymap.set({ 'v' }, '<leader>gc', 'YPmCgvgc`C', { remap = true, silent = true })
 
+local conform = require('conform')
 --format document
 keymap.set({ 'n' }, '<leader>ö', function()
-  vim.lsp.buf.format({
-    async = false,
-    -- Never request typescript-language-server for formatting
-    filter = function(c) return c.name ~= "tsserver" end
-  })
+  conform.format()
+  -- vim.lsp.buf.format({
+  --   async = false,
+  --   -- Never request typescript-language-server for formatting
+  --   filter = function(c) return c.name ~= "tsserver" end
+  -- })
 end)
 
 -- show signature

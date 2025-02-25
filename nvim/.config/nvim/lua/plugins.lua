@@ -103,7 +103,9 @@ packer.startup(function(use)
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
 
   -- prettier
-  use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, formatting, linting, etc.
+  use { 'nvimtools/none-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, formatting, linting, etc.
+  -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, formatting, linting, etc.
+  use({ "stevearc/conform.nvim" })
 
   -- utils
   use { 'f-person/auto-dark-mode.nvim' }

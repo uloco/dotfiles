@@ -23,6 +23,8 @@ require('mason-tool-installer').setup {
     "python-lsp-server",
     "shfmt",
     "stylua",
+    "beautysh",
+    "bash-language-server",
     "svelte-language-server",
     "typescript-language-server",
     "yaml-language-server",
