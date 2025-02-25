@@ -42,14 +42,10 @@ export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 source "$(brew --prefix)/opt/powerlevel10k/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 # FZF
-export FZF_DEFAULT_OPTS='
---color fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12
---color info:5,border:6,prompt:10,pointer:9,marker:12,spinner:4,header:14
-'
+export FZF_DEFAULT_OPTS="--color fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12,info:5,border:6,prompt:10,pointer:9,marker:12,spinner:4,header:14"
 
 zstyle ':fzf-tab:*' default-color $'\033[38m'
 zstyle ':fzf-tab:*' fzf-flags --color='fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12'
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -59,7 +55,7 @@ zstyle ':fzf-tab:*' fzf-flags --color='fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(fzf cp zoxide colored-man-pages colorize github node npm yarn docker pod fzf-tab)
 
-ZOXIDE_CMD_OVERRIDE=j
+export ZOXIDE_CMD_OVERRIDE=j
 
 source $ZSH/oh-my-zsh.sh
 
