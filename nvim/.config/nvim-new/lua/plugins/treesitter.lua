@@ -17,7 +17,13 @@ return {
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
-        {'<C-S-P>', desc =  function() '<cmd>TSHighlightCapturesUnderCursor<cr>' end, mode = "n")},
+    {
+      -- Customize or remove this keymap to your liking
+      "<C-S-P>",
+      "<cmd>Inspect<cr>",
+      mode = "n",
+      desc = "Highlight Capture",
+    },
     { "<c-space>", desc = "Increment Selection" },
     { "<bs>",      desc = "Decrement Selection", mode = "x" },
   },
