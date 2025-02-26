@@ -66,6 +66,9 @@ saga.setup({
 
 --   diagnostic_header = { " ", " ", " ", "ﴞ " },
 
+-- fix line diagnostic not showing
+vim.diagnostic.config({ severity_sort = true })
+
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>ke', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 vim.keymap.set('n', '<leader>je', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
