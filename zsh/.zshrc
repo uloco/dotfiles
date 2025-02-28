@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -47,15 +47,14 @@ export FZF_DEFAULT_OPTS="--color fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12,info:5,bo
 zstyle ':fzf-tab:*' default-color $'\033[38m'
 zstyle ':fzf-tab:*' fzf-flags --color='fg:-1,bg:-1,hl:12,fg+:15,bg+:0,hl+:12'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export ZOXIDE_CMD_OVERRIDE=j
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(fzf cp zoxide colored-man-pages colorize github node npm yarn docker pod fzf-tab)
+plugins=(fzf zoxide colored-man-pages pod fzf-tab)
 
-export ZOXIDE_CMD_OVERRIDE=j
 
 eval "$(brew shellenv)"
 source $ZSH/oh-my-zsh.sh
@@ -91,10 +90,6 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="${PATH}:${HOME}/.local/bin"
 # Add mason neovim binaries to path
 export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
-
-# Use gnu implementations instead of bsd
-# export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
-# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -216,19 +211,9 @@ function bat() {
 }
 
 alias cat="bat"
-
-
 alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p"
-
-
 alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
-# fix delete word arguments
-# autoload -Uz select-word-style
-# select-word-style shell
-
-# export PATH=/opt/homebrew/bin:$PATH
-export PATH="/opt/homebrew/sbin:$PATH"
 
 # // rbenv
 export RBENV_ROOT=/opt/homebrew/opt/rbenv
