@@ -57,6 +57,7 @@ plugins=(fzf cp zoxide colored-man-pages colorize github node npm yarn docker po
 
 export ZOXIDE_CMD_OVERRIDE=j
 
+eval "$(brew shellenv)"
 source $ZSH/oh-my-zsh.sh
 
 ##### CUSTOM #####
