@@ -57,6 +57,10 @@ plugins=(fzf zoxide colored-man-pages pod fzf-tab)
 
 
 eval "$(brew shellenv)"
+
+# Add the completions directory to fpath (aider)
+fpath=(~/.zsh/completions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 
 ##### CUSTOM #####
