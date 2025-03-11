@@ -55,7 +55,9 @@ packer.startup(function(use)
   use { 'ojroques/nvim-bufdel' }
 
   -- colorize hex values
-  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'brenoprata10/nvim-highlight-colors',
+    config = function() require('nvim-highlight-colors').setup({}) end
+  }
 
   -- scroll bar
   use { 'petertriho/nvim-scrollbar' }
