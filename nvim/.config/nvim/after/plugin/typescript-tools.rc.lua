@@ -6,3 +6,6 @@ require("typescript-tools").setup {
     },
   }
 }
+
+vim.keymap.set({ "n" }, "<leader>ci", "<cmd>TSToolsAddMissingImports<cr>")
+vim.keymap.set({ "n" }, "<leader>cr", "<cmd>TSToolsRenameFile<cr>")
