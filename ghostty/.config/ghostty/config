@@ -8,8 +8,6 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 confirm-close-surface = false
 macos-option-as-alt = left
-# set to 1 bc of tab bug
-background-opacity = 1
-# background-opacity = 0.9
+background-opacity = 0.9
 background-blur = 30
 macos-titlebar-style = tabs
