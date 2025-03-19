@@ -218,6 +218,8 @@ alias cat="bat"
 alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p"
 alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
+# aider
+alias ai='aider --model mistral/mistral-large-latest --no-auto-commits --env-file $HOME/.aider.env --watch-files --no-gitignore'
 
 # // rbenv
 export RBENV_ROOT=/opt/homebrew/opt/rbenv
