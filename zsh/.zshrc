@@ -122,7 +122,18 @@ alias path='echo -e ${PATH//:/\\n}'
 alias tree='find . -print | sed -e '\''s;[^/]*/;|____;g;s;____|; |;g'\'''
 alias npm-globals='npm ls -g'
 
-alias vim='nvim --listen /tmp/nvimsocket'
+function nvim () {
+  SOCKET_FILE="/tmp/nvimsocket"
+
+  if [ -S "$SOCKET_FILE" ]; then
+    # If the socket file exists, run nvim without --listen
+    command nvim "$@"
+  else
+    # If the socket file does not exist, run nvim with --listen
+    command nvim --listen "$SOCKET_FILE" "$@"
+  fi
+}
+alias vim='nvim'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
 alias vimn='NVIM_APPNAME=nvim-new nvim'
 
