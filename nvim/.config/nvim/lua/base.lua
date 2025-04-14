@@ -74,3 +74,5 @@ vim.opt.listchars = { tab = '——→', multispace = '·', trail = '·', nbsp =
 
 -- disable swap files
 vim.opt.swapfile = false
+
+vim.diagnostic.config({ virtual_text = true, float = { border = 'rounded' } })
