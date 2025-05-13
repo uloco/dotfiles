@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/uloco/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/uloco/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
+local package_path_str = "/Users/uloco/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?/init.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?.lua;/Users/uloco/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/uloco/.cache/nvim/packer_hererocks/2.1.1744318430/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -196,7 +196,7 @@ _G.packer_plugins = {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["live-command.nvim"] = {
-    config = { "\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0" },
+    config = { "\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tGlob\0\tNorm\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0" },
     loaded = true,
     path = "/Users/uloco/.local/share/nvim/site/pack/packer/start/live-command.nvim",
     url = "https://github.com/smjonas/live-command.nvim"
@@ -438,12 +438,8 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: live-command.nvim
 time([[Config for live-command.nvim]], true)
-try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tNorm\0\tGlob\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")
+try_loadstring("\27LJ\2\nÎ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0005\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\rcommands\1\0\1\rcommands\0\tGlob\rhl_range\1\3\1\0\3\1\3ÿÿÿÿ\15\tkind\fvisible\1\0\2\bcmd\6g\rhl_range\0\tNorm\1\0\2\tGlob\0\tNorm\0\1\0\1\bcmd\tnorm\nsetup\17live-command\frequire\0", "config", "live-command.nvim")
 time([[Config for live-command.nvim]], false)
--- Config for: zoxide.vim
-time([[Config for zoxide.vim]], true)
-try_loadstring("\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\6j\18zoxide_prefix\6g\bvim\0", "config", "zoxide.vim")
-time([[Config for zoxide.vim]], false)
 -- Config for: nvim-highlight-colors
 time([[Config for nvim-highlight-colors]], true)
 try_loadstring("\27LJ\2\nG\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\26nvim-highlight-colors\frequire\0", "config", "nvim-highlight-colors")
@@ -452,6 +448,10 @@ time([[Config for nvim-highlight-colors]], false)
 time([[Config for fzf-lua]], true)
 try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\15fzf_colors\2\nsetup\ffzf-lua\frequire\0", "config", "fzf-lua")
 time([[Config for fzf-lua]], false)
+-- Config for: zoxide.vim
+time([[Config for zoxide.vim]], true)
+try_loadstring("\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\6j\18zoxide_prefix\6g\bvim\0", "config", "zoxide.vim")
+time([[Config for zoxide.vim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
