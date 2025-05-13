@@ -104,5 +104,9 @@
       "): ApiSelectorProps<${1/(.)/${1:/upcase}/}${2|Query,Mutation|}> =>",
       "  apiSelector(state?.[${1:name}SliceKey]);"
     ]
+  },
+  "React useEffect Hook": {
+    "prefix": "rn-useEffect",
+    "body": ["useEffect(() => {", "  ${0}", "}, []);"]
   }
 }
