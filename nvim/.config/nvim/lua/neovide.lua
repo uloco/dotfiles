@@ -1,7 +1,6 @@
 if vim.g.neovide then
   vim.o.guifont = "IosevkaTerm Nerd Font Mono:h16"
-  vim.g.neovide_transparency = 0.95
-  --  vim.g.neovide_normal_opacity = 0.9
+  vim.g.neovide_normal_opacity = 0.95
   vim.g.neovide_cursor_animation_length = 0.01
   vim.g.neovide_scroll_animation_length = 0.05
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
