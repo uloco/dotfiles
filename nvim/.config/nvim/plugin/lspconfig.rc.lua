@@ -1,7 +1,7 @@
-local status, nvim_lsp = pcall(require, 'lspconfig')
+local status, lspconfig = pcall(require, 'lspconfig')
 if (not status) then return end
 
-nvim_lsp.graphql.setup {
+lspconfig.graphql.setup {
   on_attach = function(client)
     client.server_capabilities.workspaceSymbolProvider = false
   end,
@@ -14,7 +14,7 @@ nvim_lsp.graphql.setup {
   },
 }
 
-nvim_lsp.lua_ls.setup {
+lspconfig.lua_ls.setup {
   -- on_attach = on_attach,
   settings = {
     Lua = {
@@ -39,7 +39,7 @@ nvim_lsp.lua_ls.setup {
 local capabilitiesJson = vim.lsp.protocol.make_client_capabilities()
 capabilitiesJson.textDocument.completion.completionItem.snippetSupport = true
 
-nvim_lsp.jsonls.setup {
+lspconfig.jsonls.setup {
   capabilities = capabilitiesJson,
   filetypes = { "json", "jsonc" },
   settings = {
@@ -96,5 +96,5 @@ nvim_lsp.jsonls.setup {
   }
 }
 
-nvim_lsp.rust_analyzer.setup({})
-nvim_lsp.tailwindcss.setup({})
+lspconfig.rust_analyzer.setup({})
+lspconfig.tailwindcss.setup({})
