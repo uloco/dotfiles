@@ -90,12 +90,12 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Center on half page up down
--- keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', opts)
--- keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', opts)
+keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', opts)
+keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', opts)
 
 -- Center after next search
--- keymap.set({ 'n', 'v' }, 'n', 'nzz', opts)
--- keymap.set({ 'n', 'v' }, 'N', 'Nzz', opts)
+keymap.set({ 'n', 'v' }, 'n', 'nzz', opts)
+keymap.set({ 'n', 'v' }, 'N', 'Nzz', opts)
 
 -- TODO: remove this after adding vim-asterisk
 -- Make * not jump after select word under cursor
@@ -123,4 +123,3 @@ vim.cmd([[
 
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
