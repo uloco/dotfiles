@@ -233,4 +233,7 @@ packer.startup(function(use)
 
   -- open file at linenumber
   use { "lewis6991/fileline.nvim" }
+
+  -- schemas for jsonls
+  use { "b0o/schemastore.nvim" }
 end)
