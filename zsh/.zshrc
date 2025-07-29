@@ -53,7 +53,7 @@ export ZOXIDE_CMD_OVERRIDE=j
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(fzf zoxide colored-man-pages pod fzf-tab)
+plugins=(fzf zoxide colored-man-pages pod fzf-tab yarn npm)
 
 
 eval "$(brew shellenv)"
