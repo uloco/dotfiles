@@ -8,10 +8,11 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 confirm-close-surface = false
 macos-option-as-alt = left
-# currently breaks macos-titlebar-style = tab style
-# background-opacity = 0.9 
-# background-blur = 30
-macos-titlebar-style = tabs
+background-opacity = 0.9 
+background-blur = 30
+# macos-titlebar-style = tabs
+# using native, because of theme switching issue 
+macos-titlebar-style = native
 initial-window = true
 window-position-x = 0
 window-position-y = 0
