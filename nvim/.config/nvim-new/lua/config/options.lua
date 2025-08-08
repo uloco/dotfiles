@@ -69,3 +69,8 @@ vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.signcolumn = "yes"
+
+vim.diagnostic.config({ virtual_text = true, float = { border = 'rounded' } })
+
+-- don't show whitespace when diffing in neovim
+vim.opt.diffopt:append { 'iwhite' }
