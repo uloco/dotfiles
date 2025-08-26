@@ -228,6 +228,7 @@ function bat() {
 alias cat="bat"
 alias find_secure_input="ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p"
 alias remove-all-node-modules-in-dir="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+alias fix-npm-ds-store='find "$(npm config get prefix)" -name ".DS_Store" -type f -delete'
 
 # aider
 alias ai='aider --model mistral/mistral-large-latest --no-auto-commits --env-file $HOME/.aider.env --watch-files --no-gitignore'
