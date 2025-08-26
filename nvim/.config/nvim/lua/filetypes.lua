@@ -6,6 +6,7 @@ vim.filetype.add({
   filename = {
     ["Fastfile"] = "ruby",
     ["Podfile"] = "ruby",
+    ["apple-app-site-association"] = "json",
     [".eslintrc.json"] = "jsonc",
   },
   extension = {
