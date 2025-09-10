@@ -231,6 +231,14 @@ packer.startup(function(use)
     "zbirenbaum/copilot.lua"
   })
 
+  -- opencode.nvim (AI assistant)
+  use {
+    'NickvanDyke/opencode.nvim',
+    requires = {
+      { 'folke/snacks.nvim' },
+    },
+  }
+
   -- open file at linenumber
   use { "lewis6991/fileline.nvim" }
 
