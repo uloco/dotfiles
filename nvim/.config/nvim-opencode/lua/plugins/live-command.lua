@@ -1,10 +1,12 @@
 return {
   "smjonas/live-command.nvim",
   tag = "*",
+  main = "live-command",
+  -- disable = true,
   opts = {
-  commands = {
-    Norm = { cmd = "norm" },
-    Glob = { cmd = "g", hl_range = { 1, -1, kind = "visible" } },
+    commands = {
+      Norm = { cmd = "norm" },
+      Glob = { cmd = "g" },
+    },
   },
-},
 }

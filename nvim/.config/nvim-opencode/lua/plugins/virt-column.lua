@@ -3,7 +3,7 @@ return {
   config = function(_, opts)
     local virtColumn = require('virt-column')
     virtColumn.setup({
-      char = "\u250a",
+      char = "┊",
       virtcolumn = "80"
     })
     local augroup_term_column = vim.api.nvim_create_augroup("Term-Virt-Column", { clear = true })

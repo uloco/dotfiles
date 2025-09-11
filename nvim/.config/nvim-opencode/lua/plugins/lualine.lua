@@ -35,8 +35,8 @@ return {
         globalstatus = true,
         icons_enabled = true,
         theme = 'auto',
-        section_separators = { left = '\ue0b0', right = '\ue0b2' },
-        component_separators = { left = '\ue0b1', right = '\ue0b3' },
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
         disabled_filetypes = {}
       },
       sections = {
@@ -52,10 +52,10 @@ return {
             'diagnostics',
             sources = { "nvim_diagnostic" },
             symbols = {
-              error = '\uf188 ',
-              warn = '\uf071 ',
-              info = '\uf449 ',
-              hint = '\uf0eb '
+              error = ' ',
+              warn = ' ',
+              info = ' ',
+              hint = ' '
             }
           },
           'encoding',

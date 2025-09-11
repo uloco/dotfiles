@@ -4,21 +4,22 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "haydenmeade/neotest-jest",
-  },
-  opts = {
-    adapters = {
-      require('neotest-jest')({
-        jestCommand = "npm test --",
-        jestConfigFile = "custom.jest.config.ts",
-        env = { CI = true },
-        cwd = function(path)
-          return vim.fn.getcwd()
-        end,
-      }),
-    },
+    "nvim-neotest/nvim-nio",
   },
   config = function(_, opts)
-    require('neotest').setup(opts)
+
+    require('neotest').setup({
+      adapters = {
+        require('neotest-jest')({
+          jestCommand = "npm test --",
+          jestConfigFile = "custom.jest.config.ts",
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
+        }),
+      }
+    })
     local cmd = vim.api.nvim_create_user_command
     cmd("NeotestSummary", function() require("neotest").summary.toggle() end, {})
     cmd("NeotestFile", function() require("neotest").run.run(vim.fn.expand("%")) end, {})
