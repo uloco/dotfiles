@@ -12,16 +12,6 @@ toggleterm.setup({
   float_opts = {
     border = 'curved',
     winblend = 0,
-    width = function()
-      local columns = vim.opt.columns._value
-      if columns > 400 then
-        return columns - 150
-      elseif columns >= 220 then
-        return columns - 100
-      else
-        return columns - 20
-      end
-    end,
   },
   persist_size = false,
   winbar = {
