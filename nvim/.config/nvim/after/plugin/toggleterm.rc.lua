@@ -59,10 +59,9 @@ local floating = Terminal:new({
   direction = 'float'
 })
 
-local aider    = Terminal:new({
+local opencode = Terminal:new({
   id = 102,
-  cmd =
-  'aider --model mistral/mistral-large-latest --no-auto-commits --env-file $HOME/.aider.env --watch-files --no-gitignore',
+  cmd = 'opencode',
   hidden = true,
   direction = 'float'
 })
@@ -76,7 +75,8 @@ end, opts)
 vim.keymap.set({ "n", "t" }, "ª", function() floating:toggle() end, opts)
 
 -- right option + a
-vim.keymap.set({ "n", "t" }, "å", function() aider:toggle() end, opts)
+vim.keymap.set({ "n", "t" }, "å", function() opencode:toggle() end, opts)
+
 
 local cmd = vim.api.nvim_create_user_command
 cmd("LazygitOpen", function() lazygit:open() end, {})
