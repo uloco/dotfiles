@@ -11,6 +11,6 @@ return {
 },
 config = function(_, opts)
   require("bluloco").setup(opts)
-  vim.cmd([[colorscheme bluloco]])
+  vim.cmd('colorscheme bluloco')
 end,
 }

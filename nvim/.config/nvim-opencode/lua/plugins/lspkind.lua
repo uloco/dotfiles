@@ -1,3 +1,37 @@
 return {
   "onsails/lspkind-nvim",
+  config = function()
+    require('lspkind').init({
+      mode = 'symbol_text',
+      preset = 'codicons',
+      symbol_map = {
+        Text = "\udb80\ude7f",
+        Method = "\udb80\udda7",
+        Function = "\udb80\ude95",
+        Constructor = "\uf423",
+        Field = "\udb81\udf22",
+        Variable = "\udb80\udc2b",
+        Class = "\udb82\udc31",
+        Interface = "\uf0e8",
+        Module = "\uf487",
+        Property = "\udb81\udf22",
+        Unit = "\udb81\udc6d",
+        Value = "\udb80\udfa0",
+        Enum = "\uf15d",
+        Keyword = "\udb80\udf0b",
+        Snippet = "\uf44f",
+        Color = "\udb80\udfd8",
+        File = "\udb80\ude19",
+        Reference = "\udb80\ude07",
+        Folder = "\udb80\ude4b",
+        EnumMember = "\uf15d",
+        Constant = "\udb80\udfff",
+        Struct = "\udb81\ude45",
+        Event = "\uf0e7",
+        Operator = "\udb80\udd95",
+        TypeParameter = "",
+        Copilot = "\uf113",
+      },
+    })
+  end,
 }

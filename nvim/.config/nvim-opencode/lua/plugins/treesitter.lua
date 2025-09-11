@@ -58,7 +58,7 @@ return {
       'yaml',
       'vim',
       'vimdoc',
-      'swift',
+      -- 'swift',
       'svelte',
       'rust',
       'r',
