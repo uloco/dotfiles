@@ -106,7 +106,6 @@ packer.startup(function(use)
 
   -- prettier
   use { 'nvimtools/none-ls.nvim', requires = "nvimtools/none-ls-extras.nvim", } -- Use Neovim as a language server to inject LSP diagnostics, code actions, formatting, linting, etc.
-  -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, formatting, linting, etc.
   use({ "stevearc/conform.nvim" })
 
   -- utils
