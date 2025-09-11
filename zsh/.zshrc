@@ -136,6 +136,7 @@ function nvim () {
 alias vim='nvim'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
 alias vimn='NVIM_APPNAME=nvim-new nvim'
+alias vimo='NVIM_APPNAME=nvim-opencode nvim'
 
 alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
 
