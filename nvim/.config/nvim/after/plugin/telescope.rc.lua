@@ -10,7 +10,6 @@ local actions = require("telescope.actions")
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 local action_layout = require 'telescope.actions.layout'
 
-local trouble = require("trouble.sources.telescope")
 local path_actions = require('telescope_insert_path')
 
 telescope.setup {
@@ -21,7 +20,6 @@ telescope.setup {
         ['q'] = actions.close,
         ['<A-q>'] = actions.delete_buffer,
         ['<C-a>'] = actions.select_all,
-        ["<C-t>"] = trouble.open,
         -- E.g. Type `[i`, `[I`, `[a`, `[A`, `[o`, `[O` to insert relative path and select the path in visual mode.
         -- Other mappings work the same way with a different prefix.
         ["<A-i>"] = path_actions.insert_relpath_i_normal,
@@ -39,7 +37,6 @@ telescope.setup {
         ['<A-e>'] = function() vim.cmd('stopinsert') end,
         ['C-u'] = actions.preview_scrolling_up,
         ['C-d'] = actions.preview_scrolling_down,
-        ["<C-t>"] = trouble.open,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<A-i>"] = path_actions.insert_relpath_i_normal,
         ["<A-l>"] = path_actions.insert_reltobufpath_i_normal,

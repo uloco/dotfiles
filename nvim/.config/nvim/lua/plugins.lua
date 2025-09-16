@@ -68,13 +68,6 @@ packer.startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
   }
 
-  -- error and todo panel
-  -- Lua
-  use {
-    'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
-
   --lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'onsails/lspkind-nvim' } -- pictograms in completion
@@ -192,12 +185,6 @@ packer.startup(function(use)
   -- plist editing support
   use { "darfink/vim-plist" }
 
-  -- use neovim in browser texts
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
-  }
-
   -- testing
   use {
     "nvim-neotest/neotest",
@@ -218,13 +205,6 @@ packer.startup(function(use)
     end
   }
 
-  -- like autojump
-  use {
-    'nanotee/zoxide.vim',
-    config = function()
-      vim.g.zoxide_prefix = 'j'
-    end
-  }
 
   use({
     "zbirenbaum/copilot.lua"
