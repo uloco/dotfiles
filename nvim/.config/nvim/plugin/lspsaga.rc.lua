@@ -15,10 +15,6 @@ saga.setup({
     lines_above = 10,
     lines_below = 10,
   },
-  scroll_preview = {
-    scroll_down = '<C-d>',
-    scroll_up = '<C-u>',
-  },
   request_timeout = 2000,
   finder = {
     edit = { 'e', '<cr>' },
