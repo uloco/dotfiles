@@ -1,15 +1,13 @@
 return {
   "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
+  -- event = { "BufWritePre" },
+  -- cmd = { "ConformInfo" },
   keys = {
     {
-      -- Customize or remove this keymap to your liking
       "<leader>ö",
       function()
-        require("conform").format()
+        require("conform").format({ async = true })
       end,
-      mode = "",
       desc = "Format buffer",
     },
   },
@@ -19,7 +17,7 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
-      lua = { "stylua", lsp_format = "prefer" },
+
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
       typescript = { "prettierd" },
@@ -45,11 +43,11 @@ return {
       },
       beautysh = {
         prepend_args = { "-i", "2" },
-      }
+      },
     },
     -- init = function()
     --   -- If you want the formatexpr, here is the place to set it
     --   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     -- end,
-  }
+  },
 }
