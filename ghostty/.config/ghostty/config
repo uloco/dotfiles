@@ -1,7 +1,7 @@
 font-family = IosevkaTerm Nerd Font Mono
 font-style = Medium
 font-size = 16
-theme = light:BlulocoLight,dark:BlulocoDark
+theme = light:Bluloco Light,dark:Bluloco Dark
 bold-is-bright = true
 cursor-style = block
 cursor-style-blink = false
