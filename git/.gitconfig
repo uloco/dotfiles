@@ -107,6 +107,7 @@
 
 ; tokyonight storm
 [delta "dark-mode"]
+  tabs = 2
   navigate = true    # use n and N to move between diff sections
   dark = true
   syntax-theme = bluloco-dark
@@ -132,6 +133,7 @@
 
 ; tokyonight day
 [delta "light-mode"]
+  tabs = 2
   navigate = true    # use n and N to move between diff sections
   light = true
   syntax-theme = bluloco-light
