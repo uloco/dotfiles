@@ -1,8 +1,10 @@
-local status, notify = pcall(require, 'notify')
-if (not status) then return end
+local status, notify = pcall(require, "notify")
+if not status then
+	return
+end
 
 notify.setup({
-  level = 3
+	level = 3,
 })
 -- allow other plugins to use this as default
 vim.notify = notify

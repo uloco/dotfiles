@@ -1,3 +1,3 @@
 return {
-  "rktjmp/lush.nvim",
+	"rktjmp/lush.nvim",
 }

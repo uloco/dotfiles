@@ -1,7 +1,7 @@
 vim.g.firenvim_config = {
-    localSettings = {
-        [".*"] = {
-            takeover = "never"
-        }
-    }
+	localSettings = {
+		[".*"] = {
+			takeover = "never",
+		},
+	},
 }

@@ -1,4 +1,4 @@
 return {
-  "NickvanDyke/opencode.nvim",
-  dependencies = { "folke/snacks.nvim" },
+	"NickvanDyke/opencode.nvim",
+	dependencies = { "folke/snacks.nvim" },
 }

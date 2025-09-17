@@ -1,3 +1,3 @@
 return {
-  "nvimdev/lspsaga.nvim",
+	"nvimdev/lspsaga.nvim",
 }

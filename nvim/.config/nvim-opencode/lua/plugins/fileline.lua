@@ -1,3 +1,3 @@
 return {
-  "lewis6991/fileline.nvim",
+	"lewis6991/fileline.nvim",
 }

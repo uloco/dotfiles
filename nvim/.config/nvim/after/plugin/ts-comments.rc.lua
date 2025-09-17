@@ -1,1 +1,1 @@
-require('ts-comments').setup({})
+require("ts-comments").setup({})

@@ -1,3 +1,3 @@
 return {
-  "nvimtools/none-ls-extras.nvim",
+	"nvimtools/none-ls-extras.nvim",
 }
