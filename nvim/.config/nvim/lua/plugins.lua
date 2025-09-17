@@ -223,4 +223,6 @@ packer.startup(function(use)
 
   -- schemas for jsonls
   use { "b0o/schemastore.nvim" }
+
+  use { "tiagovla/scope.nvim" }
 end)
