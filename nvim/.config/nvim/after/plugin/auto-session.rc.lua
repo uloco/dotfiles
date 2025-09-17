@@ -14,6 +14,7 @@ vim.opt.sessionoptions = {
 	"winpos",
 	"terminal",
 	"localoptions",
+	"globals",
 }
 
 auto_session.setup({

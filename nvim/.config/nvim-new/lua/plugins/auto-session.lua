@@ -9,6 +9,7 @@ vim.opt.sessionoptions = {
 	"winpos",
 	"terminal",
 	"localoptions",
+	"globals",
 }
 
 return {
