@@ -44,6 +44,9 @@ keymap.set("n", "<leader><leader>q", "<cmd>wa<cr><cmd>qa<cr>", opts)
 -- disable search highlighting
 keymap.set("n", "<leader>hi", ":nohl<CR>", opts)
 
+-- Open Lazy.nvim UI
+keymap.set("n", "<leader>L", ":Lazy<CR>", { desc = "Open Lazy.nvim UI" })
+
 -- Split nav
 keymap.set("n", "<A-j>", "<C-W><C-J>", opts)
 keymap.set("n", "<A-k>", "<C-W><C-K>", opts)
