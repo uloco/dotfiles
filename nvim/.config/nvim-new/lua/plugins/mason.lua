@@ -4,6 +4,11 @@ return {
 		ensure_installed = {
 			"lua_ls",
 		},
+		automatic_enable = {
+			exclude = {
+				"ts_ls",
+			},
+		},
 	},
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
