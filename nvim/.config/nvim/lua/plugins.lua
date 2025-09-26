@@ -72,7 +72,7 @@ packer.startup(function(use)
 	})
 
 	--lsp
-	use({ "neovim/nvim-lspconfig" })
+	use({ "neovim/nvim-lspconfig", tag = "*" })
 	use({ "onsails/lspkind-nvim" }) -- pictograms in completion
 	use({ "nvimdev/lspsaga.nvim" }) -- vscode like peeks, refactorings
 
