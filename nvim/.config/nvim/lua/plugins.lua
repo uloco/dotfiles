@@ -105,7 +105,6 @@ packer.startup(function(use)
 	use({ "stevearc/conform.nvim" })
 
 	-- utils
-	use({ "f-person/auto-dark-mode.nvim" })
 	use({ "kylechui/nvim-surround" })
 	use({ "windwp/nvim-autopairs" })
 	use({ "windwp/nvim-ts-autotag" })
