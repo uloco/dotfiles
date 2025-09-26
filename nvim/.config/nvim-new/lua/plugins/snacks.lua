@@ -10,7 +10,13 @@ return {
 		-- image = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
-		-- lazygit = { enabled = true },
+		lazygit = {
+			enabled = true,
+      -- delta pager and theme (somewhat) does not work yet
+			args = {
+				"--use-config-file=/Users/uloco/.config/lazygit/config.yml",
+			},
+		},
 		picker = {
 			enabled = true,
 			sources = {
@@ -71,5 +77,13 @@ return {
 		-- 	end,
 		-- 	desc = "Find File in Explorer",
 		-- },
+		{
+			"©", -- right option + g
+			function()
+				Snacks.lazygit()
+			end,
+			mode = { "n", "t" },
+			desc = "Lazygit",
+		},
 	},
 }
