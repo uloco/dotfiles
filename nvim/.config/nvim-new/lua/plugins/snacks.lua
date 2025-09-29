@@ -7,12 +7,12 @@ return {
 		bufdelete = { enabled = true },
 		-- dashboard = { enabled = true },
 		-- explorer = { enabled = true },
-		-- image = { enabled = true },
+		image = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
 		lazygit = {
 			enabled = true,
-      -- delta pager and theme (somewhat) does not work yet
+			-- delta pager and theme (somewhat) does not work yet
 			args = {
 				"--use-config-file=/Users/uloco/.config/lazygit/config.yml",
 			},
