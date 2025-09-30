@@ -36,7 +36,22 @@ return {
 					keys = {
 						-- no way to enter normal mode
 						["<Esc>"] = { "close", mode = { "n", "i" } },
+						["<A-w>"] = "none",
 						["<A-e>"] = { "stopinsert", mode = { "i", "n" } },
+						["<A-j>"] = { "history_forward", mode = { "i", "n" } },
+						["<A-k>"] = { "history_back", mode = { "i", "n" } },
+						["<A-q>"] = { "bufdelete", mode = { "i", "n" } },
+						["<C-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+						["<C-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+						["<C-S-d>"] = { "list_scroll_down", mode = { "i", "n" } },
+						["<C-S-u>"] = { "list_scroll_up", mode = { "i", "n" } },
+					},
+					list = {
+						keys = {
+							["<A-j>"] = { "history_forward", mode = { "i", "n" } },
+							["<A-k>"] = { "history_back", mode = { "i", "n" } },
+							["<A-q>"] = { "bufdelete", mode = { "i", "n" } },
+						},
 					},
 				},
 			},
@@ -123,7 +138,7 @@ return {
 		{
 			"<leader>lb",
 			function()
-				Snacks.picker.buffers()
+				Snacks.picker.buffers({ focus = "list" })
 			end,
 			desc = "Open Buffer Picker",
 		},
