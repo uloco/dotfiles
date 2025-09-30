@@ -85,8 +85,8 @@ return {
 			require("neo-tree").setup(opts)
 		end,
 		keys = {
-			{ "<leader>B", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
-			-- { "<leader>bb", "<cmd>Neotree buffers<cr>", desc = "Toggle NeoTree" },
+			{ "<leader>b", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
+			{ "<leader>B", "<cmd>Neotree buffers<cr>", desc = "Toggle NeoTree" },
 			{ "<leader>ff", "<cmd>Neotree reveal<cr>", desc = "Find File in NeoTree" },
 		},
 	},

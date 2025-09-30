@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
 	"nvim-tree/nvim-tree.lua",
-  enabled = true,
+	enabled = false,
 	opts = {
 		view = {
 			adaptive_size = true,
