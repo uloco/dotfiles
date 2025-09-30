@@ -26,11 +26,17 @@ return {
 					-- or leave it empty to use the default settings
 				},
 			},
+			actions = {
+				stopinsert = function(picker)
+					picker.input:stopinsert() -- vim.cmd.stopinsert()
+				end,
+			},
 			win = {
 				input = {
 					keys = {
 						-- no way to enter normal mode
-						-- ["<Esc>"] = { "close", mode = { "n", "i" } },
+						["<Esc>"] = { "close", mode = { "n", "i" } },
+						["<A-e>"] = { "stopinsert", mode = { "i", "n" } },
 					},
 				},
 			},
