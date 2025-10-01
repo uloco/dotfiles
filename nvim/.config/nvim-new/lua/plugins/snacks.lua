@@ -65,6 +65,9 @@ return {
 			notification = {
 				-- wo = { wrap = true } -- Wrap notifications
 			},
+			input = {
+				keys = { i_esc = { [2] = { "cmp_close", "<esc>" } } },
+			},
 		},
 	},
 	keys = {
