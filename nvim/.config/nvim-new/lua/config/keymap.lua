@@ -77,7 +77,10 @@ keymap.set("n", "<A-p>", "<C-W><C-p>", opts)
 keymap.set("t", "<A-p>", "<C-\\><C-n><C-W><C-p>", opts)
 
 -- Alternate buffer
-vim.keymap.set({ "n", "i" }, "<A-o>", "<C-6>", { silent = true })
+vim.keymap.set({ "n", "i" }, "<A-o>", "<C-^>", { silent = true })
+-- Buffers
+vim.keymap.set("n", "<A-i>", "<cmd>bnext<cr>", opt)
+vim.keymap.set("n", "<A-u>", "<cmd>bprevious<cr>", opt)
 
 -- yank and paste from clipboard
 keymap.set({ "n", "v" }, "<Leader>y", '"*y', opts)
