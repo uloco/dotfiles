@@ -58,7 +58,10 @@ return {
 		},
 		quickfile = { enabled = true },
 		statuscolumn = { enabled = true },
-		words = { enabled = true },
+		words = {
+			enabled = true,
+			foldopen = false,
+		},
 		styles = {
 			notification = {
 				-- wo = { wrap = true } -- Wrap notifications
@@ -242,6 +245,20 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		{
+			"<A-n>",
+			function()
+				Snacks.words.jump(1, true)
+			end,
+			desc = "Jump to next word under cursor",
+		},
+		{
+			"<A-S-n>",
+			function()
+				Snacks.words.jump(-1, true)
+			end,
+			desc = "Jump to previous word under cursor",
 		},
 	},
 }
