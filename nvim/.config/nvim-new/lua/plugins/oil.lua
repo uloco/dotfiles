@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
 	"stevearc/oil.nvim",
+	enabled = false,
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {
