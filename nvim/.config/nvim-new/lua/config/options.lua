@@ -53,15 +53,6 @@ vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 
 -- folding
-vim.opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
-vim.opt.foldcolumn = "1"
 vim.opt.foldenable = true
 vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.opt.foldlevel = 99
