@@ -4,8 +4,8 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
+		bigfile = { enabled = true },
 		bufdelete = { enabled = true },
-		-- dashboard = { enabled = true },
 		-- explorer = { enabled = true },
 		image = { enabled = true },
 		indent = { enabled = true },
@@ -19,13 +19,13 @@ return {
 		},
 		picker = {
 			enabled = true,
-			sources = {
-				explorer = {
-					hidden = true,
-					-- your explorer picker configuration comes here
-					-- or leave it empty to use the default settings
-				},
-			},
+			-- sources = {
+			-- 	explorer = {
+			-- 		hidden = true,
+			-- 		-- your explorer picker configuration comes here
+			-- 		-- or leave it empty to use the default settings
+			-- 	},
+			-- },
 			actions = {
 				stopinsert = function(picker)
 					picker.input:stopinsert() -- vim.cmd.stopinsert()
