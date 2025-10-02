@@ -53,9 +53,20 @@ vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 
 -- folding
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
+vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
 
 -- show whitespace characters
 vim.opt.list = true
