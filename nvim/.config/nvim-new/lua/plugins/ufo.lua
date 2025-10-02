@@ -24,5 +24,26 @@ return {
 			end,
 			desc = "Close all folds",
 		},
+		{
+			"zp",
+			function()
+				require("ufo").peekFoldedLinesUnderCursor()
+			end,
+			desc = "Peek fold",
+		},
+		{
+			"<leader>jz",
+			function()
+				require("ufo").goNextClosedFold()
+			end,
+			desc = "Go to next closed fold",
+		},
+		{
+			"<leader>kz",
+			function()
+				require("ufo").goPreviousClosedFold()
+			end,
+			desc = "Go to previous closed fold",
+		},
 	},
 }
