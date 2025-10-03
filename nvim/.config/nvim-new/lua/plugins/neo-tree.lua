@@ -75,6 +75,8 @@ return {
 		config = function(_, opts)
 			local function on_move(data)
 				Snacks.rename.on_rename_file(data.source, data.destination)
+				-- save all open buffrs after rename
+				vim.cmd("wall")
 			end
 			local events = require("neo-tree.events")
 			opts.event_handlers = opts.event_handlers or {}
