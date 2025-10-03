@@ -1,0 +1,50 @@
+os:
+  edit: "nvr -cc 'LazygitClose' --remote-silent {{filename}}"
+  editAtLine: "nvr -cc 'LazygitClose' +{{line}} --remote-silent {{filename}}"
+  editAtLineAndWait: "nvr -cc 'LazygitClose' +{{line}} --remote-wait-silent {{filename}}"
+  editInTerminal: true
+gui:
+  showFileTree: false
+  scrollHeight: 20
+  showIcons: true
+  branchColors:
+    "main": "blue"
+    "master": "blue"
+    "dev": "green"
+    "develop": "green"
+    "release": "yellow"
+    "hotfix": "red"
+  authorColors:
+    "Umut Topuzoğlu": "magenta"
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - default
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - blue
+      - bold
+    cherryPickedCommitBgColor:
+      - reverse
+    cherryPickedCommitFgColor:
+      - magenta
+promptToReturnFromSubprocess: false
+keybinding:
+  universal:
+    createRebaseOptionsMenu: "M"
+  branches:
+    mergeIntoCurrentBranch: "m"
+  files:
+    openMergeTool: "T"
+git:
+  overrideGpg: true
+customCommands:
+  - key: "<c-f>"
+    context: "localBranches"
+    command: 'git fetch && git checkout "$(pbpaste)"'
+    description: "Feature: Fetch branches and create new from clipboard"
+    loadingText: "Creating branch"

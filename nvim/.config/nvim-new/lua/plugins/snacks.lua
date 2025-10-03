@@ -12,7 +12,7 @@ return {
 		input = { enabled = true },
 		lazygit = {
 			enabled = true,
-			-- delta pager and theme (somewhat) does not work yet
+			-- delta pager does not work yet
 			args = {
 				"--use-config-file=/Users/uloco/.config/lazygit/config.yml",
 			},
