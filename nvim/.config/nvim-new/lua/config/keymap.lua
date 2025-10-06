@@ -103,13 +103,8 @@ keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", opts)
 keymap.set({ "n", "v" }, "n", "nzz", opts)
 keymap.set({ "n", "v" }, "N", "Nzz", opts)
 
--- TODO: remove this after adding vim-asterisk
 -- Make * not jump after select word under cursor
 keymap.set({ "n" }, "*", "m`<cmd>keepjumps normal! *``<cr>", opts)
-
--- multi cursor alternative (visual highlight first, better than * cgn)
-vim.cmd([[nnoremap <leader>cw <cmd>let @/='\<'.expand('<cword>').'\>'<cr>"_ciw]])
-vim.cmd([[xnoremap <leader>cw y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<cr>"_cgn]])
 
 -- Duplicate and comment
 keymap.set({ "n" }, "<leader>gc", "mCyygccP`Ck", { remap = true, silent = true })
