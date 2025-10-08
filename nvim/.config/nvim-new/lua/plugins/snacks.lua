@@ -19,16 +19,21 @@ return {
 		},
 		picker = {
 			enabled = true,
-			-- sources = {
-			-- 	explorer = {
-			-- 		hidden = true,
-			-- 		-- your explorer picker configuration comes here
-			-- 		-- or leave it empty to use the default settings
-			-- 	},
-			-- },
+			hidden = true,
+			sources = {
+				files = {
+					hidden = true,
+				},
+				-- 	explorer = {
+				-- 		hidden = true,
+				-- 		-- your explorer picker configuration comes here
+				-- 		-- or leave it empty to use the default settings
+				-- 	},
+			},
+			filter = { cwd = true },
 			actions = {
 				stopinsert = function(picker)
-					picker.input:stopinsert() -- vim.cmd.stopinsert()
+					picker.input:stopinsert()
 				end,
 			},
 			win = {
