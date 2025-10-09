@@ -14,7 +14,7 @@ return {
 			enabled = true,
 			-- delta pager does not work yet
 			args = {
-				"--use-config-file=/Users/uloco/.config/lazygit/config.yml",
+				"--use-config-file=/Users/uloco/.config/lazygit/config-lazy.yml",
 			},
 		},
 		picker = {
