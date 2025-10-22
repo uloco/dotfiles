@@ -1,3 +1,9 @@
+local default_opts = { silent = true }
+local function map(mode, lhs, rhs, user_opts)
+	local opts = vim.tbl_extend("force", default_opts, user_opts or {})
+	vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 local keymap = vim.keymap
 
 local opts = { noremap = true, silent = true }
@@ -45,22 +51,15 @@ keymap.set("n", "<leader><leader>q", "<cmd>wa<cr><cmd>qa<cr>", opts)
 keymap.set("n", "<leader>hi", ":nohl<CR>", opts)
 
 -- Split nav
-keymap.set("n", "<A-j>", "<C-W><C-J>", opts)
-keymap.set("n", "<A-k>", "<C-W><C-K>", opts)
-keymap.set("n", "<A-l>", "<C-W><C-L>", opts)
-keymap.set("n", "<A-h>", "<C-W><C-H>", opts)
-keymap.set("n", "<A-S-j>", "<C-W>J", opts)
-keymap.set("n", "<A-S-k>", "<C-W>K", opts)
-keymap.set("n", "<A-S-l>", "<C-W>L", opts)
-keymap.set("n", "<A-S-h>", "<C-W>H", opts)
-keymap.set("i", "<A-j>", "<Esc><C-W><C-J>", opts)
-keymap.set("i", "<A-k>", "<Esc><C-W><C-K>", opts)
-keymap.set("i", "<A-l>", "<Esc><C-W><C-L>", opts)
-keymap.set("i", "<A-h>", "<Esc><C-W><C-H>", opts)
-keymap.set("t", "<A-j>", "<C-\\><C-n><C-W><C-J>", opts)
-keymap.set("t", "<A-k>", "<C-\\><C-n><C-W><C-K>", opts)
-keymap.set("t", "<A-l>", "<C-\\><C-n><C-W><C-L>", opts)
-keymap.set("t", "<A-h>", "<C-\\><C-n><C-W><C-H>", opts)
+map({ "n", "i", "t" }, "<A-j>", "<cmd>stopinsert<cr><C-W>j", { desc = "Move to split below" })
+map({ "n", "i", "t" }, "<A-k>", "<cmd>stopinsert<cr><C-W>k", { desc = "Move to split above" })
+map({ "n", "i", "t" }, "<A-l>", "<cmd>stopinsert<cr><C-W>l", { desc = "Move to split right" })
+map({ "n", "i", "t" }, "<A-h>", "<cmd>stopinsert<cr><C-W>h", { desc = "Move to split left" })
+map({ "n", "i", "t" }, "<A-S-j>", "<cmd>stopinsert<cr><C-W>J", { desc = "Move split to bottom" })
+map({ "n", "i", "t" }, "<A-S-k>", "<cmd>stopinsert<cr><C-W>K", { desc = "Move split to top" })
+map({ "n", "i", "t" }, "<A-S-l>", "<cmd>stopinsert<cr><C-W>L", { desc = "Move split to right" })
+map({ "n", "i", "t" }, "<A-S-h>", "<cmd>stopinsert<cr><C-W>H", { desc = "Move split to left" })
+map({ "n", "i" }, "<A-S-o>", "<C-w>x", { desc = "Swap current split with previous split" })
 
 -- new Tab
 keymap.set("n", "<A-t>", "<cmd>tabnew<cr>", opts)
