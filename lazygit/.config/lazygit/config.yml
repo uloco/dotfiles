@@ -24,7 +24,7 @@ keybinding:
   branches:
     mergeIntoCurrentBranch: 'm'
   files:
-    openMergeTool: 'T'
+    openMergeOptions: 'T'
 git:
   overrideGpg: true
 customCommands:
