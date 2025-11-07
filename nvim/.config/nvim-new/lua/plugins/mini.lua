@@ -14,11 +14,11 @@ return {
 		require("mini.icons").setup()
 		MiniIcons.mock_nvim_web_devicons()
 
-		require("mini.surround").setup({
-			n_lines = 500,
-		})
+		-- require("mini.surround").setup({
+		-- 	n_lines = 500,
+		-- })
 		require("mini.pairs").setup()
-		require("mini.ai").setup()
+		-- require("mini.ai").setup()
 
 		require("mini.files").setup()
 
