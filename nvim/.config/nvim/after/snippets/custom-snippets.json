@@ -59,6 +59,28 @@
       ""
     ]
   },
+  "Expo Router Screen": {
+    "prefix": "rn-expo-screen",
+    "body": [
+      "import { StyleProp, StyleSheet, Text, View, ViewStyle } from \"react-native\";",
+      "",
+      "type Props = {",
+      "  style?: StyleProp<ViewStyle>;",
+      "};",
+      "",
+      "export default function ${TM_FILENAME_BASE}Screen(props: Props) {",
+      "  return (",
+      "    <View style={[styles.container, props.style]}>",
+      "      <Text>archived</Text>",
+      "    </View>",
+      "  );",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+      "  container: {},",
+      "});"
+    ]
+  },
   "Async Thunk API Slice": {
     "prefix": "rn-api-slice",
     "body": [
