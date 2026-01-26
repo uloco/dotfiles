@@ -83,3 +83,4 @@ vim.diagnostic.config({ virtual_text = true, float = { border = "rounded" } })
 -- vim.opt.diffopt:append({ "iwhite" })
 
 vim.opt.timeout = false
+vim.o.winborder = "rounded"

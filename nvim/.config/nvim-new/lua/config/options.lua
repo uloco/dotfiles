@@ -79,3 +79,4 @@ vim.o.winborder = "rounded"
 -- vim.opt.diffopt:append({ "iwhite" })
 
 vim.opt.timeout = false
+vim.o.winborder = "rounded"
