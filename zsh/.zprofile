@@ -1,5 +1,7 @@
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 
-## Fast Node Manager
+## Fast Node Manager (for non-interactive login shells like Neovide)
 export RCFILE="$HOME/.zshrc"
-eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+if [[ ! -o interactive ]]; then
+  eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+fi
