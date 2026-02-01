@@ -20,7 +20,11 @@ return {
 		require("mini.pairs").setup()
 		-- require("mini.ai").setup()
 
-		require("mini.files").setup()
+		require("mini.files").setup({
+			mappings = {
+				close = "<ESC>",
+			},
+		})
 
 		require("mini.move").setup({
 			-- Module mappings. Use `''` (empty string) to disable one.
