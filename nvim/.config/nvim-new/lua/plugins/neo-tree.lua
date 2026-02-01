@@ -7,7 +7,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-mini/mini.nvim",
 		},
-		enabled = true,
+		enabled = false,
 		lazy = false, -- neo-tree will lazily load itself
 		opts = {
 			default_component_configs = {
