@@ -94,7 +94,7 @@ return {
 			desc = "Delete All Buffers",
 		},
 		{
-			"<A-S-o>",
+			"<C-A-S-q>",
 			function()
 				Snacks.bufdelete.other()
 			end,
