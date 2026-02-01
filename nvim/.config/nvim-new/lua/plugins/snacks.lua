@@ -24,6 +24,19 @@ return {
 				files = {
 					hidden = true,
 				},
+				smart = {
+					-- Filter out recent files that no longer exist
+					filter = {
+						cwd = true,
+						filter = function(item)
+							-- Only check existence for frecency items (recent files)
+							if item.frecency and item.file then
+								return vim.uv.fs_stat(item.file) ~= nil
+							end
+							return true
+						end,
+					},
+				},
 				-- 	explorer = {
 				-- 		hidden = true,
 				-- 		-- your explorer picker configuration comes here
