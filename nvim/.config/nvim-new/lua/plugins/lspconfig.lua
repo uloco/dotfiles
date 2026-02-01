@@ -1,8 +1,64 @@
 return {
 	"neovim/nvim-lspconfig",
+	lazy = true, -- loaded by mason-lspconfig as dependency
 	dependencies = {
 		"b0o/schemastore.nvim",
 	},
+	config = function()
+		-- Server-specific configurations
+		-- These override defaults for servers enabled by mason-lspconfig's automatic_enable
+
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					hint = {
+						enable = true,
+						arrayIndex = "Enable",
+						setType = true,
+					},
+					diagnostics = {
+						globals = { "vim" },
+					},
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
+					},
+				},
+			},
+		})
+
+		vim.lsp.config("jsonls", {
+			filetypes = { "json", "jsonc" },
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
+		})
+
+		vim.lsp.config("yamlls", {
+			settings = {
+				yaml = {
+					schemas = require("schemastore").yaml.schemas(),
+					validate = true,
+				},
+			},
+		})
+
+		vim.lsp.config("graphql", {
+			on_attach = function(client)
+				client.server_capabilities.workspaceSymbolProvider = false
+			end,
+			filetypes = {
+				"graphql",
+				"typescriptreact",
+				"typescript",
+				"javascript",
+				"javascriptreact",
+			},
+		})
+	end,
 	keys = {
 		{
 			"<leader>ke",

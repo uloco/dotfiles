@@ -1,18 +1,9 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
-	opts = {
-		ensure_installed = {
-			"lua_ls",
-		},
-		automatic_enable = {
-			exclude = {
-				"ts_ls",
-			},
-		},
-	},
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
-		{ "mason-tool-installer.nvim", opts = {} },
+		{ "neovim/nvim-lspconfig" },
 		{
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {
@@ -20,6 +11,7 @@ return {
 					"tree-sitter-cli",
 					"python-lsp-server",
 					"tailwindcss-language-server",
+					"vtsls",
 					"typescript-language-server",
 					"svelte-language-server",
 					"emmet-language-server",
@@ -35,6 +27,16 @@ return {
 					"shfmt",
 					"yaml-language-server",
 				},
+			},
+		},
+	},
+	opts = {
+		ensure_installed = {
+			"lua_ls",
+		},
+		automatic_enable = {
+			exclude = {
+				"ts_ls",
 			},
 		},
 	},
