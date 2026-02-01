@@ -58,8 +58,10 @@ return {
 		require("nvim-treesitter").setup()
 		require("nvim-treesitter").install(opts.ensure_installed)
 
+		local filetypes = vim.tbl_extend("force", opts.ensure_installed, { "typescriptreact", "javascriptreact" })
+
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = opts.ensure_installed,
+			pattern = filetypes,
 			callback = function(args)
 				vim.treesitter.start(args.buf)
 			end,
