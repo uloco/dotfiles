@@ -3,6 +3,7 @@ return {
 	lazy = true, -- loaded by mason-lspconfig as dependency
 	dependencies = {
 		"b0o/schemastore.nvim",
+		"yioneko/nvim-vtsls",
 	},
 	config = function()
 		-- Server-specific configurations
@@ -56,6 +57,24 @@ return {
 				"typescript",
 				"javascript",
 				"javascriptreact",
+			},
+		})
+
+		-- Set vtsls lspconfig from nvim-vtsls plugin (recommended)
+		require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+
+		vim.lsp.config("vtsls", {
+			settings = {
+				typescript = {
+					preferences = {
+						useAliasesForRenames = false,
+					},
+				},
+				javascript = {
+					preferences = {
+						useAliasesForRenames = false,
+					},
+				},
 			},
 		})
 	end,
