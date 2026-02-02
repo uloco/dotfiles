@@ -60,9 +60,6 @@ return {
 			},
 		})
 
-		-- Set vtsls lspconfig from nvim-vtsls plugin (recommended)
-		require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-
 		vim.lsp.config("vtsls", {
 			settings = {
 				typescript = {
