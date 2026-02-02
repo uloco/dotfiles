@@ -97,9 +97,7 @@ export PATH="${PATH}:${HOME}/.local/share/nvim/mason/bin"
 
 export PATH="/usr/local/sbin:$PATH"
 
-export EDITOR="nvr"
-# export REACT_EDITOR="nvr"
-# export EXPO_EDITOR="nvr"
+export EDITOR="nvim"
 
 # composer
 export PATH="${HOME}/.composer/vendor/bin:$PATH"
@@ -122,17 +120,15 @@ alias path='echo -e ${PATH//:/\\n}'
 alias tree='find . -print | sed -e '\''s;[^/]*/;|____;g;s;____|; |;g'\'''
 alias npm-globals='npm ls -g'
 
-function nvim () {
-  SOCKET_FILE="/tmp/nvimsocket"
-
-  if [ -S "$SOCKET_FILE" ]; then
-    # If the socket file exists, run nvim without --listen
-    command nvim "$@"
+# nvim: opens files in parent nvim when inside nvim terminal, otherwise opens new nvim
+nvim() {
+  if [[ -n "$NVIM" ]]; then
+    command nvim --server "$NVIM" --remote "$@"
   else
-    # If the socket file does not exist, run nvim with --listen
-    command nvim --listen "$SOCKET_FILE" "$@"
+    command nvim "$@"
   fi
 }
+
 alias vim='nvim'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
 alias vimn='NVIM_APPNAME=nvim-new nvim'
@@ -253,7 +249,7 @@ export PATH=/Users/uloco/.meteor:$PATH
 # neovide
 export NEOVIDE_FRAME="transparent"
 export NEOVIDE_FORK=1
-alias nv='neovide -- --listen /tmp/nvimsocket'
+alias nv='neovide'
 
 #compdef opencode
 ###-begin-opencode-completions-###

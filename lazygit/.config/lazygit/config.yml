@@ -1,8 +1,5 @@
 os:
-  edit: "nvr -cc 'LazygitClose' --remote-silent {{filename}}"
-  editAtLine: "nvr -cc 'LazygitClose' +{{line}} --remote-silent {{filename}}"
-  editAtLineAndWait: "nvr -cc 'LazygitClose' +{{line}} --remote-wait-silent {{filename}}"
-  editInTerminal: true
+  editPreset: "nvim-remote"
 gui:
   showFileTree: false
   scrollHeight: 20
