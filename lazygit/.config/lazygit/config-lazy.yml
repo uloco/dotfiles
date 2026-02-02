@@ -42,6 +42,9 @@ keybinding:
     openMergeOptions: "T"
 git:
   overrideGpg: true
+  pagers:
+    - colorArg: always
+      pager: "sh -c 'delta --paging=never --features $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)'"
 customCommands:
   - key: "<c-f>"
     context: "localBranches"
