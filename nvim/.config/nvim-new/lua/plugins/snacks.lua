@@ -86,6 +86,11 @@ return {
 			input = {
 				keys = { i_esc = { [2] = { "cmp_close", "<esc>" } } },
 			},
+			lazygit = {
+				wo = {
+					winhighlight = "Normal:Normal",
+				},
+			},
 		},
 	},
 	keys = {
