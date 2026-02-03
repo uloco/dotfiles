@@ -25,7 +25,7 @@ copilot.setup({
 		hide_during_completion = true,
 		debounce = 75,
 		keymap = {
-			accept = "<C-l>",
+			accept = false, -- Handled in cmp.rc.lua via Tab
 			accept_word = false,
 			accept_line = false,
 			next = "<C-o>",
