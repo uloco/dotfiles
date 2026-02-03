@@ -82,9 +82,15 @@ cmp.setup({
 	},
 })
 
+-- Cmdline mappings with arrow key support
+local cmdline_mapping = cmp.mapping.preset.cmdline({
+	["<Up>"] = { c = cmp.mapping.select_prev_item() },
+	["<Down>"] = { c = cmp.mapping.select_next_item() },
+})
+
 -- Use buffer source for `/`
 cmp.setup.cmdline({ "/", "?" }, {
-	mapping = cmp.mapping.preset.cmdline(),
+	mapping = cmdline_mapping,
 	sources = {
 		{ name = "buffer" },
 	},
@@ -92,7 +98,7 @@ cmp.setup.cmdline({ "/", "?" }, {
 
 -- Use cmdline & path source for ':'
 cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
+	mapping = cmdline_mapping,
 	sources = cmp.config.sources({
 		{ name = "path" },
 	}, {
