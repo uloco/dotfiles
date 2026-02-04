@@ -25,23 +25,24 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			local copilot_suggestion = require("copilot.suggestion")
-			if cmp.visible() then
-				cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-			elseif copilot_suggestion.is_visible() then
+			-- if cmp.visible() then
+			-- 	cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+			-- elseif copilot_suggestion.is_visible() then
+			if copilot_suggestion.is_visible() then
 				copilot_suggestion.accept()
-		elseif luasnip.expand_or_jumpable() then
-			luasnip.expand_or_jump()
-		else
-			fallback()
-		end
-	end, { "i", "s" }),
-	["<S-Tab>"] = cmp.mapping(function(fallback)
-		if luasnip.jumpable(-1) then
-			luasnip.jump(-1)
-		else
-			fallback()
-		end
-	end, { "i", "s" }),
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
