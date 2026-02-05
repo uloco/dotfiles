@@ -5,13 +5,40 @@ return {
 		require("mini.icons").setup()
 		MiniIcons.mock_nvim_web_devicons()
 
+		local ts_input = require("mini.surround").gen_spec.input.treesitter
 		require("mini.surround").setup({
 			n_lines = 500,
-			-- TODO: use treesitter for surroundings too (`srtt` in react native tags not working )
+			custom_surroundings = {
+				-- Use treesitter to find surroundings
+				a = {
+					input = ts_input({ outer = "@parameter.outer", inner = "@parameter.inner" }),
+				},
+				f = {
+					input = ts_input({ outer = "@call.outer", inner = "@call.inner" }),
+				},
+				m = {
+					input = ts_input({ outer = "@function.outer", inner = "@function.inner" }),
+				},
+				o = {
+					input = ts_input({ outer = "@block.outer", inner = "@block.inner" }),
+				},
+			},
 		})
 
 		require("mini.pairs").setup()
-		-- require("mini.ai").setup()
+
+		local ts_ai = require("mini.ai").gen_spec.treesitter
+		require("mini.ai").setup({
+			n_lines = 500,
+			custom_textobjects = {
+				-- Use treesitter to find textobjects
+				a = ts_ai({ a = "@parameter.outer", i = "@parameter.inner" }),
+				f = ts_ai({ a = "@call.outer", i = "@call.inner" }),
+				m = ts_ai({ a = "@function.outer", i = "@function.inner" }),
+				o = ts_ai({ a = "@block.outer", i = "@block.inner" }),
+				x = ts_ai({ a = "@attribute.outer", i = "@attribute.inner" }),
+			},
+		})
 
 		require("mini.files").setup({
 			mappings = {
@@ -19,7 +46,7 @@ return {
 			},
 		})
 
-    require("mini.splitjoin").setup()
+		require("mini.splitjoin").setup()
 
 		require("mini.move").setup({
 			-- Module mappings. Use `''` (empty string) to disable one.
