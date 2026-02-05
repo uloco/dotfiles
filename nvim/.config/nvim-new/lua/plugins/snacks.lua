@@ -2,6 +2,15 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	init = function()
+		-- Auto insert mode when entering terminal with mouse click
+		vim.api.nvim_create_autocmd("TermOpen", {
+			pattern = "*",
+			callback = function()
+				vim.keymap.set("n", "<LeftRelease>", "<LeftRelease>i", { buffer = true })
+			end,
+		})
+	end,
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
@@ -14,6 +23,18 @@ return {
 			enabled = true,
 			args = {
 				"--use-config-file=/Users/uloco/.config/lazygit/config-lazy.yml",
+			},
+			win = {
+				position = "float",
+				width = 0.85,
+				height = 0.85,
+			},
+		},
+		terminal = {
+			enabled = true,
+			win = {
+				position = "right",
+				width = 80,
 			},
 		},
 		picker = {
@@ -87,10 +108,15 @@ return {
 				keys = { i_esc = { [2] = { "cmp_close", "<esc>" } } },
 			},
 			lazygit = {
+				position = "float",
 				border = "rounded",
 				wo = {
 					winhighlight = "Normal:Normal",
 				},
+			},
+			terminal = {
+				position = "right",
+				width = 80,
 			},
 		},
 	},
@@ -282,6 +308,57 @@ return {
 				Snacks.words.jump(-1, true)
 			end,
 			desc = "Jump to previous word under cursor",
+		},
+		-- Terminal keymaps
+		{
+			"†", -- Alt-Gr + t
+			function()
+				Snacks.terminal.toggle()
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Terminal",
+		},
+		{
+			"˝", -- Alt-Gr + Shift + t
+			function()
+				local terminals = Snacks.terminal.list()
+				if #terminals == 0 then
+					return
+				end
+				local any_visible = vim.iter(terminals):any(function(t)
+					return t:win_valid()
+				end)
+				for _, term in ipairs(terminals) do
+					if any_visible then
+						term:hide()
+					else
+						term:show()
+					end
+				end
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle All Terminals",
+		},
+		{
+			"ª", -- Alt + h
+			function()
+				Snacks.terminal.toggle(nil, {
+					env = { SNACKS_FLOAT = "1" }, -- differentiate from split terminal
+					win = { position = "float", border = "rounded", width = 0.85, height = 0.85 },
+				})
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Floating Terminal",
+		},
+		{
+			"å", -- Alt + a
+			function()
+				Snacks.terminal.toggle("opencode", {
+					win = { position = "float", border = "rounded", width = 0.85, height = 0.85 },
+				})
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Opencode",
 		},
 	},
 }
