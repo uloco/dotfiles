@@ -3,6 +3,9 @@ return {
 	priority = 1000,
 	lazy = false,
 	init = function()
+		-- Track last used terminal count
+		vim.g.snacks_last_terminal_count = 1
+
 		-- Auto insert mode when entering terminal with mouse click
 		vim.api.nvim_create_autocmd("TermOpen", {
 			pattern = "*",
@@ -313,7 +316,10 @@ return {
 		{
 			"†", -- Alt-Gr + t
 			function()
-				Snacks.terminal.toggle()
+				-- Use explicit count if provided, otherwise use last used count
+				local count = vim.v.count > 0 and vim.v.count or vim.g.snacks_last_terminal_count
+				vim.g.snacks_last_terminal_count = count
+				Snacks.terminal.toggle(nil, { count = count })
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Terminal",
