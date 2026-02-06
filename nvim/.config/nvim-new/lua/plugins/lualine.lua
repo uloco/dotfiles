@@ -2,22 +2,22 @@
 --- 1. Manual name (set via :TabRename)
 --- 2. tcd directory name (if :tcd was used)
 --- 3. Active buffer filename (fallback)
-local function tab_label(tabnr)
+local function tab_label(tabpage)
 	-- Check for manual name
-	local ok, name = pcall(vim.api.nvim_tabpage_get_var, tabnr, "tab_name")
+	local ok, name = pcall(vim.api.nvim_tabpage_get_var, tabpage, "tab_name")
 	if ok and name and name ~= "" then
 		return name
 	end
 
 	-- Check for tab-local cwd (set via :tcd)
-	local tab_cwd = vim.fn.getcwd(-1, vim.api.nvim_tabpage_get_number(tabnr))
+	local tab_cwd = vim.fn.getcwd(-1, vim.api.nvim_tabpage_get_number(tabpage))
 	local global_cwd = vim.fn.getcwd(-1, 0)
 	if tab_cwd ~= global_cwd then
 		return vim.fn.fnamemodify(tab_cwd, ":t")
 	end
 
 	-- Fallback: active buffer filename
-	local win = vim.api.nvim_tabpage_get_win(tabnr)
+	local win = vim.api.nvim_tabpage_get_win(tabpage)
 	local buf = vim.api.nvim_win_get_buf(win)
 	local bufname = vim.api.nvim_buf_get_name(buf)
 	if bufname == "" then
