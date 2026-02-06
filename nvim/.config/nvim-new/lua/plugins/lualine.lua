@@ -105,7 +105,7 @@ return {
 				lualine_x = {
 					{
 						unsaved_buffers,
-						color = "DiagnosticWarn",
+						color = "Cursor",
 					},
 					{
 						"diagnostics",
