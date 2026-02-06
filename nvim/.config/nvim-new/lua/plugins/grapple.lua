@@ -1,11 +1,7 @@
 return {
 	{
 		"cbochs/grapple.nvim",
-		opts = {
-			scope = "cwd",
-			icons = true,
-			quick_select = "123456789",
-		},
+		opts = { scope = "cwd" },
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = "Grapple",
 		keys = {
@@ -30,9 +26,7 @@ return {
 		dependencies = { "cbochs/grapple.nvim" },
 		opts = {
 			number_of_files = 9,
-			mode = "unique_filename",
 			overflow = "ellipsis",
-			show_names = false,
 		},
 	},
 }
