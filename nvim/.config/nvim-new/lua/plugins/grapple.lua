@@ -2,7 +2,7 @@ return {
 	{
 		"cbochs/grapple.nvim",
 		opts = {
-			scope = "git",
+			scope = "cwd",
 			icons = true,
 			quick_select = "123456789",
 		},
