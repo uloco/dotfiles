@@ -26,6 +26,49 @@ local function tab_label(tabpage)
 	return vim.fn.fnamemodify(bufname, ":t")
 end
 
+--- Winbar filename: "name [+]"
+local function winbar_filename()
+	local bufname = vim.api.nvim_buf_get_name(0)
+	if bufname == "" then
+		return "[No Name]"
+	end
+	local name = vim.fn.fnamemodify(bufname, ":t")
+	if vim.bo.modified then
+		name = name .. " ●"
+	end
+	if vim.bo.readonly then
+		name = name .. " "
+	end
+	return name
+end
+
+--- Winbar path: short relative parent directory
+local function winbar_path()
+	local bufname = vim.api.nvim_buf_get_name(0)
+	if bufname == "" then
+		return ""
+	end
+	local dir = vim.fn.fnamemodify(bufname, ":~:.:h")
+	if dir == "." then
+		return ""
+	end
+	return dir
+end
+
+--- Count of unsaved buffers (excluding current)
+local function unsaved_buffers()
+	local count = 0
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].modified and vim.bo[buf].buflisted then
+			count = count + 1
+		end
+	end
+	if count == 0 then
+		return ""
+	end
+	return "● " .. count
+end
+
 -- :TabRename command to manually name tabs
 vim.api.nvim_create_user_command("TabRename", function(args)
 	vim.api.nvim_tabpage_set_var(0, "tab_name", args.args)
@@ -57,6 +100,10 @@ return {
 					},
 				},
 				lualine_x = {
+					{
+						unsaved_buffers,
+						color = { fg = "#e5c07b" },
+					},
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
@@ -109,11 +156,8 @@ return {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{
-						"filename",
-						file_status = true,
-						path = 1, -- relative path
-					},
+					{ winbar_filename },
+					{ winbar_path, color = "Comment" },
 				},
 				lualine_x = {},
 				lualine_y = {},
@@ -123,11 +167,8 @@ return {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
-					{
-						"filename",
-						file_status = true,
-						path = 1,
-					},
+					{ winbar_filename },
+					{ winbar_path, color = "Comment" },
 				},
 				lualine_x = {},
 				lualine_y = {},
