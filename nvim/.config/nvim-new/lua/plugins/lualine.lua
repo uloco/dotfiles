@@ -88,6 +88,9 @@ return {
 				theme = "auto",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
+				disabled_filetypes = {
+					winbar = { "NvimTree", "Lazy", "mason", "qf", "help", "snacks_terminal", "grapple" },
+				},
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -102,7 +105,7 @@ return {
 				lualine_x = {
 					{
 						unsaved_buffers,
-						color = { fg = "#e5c07b" },
+						color = "DiagnosticWarn",
 					},
 					{
 						"diagnostics",
