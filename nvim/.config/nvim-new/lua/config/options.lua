@@ -14,7 +14,7 @@ vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.pumheight = 20
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.expandtab = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
@@ -28,9 +28,6 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.showmode = false
 vim.opt.jumpoptions = "view"
-
--- winbar
-vim.opt.winbar = "%f"
 
 vim.opt.wrap = true
 vim.opt.showbreak = "↪ "
