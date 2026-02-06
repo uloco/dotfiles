@@ -26,18 +26,19 @@ local function tab_label(tabpage)
 	return vim.fn.fnamemodify(bufname, ":t")
 end
 
---- Winbar filename: "name ●" or " Terminal N  process" for terminals
+--- Winbar filename: "name ●" or "T1/ process" for terminals
 local function winbar_filename()
 	if vim.bo.buftype == "terminal" then
 		local buf = vim.api.nvim_get_current_buf()
 		local ok, snacks = pcall(vim.api.nvim_buf_get_var, buf, "snacks_terminal")
-		local label = " Terminal"
+		local label = "T"
 		if ok and snacks then
-			label = label .. " " .. snacks.count
+			label = label .. snacks.count
 		end
+		label = label .. "/"
 		local title = vim.b.term_title
 		if title and title ~= "" then
-			label = label .. "  " .. title
+			label = label .. " " .. title
 		end
 		return label
 	end
