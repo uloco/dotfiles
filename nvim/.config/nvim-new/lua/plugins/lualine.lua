@@ -26,15 +26,20 @@ local function tab_label(tabpage)
 	return vim.fn.fnamemodify(bufname, ":t")
 end
 
---- Winbar filename: "name ●" or " Terminal N" for terminals
+--- Winbar filename: "name ●" or " Terminal N  process" for terminals
 local function winbar_filename()
 	if vim.bo.buftype == "terminal" then
 		local buf = vim.api.nvim_get_current_buf()
-		local ok, count = pcall(vim.api.nvim_buf_get_var, buf, "snacks_terminal")
-		if ok and count then
-			return " Terminal " .. count.count
+		local ok, snacks = pcall(vim.api.nvim_buf_get_var, buf, "snacks_terminal")
+		local label = " Terminal"
+		if ok and snacks then
+			label = label .. " " .. snacks.count
 		end
-		return " Terminal"
+		local title = vim.b.term_title
+		if title and title ~= "" then
+			label = label .. "  " .. title
+		end
+		return label
 	end
 
 	local bufname = vim.api.nvim_buf_get_name(0)
@@ -51,9 +56,14 @@ local function winbar_filename()
 	return name
 end
 
---- Winbar path: short relative parent directory
+--- Winbar path: short relative parent directory, or terminal cwd
 local function winbar_path()
 	if vim.bo.buftype == "terminal" then
+		local bufname = vim.api.nvim_buf_get_name(0)
+		local cwd = bufname:match("^term://(.-)//")
+		if cwd then
+			return vim.fn.fnamemodify(cwd, ":~")
+		end
 		return ""
 	end
 	local bufname = vim.api.nvim_buf_get_name(0)
