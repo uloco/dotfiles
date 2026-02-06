@@ -1,7 +1,4 @@
---- Returns a meaningful label for a tab:
---- 1. Manual name (via :TabRename)
---- 2. tcd directory name (if :tcd was used)
---- 3. Active buffer filename (fallback)
+-- Tab label: :TabRename override > :tcd dirname > active filename
 local function tab_label(tabpage)
 	local ok, name = pcall(vim.api.nvim_tabpage_get_var, tabpage, "tab_name")
 	if ok and name and name ~= "" then
@@ -23,9 +20,9 @@ local function tab_label(tabpage)
 	return vim.fn.fnamemodify(bufname, ":t")
 end
 
---- Winbar: "filename ●" or "T1/ process" for terminals
 local function winbar_filename()
 	if vim.bo.buftype == "terminal" then
+		-- snacks_terminal buf var holds { count = N } for numbered terminals
 		local ok, snacks = pcall(vim.api.nvim_buf_get_var, 0, "snacks_terminal")
 		local label = "T"
 		if ok and type(snacks) == "table" and snacks.count then
@@ -53,9 +50,9 @@ local function winbar_filename()
 	return name
 end
 
---- Winbar path: relative parent dir (muted), or terminal cwd
 local function winbar_path()
 	if vim.bo.buftype == "terminal" then
+		-- parse cwd from term://path//pid:cmd buffer name
 		local cwd = vim.api.nvim_buf_get_name(0):match("^term://(.-)//")
 		return cwd and vim.fn.fnamemodify(cwd, ":~") or ""
 	end
@@ -67,7 +64,6 @@ local function winbar_path()
 	return dir ~= "." and dir or ""
 end
 
---- Count of all unsaved listed buffers
 local function unsaved_buffers()
 	local count = 0
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
