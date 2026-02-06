@@ -32,7 +32,7 @@ local function winbar_filename()
 		local buf = vim.api.nvim_get_current_buf()
 		local ok, snacks = pcall(vim.api.nvim_buf_get_var, buf, "snacks_terminal")
 		local label = "T"
-		if ok and snacks then
+		if ok and type(snacks) == "table" and snacks.count then
 			label = label .. snacks.count
 		end
 		label = label .. "/"
@@ -78,7 +78,7 @@ local function winbar_path()
 	return dir
 end
 
---- Count of unsaved buffers (excluding current)
+--- Count of all unsaved listed buffers
 local function unsaved_buffers()
 	local count = 0
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -145,20 +145,6 @@ return {
 				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
-			},
-			inactive_sections = {
-				lualine_a = {},
-				lualine_b = {},
-				lualine_c = {
-					{
-						"filename",
-						file_status = true,
-						path = 1,
-					},
-				},
-				lualine_x = { "location" },
-				lualine_y = {},
-				lualine_z = {},
 			},
 			tabline = {
 				lualine_a = {
