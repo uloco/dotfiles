@@ -1,3 +1,36 @@
+--- Returns a meaningful label for a tab:
+--- 1. Manual name (set via :TabRename)
+--- 2. tcd directory name (if :tcd was used)
+--- 3. Active buffer filename (fallback)
+local function tab_label(tabnr)
+	-- Check for manual name
+	local ok, name = pcall(vim.api.nvim_tabpage_get_var, tabnr, "tab_name")
+	if ok and name and name ~= "" then
+		return name
+	end
+
+	-- Check for tab-local cwd (set via :tcd)
+	local tab_cwd = vim.fn.getcwd(-1, vim.api.nvim_tabpage_get_number(tabnr))
+	local global_cwd = vim.fn.getcwd(-1, 0)
+	if tab_cwd ~= global_cwd then
+		return vim.fn.fnamemodify(tab_cwd, ":t")
+	end
+
+	-- Fallback: active buffer filename
+	local win = vim.api.nvim_tabpage_get_win(tabnr)
+	local buf = vim.api.nvim_win_get_buf(win)
+	local bufname = vim.api.nvim_buf_get_name(buf)
+	if bufname == "" then
+		return "[No Name]"
+	end
+	return vim.fn.fnamemodify(bufname, ":t")
+end
+
+-- :TabRename command to manually name tabs
+vim.api.nvim_create_user_command("TabRename", function(args)
+	vim.api.nvim_tabpage_set_var(0, "tab_name", args.args)
+end, { nargs = "?", desc = "Rename current tab (empty to clear)" })
+
 return {
 	"nvim-lualine/lualine.nvim",
 	lazy = false,
@@ -62,7 +95,15 @@ return {
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = { "tabs" },
+				lualine_z = {
+					{
+						"tabs",
+						mode = 2, -- show tab number + label
+						fmt = function(_, context)
+							return tab_label(context.tabnr)
+						end,
+					},
+				},
 			},
 			winbar = {
 				lualine_a = {},
