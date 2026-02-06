@@ -26,8 +26,17 @@ local function tab_label(tabpage)
 	return vim.fn.fnamemodify(bufname, ":t")
 end
 
---- Winbar filename: "name [+]"
+--- Winbar filename: "name ●" or " Terminal N" for terminals
 local function winbar_filename()
+	if vim.bo.buftype == "terminal" then
+		local buf = vim.api.nvim_get_current_buf()
+		local ok, count = pcall(vim.api.nvim_buf_get_var, buf, "snacks_terminal")
+		if ok and count then
+			return " Terminal " .. count.count
+		end
+		return " Terminal"
+	end
+
 	local bufname = vim.api.nvim_buf_get_name(0)
 	if bufname == "" then
 		return "[No Name]"
@@ -44,6 +53,9 @@ end
 
 --- Winbar path: short relative parent directory
 local function winbar_path()
+	if vim.bo.buftype == "terminal" then
+		return ""
+	end
 	local bufname = vim.api.nvim_buf_get_name(0)
 	if bufname == "" then
 		return ""
@@ -89,7 +101,7 @@ return {
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				disabled_filetypes = {
-					winbar = { "NvimTree", "Lazy", "mason", "qf", "help", "snacks_terminal", "grapple" },
+					winbar = { "NvimTree", "Lazy", "mason", "qf", "help", "grapple" },
 				},
 			},
 			sections = {
