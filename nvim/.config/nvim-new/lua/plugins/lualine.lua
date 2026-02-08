@@ -3,6 +3,9 @@ return {
 	lazy = false,
 	dependencies = { "will-lynas/grapple-line.nvim" },
 	opts = {
+		options = {
+			globalstatus = true,
+		},
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
@@ -21,16 +24,30 @@ return {
 		},
 		tabline = {},
 		winbar = {
-			lualine_a = { "filename" },
 			lualine_b = {
-				"filename",
-				file_status = false,
-				path = 2,
+				{
+					"filename",
+					separator = { left = "", right = "" },
+					color = { fg = "@tag" },
+				},
 			},
-			lualine_c = { "filename" },
+			lualine_c = {
+				-- only file path
+				function()
+					return vim.fn.expand("%:.:h")
+				end,
+			},
 		},
 		inactive_winbar = {
-			lualine_a = { "filename" },
+			lualine_b = {
+				"filename",
+			},
+			lualine_c = {
+				-- only file path
+				function()
+					return vim.fn.expand("%:.:h")
+				end,
+			},
 		},
 		extensions = {
 			"mason",

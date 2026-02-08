@@ -30,7 +30,7 @@ vim.opt.showmode = false
 vim.opt.jumpoptions = "view"
 
 -- winbar
-vim.opt.winbar = "%f"
+-- vim.opt.winbar = "%t %#Comment#%{expand('%:.:h')}%*"
 
 vim.opt.wrap = true
 vim.opt.showbreak = "↪ "
