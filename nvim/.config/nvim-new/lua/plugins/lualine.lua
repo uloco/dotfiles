@@ -1,3 +1,20 @@
+---Override separators for all components
+---@param sections table
+---@return table
+local function process_sections(sections)
+	for _, section in pairs(sections) do
+		for id, comp in ipairs(section) do
+			if type(comp) ~= "table" then
+				comp = { comp }
+				section[id] = comp
+			end
+			comp.component_separators = { left = "", right = "" }
+			comp.section_separators = { left = "", right = "" }
+		end
+	end
+	return sections
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	lazy = false,
@@ -5,14 +22,17 @@ return {
 	opts = {
 		options = {
 			globalstatus = true,
+			component_separators = "",
+			section_separators = { left = "", right = "" },
+			always_show_tabline = false,
 		},
 		sections = {
-			lualine_a = { "mode" },
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 			lualine_b = { "branch", "diff", "diagnostics" },
 			lualine_c = { "filename" },
 			lualine_x = { "filetype" },
-			lualine_y = { "lsp_status" },
-			lualine_z = { "location" },
+			lualine_y = { "lsp_status", "progress" },
+			lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
 		},
 		inactive_sections = {
 			lualine_a = {},
@@ -22,7 +42,25 @@ return {
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {},
+		tabline = {
+			-- lualine_a = { {
+			-- 	"buffers",
+			-- 	separator = { right = "", left = "" },
+			-- } },
+			lualine_a = {},
+			lualine_b = {},
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = {
+				{
+					"tabs",
+					mode = 2,
+					show_modified_status = false,
+					separator = { right = "", left = "" },
+				},
+			},
+		},
 		winbar = {
 			lualine_b = {
 				{
@@ -56,4 +94,9 @@ return {
 			"lazy",
 		},
 	},
+	config = function(_, opts)
+		-- NOTE: Modify separators before loading plugin
+		opts.tabline = process_sections(opts.tabline)
+		require("lualine").setup(opts)
+	end,
 }
