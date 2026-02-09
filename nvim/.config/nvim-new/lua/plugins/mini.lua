@@ -38,6 +38,7 @@ return {
 				o = ts_ai({ a = "@block.outer", i = "@block.inner" }),
 				x = ts_ai({ a = "@attribute.outer", i = "@attribute.inner" }),
 			},
+			search_method = "cover",
 		})
 
 		require("mini.files").setup({
