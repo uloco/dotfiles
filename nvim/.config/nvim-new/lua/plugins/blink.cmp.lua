@@ -56,10 +56,12 @@ return {
 			keymap = {
 				preset = "inherit",
 				["<CR>"] = { "accept_and_enter", "fallback" },
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
 			},
 			completion = {
 				menu = { auto_show = true },
-				list = { selection = { preselect = false, auto_insert = false } },
+				list = { selection = { preselect = false, auto_insert = true } },
 			},
 		},
 	},
