@@ -15,9 +15,40 @@ local function process_sections(sections)
 	return sections
 end
 
--- Global click handler for grapple tags in statusline
-function _G.GrappleSelect(index)
-	require("grapple").select({ index = index })
+---Create a lualine component for a grapple tag slot
+---@param index number
+---@return table
+local function grapple_tag(index)
+	return {
+		function()
+			local grapple = require("grapple")
+			if not grapple.exists({ index = index }) then
+				return ""
+			end
+			local tag = grapple.find({ index = index })
+			local name = vim.fn.fnamemodify(tag.path, ":t")
+			return "[" .. index .. "] " .. name
+		end,
+		cond = function()
+			return package.loaded["grapple"] and require("grapple").exists({ index = index })
+		end,
+		color = function()
+			local grapple = require("grapple")
+			if not grapple.exists({ index = index }) then
+				return nil
+			end
+			local tag = grapple.find({ index = index })
+			local current_path = vim.api.nvim_buf_get_name(0)
+			if tag.path == current_path then
+				return "Folded"
+			else
+				return "lualine_c_normal"
+			end
+		end,
+		on_click = function()
+			require("grapple").select({ index = index })
+		end,
+	}
 end
 
 return {
@@ -30,34 +61,13 @@ return {
 		options = {
 			globalstatus = true,
 			component_separators = "",
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 			always_show_tabline = false,
 		},
 		sections = {
-			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 			lualine_b = { "branch" },
-			lualine_c = {
-				function()
-					local grapple = require("grapple")
-					local current_path = vim.api.nvim_buf_get_name(0)
-					local tags = grapple.tags()
-					if not tags or #tags == 0 then
-						return ""
-					end
-
-					local parts = {}
-					for i, tag in ipairs(tags) do
-						local name = vim.fn.fnamemodify(tag.path, ":t")
-						local entry = "[" .. i .. "] " .. name
-						local color = tag.path == current_path and "PmenuSel" or "PmenuSbar"
-						table.insert(
-							parts,
-							"%" .. i .. "@v:lua.GrappleSelect@%#" .. color .. "# " .. entry .. " %*%T"
-						)
-					end
-					return "%=" .. table.concat(parts) .. "%#lualine_c_normal#"
-				end,
-			},
+			lualine_c = { "%=", grapple_tag(1), grapple_tag(2), grapple_tag(3), grapple_tag(4) },
 			lualine_x = { "filetype" },
 			lualine_y = { "lsp_status", "progress" },
 			lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
