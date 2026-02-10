@@ -1,18 +1,18 @@
----Override separators for all components
----@param sections table
----@return table
-local function process_sections(sections)
-	for _, section in pairs(sections) do
-		for id, comp in ipairs(section) do
-			if type(comp) ~= "table" then
-				comp = { comp }
-				section[id] = comp
-			end
-			comp.component_separators = { left = "", right = "" }
-			comp.section_separators = { left = "", right = "" }
+---Ensure custom lualine grapple highlights exist
+local function ensure_grapple_highlights()
+	local punct_fg = vim.api.nvim_get_hl(0, { name = "Punctuation", link = false }).fg
+	local number_fg = vim.api.nvim_get_hl(0, { name = "Number", link = false }).fg
+
+	for _, suffix in ipairs({ "lualine_c_normal", "Folded" }) do
+		local bg = vim.api.nvim_get_hl(0, { name = suffix, link = false }).bg
+		local tag = suffix == "Folded" and "Active" or ""
+		if punct_fg then
+			vim.api.nvim_set_hl(0, "GrapplePunctuation" .. tag, { fg = punct_fg, bg = bg })
+		end
+		if number_fg then
+			vim.api.nvim_set_hl(0, "GrappleNumber" .. tag, { fg = number_fg, bg = bg })
 		end
 	end
-	return sections
 end
 
 ---Create a lualine component for a grapple tag slot
@@ -27,24 +27,32 @@ local function grapple_tag(index)
 			end
 			local tag = grapple.find({ index = index })
 			local name = vim.fn.fnamemodify(tag.path, ":t")
-			return "[" .. index .. "] " .. name
+
+			ensure_grapple_highlights()
+
+			local function hl(group)
+				return "%#" .. group .. "#"
+			end
+
+			local current_path = vim.api.nvim_buf_get_name(0)
+			local is_active = tag.path == current_path
+			local suffix = is_active and "Active" or ""
+			local name_hl = is_active and "Folded" or "lualine_c_normal"
+
+			return hl("GrapplePunctuation" .. suffix)
+				.. "["
+				.. hl("GrappleNumber" .. suffix)
+				.. index
+				.. hl("GrapplePunctuation" .. suffix)
+				.. "]"
+				.. hl(name_hl)
+				.. " "
+				.. name
 		end,
 		cond = function()
 			return package.loaded["grapple"] and require("grapple").exists({ index = index })
 		end,
-		color = function()
-			local grapple = require("grapple")
-			if not grapple.exists({ index = index }) then
-				return nil
-			end
-			local tag = grapple.find({ index = index })
-			local current_path = vim.api.nvim_buf_get_name(0)
-			if tag.path == current_path then
-				return "Folded"
-			else
-				return "lualine_c_normal"
-			end
-		end,
+
 		on_click = function()
 			require("grapple").select({ index = index })
 		end,
@@ -61,11 +69,11 @@ return {
 		options = {
 			globalstatus = true,
 			component_separators = "",
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 			always_show_tabline = false,
 		},
 		sections = {
-			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 			lualine_b = { "branch" },
 			lualine_c = { "%=", grapple_tag(1), grapple_tag(2), grapple_tag(3), grapple_tag(4) },
 			lualine_x = { "filetype" },
@@ -112,8 +120,9 @@ return {
 				function()
 					return vim.fn.expand("%:.:h")
 				end,
+				"diagnostics",
 			},
-			lualine_x = { "diagnostics", "diff" },
+			lualine_x = { "diff" },
 		},
 		inactive_winbar = {
 			lualine_b = {
@@ -133,9 +142,4 @@ return {
 			"lazy",
 		},
 	},
-	config = function(_, opts)
-		-- NOTE: Modify separators before loading plugin
-		opts.tabline = process_sections(opts.tabline)
-		require("lualine").setup(opts)
-	end,
 }
