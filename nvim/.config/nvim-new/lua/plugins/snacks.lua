@@ -120,6 +120,9 @@ return {
 			terminal = {
 				position = "right",
 				width = 80,
+				keys = {
+					term_normal = false,
+				},
 			},
 		},
 	},
