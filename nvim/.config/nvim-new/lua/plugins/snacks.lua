@@ -194,7 +194,8 @@ return {
 		{
 			"<leader>lb",
 			function()
-				Snacks.picker.buffers({ focus = "list" })
+				Snacks.picker.buffers()
+				-- Snacks.picker.buffers({ focus = "list" })
 			end,
 			desc = "Open Buffer Picker",
 		},
