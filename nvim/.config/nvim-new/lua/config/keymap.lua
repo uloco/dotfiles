@@ -96,8 +96,8 @@ map({ "n", "v" }, "N", "Nzz", { desc = "Previous search result and center" })
 map({ "n" }, "*", "m`<cmd>keepjumps normal! *``<cr>", { desc = "Search word under cursor without jumping" })
 
 -- Duplicate and comment
-map({ "n" }, "<leader>gc", "mCyygccP`Ck", { remap = true, desc = "Duplicate and comment line" })
-map({ "v" }, "<leader>gc", "YPmCgvgc`C", { remap = true, desc = "Duplicate and comment selection" })
+map({ "n" }, "<leader>gc", "mcyygccP`ck", { remap = true, desc = "Duplicate and comment line" })
+map({ "v" }, "<leader>gc", "YPmcgvgc`c", { remap = true, desc = "Duplicate and comment selection" })
 
 -- show signature
 map({ "n" }, "gH", vim.lsp.buf.signature_help, { desc = "Show LSP signature help" })
