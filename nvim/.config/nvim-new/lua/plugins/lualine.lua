@@ -15,10 +15,17 @@ local function process_sections(sections)
 	return sections
 end
 
+-- Global click handler for grapple tags in statusline
+function _G.GrappleSelect(index)
+	require("grapple").select({ index = index })
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	lazy = false,
-	dependencies = { "will-lynas/grapple-line.nvim" },
+	dependencies = {
+		"cbochs/grapple.nvim",
+	},
 	opts = {
 		options = {
 			globalstatus = true,
@@ -28,8 +35,29 @@ return {
 		},
 		sections = {
 			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-			lualine_b = { "branch", "diff", "diagnostics" },
-			lualine_c = { "filename" },
+			lualine_b = { "branch" },
+			lualine_c = {
+				function()
+					local grapple = require("grapple")
+					local current_path = vim.api.nvim_buf_get_name(0)
+					local tags = grapple.tags()
+					if not tags or #tags == 0 then
+						return ""
+					end
+
+					local parts = {}
+					for i, tag in ipairs(tags) do
+						local name = vim.fn.fnamemodify(tag.path, ":t")
+						local entry = "[" .. i .. "] " .. name
+						local color = tag.path == current_path and "PmenuSel" or "PmenuSbar"
+						table.insert(
+							parts,
+							"%" .. i .. "@v:lua.GrappleSelect@%#" .. color .. "# " .. entry .. " %*%T"
+						)
+					end
+					return "%=" .. table.concat(parts) .. "%#lualine_c_normal#"
+				end,
+			},
 			lualine_x = { "filetype" },
 			lualine_y = { "lsp_status", "progress" },
 			lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
@@ -75,6 +103,7 @@ return {
 					return vim.fn.expand("%:.:h")
 				end,
 			},
+			lualine_x = { "diagnostics", "diff" },
 		},
 		inactive_winbar = {
 			lualine_b = {
