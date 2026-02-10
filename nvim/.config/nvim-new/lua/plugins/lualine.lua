@@ -64,15 +64,18 @@ return {
 			lualine_b = {
 				{
 					"filename",
-					separator = { left = "", right = "" },
+					separator = { right = "", left = "" },
 					color = { fg = "@tag" },
 				},
 			},
 			lualine_c = {
 				-- only file path
-				function()
-					return vim.fn.expand("%:.:h")
-				end,
+				{
+					function()
+						return vim.fn.expand("%:.:h")
+					end,
+					separator = { right = "", left = "" },
+				},
 				"diagnostics",
 			},
 			lualine_x = { "diff" },
