@@ -17,6 +17,7 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
+		notifier = { enabled = true },
 		bufdelete = { enabled = true },
 		-- explorer = { enabled = true },
 		image = { enabled = true },
