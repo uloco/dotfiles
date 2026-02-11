@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"cbochs/grapple.nvim",
 		{ dir = "~/source/neovim/lualine-grapple.nvim" },
+		"AndreM222/copilot-lualine",
 	},
 	opts = {
 		options = {
@@ -19,7 +20,7 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_c = { "grapple_tags" },
-			lualine_x = { "filetype" },
+			lualine_x = { { "copilot", show_colors = true }, "filetype" },
 			lualine_y = { "lsp_status", "progress" },
 			lualine_z = { "location" },
 		},
