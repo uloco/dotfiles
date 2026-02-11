@@ -13,10 +13,7 @@ return {
 		cli = {
 			watch = true,
 			win = {
-				layout = "right",
-				split = {
-					width = 80,
-				},
+				layout = "float",
 			},
 			mux = {
 				enabled = false,
@@ -38,21 +35,6 @@ return {
 			end,
 			expr = true,
 			desc = "Goto/Apply Next Edit Suggestion",
-		},
-		{
-			"<c-.>",
-			function()
-				require("sidekick.cli").toggle()
-			end,
-			desc = "Sidekick Toggle CLI",
-			mode = { "n", "t", "i", "x" },
-		},
-		{
-			"<leader>aa",
-			function()
-				require("sidekick.cli").toggle()
-			end,
-			desc = "Sidekick Toggle CLI",
 		},
 		{
 			"<leader>as",
@@ -100,11 +82,18 @@ return {
 			desc = "Sidekick Select Prompt",
 		},
 		{
-			"<leader>ao",
+			"<leader>an",
 			function()
-				require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				require("sidekick.nes").toggle()
 			end,
-			desc = "Sidekick Toggle OpenCode",
+			desc = "Toggle NES",
+		},
+		{
+			"<leader>ax",
+			function()
+				require("sidekick.nes").clear()
+			end,
+			desc = "Clear NES",
 		},
 	},
 }

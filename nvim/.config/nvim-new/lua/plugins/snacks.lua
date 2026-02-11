@@ -363,12 +363,10 @@ return {
 		{
 			"å", -- Alt + a
 			function()
-				Snacks.terminal.toggle("opencode", {
-					win = { position = "float", border = "rounded", width = 0.85, height = 0.85 },
-				})
+				require("sidekick.cli").toggle({ name = "opencode", focus = true })
 			end,
 			mode = { "n", "t" },
-			desc = "Toggle Opencode",
+			desc = "Toggle Opencode (Sidekick)",
 		},
 	},
 }
