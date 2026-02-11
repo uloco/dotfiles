@@ -19,9 +19,11 @@ return {
 				enabled = false,
 			},
 			tools = {
-				opencode = {
-					cmd = { "opencode" },
-				},
+			opencode = {
+				cmd = { "opencode" },
+				-- remap prompt to <a-p> so opencode's <c-p> commands menu works
+				keys = { prompt = { "<a-p>", "prompt" } },
+			},
 			},
 		},
 	},
