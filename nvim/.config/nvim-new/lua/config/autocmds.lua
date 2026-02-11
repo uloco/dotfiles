@@ -85,6 +85,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- follow help tags with K
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup("help_keymaps"),
+	pattern = { "help" },
+	callback = function(event)
+		vim.keymap.set("n", "K", "<C-]>", {
+			buffer = event.buf,
+			silent = true,
+			desc = "Follow help tag",
+		})
+	end,
+})
+
 -- make it easier to close man-files when opened inline
 vim.api.nvim_create_autocmd("FileType", {
 	group = augroup("man_unlisted"),
