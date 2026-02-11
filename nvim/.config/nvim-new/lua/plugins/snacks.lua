@@ -67,7 +67,6 @@ return {
 				-- 		-- or leave it empty to use the default settings
 				-- 	},
 			},
-			filter = { cwd = true },
 			actions = {
 				stopinsert = function(picker)
 					picker.input:stopinsert()
@@ -246,6 +245,13 @@ return {
 			desc = "Highlights",
 		},
 
+		{
+			"<leader>ln",
+			function()
+				Snacks.picker.notifications()
+			end,
+			desc = "Notifications",
+		},
 		{
 			"<leader>lR",
 			function()
