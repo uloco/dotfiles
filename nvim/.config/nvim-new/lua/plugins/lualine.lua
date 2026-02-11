@@ -13,7 +13,7 @@ return {
 			section_separators = { left = "", right = "" },
 			always_show_tabline = false,
 			disabled_filetypes = {
-				winbar = { "sidekick_terminal" },
+				winbar = { "sidekick_terminal", "snacks_terminal" },
 			},
 		},
 		sections = {
