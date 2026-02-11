@@ -11,6 +11,9 @@ return {
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			always_show_tabline = false,
+			disabled_filetypes = {
+				winbar = { "sidekick_terminal" },
+			},
 		},
 		sections = {
 			lualine_a = { "mode" },

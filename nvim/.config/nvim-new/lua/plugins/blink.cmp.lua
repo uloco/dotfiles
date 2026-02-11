@@ -14,7 +14,13 @@ return {
 				end,
 			},
 			["<A-e>"] = { "hide" },
-			["<Tab>"] = { "snippet_forward", "fallback" },
+			["<Tab>"] = {
+				"snippet_forward",
+				function()
+					return require("sidekick").nes_jump_or_apply()
+				end,
+				"fallback",
+			},
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 			["<C-u>"] = { "scroll_documentation_up", "fallback" },
 			["<C-d>"] = { "scroll_documentation_down", "fallback" },
