@@ -1,6 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-	lazy = false,
+	cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeOpen", "NvimTreeClose", "NvimTreeFocus" },
 	opts = {
 		view = {
 			adaptive_size = true,

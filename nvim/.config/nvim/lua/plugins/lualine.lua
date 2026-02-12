@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	dependencies = {
 		"cbochs/grapple.nvim",
 		{ dir = "~/source/neovim/lualine-grapple.nvim" },

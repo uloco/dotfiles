@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	branch = "main",
 	enabled = true,
-	lazy = false,
+	event = "BufReadPost",
 	config = function()
 		-- configuration
 		require("nvim-treesitter-textobjects").setup({

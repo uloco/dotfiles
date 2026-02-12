@@ -14,7 +14,7 @@ vim.opt.sessionoptions = {
 
 return {
 	"rmagatti/auto-session",
-	lazy = false,
+	event = "VimEnter",
 	dependencies = {
 		"tiagovla/scope.nvim",
 	},
