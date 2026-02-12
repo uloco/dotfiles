@@ -92,8 +92,15 @@ map({ "n", "v" }, "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
 map({ "n", "v" }, "n", "nzz", { desc = "Next search result and center" })
 map({ "n", "v" }, "N", "Nzz", { desc = "Previous search result and center" })
 
--- Make * not jump after select word under cursor
-map({ "n" }, "*", "m`<cmd>keepjumps normal! *``<cr>", { desc = "Search word under cursor without jumping" })
+-- Enhanced search with lasterisk (vim-asterisk in lua)
+-- * for whole word search, g* for partial word search
+map({ "n" }, "*", function()
+	require("utils.lasterisk").search({ silent = true })
+end, { desc = "Search word under cursor (whole word)" })
+
+map({ "n", "x" }, "g*", function()
+	require("utils.lasterisk").search({ is_whole = false, silent = true })
+end, { desc = "Search word under cursor (partial match)" })
 
 -- Duplicate and comment
 map({ "n" }, "<leader>gc", "mcyygccP`ck", { remap = true, desc = "Duplicate and comment line" })
