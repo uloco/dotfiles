@@ -41,6 +41,54 @@ return {
 			search_method = "cover",
 		})
 
+		-- Backward-compatible select keymaps (matching old treesitter-textobjects bindings)
+		-- af/if -> function (mini.ai uses 'm' for function, but old config used 'f')
+		vim.keymap.set({ "x", "o" }, "af", function()
+			MiniAi.select_textobject("a", "m")
+		end, { desc = "Select around function" })
+		vim.keymap.set({ "x", "o" }, "if", function()
+			MiniAi.select_textobject("i", "m")
+		end, { desc = "Select inside function" })
+
+		-- aA/iA -> attribute (mini.ai uses 'x' for attribute, but old config used 'A')
+		vim.keymap.set({ "x", "o" }, "aA", function()
+			MiniAi.select_textobject("a", "x")
+		end, { desc = "Select around attribute" })
+		vim.keymap.set({ "x", "o" }, "iA", function()
+			MiniAi.select_textobject("i", "x")
+		end, { desc = "Select inside attribute" })
+
+		-- Movement keymaps using MiniAi.move_cursor()
+		-- Move to next/previous function
+		vim.keymap.set({ "n", "x", "o" }, "<leader>jf", function()
+			MiniAi.move_cursor("left", "a", "m", { search_method = "next" })
+		end, { desc = "Next function start" })
+		vim.keymap.set({ "n", "x", "o" }, "<leader>jF", function()
+			MiniAi.move_cursor("right", "a", "m", { search_method = "next" })
+		end, { desc = "Next function end" })
+		vim.keymap.set({ "n", "x", "o" }, "<leader>kf", function()
+			MiniAi.move_cursor("left", "a", "m", { search_method = "prev" })
+		end, { desc = "Previous function start" })
+		vim.keymap.set({ "n", "x", "o" }, "<leader>kF", function()
+			MiniAi.move_cursor("right", "a", "m", { search_method = "prev" })
+		end, { desc = "Previous function end" })
+
+		-- Move to next/previous parameter
+		vim.keymap.set({ "n", "x", "o" }, "<leader>ja", function()
+			MiniAi.move_cursor("left", "a", "a", { search_method = "next" })
+		end, { desc = "Next parameter" })
+		vim.keymap.set({ "n", "x", "o" }, "<leader>ka", function()
+			MiniAi.move_cursor("left", "a", "a", { search_method = "prev" })
+		end, { desc = "Previous parameter" })
+
+		-- Move to next/previous attribute
+		vim.keymap.set({ "n", "x", "o" }, "<leader>jA", function()
+			MiniAi.move_cursor("left", "a", "x", { search_method = "next" })
+		end, { desc = "Next attribute" })
+		vim.keymap.set({ "n", "x", "o" }, "<leader>kA", function()
+			MiniAi.move_cursor("left", "a", "x", { search_method = "prev" })
+		end, { desc = "Previous attribute" })
+
 		require("mini.files").setup({
 			mappings = {
 				close = "<ESC>",
