@@ -120,6 +120,3 @@ return {
 		},
 	},
 }
--- TODO: add to glance?
--- { "<leader>gp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
--- { "<leader>gP", "<Cmd>Lspsaga peek_type_definition<CR>", desc = "Peek Type Definition" },
