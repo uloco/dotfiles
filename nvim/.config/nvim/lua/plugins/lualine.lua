@@ -5,6 +5,7 @@ return {
 		"cbochs/grapple.nvim",
 		{ dir = "~/source/neovim/lualine-grapple.nvim" },
 		"AndreM222/copilot-lualine",
+		"chrisgrieser/nvim-recorder", -- for macro recording status
 	},
 	opts = {
 		options = {
@@ -20,7 +21,23 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_c = { "grapple_tags" },
-			lualine_x = { { "copilot", show_colors = true }, "filetype" },
+			lualine_x = {
+				-- Show macro recording status and slot
+				{
+					function()
+						local recorder = require("recorder")
+						local status = recorder.recordingStatus()
+						local slot = recorder.displaySlots()
+						if status ~= "" then
+							return status .. " " .. slot
+						end
+						return slot
+					end,
+					color = { fg = "#ff9e64" }, -- orange color for visibility
+				},
+				{ "copilot", show_colors = true },
+				"filetype",
+			},
 			lualine_y = { "lsp_status", "progress" },
 			lualine_z = { "location" },
 		},
