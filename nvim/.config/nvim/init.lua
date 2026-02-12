@@ -1,8 +1,9 @@
-require("base")
-require("highlights")
-require("keymap")
-require("plugins")
-require("filetypes")
 require("utils")
-require("neovide")
-require("telescopepickers")
+
+require("config.options")
+require("config.autocmds")
+require("config.keymap")
+require("config.filetypes")
+require("config.neovide")
+
+require("config.lazy")
