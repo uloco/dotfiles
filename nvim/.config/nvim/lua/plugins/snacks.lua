@@ -76,11 +76,17 @@ return {
 				end,
 			},
 			win = {
+				preview = {
+					keys = {
+						["<Esc>"] = { "focus_input", mode = { "n", "i" } },
+						["q"] = "focus_input",
+					},
+				},
 				input = {
 					keys = {
 						-- no way to enter normal mode
 						["<Esc>"] = { "close", mode = { "n", "i" } },
-						["<A-w>"] = "none",
+						["<A-w>"] = { "cycle_win", mode = { "i", "n" } },
 						["<A-e>"] = { "stopinsert", mode = { "i", "n" } },
 						["<A-j>"] = { "history_forward", mode = { "i", "n" } },
 						["<A-k>"] = { "history_back", mode = { "i", "n" } },
