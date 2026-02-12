@@ -1,3 +1,19 @@
+-- lasterisk: Enhanced search functionality for Neovim
+-- Inspired by vim-asterisk and lasterisk.nvim (https://github.com/rapan931/lasterisk.nvim)
+--
+-- Features:
+-- - Search for word under cursor without jumping (*) 
+-- - Partial word search (g*)
+-- - Visual mode search support
+-- - Silent mode (no echo in command line)
+--
+-- Usage:
+--   * (normal mode): Search for whole word under cursor
+--   g* (normal/visual mode): Search for partial match
+--
+-- This is a minimal Lua implementation that provides the core functionality
+-- without requiring an external plugin dependency.
+
 local fn = vim.fn
 local api = vim.api
 
@@ -87,7 +103,11 @@ M.search = function(opts)
 	end
 
 	if option.is_whole == true and (mode == "v" or mode == "V") then
-		api.nvim_echo({ { "lasterisk: Not support, visual asterisk and is_whole: true!", "WarningMsg" } }, true, {})
+		api.nvim_echo(
+			{ { "lasterisk: Does not support visual asterisk with is_whole: true!", "WarningMsg" } },
+			true,
+			{}
+		)
 		return
 	end
 
@@ -106,7 +126,8 @@ M.search = function(opts)
 		view = fn.winsaveview()
 	end
 
-	vim.opt.hlsearch = vim.opt.hlsearch
+	-- Ensure search highlighting is enabled (force refresh of hlsearch setting)
+	vim.opt.hlsearch = true
 	set_search(pattern)
 	if option.silent ~= true then
 		api.nvim_echo({ { pattern } }, false, {})
