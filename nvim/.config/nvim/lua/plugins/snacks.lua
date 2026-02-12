@@ -49,13 +49,16 @@ return {
 					hidden = true,
 				},
 				smart = {
-					-- Filter out recent files that no longer exist
 					filter = {
 						cwd = true,
 						filter = function(item)
-							-- Only check existence for frecency items (recent files)
-							if item.frecency and item.file then
-								return vim.uv.fs_stat(item.file) ~= nil
+							-- Filter out files that no longer exist on disk
+							if item.file then
+								local path = item.file
+								if not vim.startswith(path, "/") then
+									path = vim.uv.cwd() .. "/" .. path
+								end
+								return vim.uv.fs_stat(path) ~= nil
 							end
 							return true
 						end,
