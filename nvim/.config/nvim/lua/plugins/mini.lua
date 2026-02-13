@@ -13,11 +13,14 @@ return {
 				a = {
 					input = ts_input({ outer = "@parameter.outer", inner = "@parameter.inner" }),
 				},
-				f = {
-					input = ts_input({ outer = "@call.outer", inner = "@call.inner" }),
+				A = {
+					input = ts_input({ outer = "@attribute.outer", inner = "@attribute.inner" }),
 				},
-				m = {
+				f = {
 					input = ts_input({ outer = "@function.outer", inner = "@function.inner" }),
+				},
+				F = {
+					input = ts_input({ outer = "@call.outer", inner = "@call.inner" }),
 				},
 				o = {
 					input = ts_input({ outer = "@block.outer", inner = "@block.inner" }),
@@ -33,13 +36,28 @@ return {
 			custom_textobjects = {
 				-- Use treesitter to find textobjects
 				a = ts_ai({ a = "@parameter.outer", i = "@parameter.inner" }),
-				f = ts_ai({ a = "@call.outer", i = "@call.inner" }),
-				m = ts_ai({ a = "@function.outer", i = "@function.inner" }),
+				A = ts_ai({ a = "@attribute.outer", i = "@attribute.inner" }),
+				f = ts_ai({ a = "@function.outer", i = "@function.inner" }),
+				F = ts_ai({ a = "@call.outer", i = "@call.inner" }),
 				o = ts_ai({ a = "@block.outer", i = "@block.inner" }),
-				x = ts_ai({ a = "@attribute.outer", i = "@attribute.inner" }),
 			},
-			search_method = "cover",
+			search_method = "cover_or_next",
 		})
+
+		-- Movement keymaps using mini.ai (replaces nvim-treesitter-textobjects move)
+		local ai_move = function(key, direction, ai_type)
+			local search_method = direction == "next" and "cover_or_next" or "cover_or_prev"
+			vim.keymap.set({ "n", "x", "o" }, key, function()
+				MiniAi.move_cursor("left", "a", ai_type, { search_method = search_method })
+			end)
+		end
+
+		ai_move("<leader>jf", "next", "f")
+		ai_move("<leader>kf", "prev", "f")
+		ai_move("<leader>ja", "next", "a")
+		ai_move("<leader>ka", "prev", "a")
+		ai_move("<leader>jA", "next", "A")
+		ai_move("<leader>kA", "prev", "A")
 
 		require("mini.files").setup({
 			mappings = {
