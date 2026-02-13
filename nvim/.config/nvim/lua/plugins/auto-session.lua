@@ -6,10 +6,7 @@ vim.opt.sessionoptions = {
 	"help",
 	"tabpages",
 	"winsize",
-	"winpos",
 	"terminal",
-	"localoptions",
-	"globals",
 }
 
 return {
