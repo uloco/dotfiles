@@ -7,14 +7,6 @@ end
 -- Delete character without yanking
 map("n", "x", '"_x', { desc = "Delete character without yanking" })
 
--- Increment/decrement
-map({ "n" }, "+", "<C-a>", { desc = "Increment number under cursor" })
-map({ "n" }, "-", "<C-x>", { desc = "Decrement number under cursor" })
-map({ "v" }, "+", "<C-a>gv", { desc = "Increment numbers in selection" })
-map({ "v" }, "-", "<C-x>gv", { desc = "Decrement numbers in selection" })
-map({ "v" }, "<C-+>", "g<C-a>", { desc = "Increment all numbers in selection" })
-map({ "v" }, "<C-S-+>", "g<C-x>", { desc = "Decrement all numbers in selection" })
-
 -- Select all
 map("n", "<A-a>", "ggVG", { desc = "Select all text" })
 
