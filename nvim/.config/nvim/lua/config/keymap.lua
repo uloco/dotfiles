@@ -73,8 +73,8 @@ map({ "x" }, "p", "pgvy", { desc = "Paste and keep selection yanked" })
 map({ "i", "t" }, "<A-e>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Remap for dealing with word wrap
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = "Move up (wrap-aware)" })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, desc = "Move down (wrap-aware)" })
 
 -- Center on half page up down
 map({ "n", "v" }, "<C-d>", "<C-d>zz", { desc = "Half page down and center" })

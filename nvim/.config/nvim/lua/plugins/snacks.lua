@@ -10,7 +10,7 @@ return {
 		vim.api.nvim_create_autocmd("TermOpen", {
 			pattern = "*",
 			callback = function()
-				vim.keymap.set("n", "<LeftRelease>", "<LeftRelease>i", { buffer = true })
+				vim.keymap.set("n", "<LeftRelease>", "<LeftRelease>i", { buffer = true, desc = "Enter insert mode on mouse click" })
 			end,
 		})
 	end,
@@ -223,6 +223,7 @@ return {
 			function()
 				Snacks.picker.grep()
 			end,
+			desc = "Grep",
 		},
 		{
 			"<leader>lF",

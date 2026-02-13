@@ -14,24 +14,24 @@ return {
 						layout = "diff3_mixed",
 					},
 				},
-				keymaps = {
-					view = {
-						["<leader>dl"] = actions.cycle_layout,
-						["<leader>kc"] = actions.prev_conflict,
-						["<leader>jc"] = actions.next_conflict,
-						["<leader>cx"] = actions.conflict_choose("none"),
-					},
-					file_panel = {
-						["<c-u>"] = actions.scroll_view(-0.25),
-						["<c-d>"] = actions.scroll_view(0.25),
-						["<leader>kc"] = actions.prev_conflict,
-						["<leader>jc"] = actions.next_conflict,
-					},
-					file_history_panel = {
-						["<c-u>"] = actions.scroll_view(-0.25),
-						["<c-d>"] = actions.scroll_view(0.25),
-					},
+			keymaps = {
+				view = {
+					{ "n", "<leader>dl", actions.cycle_layout, { desc = "Cycle layout" } },
+					{ "n", "<leader>kc", actions.prev_conflict, { desc = "Previous conflict" } },
+					{ "n", "<leader>jc", actions.next_conflict, { desc = "Next conflict" } },
+					{ "n", "<leader>cx", actions.conflict_choose("none"), { desc = "Conflict choose none" } },
 				},
+				file_panel = {
+					{ "n", "<c-u>", actions.scroll_view(-0.25), { desc = "Scroll view up" } },
+					{ "n", "<c-d>", actions.scroll_view(0.25), { desc = "Scroll view down" } },
+					{ "n", "<leader>kc", actions.prev_conflict, { desc = "Previous conflict" } },
+					{ "n", "<leader>jc", actions.next_conflict, { desc = "Next conflict" } },
+				},
+				file_history_panel = {
+					{ "n", "<c-u>", actions.scroll_view(-0.25), { desc = "Scroll view up" } },
+					{ "n", "<c-d>", actions.scroll_view(0.25), { desc = "Scroll view down" } },
+				},
+			},
 			})
 		end,
 		keys = {

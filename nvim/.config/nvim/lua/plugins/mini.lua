@@ -60,22 +60,22 @@ return {
 		})
 
 		-- Movement keymaps using mini.ai (replaces nvim-treesitter-textobjects move)
-		local ai_move = function(key, direction, ai_type)
+		local ai_move = function(key, direction, ai_type, desc)
 			local search_method = direction == "next" and "cover_or_next" or "cover_or_prev"
 			vim.keymap.set({ "n", "x", "o" }, key, function()
 				MiniAi.move_cursor("left", "a", ai_type, { search_method = search_method })
-			end)
+			end, { desc = desc })
 		end
 
-		ai_move("<leader>jf", "next", "f")
-		ai_move("<leader>kf", "prev", "f")
-		ai_move("<leader>ja", "next", "a")
-		ai_move("<leader>ka", "prev", "a")
-		ai_move("<leader>jA", "next", "A")
-		ai_move("<leader>kA", "prev", "A")
-		ai_move("<leader>jw", "next", "e")
-		ai_move("<leader>kw", "prev", "e")
-		ai_move("<leader>jb", "prev", "e")
+		ai_move("<leader>jf", "next", "f", "Next function")
+		ai_move("<leader>kf", "prev", "f", "Previous function")
+		ai_move("<leader>ja", "next", "a", "Next parameter")
+		ai_move("<leader>ka", "prev", "a", "Previous parameter")
+		ai_move("<leader>jA", "next", "A", "Next attribute")
+		ai_move("<leader>kA", "prev", "A", "Previous attribute")
+		ai_move("<leader>jw", "next", "e", "Next word segment")
+		ai_move("<leader>kw", "prev", "e", "Previous word segment")
+		ai_move("<leader>jb", "prev", "e", "Backward word segment")
 
 		require("mini.files").setup({
 			mappings = {
