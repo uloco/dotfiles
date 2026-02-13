@@ -9,7 +9,7 @@ return {
 	opts = {
 		keymap = {
 			preset = "enter",
-			["<C-j>"] = {
+			["<C-s>"] = {
 				function(cmp)
 					cmp.show({ providers = { "snippets" } })
 				end,
