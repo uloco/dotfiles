@@ -34,12 +34,27 @@ return {
 		require("mini.ai").setup({
 			n_lines = 500,
 			custom_textobjects = {
-				-- Use treesitter to find textobjects
+				-- Treesitter textobjects
 				a = ts_ai({ a = "@parameter.outer", i = "@parameter.inner" }),
 				A = ts_ai({ a = "@attribute.outer", i = "@attribute.inner" }),
 				f = ts_ai({ a = "@function.outer", i = "@function.inner" }),
 				F = ts_ai({ a = "@call.outer", i = "@call.inner" }),
-				o = ts_ai({ a = "@block.outer", i = "@block.inner" }),
+				c = ts_ai({ a = "@class.outer", i = "@class.inner" }),
+				o = ts_ai({
+					a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+					i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+				}),
+				-- Pattern textobjects
+				d = { "%f[%d]%d+" }, -- digits
+				e = { -- word with case (camelCase, snake_case segments)
+					{
+						"%u[%l%d]+%f[^%l%d]",
+						"%f[%S][%l%d]+%f[^%l%d]",
+						"%f[%P][%l%d]+%f[^%l%d]",
+						"^[%l%d]+%f[^%l%d]",
+					},
+					"^().*()$",
+				},
 			},
 			search_method = "cover_or_next",
 		})
@@ -58,6 +73,9 @@ return {
 		ai_move("<leader>ka", "prev", "a")
 		ai_move("<leader>jA", "next", "A")
 		ai_move("<leader>kA", "prev", "A")
+		ai_move("<leader>jw", "next", "e")
+		ai_move("<leader>kw", "prev", "e")
+		ai_move("<leader>jb", "prev", "e")
 
 		require("mini.files").setup({
 			mappings = {
