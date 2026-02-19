@@ -2,6 +2,7 @@ return {
 	{
 		"smjonas/live-command.nvim",
 		event = "CmdlineEnter",
+    main = "live-command",
 		opts = {
 			commands = {
 				Norm = { cmd = "norm" },
