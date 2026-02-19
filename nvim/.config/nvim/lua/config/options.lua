@@ -51,6 +51,12 @@ vim.opt.listchars = { tab = "——→", multispace = "·", trail = "·", nbsp =
 -- disable swap files
 vim.opt.swapfile = false
 
+-- per-project shada for isolated jump lists, marks, and registers
+local shada_dir = vim.fn.stdpath("state") .. "/shada"
+vim.fn.mkdir(shada_dir, "p")
+local encoded_cwd = vim.fn.getcwd():gsub("/", "%%")
+vim.o.shadafile = shada_dir .. "/" .. encoded_cwd .. ".shada"
+
 vim.opt.cursorline = true
 vim.opt.wildoptions = "pum"
 vim.opt.signcolumn = "yes"
