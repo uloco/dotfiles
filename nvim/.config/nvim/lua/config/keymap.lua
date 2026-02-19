@@ -101,4 +101,8 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction]])
 
+-- Spell navigation
+map("n", "<leader>js", "]s", { desc = "Next spell error" })
+map("n", "<leader>ks", "[s", { desc = "Previous spell error" })
+
 map({ "n", "v" }, "<Space>", "<Nop>", { desc = "Disable space key" })
