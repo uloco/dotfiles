@@ -23,18 +23,6 @@ return {
 			mode = { "n", "x" },
 			desc = "Add cursor up",
 		},
-		{
-			"<C-Up>",
-			"<Cmd>MultipleCursorsAddUp<CR>",
-			mode = { "n", "i", "x" },
-			desc = "Add cursor up",
-		},
-		{
-			"<C-Down>",
-			"<Cmd>MultipleCursorsAddDown<CR>",
-			mode = { "n", "i", "x" },
-			desc = "Add cursor down",
-		},
 
 		-- Mouse
 		{
