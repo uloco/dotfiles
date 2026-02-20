@@ -67,10 +67,10 @@ vim.opt.listchars = { tab = "——→", multispace = "·", trail = "·", nbsp =
 vim.opt.swapfile = false
 
 -- spell checking (treesitter-aware: only checks comments/strings in code files)
-vim.opt.spell = true
-vim.opt.spelllang = { "en" }
-vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
-vim.opt.spelloptions = { "camel" }
+-- vim.opt.spell = false
+-- vim.opt.spelllang = { "en" }
+-- vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+-- vim.opt.spelloptions = { "camel" }
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
