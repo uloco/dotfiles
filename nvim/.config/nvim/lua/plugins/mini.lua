@@ -75,7 +75,7 @@ return {
 		ai_move("<leader>kA", "prev", "A", "Previous attribute")
 		ai_move("<leader>jw", "next", "e", "Next word segment")
 		ai_move("<leader>kw", "prev", "e", "Previous word segment")
-		ai_move("<leader>jb", "prev", "e", "Backward word segment")
+		ai_move("<leader>jb", "prev", "e", "Previous word segment")
 
 		require("mini.files").setup({
 			mappings = {
