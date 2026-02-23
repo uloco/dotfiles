@@ -35,6 +35,7 @@ return {
 			sh = { "shfmt" },
 			bash = { "shfmt" },
 			zsh = { "beautysh" },
+			toml = { "taplo" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

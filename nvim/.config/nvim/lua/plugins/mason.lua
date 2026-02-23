@@ -26,6 +26,7 @@ return {
 					"markdownlint",
 					"shfmt",
 					"yaml-language-server",
+					"taplo",
 				},
 			},
 		},
@@ -37,6 +38,7 @@ return {
 		automatic_enable = {
 			exclude = {
 				"ts_ls",
+				"taplo",
 			},
 		},
 	},
