@@ -60,6 +60,13 @@ return {
 			},
 		})
 
+		vim.lsp.config("typos_lsp", {
+			init_options = {
+				config = "~/.config/typos/typos.toml",
+				diagnosticSeverity = "Info",
+			},
+		})
+
 		vim.lsp.config("vtsls", {
 			settings = {
 				typescript = {

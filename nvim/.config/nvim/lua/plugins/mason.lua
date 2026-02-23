@@ -27,6 +27,7 @@ return {
 					"shfmt",
 					"yaml-language-server",
 					"taplo",
+					"typos-lsp",
 				},
 			},
 		},

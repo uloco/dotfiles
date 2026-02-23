@@ -105,30 +105,24 @@ endfunction]])
 map("n", "<leader>js", "]s", { desc = "Next spell error" })
 map("n", "<leader>ks", "[s", { desc = "Previous spell error" })
 
--- Codebook spell actions (replacing vim spell keymaps)
-local function codebook_exec(command, arguments)
-	local clients = vim.lsp.get_clients({ name = "codebook" })
+-- Typos spell actions
+map("n", "zg", function()
+	local clients = vim.lsp.get_clients({ name = "typos_lsp" })
 	if #clients == 0 then
-		vim.notify("codebook LSP not attached", vim.log.levels.WARN)
+		vim.notify("typos-lsp not attached", vim.log.levels.WARN)
 		return
 	end
-	clients[1]:exec_cmd({ command = command, arguments = arguments })
-end
-
-map("n", "zg", function()
-	codebook_exec("codebook.addWordGlobal", { vim.fn.expand("<cword>") })
-end, { desc = "Add word to global dictionary" })
-
-map("n", "zI", function()
-	codebook_exec("codebook.ignoreFile", { vim.uri_from_fname(vim.api.nvim_buf_get_name(0)) })
-end, { desc = "Add file to spell ignore list" })
+	local client = clients[1]
+	local config_path = vim.fn.expand(client.config.init_options.config)
+	local word = vim.fn.expand("<cword>")
+	client:exec_cmd({
+		command = "ignore-in-project",
+		arguments = { { typo = word, config_file_path = config_path } },
+	})
+end, { desc = "Add word to typos dictionary" })
 
 map("n", "z=", function()
-	vim.lsp.buf.code_action({
-		filter = function(action)
-			return action.title:match("^Replace with")
-		end,
-	})
+	vim.lsp.buf.code_action()
 end, { desc = "Spelling suggestions" })
 
 map({ "n", "v" }, "<Space>", "<Nop>", { desc = "Disable space key" })
