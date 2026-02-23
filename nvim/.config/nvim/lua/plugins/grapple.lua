@@ -18,5 +18,4 @@ return {
 			{ "<leader>4", "<cmd>Grapple select index=4<cr>", desc = "Grapple select 4" },
 		},
 	},
-
 }
