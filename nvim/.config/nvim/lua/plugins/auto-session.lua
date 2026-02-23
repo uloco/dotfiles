@@ -27,7 +27,13 @@ return {
 		-- cwd_change_handling = true,
 		-- git_use_branch_name = true,
 		-- git_auto_restore_on_branch_change = true,
-    auto_restore = true
+		auto_restore = true,
+		post_restore_cmds = {
+			function()
+				-- Trigger linting on the current buffer after session restore
+				require("lint").try_lint()
+			end,
+		},
 	},
 	keys = {
 		{ "<leader>lp", "<cmd>AutoSession search<cr>", desc = "Search Sessions" },
