@@ -122,7 +122,13 @@ map("n", "zg", function()
 end, { desc = "Add word to typos dictionary" })
 
 map("n", "z=", function()
-	vim.lsp.buf.code_action()
-end, { desc = "Spelling suggestions" })
+	vim.lsp.buf.code_action({
+		context = { only = { "quickfix" } },
+		filter = function(action)
+			return action.edit ~= nil
+		end,
+		apply = true,
+	})
+end, { desc = "Fix typo under cursor" })
 
 map({ "n", "v" }, "<Space>", "<Nop>", { desc = "Disable space key" })
