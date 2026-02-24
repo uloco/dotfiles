@@ -155,11 +155,20 @@ return {
 					-- Apply diff highlights via extmarks
 					local ns = vim.api.nvim_create_namespace("macros_preview")
 					for _, hl in ipairs(display.highlights) do
-						pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, hl.col_start, {
-							end_col = hl.col_end,
-							hl_group = hl.hl_group,
-							priority = 200,
-						})
+						if hl.line_hl then
+							-- Full-line background highlight (for separator lines)
+							pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, 0, {
+								line_hl_group = hl.line_hl,
+								priority = 200,
+							})
+						else
+							-- Inline character highlight (for diff changes)
+							pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, hl.col_start, {
+								end_col = hl.col_end,
+								hl_group = hl.hl_group,
+								priority = 200,
+							})
+						end
 					end
 				end,
 				confirm = function(picker, item)

@@ -448,7 +448,12 @@ function M.scope_preview(diff_result)
 	local line_map = {} -- original 0-indexed line -> new 0-indexed line
 
 	if merged[1][1] > 0 then
+		local sep_line = #lines -- 0-indexed
 		lines[#lines + 1] = "··· " .. merged[1][1] .. " lines above ···"
+		adjusted_highlights[#adjusted_highlights + 1] = {
+			line = sep_line,
+			line_hl = "Folded",
+		}
 	end
 
 	for ri, range in ipairs(merged) do
@@ -456,7 +461,12 @@ function M.scope_preview(diff_result)
 			local prev_end = merged[ri - 1][2]
 			local gap = range[1] - prev_end - 1
 			if gap > 0 then
+				local sep_line = #lines -- 0-indexed
 				lines[#lines + 1] = "··· " .. gap .. " lines ···"
+				adjusted_highlights[#adjusted_highlights + 1] = {
+					line = sep_line,
+					line_hl = "Folded",
+				}
 			end
 		end
 
@@ -468,7 +478,12 @@ function M.scope_preview(diff_result)
 
 	local last_end = merged[#merged][2]
 	if last_end < total_lines - 1 then
+		local sep_line = #lines -- 0-indexed
 		lines[#lines + 1] = "··· " .. (total_lines - 1 - last_end) .. " lines below ···"
+		adjusted_highlights[#adjusted_highlights + 1] = {
+			line = sep_line,
+			line_hl = "Folded",
+		}
 	end
 
 	-- Remap highlights to new line numbers
