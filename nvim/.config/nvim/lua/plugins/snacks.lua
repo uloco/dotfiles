@@ -48,7 +48,82 @@ return {
 				files = {
 					hidden = true,
 				},
-				smart = {
+				macros = {
+				title = "Saved Macros",
+				finder = function(opts, ctx)
+					local macros_util = require("utils.macros")
+					local macros = macros_util.load()
+					local items = {}
+					for i, m in ipairs(macros) do
+						items[#items + 1] = {
+							text = m.name .. " " .. m.description,
+							item = m,
+							macro_idx = i,
+							preview = {
+								text = "Name:        "
+									.. m.name
+									.. "\nDescription: "
+									.. (m.description ~= "" and m.description or "(none)")
+									.. "\nRegister:    @"
+									.. m.register
+									.. "\nKeystrokes:  "
+									.. macros_util.format_keys(m.keys),
+								ft = "markdown",
+							},
+						}
+					end
+					return items
+				end,
+				format = function(item)
+					local m = item.item
+					local highlights = {
+						{ " ", "Special" },
+						{ m.name, "Title" },
+					}
+					if m.description ~= "" then
+						highlights[#highlights + 1] = { "  " .. m.description, "Comment" }
+					end
+					highlights[#highlights + 1] = { "  @" .. m.register, "Number" }
+					return highlights
+				end,
+				preview = "preview",
+				confirm = function(picker, item)
+					if not item then
+						return
+					end
+					picker:close()
+					local macros_util = require("utils.macros")
+					macros_util.execute(item.item.keys)
+				end,
+				actions = {
+					macro_delete = function(picker)
+						local item = picker:current()
+						if not item then
+							return
+						end
+						local macros_util = require("utils.macros")
+						macros_util.delete(item.macro_idx)
+						picker:find()
+					end,
+					macro_yank = function(picker)
+						local item = picker:current()
+						if not item then
+							return
+						end
+						local macros_util = require("utils.macros")
+						macros_util.load_to_register(item.item.keys, item.item.register)
+					end,
+				},
+				win = {
+					input = {
+						keys = {
+							["<C-x>"] = { "macro_delete", mode = { "i", "n" }, desc = "Delete macro" },
+							["<C-y>"] = { "macro_yank", mode = { "i", "n" }, desc = "Load to register" },
+						},
+					},
+				},
+			},
+			smart = {
 					filter = {
 						cwd = true,
 						filter = function(item)
@@ -318,6 +393,20 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		{
+			"<leader>lm",
+			function()
+				Snacks.picker.pick("macros")
+			end,
+			desc = "Saved Macros",
+		},
+		{
+			"<leader>ms",
+			function()
+				require("utils.macros").save_macro()
+			end,
+			desc = "Save Macro from Register",
 		},
 		{
 			"<A-n>",
