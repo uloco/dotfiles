@@ -143,32 +143,47 @@ return {
 						return
 					end
 
-					-- For large buffers (1000+ lines), collapse unchanged regions
-					local display = macros_util.scope_preview(diff_result)
-
 					-- Render
 					ctx.preview:reset()
-					ctx.preview:set_lines(display.lines)
+					ctx.preview:set_lines(diff_result.lines)
 					ctx.preview:set_title("@" .. macro.register .. " " .. macro.name)
 					ctx.preview:highlight({ ft = state.ft })
 
 					-- Apply diff highlights via extmarks
 					local ns = vim.api.nvim_create_namespace("macros_preview")
-					for _, hl in ipairs(display.highlights) do
-						if hl.line_hl then
-							-- Full-line background highlight (for separator lines)
-							pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, 0, {
-								line_hl_group = hl.line_hl,
-								priority = 200,
-							})
-						else
-							-- Inline character highlight (for diff changes)
-							pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, hl.col_start, {
-								end_col = hl.col_end,
-								hl_group = hl.hl_group,
-								priority = 200,
-							})
+					for _, hl in ipairs(diff_result.highlights) do
+						pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, hl.col_start, {
+							end_col = hl.col_end,
+							hl_group = hl.hl_group,
+							priority = 200,
+						})
+					end
+
+					-- For large buffers, fold unchanged regions
+					local folds = macros_util.compute_folds(diff_result)
+					if #folds > 0 then
+						local win = ctx.win
+						local buf = ctx.buf
+
+						-- Detach nvim-ufo from the preview buffer so it doesn't
+						-- override our manual folds
+						local ufo_ok, ufo = pcall(require, "ufo")
+						if ufo_ok then
+							ufo.detach(buf)
 						end
+
+						-- Set fold options and create folds
+						vim.api.nvim_set_option_value("foldmethod", "manual", { win = win, scope = "local" })
+						vim.api.nvim_set_option_value("foldenable", true, { win = win, scope = "local" })
+						vim.api.nvim_win_call(win, function()
+							vim.cmd("normal! zE")
+							for _, fold in ipairs(folds) do
+								vim.cmd(fold[1] .. "," .. fold[2] .. "fold")
+							end
+							-- Set foldlevel=0 after creating folds so they start closed
+							-- (your global foldlevel=99 would keep them open otherwise)
+							vim.wo[win].foldlevel = 0
+						end)
 					end
 				end,
 				confirm = function(picker, item)

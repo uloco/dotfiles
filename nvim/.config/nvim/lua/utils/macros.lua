@@ -389,35 +389,31 @@ function M.build_preview(old_lines, new_lines)
 	return { lines = merged_lines, highlights = highlights, has_changes = true }
 end
 
---- Scope the preview for large buffers (>= 1000 lines).
---- For smaller buffers, returns the full diff unchanged.
---- For large buffers, shows changed regions with 10 lines of context,
---- collapsing unchanged gaps with "···" separators.
+--- Compute fold ranges for large buffers (>= 1000 lines).
+--- For smaller buffers, returns no fold ranges.
+--- For large buffers, returns ranges of unchanged lines to fold,
+--- keeping 10 lines of context around each change visible.
 ---
 ---@param diff_result table from build_preview()
----@return table {lines: string[], highlights: table[]}
-function M.scope_preview(diff_result)
+---@return table[] fold_ranges list of {start_line, end_line} (1-indexed, inclusive) to fold
+function M.compute_folds(diff_result)
 	local CONTEXT = 10
 	local LARGE_THRESHOLD = 1000
 
-	if #diff_result.highlights == 0 then
-		return diff_result
-	end
-
 	local total_lines = #diff_result.lines
 
-	-- Small buffer: show everything
-	if total_lines < LARGE_THRESHOLD then
-		return diff_result
+	-- Small buffer or no changes: no folds needed
+	if total_lines < LARGE_THRESHOLD or #diff_result.highlights == 0 then
+		return {}
 	end
 
-	-- Collect unique changed line numbers (0-indexed)
+	-- Collect unique changed line numbers (0-indexed from highlights)
 	local changed_set = {}
 	for _, hl in ipairs(diff_result.highlights) do
 		changed_set[hl.line] = true
 	end
 
-	-- Build visible ranges: each changed line expanded by ±CONTEXT
+	-- Build visible ranges: each changed line expanded by ±CONTEXT (0-indexed)
 	local ranges = {}
 	for line_nr in pairs(changed_set) do
 		ranges[#ranges + 1] = {
@@ -442,64 +438,30 @@ function M.scope_preview(diff_result)
 		end
 	end
 
-	-- Build output lines with ··· separators for collapsed gaps
-	local lines = {}
-	local adjusted_highlights = {}
-	local line_map = {} -- original 0-indexed line -> new 0-indexed line
+	-- Invert visible ranges to get fold ranges (gaps between visible regions)
+	local folds = {}
 
+	-- Gap before first visible range
 	if merged[1][1] > 0 then
-		local sep_line = #lines -- 0-indexed
-		lines[#lines + 1] = "··· " .. merged[1][1] .. " lines above ···"
-		adjusted_highlights[#adjusted_highlights + 1] = {
-			line = sep_line,
-			line_hl = "Folded",
-		}
+		folds[#folds + 1] = { 1, merged[1][1] } -- 1-indexed inclusive
 	end
 
-	for ri, range in ipairs(merged) do
-		if ri > 1 then
-			local prev_end = merged[ri - 1][2]
-			local gap = range[1] - prev_end - 1
-			if gap > 0 then
-				local sep_line = #lines -- 0-indexed
-				lines[#lines + 1] = "··· " .. gap .. " lines ···"
-				adjusted_highlights[#adjusted_highlights + 1] = {
-					line = sep_line,
-					line_hl = "Folded",
-				}
-			end
-		end
-
-		for orig_line = range[1], range[2] do
-			line_map[orig_line] = #lines -- 0-indexed in output
-			lines[#lines + 1] = diff_result.lines[orig_line + 1]
+	-- Gaps between visible ranges
+	for i = 2, #merged do
+		local prev_end = merged[i - 1][2]
+		local cur_start = merged[i][1]
+		if cur_start > prev_end + 1 then
+			folds[#folds + 1] = { prev_end + 2, cur_start } -- 1-indexed inclusive
 		end
 	end
 
+	-- Gap after last visible range
 	local last_end = merged[#merged][2]
 	if last_end < total_lines - 1 then
-		local sep_line = #lines -- 0-indexed
-		lines[#lines + 1] = "··· " .. (total_lines - 1 - last_end) .. " lines below ···"
-		adjusted_highlights[#adjusted_highlights + 1] = {
-			line = sep_line,
-			line_hl = "Folded",
-		}
+		folds[#folds + 1] = { last_end + 2, total_lines } -- 1-indexed inclusive
 	end
 
-	-- Remap highlights to new line numbers
-	for _, hl in ipairs(diff_result.highlights) do
-		local new_line = line_map[hl.line]
-		if new_line then
-			adjusted_highlights[#adjusted_highlights + 1] = {
-				line = new_line,
-				col_start = hl.col_start,
-				col_end = hl.col_end,
-				hl_group = hl.hl_group,
-			}
-		end
-	end
-
-	return { lines = lines, highlights = adjusted_highlights }
+	return folds
 end
 
 return M
