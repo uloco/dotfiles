@@ -147,7 +147,13 @@ return {
 					ctx.preview:reset()
 					ctx.preview:set_lines(diff_result.lines)
 					ctx.preview:set_title("@" .. macro.register .. " " .. macro.name)
-					ctx.preview:highlight({ ft = state.ft })
+
+					-- Skip syntax highlighting for large buffers to keep the preview fast
+					-- (diff highlights are still applied below)
+					local SYNTAX_HL_LIMIT = 5000
+					if #diff_result.lines < SYNTAX_HL_LIMIT then
+						ctx.preview:highlight({ ft = state.ft })
+					end
 
 					-- Apply diff highlights via extmarks
 					local ns = vim.api.nvim_create_namespace("macros_preview")
