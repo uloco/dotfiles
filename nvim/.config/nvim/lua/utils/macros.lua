@@ -389,21 +389,27 @@ function M.build_preview(old_lines, new_lines)
 	return { lines = merged_lines, highlights = highlights, has_changes = true }
 end
 
---- Compute fold ranges for large buffers (>= 1000 lines).
---- For smaller buffers, returns no fold ranges.
---- For large buffers, returns ranges of unchanged lines to fold,
---- keeping 10 lines of context around each change visible.
+--- Compute fold ranges dynamically based on preview window height.
+--- Folds are created when changes span multiple non-adjacent regions of the file
+--- and the full buffer doesn't fit in the preview window.
+--- Context lines are maximized to fill the available preview height.
 ---
 ---@param diff_result table from build_preview()
+---@param win_height number height of the preview window in lines
 ---@return table[] fold_ranges list of {start_line, end_line} (1-indexed, inclusive) to fold
-function M.compute_folds(diff_result)
-	local CONTEXT = 10
-	local LARGE_THRESHOLD = 1000
+function M.compute_folds(diff_result, win_height)
+	local MIN_CONTEXT = 3
+	local MIN_FOLD_SIZE = 3 -- don't fold gaps smaller than this (not worth it)
 
 	local total_lines = #diff_result.lines
 
-	-- Small buffer or no changes: no folds needed
-	if total_lines < LARGE_THRESHOLD or #diff_result.highlights == 0 then
+	-- No changes: no folds needed
+	if #diff_result.highlights == 0 then
+		return {}
+	end
+
+	-- If everything fits in the preview window, no folds needed
+	if total_lines <= win_height then
 		return {}
 	end
 
@@ -413,52 +419,113 @@ function M.compute_folds(diff_result)
 		changed_set[hl.line] = true
 	end
 
-	-- Build visible ranges: each changed line expanded by ±CONTEXT (0-indexed)
-	local ranges = {}
+	-- Build sorted list of changed lines
+	local changed_lines = {}
 	for line_nr in pairs(changed_set) do
-		ranges[#ranges + 1] = {
-			math.max(0, line_nr - CONTEXT),
-			math.min(total_lines - 1, line_nr + CONTEXT),
-		}
+		changed_lines[#changed_lines + 1] = line_nr
 	end
+	table.sort(changed_lines)
 
-	table.sort(ranges, function(a, b)
-		return a[1] < b[1]
-	end)
-
-	-- Merge overlapping/adjacent ranges
-	local merged = { ranges[1] }
-	for i = 2, #ranges do
-		local prev = merged[#merged]
-		local cur = ranges[i]
-		if cur[1] <= prev[2] + 1 then
-			prev[2] = math.max(prev[2], cur[2])
+	-- Group contiguous changed lines into change regions (0-indexed)
+	local groups = {}
+	local group_start = changed_lines[1]
+	local group_end = changed_lines[1]
+	for i = 2, #changed_lines do
+		if changed_lines[i] == group_end + 1 then
+			group_end = changed_lines[i]
 		else
-			merged[#merged + 1] = cur
+			groups[#groups + 1] = { group_start, group_end }
+			group_start = changed_lines[i]
+			group_end = changed_lines[i]
 		end
 	end
+	groups[#groups + 1] = { group_start, group_end }
 
-	-- Invert visible ranges to get fold ranges (gaps between visible regions)
-	local folds = {}
-
-	-- Gap before first visible range
-	if merged[1][1] > 0 then
-		folds[#folds + 1] = { 1, merged[1][1] } -- 1-indexed inclusive
+	-- Identify gaps (unchanged regions between/around change groups)
+	-- Each gap: {start, end} (0-indexed inclusive)
+	local gaps = {}
+	-- Gap before first group
+	if groups[1][1] > 0 then
+		gaps[#gaps + 1] = { 0, groups[1][1] - 1 }
 	end
-
-	-- Gaps between visible ranges
-	for i = 2, #merged do
-		local prev_end = merged[i - 1][2]
-		local cur_start = merged[i][1]
+	-- Gaps between groups
+	for i = 2, #groups do
+		local prev_end = groups[i - 1][2]
+		local cur_start = groups[i][1]
 		if cur_start > prev_end + 1 then
-			folds[#folds + 1] = { prev_end + 2, cur_start } -- 1-indexed inclusive
+			gaps[#gaps + 1] = { prev_end + 1, cur_start - 1 }
 		end
 	end
+	-- Gap after last group
+	if groups[#groups][2] < total_lines - 1 then
+		gaps[#gaps + 1] = { groups[#groups][2] + 1, total_lines - 1 }
+	end
 
-	-- Gap after last visible range
-	local last_end = merged[#merged][2]
-	if last_end < total_lines - 1 then
-		folds[#folds + 1] = { last_end + 2, total_lines } -- 1-indexed inclusive
+	-- If only one group and no gaps large enough to fold, no folds needed
+	if #gaps == 0 then
+		return {}
+	end
+
+	-- Calculate total changed lines
+	local total_changed = 0
+	for _, g in ipairs(groups) do
+		total_changed = total_changed + (g[2] - g[1] + 1)
+	end
+
+	-- Available height for context = window height - changed lines
+	-- Each gap gets a "slot" (some gaps border the edge, some are between groups)
+	-- We distribute available context across all gap slots
+	local available_context = win_height - total_changed
+	if available_context < 0 then
+		available_context = 0
+	end
+
+	-- Each gap has two "sides" (context above a group / context below a group),
+	-- but edge gaps (first/last) only have one side facing a change group.
+	-- Instead of counting sides, just distribute context evenly across all gaps.
+	local context_per_gap = #gaps > 0 and math.floor(available_context / #gaps) or 0
+	context_per_gap = math.max(context_per_gap, MIN_CONTEXT)
+
+	-- Build fold ranges from gaps that are larger than their allocated context
+	local folds = {}
+	for _, gap in ipairs(gaps) do
+		local gap_size = gap[2] - gap[1] + 1
+
+		if gap_size > context_per_gap and gap_size >= MIN_FOLD_SIZE then
+			-- Determine how to split context within this gap
+			-- If it's an edge gap (first or last), context goes on the side facing changes
+			local is_first = (gap[1] == 0)
+			local is_last = (gap[2] == total_lines - 1)
+
+			local fold_start, fold_end
+
+			if is_first and is_last then
+				-- Only gap (shouldn't happen if we have changes, but handle it)
+				local half = math.floor(context_per_gap / 2)
+				fold_start = gap[1] + half
+				fold_end = gap[2] - (context_per_gap - half)
+			elseif is_first then
+				-- Gap before first change: context at the bottom of the gap
+				fold_start = gap[1]
+				fold_end = gap[2] - context_per_gap
+			elseif is_last then
+				-- Gap after last change: context at the top of the gap
+				fold_start = gap[1] + context_per_gap
+				fold_end = gap[2]
+			else
+				-- Gap between two change groups: split context top and bottom
+				local half = math.floor(context_per_gap / 2)
+				local other_half = context_per_gap - half
+				fold_start = gap[1] + half
+				fold_end = gap[2] - other_half
+			end
+
+			-- Only create fold if it's at least MIN_FOLD_SIZE lines
+			if fold_end >= fold_start and (fold_end - fold_start + 1) >= MIN_FOLD_SIZE then
+				-- Convert from 0-indexed to 1-indexed inclusive
+				folds[#folds + 1] = { fold_start + 1, fold_end + 1 }
+			end
+		end
 	end
 
 	return folds

@@ -159,12 +159,12 @@ return {
 						})
 					end
 
-					-- For large buffers, fold unchanged regions
-					local folds = macros_util.compute_folds(diff_result)
+					-- Fold unchanged regions when changes span multiple parts of the file
+					local win = ctx.win
+					local buf = ctx.buf
+					local win_height = vim.api.nvim_win_get_height(win)
+					local folds = macros_util.compute_folds(diff_result, win_height)
 					if #folds > 0 then
-						local win = ctx.win
-						local buf = ctx.buf
-
 						-- Detach nvim-ufo from the preview buffer so it doesn't
 						-- override our manual folds
 						local ufo_ok, ufo = pcall(require, "ufo")
