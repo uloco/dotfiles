@@ -389,69 +389,99 @@ function M.build_preview(old_lines, new_lines)
 	return { lines = merged_lines, highlights = highlights, has_changes = true }
 end
 
---- Scope the preview to ±context_lines around the cursor, focused on changes
+--- Compute fold ranges for the preview.
+--- Returns the full diff result lines/highlights plus a list of line ranges
+--- that should be folded (unchanged gaps between change regions).
+---
+--- Folding rules:
+--- - Single contiguous change region AND buffer < 500 lines: no folds
+--- - Multiple non-adjacent change regions OR buffer >= 500 lines: fold unchanged gaps
+---
 ---@param diff_result table from build_preview()
----@param cursor_line integer 1-indexed cursor line in the original buffer
----@param context_lines integer number of context lines around first change (default 20)
----@return table {lines: string[], highlights: table[]}
-function M.scope_preview(diff_result, cursor_line, context_lines)
-	context_lines = context_lines or 20
+---@param context_lines? integer context lines around each change region (default 5)
+---@param max_full_lines? integer threshold for always folding (default 500)
+---@return table {lines: string[], highlights: table[], fold_ranges: table[]}
+function M.scope_preview(diff_result, context_lines, max_full_lines)
+	context_lines = context_lines or 5
+	max_full_lines = max_full_lines or 500
 
-	-- If no highlights (no changes), return everything
+	local result = {
+		lines = diff_result.lines,
+		highlights = diff_result.highlights,
+		fold_ranges = {},
+	}
+
+	-- No highlights means no changes — no folds needed
 	if #diff_result.highlights == 0 then
-		return diff_result
+		return result
 	end
 
-	-- Find the range of lines that contain changes
-	local first_change = diff_result.highlights[1].line
-	local last_change = diff_result.highlights[#diff_result.highlights].line
+	local total_lines = #diff_result.lines
 
-	-- Center the scope around the changes, biased toward cursor position
-	-- Use the midpoint between first change and cursor as center
-	local center = math.floor((first_change + last_change) / 2)
-	local start_line = math.max(0, center - context_lines)
-	local end_line = math.min(#diff_result.lines - 1, center + context_lines)
-
-	-- Ensure all changes are visible
-	start_line = math.min(start_line, first_change)
-	end_line = math.max(end_line, last_change)
-
-	-- Clamp
-	start_line = math.max(0, start_line)
-	end_line = math.min(#diff_result.lines - 1, end_line)
-
-	-- Extract lines
-	local lines = {}
-	local has_prefix = start_line > 0
-	local has_suffix = end_line < #diff_result.lines - 1
-
-	if has_prefix then
-		lines[#lines + 1] = "··· " .. start_line .. " lines above ···"
-	end
-
-	for i = start_line, end_line do
-		lines[#lines + 1] = diff_result.lines[i + 1] -- diff_result.lines is 1-indexed
-	end
-
-	if has_suffix then
-		lines[#lines + 1] = "··· " .. (#diff_result.lines - 1 - end_line) .. " lines below ···"
-	end
-
-	-- Adjust highlights to new line numbers
-	local offset = has_prefix and 1 or 0
-	local adjusted_highlights = {}
+	-- Collect unique changed line numbers (0-indexed)
+	local changed_set = {}
 	for _, hl in ipairs(diff_result.highlights) do
-		if hl.line >= start_line and hl.line <= end_line then
-			adjusted_highlights[#adjusted_highlights + 1] = {
-				line = hl.line - start_line + offset,
-				col_start = hl.col_start,
-				col_end = hl.col_end,
-				hl_group = hl.hl_group,
-			}
+		changed_set[hl.line] = true
+	end
+
+	-- Build visible ranges: each changed line expanded by ±context
+	local ranges = {}
+	for line_nr in pairs(changed_set) do
+		local range_start = math.max(0, line_nr - context_lines)
+		local range_end = math.min(total_lines - 1, line_nr + context_lines)
+		ranges[#ranges + 1] = { range_start, range_end }
+	end
+
+	-- Sort by start
+	table.sort(ranges, function(a, b)
+		return a[1] < b[1]
+	end)
+
+	-- Merge overlapping/adjacent ranges
+	local merged = { ranges[1] }
+	for i = 2, #ranges do
+		local prev = merged[#merged]
+		local cur = ranges[i]
+		if cur[1] <= prev[2] + 1 then
+			prev[2] = math.max(prev[2], cur[2])
+		else
+			merged[#merged + 1] = cur
 		end
 	end
 
-	return { lines = lines, highlights = adjusted_highlights }
+	-- Decide whether to fold:
+	-- - Single change region AND small buffer: no folds
+	-- - Otherwise: fold the gaps
+	local has_multiple_regions = #merged > 1
+	local is_large_buffer = total_lines >= max_full_lines
+
+	if not has_multiple_regions and not is_large_buffer then
+		return result
+	end
+
+	-- Build fold ranges from the gaps between visible regions
+	-- Gap before the first visible region
+	if merged[1][1] > 0 then
+		-- fold_ranges are 0-indexed, inclusive on both ends
+		result.fold_ranges[#result.fold_ranges + 1] = { 0, merged[1][1] - 1 }
+	end
+
+	-- Gaps between visible regions
+	for i = 2, #merged do
+		local prev_end = merged[i - 1][2]
+		local cur_start = merged[i][1]
+		if cur_start - prev_end > 1 then
+			result.fold_ranges[#result.fold_ranges + 1] = { prev_end + 1, cur_start - 1 }
+		end
+	end
+
+	-- Gap after the last visible region
+	local last_end = merged[#merged][2]
+	if last_end < total_lines - 1 then
+		result.fold_ranges[#result.fold_ranges + 1] = { last_end + 1, total_lines - 1 }
+	end
+
+	return result
 end
 
 return M

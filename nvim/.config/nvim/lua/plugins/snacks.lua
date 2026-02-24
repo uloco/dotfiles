@@ -141,8 +141,9 @@ return {
 						return
 					end
 
-					-- Scope to ±20 lines around changes
-					local display = macros_util.scope_preview(diff_result, state.cursor[1], 20)
+					-- Compute fold ranges (folds unchanged gaps for large buffers
+					-- or when there are multiple non-adjacent change regions)
+					local display = macros_util.scope_preview(diff_result)
 
 					-- Render
 					ctx.preview:reset()
@@ -156,6 +157,28 @@ return {
 							end_col = hl.col_end,
 							hl_group = hl.hl_group,
 							priority = 200, -- higher than syntax highlighting
+						})
+					end
+
+					-- Apply folds on unchanged regions
+					if #display.fold_ranges > 0 then
+						ctx.preview:wo({
+							foldenable = true,
+							foldmethod = "manual",
+							foldlevel = 0, -- start with folds closed
+						})
+						vim.api.nvim_win_call(ctx.win, function()
+							-- Clear any existing folds first
+							vim.cmd("normal! zE")
+							for _, range in ipairs(display.fold_ranges) do
+								-- fold command uses 1-indexed lines
+								vim.cmd(string.format("%d,%dfold", range[1] + 1, range[2] + 1))
+							end
+						end)
+					else
+						-- No folds needed — disable folding
+						ctx.preview:wo({
+							foldenable = false,
 						})
 					end
 				end,
