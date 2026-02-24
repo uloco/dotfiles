@@ -350,7 +350,7 @@ return {
 			function()
 				-- Filter to only split terminals (exclude floating ones)
 				local terminals = vim.iter(Snacks.terminal.list()):filter(function(t)
-					return not (t.opts and t.opts.win and t.opts.win.position == "float")
+					return t.opts.position ~= "float"
 				end):totable()
 				if #terminals == 0 then
 					return
