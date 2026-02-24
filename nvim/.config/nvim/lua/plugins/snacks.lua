@@ -59,17 +59,6 @@ return {
 							text = m.name .. " " .. m.description,
 							item = m,
 							macro_idx = i,
-							preview = {
-								text = "Name:        "
-									.. m.name
-									.. "\nDescription: "
-									.. (m.description ~= "" and m.description or "(none)")
-									.. "\nRegister:    @"
-									.. m.register
-									.. "\nKeystrokes:  "
-									.. macros_util.format_keys(m.keys),
-								ft = "markdown",
-							},
 						}
 					end
 					return items
@@ -86,7 +75,90 @@ return {
 					highlights[#highlights + 1] = { "  @" .. m.register, "Number" }
 					return highlights
 				end,
-				preview = "preview",
+				preview = function(ctx)
+					local macros_util = require("utils.macros")
+					local state = ctx.preview.state
+
+					-- Lazy capture of buffer context on first preview call
+					if not state.original_lines then
+						if state.source_buf and vim.api.nvim_buf_is_valid(state.source_buf) then
+							state.original_lines = vim.api.nvim_buf_get_lines(state.source_buf, 0, -1, false)
+							state.ft = vim.bo[state.source_buf].filetype
+						else
+							state.original_lines = {}
+							state.ft = ""
+						end
+						if state.source_win and vim.api.nvim_win_is_valid(state.source_win) then
+							state.cursor = vim.api.nvim_win_get_cursor(state.source_win)
+						else
+							state.cursor = { 1, 0 }
+						end
+					end
+
+					if not ctx.item or not ctx.item.item then
+						return
+					end
+
+					local macro = ctx.item.item
+
+					-- If buffer is empty, show static info
+					if #state.original_lines == 0 or (#state.original_lines == 1 and state.original_lines[1] == "") then
+						ctx.preview:reset()
+						ctx.preview:set_lines({
+							"No buffer content to preview against",
+							"",
+							"Name:        " .. macro.name,
+							"Description: " .. (macro.description ~= "" and macro.description or "(none)"),
+							"Register:    @" .. macro.register,
+							"Keystrokes:  " .. macros_util.format_keys(macro.keys),
+						})
+						return
+					end
+
+					-- Compute diff
+					local new_lines, err = macros_util.compute_diff(state.original_lines, macro.keys, state.cursor)
+
+					if not new_lines then
+						ctx.preview:reset()
+						ctx.preview:set_lines({
+							"Error executing macro:",
+							err or "unknown error",
+							"",
+							"Keystrokes: " .. macros_util.format_keys(macro.keys),
+						})
+						return
+					end
+
+					local diff_result = macros_util.build_preview(state.original_lines, new_lines)
+
+					if not diff_result.has_changes then
+						ctx.preview:reset()
+						ctx.preview:set_lines({
+							"No changes on current buffer",
+							"",
+							"Keystrokes: " .. macros_util.format_keys(macro.keys),
+						})
+						return
+					end
+
+					-- Scope to ±20 lines around changes
+					local display = macros_util.scope_preview(diff_result, state.cursor[1], 20)
+
+					-- Render
+					ctx.preview:reset()
+					ctx.preview:set_lines(display.lines)
+					ctx.preview:highlight({ ft = state.ft })
+
+					-- Apply diff highlights via extmarks
+					local ns = vim.api.nvim_create_namespace("macros_preview")
+					for _, hl in ipairs(display.highlights) do
+						pcall(vim.api.nvim_buf_set_extmark, ctx.buf, ns, hl.line, hl.col_start, {
+							end_col = hl.col_end,
+							hl_group = hl.hl_group,
+							priority = 200, -- higher than syntax highlighting
+						})
+					end
+				end,
 				confirm = function(picker, item)
 					if not item then
 						return
@@ -397,7 +469,14 @@ return {
 		{
 			"<leader>lm",
 			function()
-				Snacks.picker.pick("macros")
+				local buf = vim.api.nvim_get_current_buf()
+				local win = vim.api.nvim_get_current_win()
+				Snacks.picker.pick("macros", {
+					on_show = function(picker)
+						picker.preview.state.source_buf = buf
+						picker.preview.state.source_win = win
+					end,
+				})
 			end,
 			desc = "Saved Macros",
 		},
