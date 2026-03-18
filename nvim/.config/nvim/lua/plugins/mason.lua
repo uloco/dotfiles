@@ -19,7 +19,7 @@ return {
 					"stylua",
 					"bash-language-server",
 					"beautysh",
-					"eslint_d",
+					"eslint-lsp",
 					"graphql-language-service-cli",
 					"json-lsp",
 					"lua-language-server",
