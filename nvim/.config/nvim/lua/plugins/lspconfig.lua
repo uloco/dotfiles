@@ -82,11 +82,6 @@ return {
 			},
 		})
 
-		vim.lsp.config("eslint", {
-			settings = {
-				workingDirectory = { mode = "location" },
-			},
-		})
 	end,
 	keys = {
 		{
