@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"zbirenbaum/copilot.lua",
 	},
+  lazy = false,
 	opts = {
 		nes = {
 			debounce = 100,
