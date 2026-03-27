@@ -14,6 +14,6 @@ return {
 		vim.diagnostic.config({ virtual_text = false })
 	end,
 	keys = {
-		{ "<leader>dt", "<cmd>TinyInlineDiag toggle<cr>", desc = "Toggle Inline Diagnostics" },
+		{ "<leader>ue", "<cmd>TinyInlineDiag toggle<cr>", desc = "Toggle Inline Diagnostics" },
 	},
 }
