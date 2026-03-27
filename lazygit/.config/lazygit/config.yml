@@ -24,6 +24,7 @@ keybinding:
     openMergeOptions: 'T'
 git:
   overrideGpg: true
+  skipHookPrefix: 'wip:'
 customCommands:
   - key: '<c-f>'
     context: 'localBranches'
