@@ -40,7 +40,6 @@ return {
 				f = ts_ai({ a = "@function.outer", i = "@function.inner" }),
 				F = ts_ai({ a = "@call.outer", i = "@call.inner" }),
 				c = ts_ai({ a = "@class.outer", i = "@class.inner" }),
-				t = ts_ai({ a = "@tag.outer", i = "@tag.inner" }),
 				o = ts_ai({
 					a = { "@block.outer", "@conditional.outer", "@loop.outer" },
 					i = { "@block.inner", "@conditional.inner", "@loop.inner" },
@@ -58,6 +57,18 @@ return {
 				},
 			},
 			search_method = "cover_or_next",
+		})
+
+		-- Use treesitter tag textobject for jsx/tsx files
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "javascriptreact", "typescriptreact" },
+			callback = function()
+				vim.b.miniai_config = {
+					custom_textobjects = {
+						t = ts_ai({ a = "@tag.outer", i = "@tag.inner" }),
+					},
+				}
+			end,
 		})
 
 		-- Movement keymaps using mini.ai (replaces nvim-treesitter-textobjects move)
