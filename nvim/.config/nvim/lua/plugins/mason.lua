@@ -14,7 +14,6 @@ return {
 					"vtsls",
 					"typescript-language-server",
 					"svelte-language-server",
-					"emmet-language-server",
 					"prettierd",
 					"stylua",
 					"bash-language-server",
