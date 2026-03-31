@@ -47,6 +47,22 @@ return {
 			desc = "Select CLI",
 		},
 		{
+			"å", -- Alt + a
+			function()
+				require("sidekick.cli").toggle({ name = "opencode", focus = true })
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Opencode (Sidekick)",
+		},
+		{
+			"Å", -- Alt + a
+			function()
+				require("sidekick.cli").toggle({ name = "claude", focus = true })
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Claude (Sidekick)",
+		},
+		{
 			"<leader>ad",
 			function()
 				require("sidekick.cli").close()

@@ -10,7 +10,12 @@ return {
 		vim.api.nvim_create_autocmd("TermOpen", {
 			pattern = "*",
 			callback = function()
-				vim.keymap.set("n", "<LeftRelease>", "<LeftRelease>i", { buffer = true, desc = "Enter insert mode on mouse click" })
+				vim.keymap.set(
+					"n",
+					"<LeftRelease>",
+					"<LeftRelease>i",
+					{ buffer = true, desc = "Enter insert mode on mouse click" }
+				)
 			end,
 		})
 	end,
@@ -349,9 +354,11 @@ return {
 			"˝", -- Alt-Gr + Shift + t
 			function()
 				-- Filter to only split terminals (exclude floating ones)
-				local terminals = vim.iter(Snacks.terminal.list()):filter(function(t)
-					return t.opts.position ~= "float"
-				end):totable()
+				local terminals = vim.iter(Snacks.terminal.list())
+					:filter(function(t)
+						return t.opts.position ~= "float"
+					end)
+					:totable()
 				if #terminals == 0 then
 					return
 				end
@@ -379,14 +386,6 @@ return {
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Floating Terminal",
-		},
-		{
-			"å", -- Alt + a
-			function()
-				require("sidekick.cli").toggle({ name = "opencode", focus = true })
-			end,
-			mode = { "n", "t" },
-			desc = "Toggle Opencode (Sidekick)",
 		},
 	},
 }
