@@ -1,7 +1,7 @@
 return {
-  "akinsho/git-conflict.nvim",
+  "b0o/git-conflict.nvim",
   event = "BufReadPre",
-  version = "*",
+  commit = "bd316c5bc8a8815c2402649770dc6c2548063327",
   opts = {
     default_mappings = false, -- disable buffer local mapping created by this plugin
     disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
