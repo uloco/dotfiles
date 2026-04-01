@@ -6,6 +6,7 @@ return {
   lazy = false,
 	opts = {
 		nes = {
+      enabled = false,
 			debounce = 100,
 			diff = {
 				inline = "words",
