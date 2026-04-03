@@ -115,14 +115,6 @@ map("x", "<C-Space>", select_parent, { desc = "Select parent (outer) node" })
 map("x", "<C-@>", select_parent, { desc = "Select parent (outer) node" })
 map("x", "<BS>", select_child, { desc = "Select child (inner) node" })
 
--- Run @ macro on visual range selected lines
-vim.cmd([[xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-xnoremap Q :<C-u>'<,'>normal @@<CR>
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction]])
-
 -- Spell navigation
 map("n", "<leader>js", "]s", { desc = "Next spell error" })
 map("n", "<leader>ks", "[s", { desc = "Previous spell error" })
