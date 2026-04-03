@@ -117,6 +117,7 @@ map("x", "<BS>", select_child, { desc = "Select child (inner) node" })
 
 -- Run @ macro on visual range selected lines
 vim.cmd([[xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+xnoremap Q :<C-u>'<,'>normal @@<CR>
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
