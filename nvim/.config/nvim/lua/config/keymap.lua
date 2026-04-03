@@ -94,6 +94,27 @@ map({ "v" }, "<leader>gc", "YPmcgvgc`c", { remap = true, desc = "Duplicate and c
 -- show signature
 map({ "n" }, "gH", vim.lsp.buf.signature_help, { desc = "Show LSP signature help" })
 
+-- Incremental selection (same behavior as Neovim defaults, remapped)
+local function select_parent()
+	if vim.treesitter.get_parser(nil, nil, { error = false }) then
+		require("vim.treesitter._select").select_parent(vim.v.count1)
+	else
+		vim.lsp.buf.selection_range(vim.v.count1)
+	end
+end
+
+local function select_child()
+	if vim.treesitter.get_parser(nil, nil, { error = false }) then
+		require("vim.treesitter._select").select_child(vim.v.count1)
+	else
+		vim.lsp.buf.selection_range(-vim.v.count1)
+	end
+end
+
+map("x", "<C-Space>", select_parent, { desc = "Select parent (outer) node" })
+map("x", "<C-@>", select_parent, { desc = "Select parent (outer) node" })
+map("x", "<BS>", select_child, { desc = "Select child (inner) node" })
+
 -- Run @ macro on visual range selected lines
 vim.cmd([[xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
