@@ -6,6 +6,10 @@ return {
       "sidekick_terminal",
     },
   },
+  config = function(_, opts)
+    require("illuminate").configure(opts)
+  end,
+  lazy = false,
   keys = {
     {
       "<A-n>",
