@@ -9,6 +9,8 @@ return {
 			opts = {
 				ensure_installed = {
 					"tree-sitter-cli",
+					"kotlin-language-server",
+					"ktlint",
 					"python-lsp-server",
 					"tailwindcss-language-server",
 					"vtsls",
@@ -33,6 +35,7 @@ return {
 	},
 	opts = {
 		ensure_installed = {
+			"kotlin_language_server",
 			"lua_ls",
 		},
 		automatic_enable = {
