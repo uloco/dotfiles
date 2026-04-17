@@ -21,6 +21,7 @@ return {
 		formatters_by_ft = {
 			kotlin = { "ktlint" },
 			lua = { "stylua", lsp_format = "prefer" },
+			swift = { "swift" },
 			javascript = { "prettierd" },
 			javascriptreact = { "prettierd" },
 			typescript = { "prettierd" },
