@@ -1,5 +1,6 @@
 return {
 	"b0o/git-conflict.nvim",
+	enabled = false,
 	event = "BufReadPre",
 	commit = "bd316c5bc8a8815c2402649770dc6c2548063327",
 	opts = {
