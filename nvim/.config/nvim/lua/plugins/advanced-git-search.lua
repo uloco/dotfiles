@@ -3,14 +3,13 @@ return {
 	cmd = { "AdvancedGitSearch" },
 	config = function()
 		require("advanced_git_search.snacks").setup({
-			diff_plugin = "diffview",
+			diff_plugin = "native",
 			show_builtin_git_pickers = false,
 			entry_default_author_or_date = "author",
 		})
 	end,
 	dependencies = {
 		"folke/snacks.nvim",
-		"sindrets/diffview.nvim",
 	},
 	keys = {
 		{ "<leader>gss", "<cmd>AdvancedGitSearch<CR>", desc = "Git Search" },
