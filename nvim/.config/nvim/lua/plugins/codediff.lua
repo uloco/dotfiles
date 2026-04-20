@@ -33,7 +33,8 @@ return {
 		},
 		keys = {
 			{ "<leader>df", "<cmd>CodeDiff<CR>", desc = "Toggle Diff" },
-			{ "<leader>dh", "<cmd>CodeDiff history<CR>", desc = "File history" },
+			{ "<leader>dh", "<cmd>CodeDiff history %<CR>", desc = "File history" },
+			{ "<leader>dH", "<cmd>CodeDiff history <CR>", desc = "File history (all commits)" },
 		},
 		cmd = { "CodeDiff" },
 	},
