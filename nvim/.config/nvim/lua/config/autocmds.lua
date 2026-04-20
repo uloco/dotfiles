@@ -132,7 +132,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = augroup("format_options"),
 	callback = function()
-		vim.opt.formatoptions:remove({ "c", "r", "o" })
+		vim.opt.formatoptions:remove({ "o" })
 	end,
 })
 
