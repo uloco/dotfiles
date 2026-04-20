@@ -20,7 +20,7 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			kotlin = { "ktlint" },
-			lua = { "stylua", lsp_format = "prefer" },
+			lua = { "stylua", lsp_format = "never" },
 			swift = { "swift" },
 			javascript = { "prettierd" },
 			javascriptreact = { "prettierd" },

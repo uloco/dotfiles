@@ -5,7 +5,7 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-      -- eslint-lsp is used instead
+			-- eslint-lsp is used instead
 
 			-- javascript = {},
 			-- javascriptreact = { "eslint_d" },

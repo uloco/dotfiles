@@ -88,7 +88,6 @@ return {
 
 		vim.lsp.enable("kotlin_language_server")
 		vim.lsp.enable("sourcekit")
-
 	end,
 	keys = {
 		{

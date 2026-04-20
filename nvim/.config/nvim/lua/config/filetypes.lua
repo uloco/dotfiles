@@ -10,7 +10,7 @@ vim.filetype.add({
 	},
 	extension = {
 		xml = "html",
-    podspec = "ruby",
+		podspec = "ruby",
 		["code-snippets"] = "jsonc",
 	},
 })
