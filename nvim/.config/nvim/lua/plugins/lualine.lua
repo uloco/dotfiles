@@ -1,3 +1,12 @@
+-- Hide lualine winbar inside codediff panes. codediff sets
+-- `w:codediff_restore = 1` on its diff windows; we use that as the marker.
+-- Without this, lualine's per-window winbar swap on focus changes causes
+-- the diff panes to visibly jump.
+local function not_codediff()
+	local win = vim.g.statusline_winid or vim.api.nvim_get_current_win()
+	return vim.w[win].codediff_restore == nil
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
@@ -49,28 +58,36 @@ return {
 				{
 					"filename",
 					color = { fg = "@tag" },
+					cond = not_codediff,
 				},
 			},
 			lualine_c = {
-				-- only file path
 				{
 					function()
 						return vim.fn.expand("%:.:h")
 					end,
+					cond = not_codediff,
 				},
-				"diagnostics",
+				{ "diagnostics", cond = not_codediff },
 			},
-			lualine_x = { "diff" },
+			lualine_x = {
+				{ "diff", cond = not_codediff },
+			},
 		},
 		inactive_winbar = {
 			lualine_b = {
-				"filename",
+				{
+				  "filename",
+				  cond = not_codediff
+				},
 			},
 			lualine_c = {
-				-- only file path
-				function()
-					return vim.fn.expand("%:.:h")
-				end,
+				{
+					function()
+						return vim.fn.expand("%:.:h")
+					end,
+					cond = not_codediff,
+				},
 			},
 		},
 		extensions = {

@@ -29,8 +29,34 @@ vim.opt.tabstop = 2
 vim.opt.showmode = false
 vim.opt.jumpoptions = "view"
 
--- winbar
--- vim.opt.winbar = "%t %#Comment#%{expand('%:.:h')}%*"
+-- winbar: filename + relative dir, with special handling for codediff://
+-- URIs (extract the real path and append a short commit hash).
+local function winbar_parts()
+	local name = vim.api.nvim_buf_get_name(0)
+	local _, commit, filepath = name:match("^codediff:///(.-)///(.-)/(.+)$")
+	if filepath then
+		local tail = vim.fn.fnamemodify(filepath, ":t")
+		local head = vim.fn.fnamemodify(filepath, ":h")
+		if head == "." then
+			head = ""
+		end
+		return tail, head, commit:sub(1, 7)
+	end
+	return vim.fn.expand("%:t"), vim.fn.expand("%:.:h"), nil
+end
+
+_G.winbar_tail = function()
+	return (select(1, winbar_parts()))
+end
+_G.winbar_head = function()
+	return (select(2, winbar_parts())) or ""
+end
+_G.winbar_commit = function()
+	local c = select(3, winbar_parts())
+	return c and (" @" .. c) or ""
+end
+
+vim.opt.winbar = "%{v:lua.winbar_tail()} %#Comment#%{v:lua.winbar_head()}%{v:lua.winbar_commit()}%*"
 
 vim.opt.wrap = true
 vim.opt.showbreak = "↪ "
