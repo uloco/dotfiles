@@ -1,12 +1,12 @@
 return {
 	"niekdomi/conflict.nvim",
-	dir = "~/Source/neovim/conflict.nvim",
 	event = "BufReadPre",
 	opts = {
 		default_mappings = {
 			current = "<leader>co",
 			incoming = "<leader>ct",
 			both = "<leader>cb",
+			base = "<leader>cp",
 			none = "<leader>cn",
 			next = "<leader>jc",
 			prev = "<leader>kc",
