@@ -28,6 +28,7 @@ map("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 map("n", "<leader><leader>w", ":wa<CR>", { desc = "Save all files" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit window" })
 map("n", "<leader><leader>q", "<cmd>wa<cr><cmd>qa<cr>", { desc = "Save all and quit" })
+map("n", "<leader><leader>r", "<cmd>wa<cr><cmd>restart<cr>", { desc = "Save all and quit" })
 
 -- disable search highlighting
 map("n", "<leader>hi", ":nohl<CR>", { desc = "Disable search highlighting" })
