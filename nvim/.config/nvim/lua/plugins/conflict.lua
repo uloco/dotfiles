@@ -1,5 +1,6 @@
 return {
 	"niekdomi/conflict.nvim",
+	dir = "~/Source/neovim/conflict.nvim",
 	event = "BufReadPre",
 	opts = {
 		default_mappings = {
@@ -12,9 +13,5 @@ return {
 		},
 		show_actions = true, -- Mouse support/clickable label (optional)
 		disable_diagnostics = true, -- Disable diagnostics like old config
-		highlights = {
-			current = "GitConflictCurrent",
-			incoming = "GitConflictIncoming",
-		},
 	},
 }

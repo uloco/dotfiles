@@ -6,7 +6,6 @@
   "blink-cmp-npm.nvim": { "branch": "main", "commit": "f316507437aa893dbb7aa6709ac9cd68375b3670" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "codediff.nvim": { "branch": "main", "commit": "8afc229d38dc13ce71b2ffbb860084b2c726e061" },
-  "conflict.nvim": { "branch": "main", "commit": "c6dc05e26b4b10673ff99f3d24cc5d51c4878e9a" },
   "conform.nvim": { "branch": "master", "commit": "086a40dc7ed8242c03be9f47fbcee68699cc2395" },
   "copilot-lualine": { "branch": "main", "commit": "222e90bd8dcdf16ca1efc4e784416afb5f011c31" },
   "copilot.lua": { "branch": "master", "commit": "aeca454727486d488a6ecbcde30db72e741e3524" },
