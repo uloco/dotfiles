@@ -10,7 +10,7 @@ return {
 		current_line_blame_formatter = "     <author>, <author_time:%Y-%m-%d> - <summary>",
 	},
 	keys = {
-		{ "<Leader>gb", ":Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Git Blame" },
+		{ "<Leader>ugb", ":Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Git Blame" },
 		{ "<Leader>kh", ":Gitsigns prev_hunk<CR>zz", desc = "Previous Git Hunk" },
 		{ "<Leader>jh", ":Gitsigns next_hunk<CR>zz", desc = "Next Git Hunk" },
 		{ "<leader>ha", ":Gitsigns stage_hunk<cr>", desc = "Stage Git Hunk", mode = { "n", "v" } },
