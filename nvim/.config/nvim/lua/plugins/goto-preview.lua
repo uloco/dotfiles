@@ -4,18 +4,40 @@ return {
 	event = "BufEnter",
 	config = true,
 	keys = {
-		{ "<leader>gd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", desc = "Preview Definition" },
+		{
+			"<leader>gd",
+			function()
+				require("goto-preview").goto_preview_definition()
+			end,
+			desc = "Preview Definition",
+		},
 		{
 			"<leader>gt",
-			"<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>",
+			function()
+				require("goto-preview").goto_preview_type_definition()
+			end,
 			desc = "Preview Type Definition",
 		},
-		{ "<leader>gr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", desc = "Preview References" },
+		{
+			"<leader>gr",
+			function()
+				require("goto-preview").goto_preview_references()
+			end,
+			desc = "Preview References",
+		},
 		{
 			"<leader>gm",
-			"<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+			function()
+				require("goto-preview").goto_preview_implementation()
+			end,
 			desc = "Preview Implementation",
 		},
-		{ "<leader>gP", "<cmd>lua require('goto-preview').close_all_win()<CR>", desc = "Close All Preview Windows" },
+		{
+			"<leader>gP",
+			function()
+				require("goto-preview").close_all_win()
+			end,
+			desc = "Close All Preview Windows",
+		},
 	},
 }
