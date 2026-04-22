@@ -2,12 +2,24 @@ return {
 	"rmagatti/goto-preview",
 	dependencies = { "rmagatti/logger.nvim" },
 	event = "BufEnter",
-	config = true,
+	opts = {
+		vim_ui_input = false,
+		references = {
+			provider = "snacks",
+		},
+	},
 	keys = {
 		{
 			"<leader>gd",
 			function()
 				require("goto-preview").goto_preview_definition()
+			end,
+			desc = "Preview Definition",
+		},
+		{
+			"<leader>gD",
+			function()
+				require("goto-preview").goto_preview_declaration()
 			end,
 			desc = "Preview Definition",
 		},
