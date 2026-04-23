@@ -69,6 +69,13 @@ return {
 						end,
 					},
 				},
+				lsp_symbols = {
+					-- Set to true to show ALL symbol kinds (including Constant, Variable, etc.)
+					filter = true,
+				},
+				lsp_workspace_symbols = {
+					filter = true,
+				},
 				-- 	explorer = {
 				-- 		hidden = true,
 				-- 		-- your explorer picker configuration comes here
