@@ -8,6 +8,17 @@ return {
 			provider = "snacks",
 		},
 	},
+	config = function(_, opts)
+		local goto_preview = require("goto-preview")
+		goto_preview.setup(opts)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "goto-preview",
+			callback = function()
+				vim.wo.winbar = ""
+			end,
+		})
+	end,
 	keys = {
 		{
 			"<leader>gd",
