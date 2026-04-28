@@ -32,7 +32,7 @@ return {
 			function()
 				require("goto-preview").goto_preview_declaration()
 			end,
-			desc = "Preview Definition",
+			desc = "Preview Declaration",
 		},
 		{
 			"<leader>gt",
