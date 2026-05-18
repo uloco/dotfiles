@@ -98,11 +98,25 @@ return {
 			desc = "Previous Diagnostic",
 		},
 		{
+			"<leader>kE",
+			function()
+				vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+			end,
+			desc = "Previous Error Diagnostic",
+		},
+		{
 			"<leader>je",
 			function()
 				vim.diagnostic.jump({ count = 1 })
 			end,
 			desc = "Next Diagnostic",
+		},
+		{
+			"<leader>jE",
+			function()
+				vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+			end,
+			desc = "Next Error Diagnostic",
 		},
 		{
 			"K",
