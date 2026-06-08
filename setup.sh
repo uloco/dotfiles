@@ -131,4 +131,7 @@ defaults import com.IdeaPunch.ColorSlurp com.IdeaPunch.ColorSlurp.plist
 defaults delete com.github.ivoronin.TomatoBar
 defaults import com.github.ivoronin.TomatoBar com.github.ivoronin.TomatoBar.plist
 
+# Wallpaper
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'"${HOME}"'/Library/Mobile Documents/com~apple~CloudDocs/Pictures/colorful-patches.heic"'
+
 # Reboot
