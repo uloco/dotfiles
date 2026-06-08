@@ -123,7 +123,6 @@ cask "zen"
 cask "zulu"
 mas "1Password for Safari", id: 1569813296
 mas "Adblock Plus", id: 1432731683
-mas "Affinity Photo", id: 824183456
 mas "Amphetamine", id: 937984704
 mas "AusweisApp", id: 948660805
 mas "Bear", id: 1091189122
