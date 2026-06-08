@@ -3,6 +3,9 @@
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Add brew to PATH for Apple Silicon
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 brew update
 
 # Configure homebrew permissions to allow multiple users on MAC OSX.
@@ -17,7 +20,7 @@ if [ -e /Library/Caches/Homebrew ]; then
 fi
 
 # ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 # install fzf-tab
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
@@ -32,10 +35,8 @@ git restore .
 bat cache --build
 
 # Links
-cd "${HOME}"
-ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
-ln -s "iCloudDrive/etc/.zsh-history"
-cd -
+ln -sf "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" "${HOME}/iCloudDrive"
+ln -sf "${HOME}/iCloudDrive/etc/.zsh-history" "${HOME}/.zsh-history"
 
 # Defaults
 
@@ -80,14 +81,6 @@ defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 10
 
 # Dock
-# defaults write com.apple.dock tilesize -float 42
-# defaults write com.apple.dock mineffect scale
-# defaults write com.apple.dock magnification -bool false
-# defaults write com.apple.dock autohide -bool true
-# defaults write com.apple.dock autohide-time-modifier -float 0.12
-# defaults write com.apple.Dock autohide-delay -float 0.05
-
-# defaults write com.apple.dock mru-spaces -bool false
 defaults delete com.apple.dock
 defaults import com.apple.dock com.apple.dock.plist
 
@@ -113,9 +106,25 @@ defaults import com.manytricks.Moom com.manytricks.Moom.plist
 
 # Preferences
 defaults delete com.lwouis.alt-tab-macos
-defaults import com.lwouis.alt-tab-macos com.lwouis.alt-tab
+defaults import com.lwouis.alt-tab-macos com.lwouis.alt-tab-macos.plist
 
-defaults delete me.guillaumeb.MonitorControl 
+defaults delete me.guillaumeb.MonitorControl
 defaults import me.guillaumeb.MonitorControl me.guillaumeb.MonitorControl.plist
+
+# Amphetamine
+defaults delete com.if.Amphetamine
+defaults import com.if.Amphetamine com.if.Amphetamine.plist
+
+# Flow
+defaults delete design.yugen.Flow
+defaults import design.yugen.Flow design.yugen.Flow.plist
+
+# ColorSlurp
+defaults delete com.IdeaPunch.ColorSlurp
+defaults import com.IdeaPunch.ColorSlurp com.IdeaPunch.ColorSlurp.plist
+
+# TomatoBar
+defaults delete com.github.ivoronin.TomatoBar
+defaults import com.github.ivoronin.TomatoBar com.github.ivoronin.TomatoBar.plist
 
 # Reboot

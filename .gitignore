@@ -1,3 +1,6 @@
 .DS_Store
 .vimundo/
 .aider*
+
+# OBS Studio - synced via iCloud instead
+obs/
