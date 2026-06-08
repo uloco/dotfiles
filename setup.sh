@@ -31,10 +31,6 @@ git restore .
 # bat theme
 bat cache --build
 
-# neovim
-# install packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-
 # Links
 cd "${HOME}"
 ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" iCloudDrive
@@ -56,8 +52,27 @@ defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-
 killall Finder
+
+# Trackpad
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.5
+
+# Text Input - disable all auto-corrections
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Scrollbars - always visible
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Click wallpaper to show desktop - off
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
+# Safari
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 # Keyrepeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -74,7 +89,7 @@ defaults write -g InitialKeyRepeat -int 10
 
 # defaults write com.apple.dock mru-spaces -bool false
 defaults delete com.apple.dock
-defaults import com.apple.dock "$(pwd)/com.apple.dock.plist"
+defaults import com.apple.dock com.apple.dock.plist
 
 killall Dock
 
@@ -90,11 +105,17 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 # Keyboard
 # german nodeadkeys
 defaults delete com.apple.HIToolbox
-defaults import com.apple.HIToolbox "$(pwd)/com.apple.HIToolbox.plist"
+defaults import com.apple.HIToolbox com.apple.HIToolbox.plist
+
+# Moom
+defaults delete com.manytricks.Moom
+defaults import com.manytricks.Moom com.manytricks.Moom.plist
 
 # Preferences
-cp com.lwouis.alt-tab-macos.plist ~/Library/Preferences/
-cp com.crowdcafe.windowmagnet.plist ~/Library/Preferences/
-cp me.guillaumeb.MonitorControl.plist ~/Library/Preferences/
+defaults delete com.lwouis.alt-tab-macos
+defaults import com.lwouis.alt-tab-macos com.lwouis.alt-tab
+
+defaults delete me.guillaumeb.MonitorControl 
+defaults import me.guillaumeb.MonitorControl me.guillaumeb.MonitorControl.plist
 
 # Reboot
