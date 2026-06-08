@@ -56,6 +56,9 @@ export ZOXIDE_CMD_OVERRIDE=j
 plugins=(fzf zoxide colored-man-pages pod fzf-tab yarn npm)
 
 
+# Always update to stable tagged releases
+export HOMEBREW_UPDATE_TO_TAG=1
+
 eval "$(brew shellenv)"
 
 # Add the completions directory to fpath (aider)

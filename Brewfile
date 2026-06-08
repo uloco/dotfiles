@@ -1,11 +1,11 @@
-tap "1password/tap", trusted: true
-tap "anomalyco/tap", trusted: true
-tap "facebook/fb", trusted: true
-tap "jesseduffield/lazygit", trusted: true
-tap "oven-sh/bun", trusted: true
-tap "romkatv/powerlevel10k", trusted: true
-tap "wix/brew", trusted: true
-tap "xcodesorg/made", trusted: true
+tap "1password/tap"
+tap "anomalyco/tap"
+tap "facebook/fb"
+tap "jesseduffield/lazygit"
+tap "oven-sh/bun"
+tap "romkatv/powerlevel10k"
+tap "wix/brew"
+tap "xcodesorg/made"
 brew "act"
 brew "openssl@3"
 brew "aria2"
