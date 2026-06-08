@@ -67,10 +67,6 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Click wallpaper to show desktop - off
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 
-# Safari
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-
 # Keyrepeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write -g KeyRepeat -int 1
@@ -122,8 +118,5 @@ defaults import com.IdeaPunch.ColorSlurp com.IdeaPunch.ColorSlurp.plist
 # TomatoBar
 defaults delete com.github.ivoronin.TomatoBar
 defaults import com.github.ivoronin.TomatoBar com.github.ivoronin.TomatoBar.plist
-
-# Wallpaper
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'"${HOME}"'/Library/Mobile Documents/com~apple~CloudDocs/Pictures/colorful-patches.heic"'
 
 # Reboot
