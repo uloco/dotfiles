@@ -28,6 +28,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # install fzf-tab
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
+# Rosetta 2 (required for some mas apps)
+sudo softwareupdate --install-rosetta --agree-to-license
+
 # Install remaining software via brew bundle
 brew bundle
 
