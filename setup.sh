@@ -27,6 +27,10 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 # Install remaining software via brew bundle
 brew bundle
 
+# Xcode
+xcodes install --latest --experimental-unxip
+sudo xcode-select -s /Applications/Xcode.app
+
 # Stow configs
 stow --adopt $(\ls -d */)
 git restore .
