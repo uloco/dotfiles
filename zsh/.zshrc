@@ -278,3 +278,5 @@ else
 fi
 ###-end-opencode-completions-###
 
+# Skip auto yarn install in husky git hooks (tonies-app)
+export TONIES_GIT_SKIP_INSTALL=true
