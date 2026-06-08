@@ -1,43 +1,36 @@
-tap "1password/tap"
-tap "anomalyco/tap"
-tap "dopplerhq/cli"
-tap "facebook/fb"
-tap "grain-lang/tap"
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "jandedobbeleer/oh-my-posh"
-tap "jesseduffield/lazygit"
-tap "oven-sh/bun"
-tap "romkatv/powerlevel10k"
-tap "wix/brew"
-tap "xcodesorg/made"
+tap "1password/tap", trusted: true
+tap "anomalyco/tap", trusted: true
+tap "facebook/fb", trusted: true
+tap "jesseduffield/lazygit", trusted: true
+tap "oven-sh/bun", trusted: true
+tap "romkatv/powerlevel10k", trusted: true
+tap "wix/brew", trusted: true
+tap "xcodesorg/made", trusted: true
 brew "act"
-brew "gmp"
-brew "gcc"
-brew "libyaml"
 brew "openssl@3"
-brew "aider"
 brew "aria2"
 brew "bat"
-brew "caddy"
 brew "cmake"
+brew "libyaml"
 brew "cocoapods"
+brew "gmp"
 brew "coreutils"
 brew "curl"
-brew "docker", link: false
+brew "docker"
 brew "docker-compose"
 brew "fastlane"
 brew "fd"
 brew "ffmpeg"
 brew "fnm"
 brew "fzf"
+brew "gcc"
 brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "glab"
-brew "gnutls"
 brew "gnu-sed"
+brew "gnutls"
 brew "go"
 brew "gzip"
 brew "htop"
@@ -46,15 +39,14 @@ brew "lazygit"
 brew "lua-language-server"
 brew "make"
 brew "mas"
-brew "neomutt"
+brew "mistral-vibe"
 brew "tree-sitter"
 brew "neovim"
-brew "neovim-remote"
 brew "nmap"
 brew "opam"
-brew "openssl@1.1"
 brew "openvpn"
 brew "pandoc"
+brew "picocom"
 brew "pipx"
 brew "pkgconf"
 brew "powerlevel10k"
@@ -79,7 +71,6 @@ brew "wimlib"
 brew "zlib"
 brew "zoxide"
 brew "anomalyco/tap/opencode"
-brew "dopplerhq/cli/doppler"
 brew "facebook/fb/idb-companion"
 brew "oven-sh/bun/bun"
 brew "wix/brew/applesimutils"
@@ -87,14 +78,11 @@ brew "xcodesorg/made/xcodes"
 cask "1password"
 cask "1password-cli"
 cask "affinity"
-cask "affinity-designer"
 cask "alfred"
 cask "alt-tab"
-cask "android-file-transfer"
 cask "android-studio"
 cask "arc"
 cask "balenaetcher"
-cask "basictex"
 cask "claude"
 cask "claude-code"
 cask "discord"
@@ -108,11 +96,8 @@ cask "font-iosevka-term-nerd-font"
 cask "ghostty"
 cask "google-chrome"
 cask "google-drive"
-cask "grain-lang/tap/grain"
-cask "insomnia"
 cask "iterm2"
 cask "karabiner-elements"
-cask "kitty"
 cask "krisp"
 cask "logi-options+"
 cask "michaelvillar-timer"
@@ -123,26 +108,19 @@ cask "neovide-app"
 cask "ngrok"
 cask "notion"
 cask "obs"
-cask "orion"
 cask "postman"
-cask "proxy-audio-device"
-cask "sigmaos"
 cask "signal"
-cask "sketch"
 cask "slack"
 cask "spotify"
 cask "steam"
-cask "telegram"
 cask "tomatobar"
 cask "tunnelblick"
 cask "ukelele"
 cask "visual-studio-code"
-cask "vlc"
 cask "zed"
 cask "zed@preview"
 cask "zen"
 cask "zulu"
-cask "zulu@17"
 mas "1Password for Safari", id: 1569813296
 mas "Adblock Plus", id: 1432731683
 mas "Affinity Photo", id: 824183456
@@ -152,17 +130,13 @@ mas "Bear", id: 1091189122
 mas "Brother iPrint&Scan", id: 1193539993
 mas "Cleaner One", id: 1473079126
 mas "ColorSlurp", id: 1287239339
-mas "CrystalFetch", id: 6454431289
 mas "Dark Reader for Safari", id: 1438243180
 mas "Flow", id: 1423210932
 mas "GarageBand", id: 682658836
-mas "Geeps", id: 6476961115
-mas "GIPHY CAPTURE", id: 668208984
 mas "HP", id: 1474276998
 mas "iMovie", id: 408981434
 mas "IP Scanner", id: 6443819966
 mas "Keynote", id: 361285480
-mas "Linearity Curve", id: 1219074514
 mas "Magnet", id: 441258766
 mas "Numbers", id: 361304891
 mas "Pages", id: 361309726
@@ -172,9 +146,6 @@ mas "Toggl Track", id: 1291898086
 mas "Trello", id: 1278508951
 mas "Vimari", id: 1480933944
 mas "WhatsApp", id: 310633997
-uv "-"
-uv "-"
-uv "mistral-vibe"
 npm "@expo/ngrok"
 npm "@vscode/vsce"
 npm "alfred-dark-mode"
