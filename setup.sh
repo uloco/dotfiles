@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Ask for sudo password once and keep it alive for the entire script
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
