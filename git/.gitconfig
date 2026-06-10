@@ -3,9 +3,9 @@
   name = Umut Topuzoğlu
   email = uloco@schiefewelt.de
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIInCaxxqinFbeLS0JpwgLV1A/G49YIFdNXq2Z1GPq/uI
-[includeIf "gitdir:~/Source/freelance/"]
+[includeIf "gitdir:~/Source/_freelance/"]
   path = .gitconfig-freelance
-[includeIf "gitdir:~/Source/freelance/tonies/"]
+[includeIf "gitdir:~/Source/_freelance/tonies/"]
   path = .gitconfig-tonies
 [push]
   default = simple
