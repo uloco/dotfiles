@@ -32,7 +32,8 @@ bat cache --build
 
 # Links
 ln -sf "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" "${HOME}/iCloudDrive"
-ln -sf "${HOME}/iCloudDrive/etc/.zsh-history" "${HOME}/.zsh-history"
+cp "${HOME}/iCloudDrive/etc/.zsh_history" "${HOME}/.zsh_history"
+cp "${HOME}/iCloudDrive/etc/zoxide/db.zo" "${HOME}/Library/Application Support/zoxide/db.zo"
 
 # Defaults
 
