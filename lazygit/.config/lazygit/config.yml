@@ -25,6 +25,7 @@ keybinding:
 git:
   overrideGpg: true
   skipHookPrefix: "wip:"
+  autoFetch: false
 customCommands:
   - key: "<c-f>"
     context: "localBranches"
