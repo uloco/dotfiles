@@ -5,29 +5,29 @@ gui:
   scrollHeight: 20
   showIcons: true
   branchColors:
-    'main': 'blue'
-    'master': 'blue'
-    'dev': 'green'
-    'develop': 'green'
-    'release': 'yellow'
-    'hotfix': 'red'
+    "main": "blue"
+    "master": "blue"
+    "dev": "green"
+    "develop": "green"
+    "release": "yellow"
+    "hotfix": "red"
   authorColors:
-    'Umut Topuzoğlu': 'magenta'
+    "Umut Topuzoğlu": "magenta"
   nerdFontsVersion: "3"
 promptToReturnFromSubprocess: false
 keybinding:
   universal:
-    createRebaseOptionsMenu: 'M'
+    createRebaseOptionsMenu: "M"
   branches:
-    mergeIntoCurrentBranch: 'm'
+    mergeIntoCurrentBranch: "m"
   files:
-    openMergeOptions: 'T'
+    openMergeOptions: "T"
 git:
   overrideGpg: true
-  skipHookPrefix: 'wip:'
+  skipHookPrefix: "wip:"
 customCommands:
-  - key: '<c-f>'
-    context: 'localBranches'
+  - key: "<c-f>"
+    context: "localBranches"
     command: 'git fetch && git checkout "$(pbpaste)"'
-    description: 'Feature: Fetch branches and create new from clipboard'
-    loadingText: 'Creating branch'
+    description: "Feature: Fetch branches and create new from clipboard"
+    loadingText: "Creating branch"
