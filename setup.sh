@@ -24,6 +24,7 @@ xcodes install --latest --experimental-unxip
 sudo xcode-select -s /Applications/Xcode.app
 
 # Stow configs
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
 stow --adopt $(\ls -d */)
 git restore .
 
