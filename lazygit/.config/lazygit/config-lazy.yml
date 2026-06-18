@@ -47,7 +47,6 @@ git:
     - colorArg: always
       pager: "sh -c 'delta --paging=never --features $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)'"
   skipHookPrefix: "wip:"
-  autoFetch: false
 customCommands:
   - key: "<c-f>"
     context: "localBranches"
