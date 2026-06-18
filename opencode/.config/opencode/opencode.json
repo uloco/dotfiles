@@ -9,5 +9,40 @@
       "~/Source/neovim/bluloco.nvim/*": "allow",
       "/opt/homebrew/Cellar/neovim/*": "allow"
     }
+  },
+  "mcp": {
+    "atlassian": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.atlassian.com/v1/sse"
+      ],
+      "enabled": true
+    },
+    "gitlab": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote@latest",
+        "https://gitlab.boxine.de/api/v4/mcp"
+      ],
+      "enabled": true
+    },
+    "configcat": {
+      "type": "local",
+      "command": ["npx", "-y", "@configcat/mcp-server"],
+      "enabled": true
+    }
+  },
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "eu-central-1",
+        "profile": "experimental"
+      }
+    }
   }
 }
