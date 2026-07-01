@@ -19,7 +19,7 @@
         "mcp-remote@latest",
         "https://mcp.atlassian.com/v1/sse"
       ],
-      "enabled": true
+      "enabled": false
     },
     "gitlab": {
       "type": "local",
@@ -29,12 +29,12 @@
         "mcp-remote@latest",
         "https://gitlab.boxine.de/api/v4/mcp"
       ],
-      "enabled": true
+      "enabled": false
     },
     "configcat": {
       "type": "local",
       "command": ["npx", "-y", "@configcat/mcp-server"],
-      "enabled": true
+      "enabled": false
     }
   },
   "provider": {
