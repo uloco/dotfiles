@@ -41,6 +41,18 @@
       "url": "https://mcp.figma.com/mcp",
       "enabled": false,
       "oauth": {}
+    },
+    "bitrise": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.bitrise.io",
+        "--header",
+        "Authorization: Bearer ${BITRISE_TOKEN}"
+      ],
+      "enabled": false
     }
   },
   "provider": {
