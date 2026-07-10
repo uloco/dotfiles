@@ -53,6 +53,11 @@
         "Authorization: Bearer ${BITRISE_TOKEN}"
       ],
       "enabled": false
+    },
+    "ios-simulator": {
+      "type": "local",
+      "command": ["npx", "-y", "ios-simulator-mcp"],
+      "enabled": true
     }
   },
   "provider": {
