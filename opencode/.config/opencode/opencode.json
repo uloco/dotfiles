@@ -58,6 +58,10 @@
       "type": "local",
       "command": ["npx", "-y", "ios-simulator-mcp"],
       "enabled": true
+    },
+    "metro-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "metro-mcp"]
     }
   },
   "provider": {
