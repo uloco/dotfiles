@@ -7,7 +7,8 @@
       "~/.dotfiles/nvim/*": "allow",
       "~/.local/share/nvim/*": "allow",
       "~/Source/neovim/bluloco.nvim/*": "allow",
-      "/opt/homebrew/Cellar/neovim/*": "allow"
+      "/opt/homebrew/Cellar/neovim/*": "allow",
+      "/tmp/**": "allow"
     }
   },
   "mcp": {
