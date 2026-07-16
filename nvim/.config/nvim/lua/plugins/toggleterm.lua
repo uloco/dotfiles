@@ -6,6 +6,8 @@ return {
 		hide_numbers = false,
 		open_mapping = "†", -- Alt-Gr + t
 		insert_mappings = true,
+		start_in_insert = true,
+		persist_mode = false,
 		terminal_mappings = true,
 		direction = "vertical",
 		size = 80,
@@ -51,42 +53,21 @@ return {
 	config = function(_, opts)
 		require("toggleterm").setup(opts)
 
-		-- Auto insert mode when entering a toggleterm terminal
-		local augroup_term_insert = vim.api.nvim_create_augroup("Term-Insert", { clear = true })
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter", "TermOpen", "TermEnter" }, {
-			group = augroup_term_insert,
-			pattern = "term://*",
-			callback = function()
-				-- sidekick manages its own insert mode, so leave it alone here
-				if vim.bo.filetype ~= "sidekick_terminal" then
-					vim.cmd("startinsert")
-				end
-			end,
-		})
-
-		-- Re-enter insert mode when returning to the lazygit / sidekick overlays
-		-- (e.g. after toggling to the floating terminal and back).
+		-- Re-enter insert on lazygit / sidekick overlays when returning from the
+		-- floating terminal. Deferred to run after the plugin's own mode handling.
 		vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
-			group = augroup_term_insert,
+			group = vim.api.nvim_create_augroup("Term-Insert", { clear = true }),
 			callback = function()
 				local ft = vim.bo.filetype
 				if ft == "snacks_terminal" or ft == "sidekick_terminal" then
-					-- defer so we win the race with the plugin's own focus handling
-					vim.schedule(function()
-						if vim.api.nvim_get_mode().mode ~= "t" and vim.bo.filetype == ft then
+					local win = vim.api.nvim_get_current_win()
+					vim.defer_fn(function()
+						if vim.api.nvim_get_current_win() == win and vim.fn.mode() ~= "t" then
 							vim.cmd("startinsert")
 						end
-					end)
+					end, 20)
 				end
 			end,
-		})
-
-		-- Auto insert mode when entering terminal with mouse click
-		local augroup_term_insert_mouse = vim.api.nvim_create_augroup("Term-Insert-Mouse", { clear = true })
-		vim.api.nvim_create_autocmd({ "TermOpen" }, {
-			group = augroup_term_insert_mouse,
-			pattern = "*",
-			command = "nnoremap <buffer><LeftRelease> <LeftRelease>i",
 		})
 	end,
 }
