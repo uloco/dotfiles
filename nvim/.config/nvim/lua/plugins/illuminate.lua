@@ -4,6 +4,7 @@ return {
 		filetypes_denylist = {
 			"snacks_terminal",
 			"sidekick_terminal",
+			"toggleterm",
 		},
 	},
 	config = function(_, opts)
