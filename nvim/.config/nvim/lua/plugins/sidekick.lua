@@ -50,7 +50,9 @@ return {
 		{
 			"å", -- Alt + a
 			function()
-				require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				require("config.floats").open("sidekick", function()
+					require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				end)
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Opencode (Sidekick)",
@@ -58,7 +60,9 @@ return {
 		{
 			"Å", -- Alt + a
 			function()
-				require("sidekick.cli").toggle({ name = "claude", focus = true })
+				require("config.floats").open("sidekick", function()
+					require("sidekick.cli").toggle({ name = "claude", focus = true })
+				end)
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Claude (Sidekick)",

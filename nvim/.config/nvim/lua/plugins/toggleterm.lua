@@ -28,9 +28,21 @@ return {
 		{
 			"ª",
 			function()
-				require("toggleterm.terminal").Terminal
-					:new({ id = 101, cmd = "zsh", hidden = true, direction = "float" })
-					:toggle()
+				local float = require("toggleterm.terminal").Terminal:new({
+					id = 101,
+					cmd = "zsh",
+					hidden = true,
+					direction = "float",
+				})
+				if float:is_open() then
+					-- same key pressed while visible -> toggle it off
+					float:close()
+				else
+					-- open, then hide the other overlays once it is on screen
+					require("config.floats").open("toggleterm", function()
+						float:open()
+					end)
+				end
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Floating Terminal",
@@ -45,11 +57,26 @@ return {
 			group = augroup_term_insert,
 			pattern = "term://*",
 			callback = function()
-				local bufname = vim.api.nvim_buf_get_name(0)
-				local filetype = vim.bo.filetype
-				-- Exclude sidekick / ai terminals by buffer name or filetype
-				if not (bufname:match(":sidekick") or filetype == "sidekick_terminal") then
+				-- sidekick manages its own insert mode, so leave it alone here
+				if vim.bo.filetype ~= "sidekick_terminal" then
 					vim.cmd("startinsert")
+				end
+			end,
+		})
+
+		-- Re-enter insert mode when returning to the lazygit / sidekick overlays
+		-- (e.g. after toggling to the floating terminal and back).
+		vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+			group = augroup_term_insert,
+			callback = function()
+				local ft = vim.bo.filetype
+				if ft == "snacks_terminal" or ft == "sidekick_terminal" then
+					-- defer so we win the race with the plugin's own focus handling
+					vim.schedule(function()
+						if vim.api.nvim_get_mode().mode ~= "t" and vim.bo.filetype == ft then
+							vim.cmd("startinsert")
+						end
+					end)
 				end
 			end,
 		})

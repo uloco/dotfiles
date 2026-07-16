@@ -158,7 +158,10 @@ return {
 		{
 			"©", -- right option + g
 			function()
-				Snacks.lazygit()
+				-- open lazygit, then hide the other overlays once it is on screen
+				require("config.floats").open("lazygit", function()
+					Snacks.lazygit()
+				end)
 			end,
 			mode = { "n", "t" },
 			desc = "Lazygit",
