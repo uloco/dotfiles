@@ -24,6 +24,10 @@ If the base branch is not `main`, ask or infer it (`git symbolic-ref
 refs/remotes/origin/HEAD`). Restrict all edits to comments introduced by these
 added lines.
 
+When invoked as part of committing, scope this instead to the **pending
+uncommitted diff** (`git diff` / `git diff --cached`) rather than the whole
+branch.
+
 ## Principles
 
 1. **Prefer no comment.** Good names and clear structure beat comments. If the

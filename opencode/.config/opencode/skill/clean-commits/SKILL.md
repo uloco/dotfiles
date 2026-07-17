@@ -1,6 +1,6 @@
 ---
 name: clean-commits
-description: Use when committing changes to this repository, staging files, or splitting a diff into commits. Ensures commits are separated by concern, small and focused, with short imperative title-only messages (max 72 chars) that explain why, not what.
+description: Use when committing changes to this repository, staging files, or splitting a diff into commits. Ensures commits are separated by concern, small and focused, with short imperative title-only messages that explain why, not what.
 ---
 
 # Clean Commits
