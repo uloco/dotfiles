@@ -30,7 +30,7 @@
         "mcp-remote@latest",
         "https://gitlab.boxine.de/api/v4/mcp"
       ],
-      "enabled": false
+      "enabled": true
     },
     "configcat": {
       "type": "local",
@@ -40,7 +40,7 @@
     "figma": {
       "type": "remote",
       "url": "https://mcp.figma.com/mcp",
-      "enabled": false,
+      "enabled": true,
       "oauth": {}
     },
     "bitrise": {
@@ -53,7 +53,7 @@
         "--header",
         "Authorization: Bearer ${BITRISE_TOKEN}"
       ],
-      "enabled": false
+      "enabled": true
     },
     "ios-simulator": {
       "type": "local",
