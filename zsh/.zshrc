@@ -18,7 +18,7 @@ export RCFILE="$HOME/.zshrc"
 eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 
 # Include
-source "${HOME}/.zsh_keys"
+source "${HOME}/.zsh.env"
 
 # measure shell startup time
 timezsh() {

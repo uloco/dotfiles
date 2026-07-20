@@ -3,6 +3,12 @@
   "lsp": true,
   "plugin": ["opencode-claude-auth@latest"],
   "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
     "external_directory": {
       "~/.dotfiles/nvim/*": "allow",
       "~/.local/share/nvim/*": "allow",
