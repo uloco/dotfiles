@@ -7,7 +7,6 @@ vim.opt.sessionoptions = {
 	"tabpages",
 	"winsize",
 	"winpos",
-	"terminal",
 	"localoptions",
 	"globals",
 }
