@@ -9,13 +9,27 @@ Review the comments **added on this branch / feature / merge request** and
 tighten them. Do not touch comments that already existed on the base branch
 unless the user asks.
 
+This covers all comment forms: line comments (`//`, `#`), block comments
+(`/* */`), and doc comments (JSDoc/TSDoc, Python docstrings, Rustdoc, etc.).
+Doc comments get the same scrutiny — a docblock that just restates the
+signature is still noise and should be trimmed or removed.
+
 ## Scope: only new comments
 
-Find what changed relative to the base branch, and only consider comments
-inside those diffs.
+First check if the working directory is dirty (`git status --porcelain`).
+
+- **Dirty:** scope to the pending uncommitted changes only (`git diff` for
+  unstaged, `git diff --cached` for staged, or both).
+- **Clean:** find what changed relative to the base branch, and only consider
+  comments inside those diffs.
 
 ```sh
-# Determine the base branch (usually main or master), then:
+# Dirty working directory:
+git status --porcelain
+git diff; git diff --cached
+
+# Clean working directory — determine the base branch (usually main or
+# master), then diff against it:
 git diff --merge-base main -- '*'          # full diff vs base
 git diff --merge-base main -U0 | grep '^+' # only added lines
 ```
@@ -23,10 +37,6 @@ git diff --merge-base main -U0 | grep '^+' # only added lines
 If the base branch is not `main`, ask or infer it (`git symbolic-ref
 refs/remotes/origin/HEAD`). Restrict all edits to comments introduced by these
 added lines.
-
-When invoked as part of committing, scope this instead to the **pending
-uncommitted diff** (`git diff` / `git diff --cached`) rather than the whole
-branch.
 
 ## Principles
 
@@ -88,9 +98,27 @@ After (keep the *why*, make it focused):
 await sleep(200)
 ```
 
+Before (docblock, no added meaning):
+
+```ts
+/**
+ * Gets the user.
+ * @param id The user id.
+ * @returns The user.
+ */
+async function getUser(id: string): Promise<User | null> { ... }
+```
+
+After (delete — types and name already convey this):
+
+```ts
+async function getUser(id: string): Promise<User | null> { ... }
+```
+
 ## Workflow
 
-1. Identify the base branch and get the added lines.
+1. Check if the working directory is dirty; if so use the pending diff,
+   otherwise identify the base branch and get the added lines.
 2. List each new/modified comment and classify: delete, shorten, or keep.
 3. Apply edits, touching only comments — leave logic untouched.
 4. Summarize what was removed vs. tightened.
