@@ -283,3 +283,11 @@ fi
 
 # Skip auto yarn install in husky git hooks (tonies-app)
 export TONIES_GIT_SKIP_INSTALL=true
+
+# Make ctrl-w delete "--flag" fully instead of stopping after "--"
+my-backward-kill-word() {
+  local WORDCHARS='-'
+  zle backward-kill-word
+}
+zle -N my-backward-kill-word
+bindkey '^W' my-backward-kill-word
