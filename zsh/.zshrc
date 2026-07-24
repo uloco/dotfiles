@@ -13,9 +13,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-## Fast Node Manager
 export RCFILE="$HOME/.zshrc"
-eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 
 # Include
 source "${HOME}/.zsh.env"
@@ -60,6 +58,9 @@ plugins=(fzf zoxide colored-man-pages pod fzf-tab yarn npm)
 export HOMEBREW_UPDATE_TO_TAG=1
 
 eval "$(brew shellenv)"
+
+## Fast Node Manager (after brew shellenv so fnm's shim wins in PATH)
+eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 
 # Add the completions directory to fpath (aider)
 fpath=(~/.zsh/completions $fpath)
