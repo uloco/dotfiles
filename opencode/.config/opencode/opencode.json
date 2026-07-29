@@ -61,9 +61,9 @@
       ],
       "enabled": true
     },
-    "ios-simulator": {
+    "mobile-mcp": {
       "type": "local",
-      "command": ["npx", "-y", "ios-simulator-mcp"],
+      "command": ["npx", "@mobilenext/mobile-mcp@latest"],
       "enabled": true
     },
     "metro-mcp": {
