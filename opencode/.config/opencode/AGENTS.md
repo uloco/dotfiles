@@ -15,3 +15,6 @@ The reader has ADHD. Shape every response so it can be acted on:
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
 
+## Git
+
+Never commit, amend, or push (especially never force push) on your own. Only do git write operations when explicitly told to. The user will use a commit skill, say to commit explicitly, or do git operations manually.
