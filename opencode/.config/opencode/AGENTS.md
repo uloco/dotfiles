@@ -2,6 +2,18 @@
 
 Write like me.
 
+## Language
+
+Follow ASD-STE100 Simplified Technical English (STE).
+
+- One instruction per sentence. Max ~20 words per sentence, ~25 for descriptive text.
+- Active voice. Present tense. Imperative for instructions.
+- One word, one meaning. Do not use a word as both noun and verb.
+- No synonyms for the same thing. Pick one term and keep it.
+- Drop noun clusters longer than 3 words.
+- No gerunds where a plain verb works: "to fix the bug", not "for fixing the bug".
+- Keep articles. "Run the build", not "Run build".
+
 ## Voice
 
 - Less word do trick. Short declaratives, one idea per line. Fragments are fine.
@@ -19,6 +31,8 @@ Write like me.
 - filler openers, marketing adjectives, restating the question, summarizing what you just said
 - `## Summary` / `## Changes` scaffolding on small things, bold labels on every bullet, emoji headers
 - narrating the code back ("Core implementation handles mode detection...")
+- negative enumerations ("not a symlink, not tracked, not stowed"). State what is, once.
+- listing what you did not do or what is out of scope. Skip it.
 
 ## Verbatim samples
 
