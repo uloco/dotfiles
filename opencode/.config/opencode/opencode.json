@@ -7,7 +7,23 @@
       "*": "allow",
       "*.env": "deny",
       "*.env.*": "deny",
-      "*.env.example": "allow"
+      "*.env.example": "allow",
+      "*.ssh/*": "deny",
+      "*id_rsa*": "deny",
+      "*id_ed25519*": "deny",
+      "*.pem": "deny",
+      "*.p12": "deny",
+      "*.pub": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "*.env*": "deny",
+      "*.env.example*": "allow",
+      "*.ssh/*": "deny",
+      "*id_rsa*": "deny",
+      "*id_ed25519*": "deny",
+      "*.pem*": "deny",
+      "*.p12*": "deny"
     },
     "external_directory": {
       "~/.dotfiles/nvim/*": "allow",
@@ -58,6 +74,18 @@
         "https://mcp.bitrise.io",
         "--header",
         "Authorization: Bearer ${BITRISE_TOKEN}"
+      ],
+      "enabled": true
+    },
+    "sentry": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@sentry/mcp-server@latest",
+        "--host=sentry-2.boxine.de",
+        "--access-token=${SENTRY_TOKEN}",
+        "--disable-skills=seer"
       ],
       "enabled": true
     },
