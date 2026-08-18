@@ -73,7 +73,7 @@
         "mcp-remote@latest",
         "https://mcp.bitrise.io",
         "--header",
-        "Authorization: Bearer ${BITRISE_TOKEN}"
+        "Authorization: Bearer {env:BITRISE_TOKEN}"
       ],
       "enabled": true
     },
@@ -84,8 +84,8 @@
         "-y",
         "@sentry/mcp-server@latest",
         "--host=sentry-2.boxine.de",
-        "--access-token=${SENTRY_TOKEN}",
-        "--disable-skills=seer"
+        "--disable-skills=seer",
+        "--access-token={env:SENTRY_MCP_TOKEN}"
       ],
       "enabled": true
     },
