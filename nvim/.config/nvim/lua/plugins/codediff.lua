@@ -2,8 +2,12 @@ return {
 	{
 		"esmuellert/codediff.nvim",
 		opts = {
+			diff = {
+				ignore_trim_whitespace = true,
+				compute_moves = true,
+			},
 			explorer = {
-				view_mode = "list",
+				initial_focus = "modified",
 			},
 			keymaps = {
 				view = {
