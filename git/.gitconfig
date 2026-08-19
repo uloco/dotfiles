@@ -24,10 +24,10 @@
 [ghi]
   token = !security find-internet-password -a uloco -s github.com -l 'ghi token' -w
 [diff]
-  tool = vimdiff
+	tool = codediff
   colorMoved = default
 [merge]
-  tool = vimdiff
+	tool = codediff
   conflictstyle = diff3
 [rebase]
   updateRefs = false
@@ -168,3 +168,7 @@
   gpgsign = true
 [fetch]
 	prune = true
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff --exit-on-close file $LOCAL $REMOTE\"
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff --exit-on-close merge \\\"$MERGED\\\"\"
