@@ -144,3 +144,28 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 		vim.fn.system("prettierd restart")
 	end,
 })
+
+-- Notify sidekick CLI processes of theme changes via Mode 2031 (DECRPM).
+-- Ghostty sends these natively when macOS appearance changes. Neovim's embedded
+-- terminal does not, so opencode/claude never learn about the switch.
+-- Only sidekick terminals get it; a shell would render the bytes as prompt junk.
+vim.api.nvim_create_autocmd("OptionSet", {
+	group = augroup("terminal_theme_notify"),
+	pattern = "background",
+	callback = function()
+		local seq = vim.o.background == "dark" and "\027[?997;1n" or "\027[?997;2n"
+		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+			if vim.bo[buf].filetype == "sidekick_terminal" then
+				pcall(vim.fn.chansend, vim.bo[buf].channel, seq)
+			end
+		end
+		-- Re-enter terminal mode so the cursor picks up the new highlight.
+		-- The delay waits for the colorscheme to rebuild its highlights.
+		vim.defer_fn(function()
+			if vim.fn.mode() ~= "t" then
+				return
+			end
+			vim.api.nvim_feedkeys(vim.keycode("<C-\\><C-n>i"), "n", false)
+		end, 50)
+	end,
+})
