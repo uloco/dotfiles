@@ -42,7 +42,7 @@
         "mcp-remote@latest",
         "https://mcp.atlassian.com/v1/mcp"
       ],
-      "enabled": false
+      "enabled": true
     },
     "gitlab": {
       "type": "local",
