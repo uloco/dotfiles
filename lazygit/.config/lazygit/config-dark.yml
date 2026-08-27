@@ -1,7 +1,7 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --features dark-mode --paging=never
+      command: delta --features dark-mode --paging=never
 gui:
   theme:
     defaultFgColor:
