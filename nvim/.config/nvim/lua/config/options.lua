@@ -7,6 +7,7 @@ vim.opt.fileencoding = "utf-8"
 vim.wo.number = true
 
 vim.opt.title = true
+vim.opt.titlestring = "nvim (%{fnamemodify(getcwd(), ':~')})"
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
