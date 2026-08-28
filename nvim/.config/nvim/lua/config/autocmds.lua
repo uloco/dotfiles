@@ -145,6 +145,51 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
+-- Gray cursor marks normal mode in terminal buffers. 'guicursor' is global, so
+-- swap the Cursor highlight instead. Gray derives from the Normal foreground to
+-- track the colorscheme's light/dark variant.
+local cursor_saved, cursor_grayed
+
+local function cursor_gray()
+	if cursor_grayed then
+		return
+	end
+	cursor_saved = cursor_saved or vim.api.nvim_get_hl(0, { name = "Cursor", link = false })
+	local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+	vim.api.nvim_set_hl(0, "Cursor", { fg = cursor_saved.fg, bg = normal.fg })
+	cursor_grayed = true
+end
+
+local function cursor_restore()
+	if not cursor_grayed then
+		return
+	end
+	vim.api.nvim_set_hl(0, "Cursor", cursor_saved)
+	cursor_grayed = false
+end
+
+vim.api.nvim_create_autocmd({ "ModeChanged", "BufEnter", "WinEnter" }, {
+	group = augroup("term_normal_cursor"),
+	callback = function()
+		if vim.bo.buftype == "terminal" and vim.fn.mode() ~= "t" then
+			cursor_gray()
+		else
+			cursor_restore()
+		end
+	end,
+})
+
+-- Drop the cached colors so the next swap picks up the new colorscheme.
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = augroup("term_normal_cursor_reset"),
+	callback = function()
+		cursor_saved, cursor_grayed = nil, false
+		if vim.bo.buftype == "terminal" and vim.fn.mode() ~= "t" then
+			cursor_gray()
+		end
+	end,
+})
+
 -- Notify sidekick CLI processes of theme changes via Mode 2031 (DECRPM).
 -- Ghostty sends these natively when macOS appearance changes. Neovim's embedded
 -- terminal does not, so opencode/claude never learn about the switch.
