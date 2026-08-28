@@ -99,6 +99,8 @@ return {
 		require("mini.files").setup({
 			mappings = {
 				close = "<ESC>",
+				go_in = "L",
+				go_in_plus = "l",
 			},
 		})
 
