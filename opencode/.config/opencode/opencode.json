@@ -29,6 +29,8 @@
       "~/.dotfiles/nvim/*": "allow",
       "~/.local/share/nvim/*": "allow",
       "~/Source/neovim/bluloco.nvim/*": "allow",
+      "~/Source/theme-bluloco-dark/*": "allow",
+      "~/Source/theme-bluloco-light/*": "allow",
       "/opt/homebrew/Cellar/neovim/*": "allow",
       "/tmp/**": "allow"
     }
