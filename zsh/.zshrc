@@ -137,6 +137,9 @@ alias vim='nvim'
 alias viml='NVIM_APPNAME=nvim-lazyvim nvim'
 alias vimo='NVIM_APPNAME=nvim-old nvim'
 
+# VSCode with CDP exposed, so agents can inspect the UI (theme work)
+alias code-debug='code --remote-debugging-port=9222'
+
 alias java-versions='$(echo /usr/libexec/java_home -V) && env | grep JAVA_HOME'
 
 # Git
