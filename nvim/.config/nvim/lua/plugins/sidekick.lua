@@ -1,7 +1,7 @@
 return {
 	"folke/sidekick.nvim",
 	dependencies = {
-		"zbirenbaum/copilot.lua",
+		-- "zbirenbaum/copilot.lua",
 	},
 	lazy = false,
 	opts = {
