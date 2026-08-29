@@ -28,9 +28,9 @@
     "external_directory": {
       "~/.dotfiles/nvim/*": "allow",
       "~/.local/share/nvim/*": "allow",
-      "~/Source/neovim/bluloco.nvim/*": "allow",
-      "~/Source/theme-bluloco-dark/*": "allow",
-      "~/Source/theme-bluloco-light/*": "allow",
+      "~/.config/opencode/*": "allow",
+      "~/Source/**": "allow",
+      "~/Source/_freelance/*": "deny",
       "/opt/homebrew/Cellar/neovim/*": "allow",
       "/tmp/**": "allow"
     }
