@@ -123,6 +123,36 @@
         "region": "eu-central-1",
         "profile": "experimental"
       }
+    },
+    "mistral": {
+      "name": "Mistral",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://api.eu.mistral.ai/v1"
+      },
+      "models": {
+        "zai-glm-5-2": {
+          "name": "GLM-5.2",
+          "tool_call": true,
+          "reasoning": true,
+          "temperature": true,
+          "attachment": true,
+          "options": {
+            "max_tokens": 131072,
+            "reasoning_effort": "max"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          },
+          "cost": {
+            "input": 1.4,
+            "cache_read": 0.14,
+            "output": 4.4,
+            "cache_write": 0
+          }
+        }
+      }
     }
   },
   "experimental": {
