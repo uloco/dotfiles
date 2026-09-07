@@ -22,6 +22,7 @@ return {
 			section_separators = { left = "", right = "" },
 			always_show_tabline = false,
 			disabled_filetypes = {
+				statusline = { "atlas" },
 				winbar = { "sidekick_terminal", "snacks_terminal", "toggleterm" },
 			},
 		},
@@ -77,8 +78,8 @@ return {
 		inactive_winbar = {
 			lualine_b = {
 				{
-				  "filename",
-				  cond = not_codediff
+					"filename",
+					cond = not_codediff,
 				},
 			},
 			lualine_c = {
