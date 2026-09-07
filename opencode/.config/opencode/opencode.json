@@ -29,6 +29,7 @@
       "~/.dotfiles/nvim/*": "allow",
       "~/.local/share/nvim/*": "allow",
       "~/.config/opencode/*": "allow",
+      "~/.config/nvim/*": "allow",
       "~/Source/**": "allow",
       "~/Source/_freelance/*": "deny",
       "/opt/homebrew/Cellar/neovim/*": "allow",
