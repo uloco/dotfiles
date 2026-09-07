@@ -17,23 +17,22 @@ return {
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
-		-- Define your formatters
 		formatters_by_ft = {
 			kotlin = { "ktlint" },
 			lua = { "stylua", lsp_format = "never" },
 			swift = { "swift" },
-			javascript = { "prettierd" },
-			javascriptreact = { "prettierd" },
-			typescript = { "prettierd" },
-			typescriptreact = { "prettierd" },
-			css = { "prettierd" },
-			less = { "prettierd" },
-			scss = { "prettierd" },
-			graphql = { "prettierd" },
-			json = { "prettierd" },
-			yaml = { "prettierd" },
-			markdown = { "prettierd" },
-			html = { "prettierd" },
+			javascript = { "oxfmt", "prettierd" },
+			javascriptreact = { "oxfmt", "prettierd" },
+			typescript = { "oxfmt", "prettierd" },
+			typescriptreact = { "oxfmt", "prettierd" },
+			css = { "oxfmt", "prettierd" },
+			less = { "oxfmt", "prettierd" },
+			scss = { "oxfmt", "prettierd" },
+			graphql = { "oxfmt", "prettierd" },
+			json = { "oxfmt", "prettierd" },
+			yaml = { "oxfmt", "prettierd" },
+			markdown = { "oxfmt", "prettierd" },
+			html = { "oxfmt", "prettierd" },
 			sh = { "shfmt" },
 			bash = { "shfmt" },
 			zsh = { "beautysh" },
@@ -41,6 +40,7 @@ return {
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
+			stop_after_first = true,
 		},
 		formatters = {
 			shfmt = {
