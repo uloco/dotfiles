@@ -2,6 +2,61 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	init = function()
+		vim.g.disable_autoformat = true
+	end,
+	config = function(_, opts)
+		require("snacks").setup(opts)
+
+		Snacks.toggle({
+			name = "Auto Format (Buffer)",
+			get = function()
+				return not vim.b.disable_autoformat
+			end,
+			set = function(state)
+				vim.b.disable_autoformat = not state
+			end,
+		}):map("<leader>uf")
+
+		Snacks.toggle({
+			name = "Auto Format",
+			get = function()
+				return not vim.g.disable_autoformat
+			end,
+			set = function(state)
+				vim.g.disable_autoformat = not state
+			end,
+		}):map("<leader>uF")
+
+		Snacks.toggle({
+			name = "Inline Diagnostics",
+			get = function()
+				return not vim.g.disable_inline_diagnostics
+			end,
+			set = function(state)
+				vim.g.disable_inline_diagnostics = not state
+				if state then
+					require("tiny-inline-diagnostic").enable()
+				else
+					require("tiny-inline-diagnostic").disable()
+				end
+			end,
+		}):map("<leader>ue")
+
+		Snacks.toggle({
+			name = "TS Context",
+			get = function()
+				return require("treesitter-context").enabled()
+			end,
+			set = function(state)
+				if state then
+					require("treesitter-context").enable()
+				else
+					require("treesitter-context").disable()
+				end
+			end,
+		}):map("<leader>uc")
+	end,
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
@@ -45,16 +100,16 @@ return {
 						end,
 					},
 				},
-			lsp_symbols = {
-				filter = {
-					default = true, -- show all symbol kinds
+				lsp_symbols = {
+					filter = {
+						default = true, -- show all symbol kinds
+					},
 				},
-			},
-			lsp_workspace_symbols = {
-				filter = {
-					default = true, -- show all symbol kinds
+				lsp_workspace_symbols = {
+					filter = {
+						default = true, -- show all symbol kinds
+					},
 				},
-			},
 				-- 	explorer = {
 				-- 		hidden = true,
 				-- 		-- your explorer picker configuration comes here

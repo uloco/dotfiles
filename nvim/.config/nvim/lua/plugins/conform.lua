@@ -11,36 +11,6 @@ return {
 			mode = "",
 			desc = "Format buffer",
 		},
-		{
-			"<leader>uf",
-			function()
-				Snacks.toggle({
-					name = "Auto Format (Buffer)",
-					get = function()
-						return not vim.b.disable_autoformat
-					end,
-					set = function(state)
-						vim.b.disable_autoformat = not state
-					end,
-				}):toggle()
-			end,
-			desc = "Toggle auto format (buffer)",
-		},
-		{
-			"<leader>uF",
-			function()
-				Snacks.toggle({
-					name = "Auto Format",
-					get = function()
-						return not vim.g.disable_autoformat
-					end,
-					set = function(state)
-						vim.g.disable_autoformat = not state
-					end,
-				}):toggle()
-			end,
-			desc = "Toggle auto format (global)",
-		},
 	},
 	---@module "conform"
 	---@type conform.setupOpts

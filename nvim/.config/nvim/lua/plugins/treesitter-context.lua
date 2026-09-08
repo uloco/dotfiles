@@ -3,7 +3,6 @@ return {
 	event = "VeryLazy",
 	opts = {},
 	keys = {
-		{ "<leader>uc", "<cmd>TSContext toggle<cr>", desc = "Toggle TS Context" },
 		{
 			"[x",
 			function()
