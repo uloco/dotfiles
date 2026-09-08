@@ -37,7 +37,19 @@ return {
 		},
 		keys = {
 			{ "<leader>df", "<cmd>CodeDiff<CR>", desc = "Toggle Diff" },
-			{ "<leader>dh", "<cmd>CodeDiff history %<CR>", desc = "File history" },
+			{
+				"<leader>dh",
+				function()
+					local name = vim.api.nvim_buf_get_name(0)
+				local ft = vim.bo.filetype
+				if name:match("^codediff://") or ft:match("^codediff%-") then
+						vim.cmd("CodeDiff")
+					else
+						vim.cmd("CodeDiff history %")
+					end
+				end,
+				desc = "File history",
+			},
 			{ "<leader>dH", "<cmd>CodeDiff history <CR>", desc = "File history (all commits)" },
 		},
 		cmd = { "CodeDiff" },
