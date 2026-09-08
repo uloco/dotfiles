@@ -4,7 +4,6 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			-- Customize or remove this keymap to your liking
 			"<leader>ö",
 			function()
 				require("conform").format()
@@ -12,11 +11,46 @@ return {
 			mode = "",
 			desc = "Format buffer",
 		},
+		{
+			"<leader>uf",
+			function()
+				Snacks.toggle({
+					name = "Auto Format (Buffer)",
+					get = function()
+						return not vim.b.disable_autoformat
+					end,
+					set = function(state)
+						vim.b.disable_autoformat = not state
+					end,
+				}):toggle()
+			end,
+			desc = "Toggle auto format (buffer)",
+		},
+		{
+			"<leader>uF",
+			function()
+				Snacks.toggle({
+					name = "Auto Format",
+					get = function()
+						return not vim.g.disable_autoformat
+					end,
+					set = function(state)
+						vim.g.disable_autoformat = not state
+					end,
+				}):toggle()
+			end,
+			desc = "Toggle auto format (global)",
+		},
 	},
-	-- This will provide type hinting with LuaLS
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
+		format_on_save = function(bufnr)
+			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+				return
+			end
+			return { timeout_ms = 500, lsp_format = "fallback" }
+		end,
 		formatters_by_ft = {
 			kotlin = { "ktlint" },
 			lua = { "stylua", lsp_format = "never" },
@@ -50,9 +84,5 @@ return {
 				prepend_args = { "-i", "2" },
 			},
 		},
-		-- init = function()
-		--   -- If you want the formatexpr, here is the place to set it
-		--   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		-- end,
 	},
 }
