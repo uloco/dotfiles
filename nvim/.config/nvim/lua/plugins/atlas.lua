@@ -45,6 +45,48 @@ return {
 		},
 	},
 	opts = {
+		keymaps = {
+			ui = {
+				submit = "<A-CR>",
+				next_page = "<leader>jp",
+				previous_page = "<leader>kp",
+				open_actions = "<leader>ca",
+				toggle_star = "<leader>G*",
+				notifications = { open = "<leader>GN" },
+			},
+			pulls = {
+				open_diff = "<leader>df",
+				checkout = "<leader>Go",
+				review = {
+					approve = "<leader>Ga",
+					request_changes = "<leader>Gx",
+					submit_review = "<leader>Gs",
+					add_task = "<leader>Gt",
+					comment_templates = "<leader>GT",
+					explorer = {
+						next_file = "<leader>jf",
+						previous_file = "<leader>kf",
+						next_unreviewed_file = "<leader>ju",
+						previous_unreviewed_file = "<leader>ku",
+					},
+					diff = {
+						toggle_layout = "<leader>dl",
+						toggle_compact = "<leader>dc",
+						next_hunk = "<leader>jh",
+						previous_hunk = "<leader>kh",
+						toggle_review_panel = "<leader>dr",
+						toggle_detail_panel = "<leader>dd",
+						toggle_comments = "<leader>dC",
+						next_comment = "<leader>jC",
+						previous_comment = "<leader>kC",
+						next_note = "<leader>jn",
+						previous_note = "<leader>kn",
+						add_note = "<leader>Gn",
+						toggle_resolved = "<leader>Gd",
+					},
+				},
+			},
+		},
 		providers = {
 			github = {},
 			gitlab = {
