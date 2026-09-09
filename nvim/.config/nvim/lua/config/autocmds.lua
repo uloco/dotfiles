@@ -145,47 +145,21 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
--- Gray cursor marks normal mode in terminal buffers. 'guicursor' is global, so
--- swap the Cursor highlight instead. Gray derives from the Normal foreground to
--- track the colorscheme's light/dark variant.
-local cursor_saved, cursor_grayed
-
-local function cursor_gray()
-	if cursor_grayed then
-		return
-	end
-	cursor_saved = cursor_saved or vim.api.nvim_get_hl(0, { name = "Cursor", link = false })
-	local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
-	vim.api.nvim_set_hl(0, "Cursor", { fg = cursor_saved.fg, bg = normal.fg })
-	cursor_grayed = true
-end
-
-local function cursor_restore()
-	if not cursor_grayed then
-		return
-	end
-	vim.api.nvim_set_hl(0, "Cursor", cursor_saved)
-	cursor_grayed = false
-end
-
-vim.api.nvim_create_autocmd({ "ModeChanged", "BufEnter", "WinEnter" }, {
+-- Use distinct theme colors for normal and terminal mode in terminal buffers.
+local cursor_saved
+vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "WinEnter", "TermOpen", "FileType", "ColorScheme" }, {
 	group = augroup("term_normal_cursor"),
 	callback = function()
-		if vim.bo.buftype == "terminal" and vim.fn.mode() ~= "t" then
-			cursor_gray()
-		else
-			cursor_restore()
-		end
-	end,
-})
-
--- Drop the cached colors so the next swap picks up the new colorscheme.
-vim.api.nvim_create_autocmd("ColorScheme", {
-	group = augroup("term_normal_cursor_reset"),
-	callback = function()
-		cursor_saved, cursor_grayed = nil, false
-		if vim.bo.buftype == "terminal" and vim.fn.mode() ~= "t" then
-			cursor_gray()
+		local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+		local cursor = vim.api.nvim_get_hl(0, { name = "Cursor" })
+		vim.api.nvim_set_hl(0, "TerminalNormalCursor", { fg = cursor.fg, bg = normal.fg })
+		vim.api.nvim_set_hl(0, "TerminalInputCursor", { fg = cursor.fg, bg = cursor.bg })
+		if vim.bo.buftype == "terminal" and vim.bo.filetype ~= "snacks_terminal" then
+			cursor_saved = cursor_saved or vim.o.guicursor
+			vim.o.guicursor = cursor_saved .. ",n-v-ve-o-c-ci-cr-sm:TerminalNormalCursor,t:TerminalInputCursor"
+		elseif cursor_saved then
+			vim.o.guicursor = cursor_saved
+			cursor_saved = nil
 		end
 	end,
 })
