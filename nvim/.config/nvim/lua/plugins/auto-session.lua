@@ -33,6 +33,7 @@ return {
 				require("lint").try_lint()
 			end,
 		},
+		save_and_restore_shada = true,
 	},
 	keys = {
 		{ "<leader>lp", "<cmd>AutoSession search<cr>", desc = "Search Sessions" },
