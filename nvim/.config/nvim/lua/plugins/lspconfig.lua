@@ -41,8 +41,21 @@ return {
 		vim.lsp.config("yamlls", {
 			settings = {
 				yaml = {
-					schemas = require("schemastore").yaml.schemas(),
-					validate = true,
+					schemaStore = {
+						enable = false,
+						url = "",
+					},
+					schemas = require("schemastore").yaml.schemas({
+						extra = {
+							{
+								description = "Maestro Flow",
+								fileMatch = { "e2e/**/*.yaml", "e2e/**/*.yml" },
+								name = "Maestro Flow",
+								url = "https://www.schemastore.org/maestro-flow.json",
+							},
+						},
+					}),
+					validate = { enable = true },
 				},
 			},
 		})
