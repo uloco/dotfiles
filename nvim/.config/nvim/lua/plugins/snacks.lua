@@ -287,6 +287,13 @@ return {
 			desc = "Help Pages",
 		},
 		{
+			"<leader>lk",
+			function()
+				Snacks.picker.keymaps()
+			end,
+			desc = "Keymaps",
+		},
+		{
 			"<leader>lH",
 			function()
 				Snacks.picker.highlights()
