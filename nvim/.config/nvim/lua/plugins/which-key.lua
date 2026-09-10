@@ -4,9 +4,26 @@ return {
 	opts = {
 		prefix = "<leader>",
 		preset = "helix",
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
+		spec = {
+			{
+				mode = { "n", "x" },
+				{ "<leader>G", group = "Atlas" },
+				{ "<leader>a", group = "AI" },
+				{ "<leader>c", group = "Code / Conflicts" },
+				{ "<leader>d", group = "Diff / History" },
+				{ "<leader>f", group = "Files / Buffers" },
+				{ "<leader>g", group = "Goto / Git" },
+				{ "<leader>gs", group = "Git Search" },
+				{ "<leader>h", group = "Hunks / Highlight" },
+				{ "<leader>j", group = "Next", mode = { "n", "x", "o" } },
+				{ "<leader>k", group = "Previous", mode = { "n", "x", "o" } },
+				{ "<leader>l", group = "Pickers" },
+				{ "<leader>s", group = "Search / Source" },
+				{ "<leader>t", group = "Tests" },
+				{ "<leader>u", group = "Toggles" },
+				{ "<leader>v", group = "Cursors" },
+			},
+		},
 	},
 	keys = {
 		{
