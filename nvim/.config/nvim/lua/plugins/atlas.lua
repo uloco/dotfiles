@@ -10,6 +10,7 @@ end
 
 return {
 	"emrearmagan/atlas.nvim",
+	cmd = "Atlas",
 	dependencies = {
 		"MeanderingProgrammer/render-markdown.nvim",
 		"esmuellert/codediff.nvim",
