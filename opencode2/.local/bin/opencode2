@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+# Keep the beta's configuration and migrated sessions separate from v1.
+export XDG_CONFIG_HOME="$HOME/.config/opencode2"
+export XDG_DATA_HOME="$HOME/.local/share/opencode2"
+export XDG_CACHE_HOME="$HOME/.cache/opencode2"
+export XDG_STATE_HOME="$HOME/.local/state/opencode2"
+export OPENCODE_CONFIG_DIR="$XDG_CONFIG_HOME/opencode"
+export OPENCODE_DB="$XDG_DATA_HOME/opencode/opencode.db"
+unset OPENCODE_CONFIG OPENCODE_CONFIG_CONTENT
+
+exec "$HOME/.local/share/opencode2/runtime/bin/opencode2" "$@"

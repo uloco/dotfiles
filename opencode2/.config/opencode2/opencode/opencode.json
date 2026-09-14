@@ -1,0 +1,107 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "amazon-bedrock/global.openai.gpt-6-astra",
+  "autoupdate": "notify",
+  "lsp": true,
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "*.ssh/*": "deny",
+      "*id_rsa*": "deny",
+      "*id_ed25519*": "deny",
+      "*.pem": "deny",
+      "*.p12": "deny",
+      "*.pub": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "*.env*": "deny",
+      "*.env.example*": "allow",
+      "*.ssh/*": "deny",
+      "*id_rsa*": "deny",
+      "*id_ed25519*": "deny",
+      "*.pem*": "deny",
+      "*.p12*": "deny"
+    },
+    "external_directory": {
+      "~/.dotfiles/nvim/*": "allow",
+      "~/.local/share/nvim/*": "allow",
+      "~/.config/opencode/*": "allow",
+      "~/.config/nvim/*": "allow",
+      "~/Source/**": "allow",
+      "~/Source/_freelance/*": "deny",
+      "/opt/homebrew/Cellar/neovim/*": "allow",
+      "/tmp/**": "allow"
+    }
+  },
+  "mcp": {
+    "atlassian": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote@latest", "https://mcp.atlassian.com/v1/mcp"],
+      "enabled": true
+    },
+    "gitlab": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote@latest", "https://gitlab.boxine.de/api/v4/mcp"],
+      "enabled": true
+    },
+    "configcat": {
+      "type": "local",
+      "command": ["npx", "-y", "@configcat/mcp-server"],
+      "enabled": false
+    },
+    "figma": {
+      "type": "remote",
+      "url": "https://mcp.figma.com/mcp",
+      "enabled": true,
+      "oauth": {}
+    },
+    "bitrise": {
+      "type": "local",
+      "command": [
+        "npx", "-y", "mcp-remote@latest", "https://mcp.bitrise.io",
+        "--header", "Authorization: Bearer {env:BITRISE_TOKEN}"
+      ],
+      "enabled": true
+    },
+    "sentry": {
+      "type": "local",
+      "command": [
+        "npx", "-y", "@sentry/mcp-server@latest",
+        "--host=sentry-2.boxine.de", "--disable-skills=seer",
+        "--access-token={env:SENTRY_MCP_TOKEN}"
+      ],
+      "enabled": true
+    },
+    "mobile-mcp": {
+      "type": "local",
+      "command": ["npx", "@mobilenext/mobile-mcp@latest"],
+      "enabled": true
+    },
+    "metro-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "metro-mcp"]
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+      "enabled": true
+    },
+    "vscode-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"],
+      "enabled": true
+    }
+  },
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "eu-central-1",
+        "profile": "experimental"
+      }
+    }
+  }
+}
