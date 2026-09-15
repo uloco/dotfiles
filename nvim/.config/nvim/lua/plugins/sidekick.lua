@@ -19,25 +19,6 @@ return {
 				keys = {
 					-- disable default <c-f> file picker
 					files = false,
-					-- remap to option+f, refocus terminal on close
-					files_alt = {
-						"<a-f>",
-						function(t)
-							vim.cmd.stopinsert()
-							vim.schedule(function()
-								require("sidekick.cli.picker").open("files", { filter = { session = t.id } }, {
-									on_show = function()
-										t.normal_mode = false
-									end,
-									on_close = function()
-										t:focus()
-									end,
-								})
-							end)
-						end,
-						mode = "nt",
-						desc = "open file picker",
-					},
 				},
 			},
 			mux = {
