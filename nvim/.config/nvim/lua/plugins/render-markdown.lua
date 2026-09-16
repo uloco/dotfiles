@@ -4,4 +4,7 @@ return {
 	---@module 'render-markdown'
 	---@type render.md.UserConfig
 	opts = {},
+	keys = {
+		{ "<leader>um", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown rendering" },
+	},
 }
