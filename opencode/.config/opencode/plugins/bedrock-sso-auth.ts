@@ -7,6 +7,8 @@ import { spawn } from "child_process"
 const SSO_CACHE_DIR = join(homedir(), ".aws", "sso", "cache")
 const PROFILE = "llm"
 
+let checked = false
+
 async function isSsoTokenExpired(): Promise<boolean> {
   try {
     const files = await readdir(SSO_CACHE_DIR)
@@ -14,9 +16,8 @@ async function isSsoTokenExpired(): Promise<boolean> {
       if (!file.endsWith(".json")) continue
       const raw = await readFile(join(SSO_CACHE_DIR, file), "utf-8")
       const data = JSON.parse(raw)
-      // SSO session token has accessToken + expiresAt
       if (data.accessToken && data.expiresAt) {
-        return new Date(data.expiresAt) <= new Date()
+        if (new Date(data.expiresAt) > new Date()) return false
       }
     }
   } catch {
@@ -28,6 +29,9 @@ async function isSsoTokenExpired(): Promise<boolean> {
 export default Plugin.define({
   id: "bedrock-sso-auth",
   async setup() {
+    if (checked) return
+    checked = true
+
     if (!(await isSsoTokenExpired())) return
 
     console.log(`[bedrock-sso-auth] SSO token expired, running aws sso login --profile ${PROFILE}`)
