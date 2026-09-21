@@ -4,7 +4,7 @@ import { join } from "path"
 import { homedir } from "os"
 
 const SSO_CACHE_DIR = join(homedir(), ".aws", "sso", "cache")
-const PROFILE = "experimental"
+const PROFILE = "llm"
 
 async function isSsoTokenExpired(): Promise<boolean> {
   try {

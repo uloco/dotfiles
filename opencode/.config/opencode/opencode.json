@@ -122,7 +122,46 @@
     "amazon-bedrock": {
       "options": {
         "region": "eu-central-1",
-        "profile": "experimental"
+        "profile": "bedrock"
+      },
+      "whitelist": [
+        "eu.anthropic.claude-opus-5",
+        "eu.anthropic.claude-opus-4-8",
+        "eu.anthropic.claude-opus-4-6-v1",
+        "eu.anthropic.claude-sonnet-5",
+        "eu.anthropic.claude-sonnet-4-6",
+        "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "eu.anthropic.claude-fable-5"
+      ],
+      "models": {
+        "eu.anthropic.claude-opus-5": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
+          "name": "Claude Opus 5"
+        },
+        "eu.anthropic.claude-opus-4-8": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/5w0uzo1k1ovh",
+          "name": "Claude Opus 4.8"
+        },
+        "eu.anthropic.claude-opus-4-6-v1": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/pghtxro3szga",
+          "name": "Claude Opus 4.6"
+        },
+        "eu.anthropic.claude-sonnet-5": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
+          "name": "Claude Sonnet 5"
+        },
+        "eu.anthropic.claude-sonnet-4-6": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/x8dm43hmqbsj",
+          "name": "Claude Sonnet 4.6"
+        },
+        "eu.anthropic.claude-haiku-4-5-20251001-v1:0": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/g3banvp3zo89",
+          "name": "Claude Haiku 4.5"
+        },
+        "eu.anthropic.claude-fable-5": {
+          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/keb0sfa3v38e",
+          "name": "Claude Fable 5"
+        }
       }
     },
     "mistral": {
