@@ -166,7 +166,7 @@
     },
     "mistral": {
       "name": "Mistral",
-      "npm": "@ai-sdk/openai-compatible",
+      "npm": "@ai-sdk/mistral",
       "options": {
         "baseURL": "https://api.eu.mistral.ai/v1"
       },
