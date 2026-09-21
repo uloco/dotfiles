@@ -195,6 +195,7 @@
       }
     }
   },
+  "disabled_providers": ["gitlab"],
   "experimental": {
     "disable_paste_summary": true
   }
