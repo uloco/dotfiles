@@ -1,202 +1,148 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": true,
-  "plugin": [],
-  "permission": {
-    "read": {
-      "*": "allow",
-      "*.env": "deny",
-      "*.env.*": "deny",
-      "*.env.example": "allow",
-      "*.ssh/*": "deny",
-      "*id_rsa*": "deny",
-      "*id_ed25519*": "deny",
-      "*.pem": "deny",
-      "*.p12": "deny",
-      "*.pub": "allow"
-    },
-    "bash": {
-      "*": "allow",
-      "*.env*": "deny",
-      "*.env.example*": "allow",
-      "*.ssh/*": "deny",
-      "*id_rsa*": "deny",
-      "*id_ed25519*": "deny",
-      "*.pem*": "deny",
-      "*.p12*": "deny"
-    },
-    "external_directory": {
-      "~/.dotfiles/nvim/*": "allow",
-      "~/.local/share/nvim/*": "allow",
-      "~/.config/opencode/*": "allow",
-      "~/.config/nvim/*": "allow",
-      "~/Source/**": "allow",
-      "~/Source/_freelance/*": "deny",
-      "/opt/homebrew/Cellar/neovim/*": "allow",
-      "/tmp/**": "allow"
-    }
-  },
+  "permissions": [
+    { "action": "read", "resource": "*.env", "effect": "deny" },
+    { "action": "read", "resource": "*.env.*", "effect": "deny" },
+    { "action": "read", "resource": "*.ssh/*", "effect": "deny" },
+    { "action": "read", "resource": "*id_rsa*", "effect": "deny" },
+    { "action": "read", "resource": "*id_ed25519*", "effect": "deny" },
+    { "action": "read", "resource": "*.pem", "effect": "deny" },
+    { "action": "read", "resource": "*.p12", "effect": "deny" },
+    { "action": "read", "resource": "*.env.example", "effect": "allow" },
+    { "action": "read", "resource": "*.pub", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "shell", "resource": "*.env*", "effect": "deny" },
+    { "action": "shell", "resource": "*.ssh/*", "effect": "deny" },
+    { "action": "shell", "resource": "*id_rsa*", "effect": "deny" },
+    { "action": "shell", "resource": "*id_ed25519*", "effect": "deny" },
+    { "action": "shell", "resource": "*.pem*", "effect": "deny" },
+    { "action": "shell", "resource": "*.p12*", "effect": "deny" },
+    { "action": "shell", "resource": "*.env.example*", "effect": "allow" },
+    { "action": "shell", "resource": "*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/Source/_freelance/*", "effect": "deny" },
+    { "action": "external_directory", "resource": "~/.dotfiles/nvim/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/nvim/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.config/opencode/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.config/nvim/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/Source/**", "effect": "allow" },
+    { "action": "external_directory", "resource": "/opt/homebrew/Cellar/neovim/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "/tmp/**", "effect": "allow" }
+  ],
   "mcp": {
-    "atlassian": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "mcp-remote@latest",
-        "https://mcp.atlassian.com/v1/mcp"
-      ],
-      "enabled": true
-    },
-    "gitlab": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "mcp-remote@latest",
-        "https://gitlab.boxine.de/api/v4/mcp"
-      ],
-      "enabled": true
-    },
-    "configcat": {
-      "type": "local",
-      "command": ["npx", "-y", "@configcat/mcp-server"],
-      "enabled": false
-    },
-    "figma": {
-      "type": "remote",
-      "url": "https://mcp.figma.com/mcp",
-      "enabled": true,
-      "oauth": {}
-    },
-    "bitrise": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "mcp-remote@latest",
-        "https://mcp.bitrise.io",
-        "--header",
-        "Authorization: Bearer {env:BITRISE_TOKEN}"
-      ],
-      "enabled": true
-    },
-    "sentry": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@sentry/mcp-server@latest",
-        "--host=sentry-2.boxine.de",
-        "--disable-skills=seer",
-        "--access-token={env:SENTRY_MCP_TOKEN}"
-      ],
-      "enabled": true
-    },
-    "mobile-mcp": {
-      "type": "local",
-      "command": ["npx", "@mobilenext/mobile-mcp@latest"],
-      "enabled": true
-    },
-    "metro-mcp": {
-      "type": "local",
-      "command": ["npx", "-y", "metro-mcp"]
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": true
-    },
-    "vscode-devtools": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest",
-        "--browserUrl",
-        "http://127.0.0.1:9222"
-      ],
-      "enabled": true
+    "servers": {
+      "atlassian": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "mcp-remote@latest",
+          "https://mcp.atlassian.com/v1/mcp"
+        ]
+      },
+      "gitlab": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "mcp-remote@latest",
+          "https://gitlab.boxine.de/api/v4/mcp"
+        ]
+      },
+      "configcat": {
+        "type": "local",
+        "command": ["npx", "-y", "@configcat/mcp-server"],
+        "disabled": true
+      },
+      "figma": {
+        "type": "remote",
+        "url": "https://mcp.figma.com/mcp",
+        "oauth": {}
+      },
+      "bitrise": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "mcp-remote@latest",
+          "https://mcp.bitrise.io",
+          "--header",
+          "Authorization: Bearer {env:BITRISE_TOKEN}"
+        ]
+      },
+      "sentry": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@sentry/mcp-server@latest",
+          "--host=sentry-2.boxine.de",
+          "--disable-skills=seer",
+          "--access-token={env:SENTRY_MCP_TOKEN}"
+        ]
+      },
+      "mobile-mcp": {
+        "type": "local",
+        "command": ["npx", "@mobilenext/mobile-mcp@latest"]
+      },
+      "metro-mcp": {
+        "type": "local",
+        "command": ["npx", "-y", "metro-mcp"]
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+      },
+      "vscode-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--browserUrl",
+          "http://127.0.0.1:9222"
+        ]
+      }
     }
   },
-  "provider": {
-    "amazon-bedrock": {
-      "options": {
+  "disabled_providers": ["amazon-bedrock"],
+  "providers": {
+    "bedrock": {
+      "name": "Bedrock",
+      "canonical": "amazon-bedrock",
+      "settings": {
         "region": "eu-central-1",
         "profile": "bedrock"
       },
-      "whitelist": [
-        "eu.anthropic.claude-opus-5",
-        "eu.anthropic.claude-opus-4-8",
-        "eu.anthropic.claude-opus-4-6-v1",
-        "eu.anthropic.claude-sonnet-5",
-        "eu.anthropic.claude-sonnet-4-6",
-        "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
-        "eu.anthropic.claude-fable-5"
-      ],
       "models": {
-        "eu.anthropic.claude-opus-5": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
+        "claude-opus-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
           "name": "Claude Opus 5"
         },
-        "eu.anthropic.claude-opus-4-8": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/5w0uzo1k1ovh",
+        "claude-opus-4-8": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/5w0uzo1k1ovh",
           "name": "Claude Opus 4.8"
         },
-        "eu.anthropic.claude-opus-4-6-v1": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/pghtxro3szga",
+        "claude-opus-4-6": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/pghtxro3szga",
           "name": "Claude Opus 4.6"
         },
-        "eu.anthropic.claude-sonnet-5": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
+        "claude-sonnet-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
           "name": "Claude Sonnet 5"
         },
-        "eu.anthropic.claude-sonnet-4-6": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/x8dm43hmqbsj",
+        "claude-sonnet-4-6": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/x8dm43hmqbsj",
           "name": "Claude Sonnet 4.6"
         },
-        "eu.anthropic.claude-haiku-4-5-20251001-v1:0": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/g3banvp3zo89",
+        "claude-haiku-4-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/g3banvp3zo89",
           "name": "Claude Haiku 4.5"
         },
-        "eu.anthropic.claude-fable-5": {
-          "id": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/keb0sfa3v38e",
+        "claude-fable-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/keb0sfa3v38e",
           "name": "Claude Fable 5"
         }
       }
-    },
-    "mistral": {
-      "name": "Mistral",
-      "npm": "@ai-sdk/mistral",
-      "options": {
-        "baseURL": "https://api.eu.mistral.ai/v1"
-      },
-      "models": {
-        "zai-glm-5-2": {
-          "name": "GLM-5.2",
-          "tool_call": true,
-          "reasoning": true,
-          "temperature": true,
-          "attachment": true,
-          "options": {
-            "max_tokens": 131072,
-            "reasoning_effort": "max"
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 1.4,
-            "cache_read": 0.14,
-            "output": 4.4,
-            "cache_write": 0
-          }
-        }
-      }
     }
-  },
-  "disabled_providers": ["gitlab"],
-  "experimental": {
-    "disable_paste_summary": true
   }
 }

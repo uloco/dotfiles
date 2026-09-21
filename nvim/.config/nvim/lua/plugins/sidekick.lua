@@ -30,13 +30,6 @@ return {
 					-- remap prompt to <a-p> so opencode's <c-p> commands menu works
 					keys = { prompt = { "<a-p>", "prompt" } },
 				},
-				opencode2 = {
-					cmd = { vim.fn.expand("~/.local/bin/opencode2") },
-					is_proc = "\\<opencode2\\>",
-					native_scroll = true,
-					continue = { "--continue" },
-					keys = { prompt = { "<a-p>", "prompt" } },
-				},
 			},
 		},
 	},
@@ -67,16 +60,6 @@ return {
 			end,
 			mode = { "n", "t" },
 			desc = "Toggle Opencode (Sidekick)",
-		},
-		{
-			"Å", -- Alt+Shift+a
-			function()
-				require("config.floats").open("sidekick", function()
-					require("sidekick.cli").toggle({ name = "opencode2", focus = true })
-				end)
-			end,
-			mode = { "n", "t" },
-			desc = "Toggle Opencode v2 (Sidekick)",
 		},
 		{
 			"<leader>ad",
