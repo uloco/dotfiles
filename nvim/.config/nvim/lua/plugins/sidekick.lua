@@ -19,6 +19,7 @@ return {
 				keys = {
 					-- disable default <c-f> file picker
 					files = false,
+					buffers = false,
 				},
 			},
 			mux = {
