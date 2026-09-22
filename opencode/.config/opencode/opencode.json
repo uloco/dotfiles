@@ -19,13 +19,41 @@
     { "action": "shell", "resource": "*.p12*", "effect": "deny" },
     { "action": "shell", "resource": "*.env.example*", "effect": "allow" },
     { "action": "shell", "resource": "*", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/Source/_freelance/*", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.dotfiles/nvim/*", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/nvim/*", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.config/opencode/*", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.config/nvim/*", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/Source/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "/opt/homebrew/Cellar/neovim/*", "effect": "allow" },
+    {
+      "action": "external_directory",
+      "resource": "~/Source/_freelance/*",
+      "effect": "deny"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/.dotfiles/nvim/*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/.local/share/nvim/*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/.config/opencode/*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/.config/nvim/*",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/Source/**",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "/opt/homebrew/Cellar/neovim/*",
+      "effect": "allow"
+    },
     { "action": "external_directory", "resource": "/tmp/**", "effect": "allow" }
   ],
   "mcp": {
@@ -117,37 +145,65 @@
         "claude-opus-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
           "name": "Claude Opus 5",
-          "cost": { "input": 5, "output": 25, "cache": { "read": 0.5, "write": 6.25 } }
+          "cost": {
+            "input": 5,
+            "output": 25,
+            "cache": { "read": 0.5, "write": 6.25 }
+          }
         },
         "claude-opus-4-8": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/5w0uzo1k1ovh",
           "name": "Claude Opus 4.8",
-          "cost": { "input": 5, "output": 25, "cache": { "read": 0.5, "write": 6.25 } }
+          "cost": {
+            "input": 5,
+            "output": 25,
+            "cache": { "read": 0.5, "write": 6.25 }
+          }
         },
         "claude-opus-4-6": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/pghtxro3szga",
           "name": "Claude Opus 4.6",
-          "cost": { "input": 5, "output": 25, "cache": { "read": 0.5, "write": 6.25 } }
+          "cost": {
+            "input": 5,
+            "output": 25,
+            "cache": { "read": 0.5, "write": 6.25 }
+          }
         },
         "claude-sonnet-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
           "name": "Claude Sonnet 5",
-          "cost": { "input": 3, "output": 15, "cache": { "read": 0.3, "write": 3.75 } }
+          "cost": {
+            "input": 3,
+            "output": 15,
+            "cache": { "read": 0.3, "write": 3.75 }
+          }
         },
         "claude-sonnet-4-6": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/x8dm43hmqbsj",
           "name": "Claude Sonnet 4.6",
-          "cost": { "input": 3, "output": 15, "cache": { "read": 0.3, "write": 3.75 } }
+          "cost": {
+            "input": 3,
+            "output": 15,
+            "cache": { "read": 0.3, "write": 3.75 }
+          }
         },
         "claude-haiku-4-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/g3banvp3zo89",
           "name": "Claude Haiku 4.5",
-          "cost": { "input": 1, "output": 5, "cache": { "read": 0.1, "write": 1.25 } }
+          "cost": {
+            "input": 1,
+            "output": 5,
+            "cache": { "read": 0.1, "write": 1.25 }
+          }
         },
         "claude-fable-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/keb0sfa3v38e",
           "name": "Claude Fable 5",
-          "cost": { "input": 10, "output": 50, "cache": { "read": 1, "write": 12.5 } }
+          "cost": {
+            "input": 10,
+            "output": 50,
+            "cache": { "read": 1, "write": 12.5 }
+          }
         }
       }
     }
