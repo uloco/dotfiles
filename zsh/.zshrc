@@ -56,6 +56,8 @@ plugins=(fzf zoxide colored-man-pages pod fzf-tab yarn npm)
 
 # Always update to stable tagged releases
 export HOMEBREW_UPDATE_TO_TAG=1
+# Don't ask when upgrading
+export HOMEBREW_NO_ASK=1
 
 eval "$(brew shellenv)"
 
