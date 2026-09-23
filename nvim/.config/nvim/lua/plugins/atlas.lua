@@ -110,6 +110,11 @@ return {
 					["zesavi/*"] = "~/Source/_freelance/clypp/*",
 					["phyiosfit-digital/*"] = "~/Source/_freelance/physiofit/*",
 				},
+				settings = {
+					["tonies/react-native"] = {
+						pr_template = ".gitlab/merge_request_templates/default.md",
+					},
+				},
 			},
 			github = {
 				views = {
