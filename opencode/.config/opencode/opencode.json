@@ -65,7 +65,8 @@
           "-y",
           "mcp-remote@latest",
           "https://mcp.atlassian.com/v1/mcp"
-        ]
+        ],
+        "disabled": true
       },
       "gitlab": {
         "type": "local",
@@ -74,7 +75,8 @@
           "-y",
           "mcp-remote@latest",
           "https://gitlab.boxine.de/api/v4/mcp"
-        ]
+        ],
+        "disabled": true
       },
       "configcat": {
         "type": "local",
@@ -95,7 +97,8 @@
           "https://mcp.bitrise.io",
           "--header",
           "Authorization: Bearer {env:BITRISE_TOKEN}"
-        ]
+        ],
+        "disabled": true
       },
       "sentry": {
         "type": "local",
@@ -106,19 +109,23 @@
           "--host=sentry-2.boxine.de",
           "--disable-skills=seer",
           "--access-token={env:SENTRY_MCP_TOKEN}"
-        ]
+        ],
+        "disabled": true
       },
       "mobile-mcp": {
         "type": "local",
-        "command": ["npx", "@mobilenext/mobile-mcp@latest"]
+        "command": ["npx", "@mobilenext/mobile-mcp@latest"],
+        "disabled": true
       },
       "metro-mcp": {
         "type": "local",
-        "command": ["npx", "-y", "metro-mcp"]
+        "command": ["npx", "-y", "metro-mcp"],
+        "disabled": true
       },
       "chrome-devtools": {
         "type": "local",
-        "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+        "disabled": true
       },
       "vscode-devtools": {
         "type": "local",
@@ -128,7 +135,8 @@
           "chrome-devtools-mcp@latest",
           "--browserUrl",
           "http://127.0.0.1:9222"
-        ]
+        ],
+        "disabled": true
       }
     }
   },
