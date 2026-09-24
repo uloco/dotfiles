@@ -31,16 +31,25 @@ async function readExpiry(): Promise<number> {
   return latest
 }
 
-function login(): Promise<void> {
-  console.log(`[bedrock-sso-auth] running aws sso login --profile ${PROFILE}`)
-  return new Promise<void>((resolve, reject) => {
-    const child = spawn("aws", ["sso", "login", "--profile", PROFILE], { stdio: "inherit" })
+function run(cmd: string, args: string[]): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, args, { stdio: "inherit" })
     child.on("error", reject)
-    child.on("close", (code) => {
-      if (code === 0) resolve()
-      else reject(new Error(`aws sso login exited with code ${code}`))
-    })
+    child.on("close", (code) => resolve(code ?? 1))
   })
+}
+
+async function login(): Promise<void> {
+  // Skip if credentials already work. Avoids opening the browser for nothing.
+  const ok = await run("aws", ["sts", "get-caller-identity", "--profile", PROFILE])
+  if (ok === 0) {
+    console.log(`[bedrock-sso-auth] credentials valid, skipping login`)
+    return
+  }
+
+  console.log(`[bedrock-sso-auth] running aws sso login --profile ${PROFILE}`)
+  const code = await run("aws", ["sso", "login", "--profile", PROFILE])
+  if (code !== 0) throw new Error(`aws sso login exited with code ${code}`)
 }
 
 async function ensureToken(force = false): Promise<void> {
