@@ -19,5 +19,18 @@ return {
 		{ "<leader>hp", ":Gitsigns preview_hunk<CR>", desc = "Preview Git Hunk" },
 		{ "<leader>hA", ":Gitsigns stage_buffer<CR>", desc = "Stage Git Buffer" },
 		{ "<leader>hR", ":Gitsigns reset_buffer<CR>", desc = "Reset Git Buffer" },
+		{
+			"<leader>hb",
+			function()
+				for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+					if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "gitsigns-blame" then
+						vim.api.nvim_win_close(win, true)
+						return
+					end
+				end
+				require("gitsigns").blame()
+			end,
+			desc = "Git blame sidebar",
+		},
 	},
 }
