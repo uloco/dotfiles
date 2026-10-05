@@ -4,7 +4,6 @@ return {
 	event = "VeryLazy",
 	opts = {
 		hide_numbers = false,
-		open_mapping = "†", -- Alt-Gr + t
 		insert_mappings = true,
 		start_in_insert = true,
 		persist_mode = false,
@@ -24,6 +23,23 @@ return {
 		close_on_exit = true,
 	},
 	keys = {
+		-- Alt-Gr + t
+		{
+			"†",
+			function()
+				local from_term = vim.bo.buftype == "terminal"
+				require("toggleterm").toggle(vim.v.count)
+				-- Closing several splits focuses each remaining terminal in turn and
+				-- toggleterm schedules startinsert for each. Undo it once back in a buffer.
+				vim.schedule(function()
+					if from_term and vim.bo.buftype ~= "terminal" then
+						vim.cmd("stopinsert")
+					end
+				end)
+			end,
+			mode = { "n", "i", "t" },
+			desc = "Toggle Terminal",
+		},
 		-- Alt-Gr + shift + t
 		{ "˝", "<cmd>ToggleTermToggleAll<cr>", mode = { "n", "t" }, desc = "Toggle All Terminals" },
 		-- right option + h -> floating terminal
