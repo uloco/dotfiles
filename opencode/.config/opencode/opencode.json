@@ -150,6 +150,15 @@
         "profile": "bedrock"
       },
       "models": {
+        "claude-opus-5-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/mok31e4lbtc5",
+          "name": "Claude Opus 5.5",
+          "cost": {
+            "input": 4,
+            "output": 20,
+            "cache": { "read": 0.2, "write": 5 }
+          }
+        },
         "claude-opus-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
           "name": "Claude Opus 5",
