@@ -96,7 +96,7 @@ return {
 			},
 		},
 		pulls = {
-			default_merge_method = "squash", -- "merge" or "squash"
+			default_merge_method = "merge", -- "merge" or "squash"
 			default_delete_branch = true,
 			git_transport = "ssh",
 			repo_config = {
