@@ -1,34 +1,59 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
   "theme": {
-    "name": "bluloco"
+    "name": "bluloco",
+    "mode": "system"
   },
   "keybinds": {
     "leader": "ctrl+l"
   },
   "diffs": {
     "wrap": "word",
-    "tree": true
+    "tree": true,
+    "view": "auto",
+    "single": false
   },
   "session": {
     "sidebar": "auto",
     "scrollbar": false,
     "thinking": "hide",
-    "new_location": "launch"
+    "new_location": "launch",
+    "markdown": "rendered",
+    "grouping": "auto",
+    "verbosity": "medium",
+    "tps": true,
+    "permissions": "prompt"
   },
   "animations": true,
   "attention": {
     "notifications": false,
-    "sound": false
+    "sound": false,
+    "volume": 0.4
   },
   "tabs": {
     "layout": "vertical",
-    "indicators": "status"
+    "indicators": "status",
+    "mode": "auto",
+    "scope": "cwd"
   },
   "terminal": {
-    "copy": "select"
+    "copy": "select",
+    "title": true
   },
   "prompt": {
-    "paste": "full"
+    "paste": "full",
+    "editor": true,
+    "image_preview": false
+  },
+  "scroll": {
+    "speed": 3,
+    "acceleration": false
+  },
+  "mouse": true,
+  "leader": {
+    "timeout": 2000
+  },
+  "debug": {
+    "devtools": false
   }
 }
