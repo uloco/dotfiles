@@ -186,6 +186,15 @@
             "cache": { "read": 0.5, "write": 6.25 }
           }
         },
+        "claude-sonnet-5-5": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/n6ilk8w1tm4u",
+          "name": "Claude Sonnet 5.5",
+          "cost": {
+            "input": 2,
+            "output": 10,
+            "cache": { "read": 0.1, "write": 2.5 }
+          }
+        },
         "claude-sonnet-5": {
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
           "name": "Claude Sonnet 5",
@@ -211,6 +220,15 @@
             "input": 1,
             "output": 5,
             "cache": { "read": 0.1, "write": 1.25 }
+          }
+        },
+        "claude-fable-5-1": {
+          "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/hnx0dnegwk52",
+          "name": "Claude Fable 5.1",
+          "cost": {
+            "input": 10,
+            "output": 50,
+            "cache": { "read": 0.25, "write": 12.5 }
           }
         },
         "claude-fable-5": {
