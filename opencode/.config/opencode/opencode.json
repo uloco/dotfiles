@@ -142,6 +142,15 @@
   },
   "disabled_providers": ["amazon-bedrock"],
   "providers": {
+    "mistral-studio": {
+      "name": "Mistral Studio",
+      "canonical": "mistral",
+      "env": ["MISTRAL_STUDIO_API_KEY"],
+      "models": {
+        "mistral-large-4": {},
+        "zai-glm-5-3": {}
+      }
+    },
     "bedrock": {
       "name": "Bedrock",
       "canonical": "amazon-bedrock",
