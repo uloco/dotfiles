@@ -201,16 +201,8 @@ function get_macos_theme () {
   defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light
 }
 
-# Lazygit
-export XDG_CONFIG_DIR=${HOME}/.config
-
-function lazygit () {
-  THEME=$(get_macos_theme)
-  CONFIG_BASE=${XDG_CONFIG_DIR}/lazygit/config.yml
-  CONFIG_THEME=${XDG_CONFIG_DIR}/lazygit/config-${THEME}.yml
-
-  command lazygit --use-config-file=${CONFIG_BASE},${CONFIG_THEME} $@
-}
+# Lazygit (picks its light/dark theme itself)
+export LG_CONFIG_FILE=${HOME}/.config/lazygit/config.yml
 alias lg='lazygit'
 
 function sad() {

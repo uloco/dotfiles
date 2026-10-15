@@ -6,6 +6,17 @@ gui:
   showIcons: true
   nerdFontsVersion: "3"
   theme:
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - default
+    selectedLineBgColor:
+      - reverse
+    cherryPickedCommitBgColor:
+      - reverse
+    cherryPickedCommitFgColor:
+      - magenta
     authorColors:
       "Umut Topuzoğlu": "magenta"
     branchColorPatterns:
@@ -15,6 +26,12 @@ gui:
       "^develop(/|$)": "green"
       "^release(/|$)": "yellow"
       "^hotfix(/|$)": "red"
+  darkTheme:
+    inactiveViewSelectedLineBgColor:
+      - "#636D83" # bluloco comment
+  lightTheme:
+    inactiveViewSelectedLineBgColor:
+      - "#A0A1A7" # bluloco comment
 promptToReturnFromSubprocess: false
 keybinding:
   universal:
@@ -25,6 +42,9 @@ keybinding:
     openMergeOptions: "T"
 git:
   overrideGpg: true
+  diffRenderers:
+    - colorArg: always
+      command: "delta --paging=never --features {{colorScheme}}-mode"
   skipHookPrefix: "wip:"
 customCommands:
   - key: "<c-f>"
