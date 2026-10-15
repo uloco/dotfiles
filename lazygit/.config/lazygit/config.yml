@@ -33,10 +33,10 @@ gui:
       "^hotfix(/|$)": "red"
   darkTheme:
     inactiveViewSelectedLineBgColor:
-      - "#636D83" # bluloco comment
+      - "black"
   lightTheme:
     inactiveViewSelectedLineBgColor:
-      - "#A0A1A7" # bluloco comment
+      - "white"
 promptToReturnFromSubprocess: false
 keybinding:
   universal:
