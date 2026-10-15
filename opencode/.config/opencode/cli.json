@@ -5,7 +5,9 @@
     "mode": "system"
   },
   "keybinds": {
-    "leader": "ctrl+l"
+    "leader": "ctrl+l",
+    "diff.open": "<leader>d",
+    "app.exit": "ctrl+c,<leader>q",
   },
   "diffs": {
     "wrap": "word",
