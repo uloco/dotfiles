@@ -4,16 +4,17 @@ gui:
   showFileTree: false
   scrollHeight: 20
   showIcons: true
-  branchColors:
-    "main": "blue"
-    "master": "blue"
-    "dev": "green"
-    "develop": "green"
-    "release": "yellow"
-    "hotfix": "red"
-  authorColors:
-    "Umut Topuzoğlu": "magenta"
   nerdFontsVersion: "3"
+  theme:
+    authorColors:
+      "Umut Topuzoğlu": "magenta"
+    branchColorPatterns:
+      "^main(/|$)": "blue"
+      "^master(/|$)": "blue"
+      "^dev(/|$)": "green"
+      "^develop(/|$)": "green"
+      "^release(/|$)": "yellow"
+      "^hotfix(/|$)": "red"
 promptToReturnFromSubprocess: false
 keybinding:
   universal:
