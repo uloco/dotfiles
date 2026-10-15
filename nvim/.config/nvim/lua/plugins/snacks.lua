@@ -168,6 +168,8 @@ return {
 				wo = {
 					winhighlight = "Normal:Normal",
 				},
+				-- lazygit needs <esc>; leave terminal mode with <A-e> like everywhere else
+				keys = { term_normal = false },
 			},
 		},
 	},
