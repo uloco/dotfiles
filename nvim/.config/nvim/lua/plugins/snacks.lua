@@ -69,7 +69,7 @@ return {
 		lazygit = {
 			enabled = true,
 			args = {
-				"--use-config-file=/Users/uloco/.config/lazygit/config-lazy.yml",
+				"--use-config-file=/Users/uloco/.config/lazygit/config.yml",
 			},
 			win = {
 				position = "float",
