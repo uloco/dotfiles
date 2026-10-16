@@ -10,6 +10,7 @@ return {
 	opts = {
 		ensure_installed = {
 			"bash",
+      "zsh",
 			"typescript",
 			"tsx",
 			"javascript",
