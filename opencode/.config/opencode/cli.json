@@ -10,10 +10,7 @@
     "app.exit": "ctrl+c,<leader>q",
   },
   "diffs": {
-    "wrap": "word",
-    "tree": true,
-    "view": "auto",
-    "single": false
+    "view": "auto"
   },
   "session": {
     "sidebar": "auto",
