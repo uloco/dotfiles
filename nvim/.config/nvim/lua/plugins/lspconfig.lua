@@ -139,13 +139,6 @@ return {
 			desc = "Line Diagnostics",
 		},
 		{
-			"gh",
-			function()
-				vim.lsp.buf.hover()
-			end,
-			desc = "Hover Documentation",
-		},
-		{
 			"<F2>",
 			function()
 				vim.lsp.buf.rename()
