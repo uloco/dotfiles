@@ -112,6 +112,11 @@
         ],
         "disabled": true
       },
+      "poeditor": {
+        "type": "remote",
+        "url": "https://mcp.poeditor.com/mcp",
+        "disabled": true
+      },
       "mobile-mcp": {
         "type": "local",
         "command": ["npx", "@mobilenext/mobile-mcp@latest"],
