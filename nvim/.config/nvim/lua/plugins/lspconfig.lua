@@ -103,6 +103,7 @@ return {
 		vim.lsp.enable("sourcekit")
 	end,
 	keys = {
+		{ "<leader>cR", "<cmd>lsp restart<cr>", desc = "Restart LSPs" },
 		{
 			"<leader>ke",
 			function()
