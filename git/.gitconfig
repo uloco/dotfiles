@@ -30,7 +30,7 @@
 	tool = codediff
   conflictstyle = diff3
 [rebase]
-  updateRefs = false
+	updateRefs = true
 [difftool]
   prompt = false
 [alias]
