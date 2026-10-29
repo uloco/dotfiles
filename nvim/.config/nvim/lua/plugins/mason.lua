@@ -21,6 +21,7 @@ return {
 					"bash-language-server",
 					"beautysh",
 					"eslint-lsp",
+					"oxlint",
 					"graphql-language-service-cli",
 					"json-lsp",
 					"lua-language-server",

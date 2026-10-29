@@ -4,13 +4,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		lint.linters_by_ft = {
-			javascript = { "oxlint" },
-			javascriptreact = { "oxlint" },
-			typescript = { "oxlint" },
-			typescriptreact = { "oxlint" },
-			svelte = { "oxlint" },
-		}
+		-- oxlint runs as an LSP (see mason.lua)
+		lint.linters_by_ft = {}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),

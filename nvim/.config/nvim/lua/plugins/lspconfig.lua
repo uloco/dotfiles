@@ -99,6 +99,9 @@ return {
 			cmd = { "xcrun", "sourcekit-lsp" },
 		})
 
+		-- Upstream allows single-file mode (nvim-lspconfig#4509); only start in projects that use oxc
+		vim.lsp.config("oxlint", { workspace_required = true })
+
 		vim.lsp.enable("kotlin_language_server")
 		vim.lsp.enable("sourcekit")
 	end,
