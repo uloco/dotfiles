@@ -14,7 +14,6 @@ return {
 					"python-lsp-server",
 					"tailwindcss-language-server",
 					"vtsls",
-					"typescript-language-server",
 					"svelte-language-server",
 					"prettierd",
 					"stylua",
@@ -41,7 +40,6 @@ return {
 		},
 		automatic_enable = {
 			exclude = {
-				"ts_ls",
 				"taplo",
 			},
 		},
