@@ -83,11 +83,21 @@ return {
 		vim.lsp.config("vtsls", {
 			settings = {
 				typescript = {
+					tsserver = {
+						experimental = {
+							enableProjectDiagnostics = true,
+						},
+					},
 					preferences = {
 						useAliasesForRenames = false,
 					},
 				},
 				javascript = {
+					tsserver = {
+						experimental = {
+							enableProjectDiagnostics = true,
+						},
+					},
 					preferences = {
 						useAliasesForRenames = false,
 					},
