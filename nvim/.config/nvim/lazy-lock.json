@@ -41,7 +41,7 @@
   "nvim-lsp-file-operations": { "branch": "master", "commit": "a76cdd2c4f0ad3ce6219506aad1208c81d600e20" },
   "nvim-lspconfig": { "branch": "master", "commit": "adfbb74472f6c231b651b650a89f414c2680fb31" },
   "nvim-nio": { "branch": "master", "commit": "edcc181a875301dd21840189aa2f2f9ad69fc172" },
-  "nvim-scrollbar": { "branch": "main", "commit": "00fe857e7cd97ee5e556de643ee920b003a96b03" },
+  "nvim-scrollbar": { "branch": "refactor/v2", "commit": "b39443d8fcae3e326ff965dea3fe7df266c8ccac" },
   "nvim-tree.lua": { "branch": "master", "commit": "f632f208c52e942af1db6d3793ccdd4752dd28ac" },
   "nvim-treesitter": { "branch": "main", "commit": "0195cd62fa89950f34c0e0d648ea7897ab85d4d3" },
   "nvim-treesitter-context": { "branch": "master", "commit": "8decd73460d26ef0a0befb745d022dd1fc2c38b8" },
