@@ -293,3 +293,4 @@ zle -N my-backward-kill-word
 bindkey '^W' my-backward-kill-word
 
 alias tonies-cleanup="rm -rf node_modules && git clean -dfx ios android && (cd ios && bash ../scripts/add_sentry_auth_token.sh ios) && (cd android && ../scripts/add_sentry_auth_token.sh android-local) && yarn && yarn start --clear"
+alias claude-usage="${HOME}/Source/_freelance/tonies/claude-bedrock.sh/claude-bedrock.sh usage"
