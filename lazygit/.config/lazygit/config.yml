@@ -46,6 +46,7 @@ keybinding:
   files:
     openMergeOptions: "T"
 git:
+  mainBranches: [master, main, develop]
   overrideGpg: true
   diffRenderers:
     - colorArg: always
