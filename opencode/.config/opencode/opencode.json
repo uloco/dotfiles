@@ -81,6 +81,10 @@
       "configcat": {
         "type": "local",
         "command": ["npx", "-y", "@configcat/mcp-server"],
+        "environment": {
+          "CONFIGCAT_API_USER": "{env:CONFIGCAT_API_USER}",
+          "CONFIGCAT_API_PASS": "{env:CONFIGCAT_API_PASS}"
+        },
         "disabled": true
       },
       "figma": {
@@ -168,10 +172,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/mok31e4lbtc5",
           "name": "Claude Opus 5.5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 4,
@@ -183,10 +219,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/96navruut07b",
           "name": "Claude Opus 5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 5,
@@ -198,10 +266,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/5w0uzo1k1ovh",
           "name": "Claude Opus 4.8",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 5,
@@ -213,10 +313,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/pghtxro3szga",
           "name": "Claude Opus 4.6",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 5,
@@ -228,10 +360,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/n6ilk8w1tm4u",
           "name": "Claude Sonnet 5.5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 2,
@@ -243,10 +407,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/gtz27o2rm9th",
           "name": "Claude Sonnet 5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 3,
@@ -258,10 +454,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/x8dm43hmqbsj",
           "name": "Claude Sonnet 4.6",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 3,
@@ -273,9 +501,30 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/g3banvp3zo89",
           "name": "Claude Haiku 4.5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "enabled", "budget_tokens": 2048 } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "enabled", "budget_tokens": 8192 } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "enabled", "budget_tokens": 16000 } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "enabled", "budget_tokens": 2048 }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "enabled", "budget_tokens": 8192 }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "enabled", "budget_tokens": 16000 }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 1,
@@ -287,10 +536,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/hnx0dnegwk52",
           "name": "Claude Fable 5.1",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 10,
@@ -302,10 +583,42 @@
           "modelID": "arn:aws:bedrock:eu-central-1:802320708029:application-inference-profile/keb0sfa3v38e",
           "name": "Claude Fable 5",
           "variants": [
-            { "id": "low", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "low" } } } },
-            { "id": "medium", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "medium" } } } },
-            { "id": "high", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "high" } } } },
-            { "id": "max", "body": { "additionalModelRequestFields": { "thinking": { "type": "adaptive" }, "output_config": { "effort": "max" } } } }
+            {
+              "id": "low",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "low" }
+                }
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "medium" }
+                }
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "high" }
+                }
+              }
+            },
+            {
+              "id": "max",
+              "body": {
+                "additionalModelRequestFields": {
+                  "thinking": { "type": "adaptive" },
+                  "output_config": { "effort": "max" }
+                }
+              }
+            }
           ],
           "cost": {
             "input": 10,
