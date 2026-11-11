@@ -1,5 +1,5 @@
 ---
-name: pr
+name: pullrequest
 description: Prepare a pull request in the user's voice and publish only after explicit approval. Apply the same rules to GitLab merge requests.
 ---
 
