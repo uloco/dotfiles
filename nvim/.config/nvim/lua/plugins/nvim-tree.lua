@@ -11,5 +11,13 @@ return {
 	keys = {
 		{ "<leader>b", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Nvim Tree" },
 		{ "<leader>ff", "<cmd>NvimTreeFindFile<cr>", desc = "Find File in Nvim Tree" },
+		{
+			"gs",
+			function()
+				vim.system({ "open", "-R", require("nvim-tree.api").tree.get_node_under_cursor().absolute_path })
+			end,
+			ft = "NvimTree",
+			desc = "Reveal in Finder",
+		},
 	},
 }
