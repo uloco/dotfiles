@@ -149,7 +149,7 @@
       }
     }
   },
-  "disabled_providers": ["amazon-bedrock"],
+  "disabled_providers": ["amazon-bedrock", "bedrock", "mistral-studio"],
   "providers": {
     "mistral-studio": {
       "name": "Mistral Studio",
