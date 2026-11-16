@@ -1,3 +1,50 @@
+-- Buffer setting overrides the global one; folding imports is on by default.
+local function fold_imports_enabled(buf)
+	local b = vim.b[buf or 0].fold_imports
+	if b ~= nil then
+		return b
+	end
+	return vim.g.fold_imports ~= false
+end
+
+-- 1-based first/last line of the import block, via treesitter.
+local function import_range(buf)
+	local parser = vim.treesitter.get_parser(buf, nil, { error = false })
+	if not parser then
+		return
+	end
+	local ok, query = pcall(vim.treesitter.query.parse, parser:lang(), "(import_statement) @import")
+	if not ok then
+		return
+	end
+	local first, last
+	for _, node in query:iter_captures(parser:parse()[1]:root(), buf) do
+		local start_row, _, end_row = node:range()
+		first = first or start_row + 1
+		last = end_row + 1
+	end
+	if first and last > first then
+		return first, last
+	end
+end
+
+-- Open or close the import fold in the current window.
+local function apply_fold_imports(state)
+	local first, last = import_range(vim.api.nvim_get_current_buf())
+	if not first then
+		return
+	end
+	if not state then
+		vim.cmd(("silent! %dfoldopen!"):format(first))
+		return
+	end
+	vim.cmd(("silent! %dfoldclose"):format(first))
+	if vim.fn.foldclosed(first) == -1 then
+		vim.wo.foldmethod = "manual"
+		vim.cmd(("silent %d,%dfold"):format(first, last))
+	end
+end
+
 return {
 	"kevinhwang91/nvim-ufo",
 	event = "BufReadPost",
@@ -8,12 +55,18 @@ return {
 		provider_selector = function()
 			return { "lsp", "indent" }
 		end,
-		close_fold_kinds_for_ft = {
-			default = { "imports" },
-		},
 	},
 	config = function(_, opts)
 		require("ufo").setup(opts)
+
+		-- ufo keeps a reference to this table, so resolve the kinds lazily to honor the toggle.
+		local kinds = require("ufo.config").close_fold_kinds_for_ft
+		kinds.default = nil
+		setmetatable(kinds, {
+			__index = function()
+				return fold_imports_enabled() and { "imports" } or {}
+			end,
+		})
 
 		-- Fold imports before the first redraw; ufo folds async (flicker) but keeps manual closed folds.
 		vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -25,6 +78,9 @@ return {
 					vim.cmd("silent! normal! zE")
 					return
 				end
+				if not fold_imports_enabled(buf) then
+					return
+				end
 				-- once per window per buffer lifetime (folds are window-local; :bdelete resets)
 				local win = tostring(vim.api.nvim_get_current_win())
 				local wins = vim.b[buf].imports_prefolded_wins or {}
@@ -34,24 +90,40 @@ return {
 				wins[win] = true
 				vim.b[buf].imports_prefolded_wins = wins
 
-				local parser = vim.treesitter.get_parser(buf, nil, { error = false })
-				if not parser then
-					return
-				end
-				local query = vim.treesitter.query.parse(parser:lang(), "(import_statement) @import")
-				local first, last
-				for _, node in query:iter_captures(parser:parse()[1]:root(), buf) do
-					local start_row, _, end_row = node:range()
-					first = first or start_row + 1
-					last = end_row + 1
-				end
-				if first and last > first then
+				local first, last = import_range(buf)
+				if first then
 					vim.wo.foldmethod = "manual"
 					-- :fold creates the fold closed
 					vim.cmd(("silent %d,%dfold"):format(first, last))
 				end
 			end,
 		})
+
+		Snacks.toggle({
+			name = "Fold Imports (Buffer)",
+			get = function()
+				return fold_imports_enabled(0)
+			end,
+			set = function(state)
+				vim.b.fold_imports = state
+				apply_fold_imports(state)
+			end,
+		}):map("<leader>ui")
+
+		Snacks.toggle({
+			name = "Fold Imports",
+			get = function()
+				return vim.g.fold_imports ~= false
+			end,
+			set = function(state)
+				vim.g.fold_imports = state
+				-- project-wide toggle wins over buffer overrides
+				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+					vim.b[buf].fold_imports = nil
+				end
+				apply_fold_imports(state)
+			end,
+		}):map("<leader>uI")
 	end,
 	keys = {
 		{
