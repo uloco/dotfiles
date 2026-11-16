@@ -20,6 +20,11 @@ return {
 			pattern = { "*.ts", "*.tsx" },
 			callback = function(args)
 				local buf = args.buf
+				if vim.w.snacks_picker_preview then
+					-- the preview inherits the folds of the last window showing this buffer
+					vim.cmd("silent! normal! zE")
+					return
+				end
 				-- once per window per buffer lifetime (folds are window-local; :bdelete resets)
 				local win = tostring(vim.api.nvim_get_current_win())
 				local wins = vim.b[buf].imports_prefolded_wins or {}
