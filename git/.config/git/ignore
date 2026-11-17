@@ -1,0 +1,4 @@
+# Global gitignore (git reads ~/.config/git/ignore by default)
+
+# OpenCode plans, kept per project but never committed
+.plans/

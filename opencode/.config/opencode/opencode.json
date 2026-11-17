@@ -56,6 +56,13 @@
     },
     { "action": "external_directory", "resource": "/tmp/**", "effect": "allow" }
   ],
+  "agents": {
+    "plan": {
+      "permissions": [
+        { "action": "edit", "resource": ".plans/**", "effect": "allow" }
+      ]
+    }
+  },
   "mcp": {
     "servers": {
       "atlassian": {
