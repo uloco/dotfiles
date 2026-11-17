@@ -39,6 +39,7 @@ return {
 			"vimdoc",
 			"swift",
 			"svelte",
+      "prisma",
 			"rust",
 			"r",
 			"go",
