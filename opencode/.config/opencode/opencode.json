@@ -153,12 +153,12 @@
           "http://127.0.0.1:9222"
         ],
         "disabled": true
+      },
+      "shadcn": {
+        "type": "local",
+        "command": ["npx", "shadcn@latest", "mcp"],
+        "disabled": true
       }
-    },
-    "shadcn": {
-      "type": "local",
-      "command": ["npx", "shadcn@latest", "mcp"],
-      "enabled": true
     }
   },
   "disabled_providers": ["amazon-bedrock", "bedrock", "mistral-studio"],
