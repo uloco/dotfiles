@@ -11,3 +11,6 @@ can carry it out. Use these sections: Goal, Context, Decisions, Steps (as a
 checklist), Open questions. Keep the plan current as work progresses.
 Never commit them.
 
+# Code Reviews
+All code reviews are local. Never publish anything anywhere, do not reply to
+notes or comments by other developers. 
