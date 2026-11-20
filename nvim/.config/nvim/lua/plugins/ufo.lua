@@ -7,6 +7,24 @@ local function fold_imports_enabled(buf)
 	return vim.g.fold_imports ~= false
 end
 
+-- 1-based lines of merge conflict start markers.
+local function conflict_rows(buf)
+	local rows = {}
+	for i, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
+		if line:find("^<<<<<<<") then
+			rows[#rows + 1] = i
+		end
+	end
+	return rows
+end
+
+-- Folds hide conflicts, so open every fold that contains one in the current window.
+local function open_conflicts()
+	for _, row in ipairs(conflict_rows(0)) do
+		vim.cmd(("silent! %dfoldopen!"):format(row))
+	end
+end
+
 -- 1-based first/last line of the import block, via treesitter.
 local function import_range(buf)
 	local parser = vim.treesitter.get_parser(buf, nil, { error = false })
@@ -64,7 +82,21 @@ return {
 		kinds.default = nil
 		setmetatable(kinds, {
 			__index = function()
-				return fold_imports_enabled() and { "imports" } or {}
+				if not fold_imports_enabled() or #conflict_rows(0) > 0 then
+					return {}
+				end
+				return { "imports" }
+			end,
+		})
+
+		-- ufo applies folds async and may restore closed ones after a reload, so open conflicts after it.
+		vim.api.nvim_create_autocmd({ "BufWinEnter", "BufReadPost", "FileChangedShellPost" }, {
+			callback = function(args)
+				vim.defer_fn(function()
+					if vim.api.nvim_get_current_buf() == args.buf then
+						open_conflicts()
+					end
+				end, 50)
 			end,
 		})
 
@@ -78,7 +110,7 @@ return {
 					vim.cmd("silent! normal! zE")
 					return
 				end
-				if not fold_imports_enabled(buf) then
+				if not fold_imports_enabled(buf) or #conflict_rows(buf) > 0 then
 					return
 				end
 				-- once per window per buffer lifetime (folds are window-local; :bdelete resets)
